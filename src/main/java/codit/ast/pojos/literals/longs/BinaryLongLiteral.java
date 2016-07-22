@@ -6,6 +6,7 @@ import codit.ast.Range;
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
+@Deprecated
 public class BinaryLongLiteral extends LongLiteral {
 
   public BinaryLongLiteral(Range range, String rawString) {

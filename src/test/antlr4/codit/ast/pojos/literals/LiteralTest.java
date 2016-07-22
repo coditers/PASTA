@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Arrays;
 import java.util.Collection;
 
-import codit.ast.builder.ContextChecker;
+import codit.visitor.ContextChecker;
 import codit.gencode.JavaLexer;
 import codit.gencode.JavaParser;
 import codit.strategy.ErrorInspectorStrategy;

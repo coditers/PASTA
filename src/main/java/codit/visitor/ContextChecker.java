@@ -2,39 +2,49 @@ package codit.visitor;
 
 import org.antlr.v4.runtime.Token;
 
+import java.util.Arrays;
+
 import codit.gencode.JavaBaseVisitor;
 import codit.gencode.JavaParser;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
-public class ContextChecker extends JavaBaseVisitor<String> {
+public class ContextChecker extends JavaBaseVisitor<String[]> {
   @Override
-  public String visitLiteral(JavaParser.LiteralContext ctx) {
+  public String[] visitLiteral(JavaParser.LiteralContext ctx) {
 
+    System.out.println(ctx.toString(Arrays.asList(JavaParser.ruleNames)));
 
     // TODO - Refactoring
     Token t;
-    if (ctx.IntegerLiteral() != null) {
-      System.out.println("Integer");
-      t = ctx.IntegerLiteral().getSymbol();
+    String[] resultSet; // Integer - 3, Boolean -
 
-      if (t.getText().matches("^0[xX][0-9a-fA-F_]*[0-9a-fA-F]L")) {
-        System.out.println("LONG && HEX");
-      } else if (t.getText().matches("^0[xX][0-9a-fA-F_]*[0-9a-fA-F]")) {
-        System.out.println("INT && HEX");
-      } else if (t.getText().matches("^0[bB][01_]*[01]L")) {
-        System.out.println("LONG && BIN");
-      } else if (t.getText().matches("^0[bB][01_]*[01]")) {
-        System.out.println("INT && BIN");
-      } else if (t.getText().matches("^0[0-7_]*[0-7]L")) {
-        System.out.println("LONG && OCT");
-      } else if (t.getText().matches("^0[0-7_]*[0-7]")) {
-        System.out.println("INT && OCT");
-      } else if (t.getText().matches(".+L")) {
-        System.out.println("LONG && DEC");
+    if (ctx.IntegerLiteral() != null) { resultSet = new String[3];
+
+      // get raw text
+      t = ctx.IntegerLiteral().getSymbol();
+      String iLiteral = t.getText();
+
+      // put in result Set
+      resultSet[0] = iLiteral;
+
+      if ( iLiteral.startsWith("0x") || iLiteral.startsWith("0X") ) {
+        // Hex Integer Literals
+        resultSet[1] = "HEX";
+
+      } else if ( iLiteral.startsWith("0b") || iLiteral.startsWith("0B") ) {
+        // Binary Integer Literals
+        resultSet[1] = "BIN";
+
+      } else if ( iLiteral.startsWith("0") && !iLiteral.equals("0") ) {
+        // Oct Integer Literals
+        resultSet[1] = "OCT";
+
       } else {
-        System.out.println("INT && DEC");
+        // Dec Integer Literals
+        resultSet[1] = "DEC";
+
       }
 
     } else if (ctx.BooleanLiteral() != null) {
@@ -54,9 +64,6 @@ public class ContextChecker extends JavaBaseVisitor<String> {
       t = ctx.NullLiteral().getSymbol();
     } else {
       t = null;
-    }
-    if( t != null ) {
-      System.out.println("getToken : " + t.getText());
     }
 
 

@@ -7,24 +7,27 @@ import codit.ast.pojos.literals.Literal;
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
+@Deprecated
 public abstract class DoubleLiteral extends Literal {
 
-  private final double val;
+  // TODO
+  // private final double val;
 
   public DoubleLiteral(Range range, String rawString) {
     super(range, rawString);
-    this.val = parseDouble(rawString);
+    // this.val = parseDouble(rawString);
   }
 
   public DoubleLiteral(Position start, Position end, String rawString) {
     super(start, end, rawString);
-    this.val = parseDouble(rawString);
+    // this.val = parseDouble(rawString);
   }
 
   public DoubleLiteral(int startLine, int startCol, int endLine, int endCol, String rawString) {
     super(startLine, startCol, endLine, endCol, rawString);
-    this.val = parseDouble(rawString);
+    // this.val = parseDouble(rawString);
   }
 
-  public abstract double parseDouble(String rawString);
+  // TODO
+  // public abstract double parseDouble(String rawString);
 }

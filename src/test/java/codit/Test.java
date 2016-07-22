@@ -1,111 +1,80 @@
 package codit;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.notNullValue;
+import static org.hamcrest.core.IsNull.nullValue;
+
+import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.TokenStream;
+import org.junit.After;
+import org.junit.Before;
+
+import codit.visitor.ContextChecker;
+import codit.gencode.JavaLexer;
+import codit.gencode.JavaParser;
+import codit.strategy.ErrorInspectorStrategy;
+import codit.visitor.ExceptionInspector;
+
 /**
+ *
  * Created by Jisung on 7/19/2016.
  */
+
 public class Test {
-  private static Test ourInstance = new Test();
 
-  public static Test getInstance() {
-    return ourInstance;
-  }
+  private String code;
 
-  private Test() {
-  }
-
-  enum Coin {
-    PENNY(1), NICKEL(5), DIME(10), QUARTER(25);
-
-    // field
-    private final int value;
-
-    // constructor
-    Coin(int value) {this.value = value; }
-
-    // method
-    public int value() {return value;}
+  @Before
+  public void setUp() {
+    System.out.println("START=============================================================================================================================");
 
   }
 
-  enum Pet {
-    DOG("doggy", 5, 4) {
-      public String toString() {
-        return this.getName() +":"+ this.getAge() +":"+ this.getLeg();
-      }
-    },
-    CAT("kitty", 2, 4) {
-      public String toString() {
-        return this.getName() +":::"+ this.getAge() +":::"+ this.getLeg();
-      }
+  private JavaParser compiler(String code) {
 
+    ANTLRInputStream input = new ANTLRInputStream( code );
+    JavaLexer lexer = new JavaLexer(input);
+    TokenStream tokens = new CommonTokenStream(lexer);
+
+    JavaParser parser = new JavaParser(tokens);
+    double f = 3.;
+    float ft = 0x23.2p-111f;
+    parser.setBuildParseTree(true);
+
+    // LISTENER - LOGGER
+//    parser.addParseListener(new LoggingListener());
+    parser.setErrorHandler(new ErrorInspectorStrategy());
+    return parser;
+  }
+
+  @org.junit.Test
+  public void testRule() {
+    String code = "0x12315_1232L";
+    JavaParser parser = compiler(code);
+
+    ParserRuleContext ruleContext = parser.literal();
+
+    // VISITOR - CONTEXT CHECKER
+    new ContextChecker().visitLiteral((JavaParser.LiteralContext) ruleContext);
+
+    // VISITOR - EXCEPTION INSPECTOR
+    String exception = new ExceptionInspector().visitLiteral((JavaParser.LiteralContext) ruleContext);
+
+    System.out.println( exception );
+    if (true) {
+      assertThat(exception, is( nullValue() ) );
+    } else {
+      assertThat(exception, is( notNullValue() ) );
     }
 
-    ;
-
-
-    private final String name;
-    private final int age;
-    private final int leg;
-
-    Pet(String name, int age, int leg) {
-      this.name = name;
-      this.age = age;
-      this.leg = leg;
-    }
-
-    public String getName() {
-      return name;
-    }
-
-    public int getAge() {
-      return age;
-    }
-
-    public int getLeg() {
-      return leg;
-    }
+//    logger.info( ruleContext.toStringTree((Arrays.asList(JavaParser.ruleNames))) + " : " + ruleContext.toInfoString(parser) + " ::: " + ruleContext.children );
   }
 
-  public int Price(Coin coin) {
-
-    return coin.value();
-  }
-
-
-
-  public int[] [] []test1(int[][][][][][] aaaaaa)[] [] []{
-    return aaaaaa;
-  }
-
-  public int [] test2(int[] a) {
-    return a;
-  }
-
-  public int test3(int[] a) [] {
-    return a;
-  }
-
-
-
-  public static void main(String[] args) {
-
-    Test test = new Test();
-
-    int price = test.Price(Coin.PENNY);
-
-    int price2 = Coin.DIME.value();
-
-    System.out.println(price);
-    System.out.println(price2);
-
-    String str = Pet.DOG.toString();
-    System.out.println(str);
-
-    String str2 = Pet.CAT.toString();
-    System.out.println(str2);
-
-    System.out.println( test.test1(new int[][][][][][]{{{{{{1}}}}}})[0][0][0][0][0][0] );
-    System.out.println( test.test2(new int[]{1})[0] );
-    System.out.println( test.test3(new int[]{2})[0] );
+  @After
+  public void shutDown() {
+    System.out.println("===============================================================================================================================END");
   }
 }

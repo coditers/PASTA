@@ -7,6 +7,7 @@ import codit.ast.pojos.literals.Literal;
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
+@Deprecated
 public abstract class LongLiteral extends Literal {
 
   // TODO -Additional Field Variable

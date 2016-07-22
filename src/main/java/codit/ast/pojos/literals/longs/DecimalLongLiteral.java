@@ -6,6 +6,7 @@ import codit.ast.Range;
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
+@Deprecated
 public class DecimalLongLiteral extends LongLiteral {
 
   public DecimalLongLiteral(Range range, String rawString) {

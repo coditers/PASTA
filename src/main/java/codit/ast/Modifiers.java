@@ -1,11 +1,14 @@
 package codit.ast;
 
 /**
- * @author Jisung Lim <iejisung@gmail.com>
+ *
+ * @author Jisung Lim ( iejisung@gmail.com )
+ * @since July, 2016.
  */
 public class Modifiers {
 
   // Access Modifiers
+  public static final int NONE          = 0x00000000;
 
   public static final int PUBLIC        = 0x00000001;
 
@@ -50,7 +53,6 @@ public class Modifiers {
    */
   public static final int FINAL         = 0x00000010;
 
-
   public static final int SYNCHRONIZED  = 0x00000020;
 
   public static final int VOLATILE      = 0x00000040;
@@ -64,6 +66,10 @@ public class Modifiers {
   public static final int STRICTFP      = 0x00000800;
 
 
+  // Access Modifiers
+  public static boolean isNone(int mask) {
+    return (0x00000007 & mask) == 0;
+  }
   public static boolean isPublic(int mask) {
     return (PUBLIC & mask) != 0;
   }
@@ -74,6 +80,7 @@ public class Modifiers {
     return (PROTECTED & mask) != 0;
   }
 
+  // Non-access Modifiers
   public static boolean isStatic(int mask) {
     return (STATIC & mask) != 0;
   }
@@ -92,8 +99,10 @@ public class Modifiers {
   public static boolean isNative(int mask) {
     return (NATIVE & mask) != 0;
   }
-  public
-  public static boolean isAbstract() {
-
+  public static boolean isAbstract(int mask) {
+    return (ABSTRACT & mask) != 0;
+  }
+  public static boolean isSTRICTFP(int mask) {
+    return (STRICTFP & mask) != 0;
   }
 }

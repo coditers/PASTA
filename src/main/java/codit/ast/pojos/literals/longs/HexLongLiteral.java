@@ -6,6 +6,7 @@ import codit.ast.Range;
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
+@Deprecated
 public class HexLongLiteral extends LongLiteral {
 
   public HexLongLiteral(Range range, String rawString) {
