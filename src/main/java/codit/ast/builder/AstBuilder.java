@@ -1,17 +1,34 @@
 package codit.ast.builder;
 
 import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.tree.TerminalNode;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import codit.ast.AstNode;
 import codit.ast.Range;
+import codit.ast.pojos.classes.ClassDeclaration;
+import codit.ast.pojos.interfaces.InterfaceDeclaration;
+import codit.ast.pojos.literals.BooleanLiteral;
+import codit.ast.pojos.literals.CharacterLiteral;
+import codit.ast.pojos.literals.NullLiteral;
+import codit.ast.pojos.literals.StringLiteral;
+import codit.ast.pojos.literals.floats.DecimalFloatLiteral;
+import codit.ast.pojos.literals.floats.HexFloatLiteral;
 import codit.ast.pojos.literals.integers.BinaryIntegerLiteral;
-import codit.ast.pojos.literals.longs.BinaryLongLiteral;
 import codit.ast.pojos.literals.integers.DecimalIntegerLiteral;
-import codit.ast.pojos.literals.longs.DecimalLongLiteral;
 import codit.ast.pojos.literals.integers.HexIntegerLiteral;
-import codit.ast.pojos.literals.longs.HexLongLiteral;
 import codit.ast.pojos.literals.integers.OctalIntegerLiteral;
-import codit.ast.pojos.literals.longs.OctalLongLiteral;
+import codit.ast.pojos.packages.CompilationUnit;
+import codit.ast.pojos.packages.ImportDeclaration;
+import codit.ast.pojos.packages.PackageDeclaration;
+import codit.ast.pojos.packages.PackageModifier;
+import codit.ast.pojos.packages.SingleStaticImportDeclaration;
+import codit.ast.pojos.packages.SingleTypeImportDeclaration;
+import codit.ast.pojos.packages.StaticImportOnDemandDeclaration;
+import codit.ast.pojos.packages.TypeDeclaration;
+import codit.ast.pojos.packages.TypeImportOnDemandDeclaration;
 import codit.gencode.JavaBaseVisitor;
 import codit.gencode.JavaParser;
 
@@ -26,69 +43,50 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
   }
 
   @Override
-  public AstNode visitLiteral(JavaParser.LiteralContext ctx) {
-    // TODO - Refactoring
+  public AstNode visitLiteral(JavaParser.LiteralContext ctx) { // TODO - Refactoring
 
-    //getRange
+    // get range of symbol
     Range range = getRange(ctx);
 
+    // get raw text
     String rawText = ctx.getText();
 
     if (ctx.IntegerLiteral() != null) {
-
       // HEXADECIMAL / BINARY / OCTAL / DECIMAL
-      if ( rawText.startsWith("0x") || rawText.startsWith("0X") ) {
+      if (rawText.startsWith("0x") || rawText.startsWith("0X")) {
         // Hex INTEGER / LONG Literals
-        if (rawText.endsWith("L")) {
-          return new HexLongLiteral(range, rawText);
-        } else {
-          return new HexIntegerLiteral(range, rawText);
-        }
-
-      } else if ( rawText.startsWith("0b") || rawText.startsWith("0B") ) {
+        return new HexIntegerLiteral(range, rawText);
+      } else if (rawText.startsWith("0b") || rawText.startsWith("0B")) {
         // Binary INTEGER / LONG Literals
-        if (rawText.endsWith("L")) {
-          return new BinaryLongLiteral(range, rawText);
-        } else {
-          return new BinaryIntegerLiteral(range, rawText);
-        }
-
-      } else if ( rawText.startsWith("0") && !rawText.equals("0") ) {
+        return new BinaryIntegerLiteral(range, rawText);
+      } else if (rawText.startsWith("0") && !rawText.equals("0")) {
         // Oct INTEGER / LONG Literals
-        if (rawText.endsWith("L")) {
-          return new OctalLongLiteral(range, rawText);
-        } else {
-          return new OctalIntegerLiteral(range, rawText);
-        }
+        return new OctalIntegerLiteral(range, rawText);
       } else {
         // Dec INTEGER / LONG Literals
-        if (rawText.endsWith("L")) {
-          return new DecimalLongLiteral(range, rawText);
-        } else {
-          return new DecimalIntegerLiteral(range, rawText);
-        }
+        return new DecimalIntegerLiteral(range, rawText);
       }
-
-
     } else if (ctx.BooleanLiteral() != null) {
-      System.out.println("Boolean");
+      // System.out.println("Boolean");
+      return new BooleanLiteral(range, rawText);
 
     } else if (ctx.StringLiteral() != null) {
-      System.out.println("String");
+      return new StringLiteral(range, rawText);
 
     } else if (ctx.CharacterLiteral() != null) {
-      System.out.println("Char");
-
+      return new CharacterLiteral(range, rawText);
     } else if (ctx.FloatingPointLiteral() != null) {
-      System.out.println("FloatPoint");
-
+      if(rawText.startsWith("0x") || rawText.startsWith("0X")) {
+        return new HexFloatLiteral(range, rawText);
+      } else {
+        return new DecimalFloatLiteral(range, rawText);
+      }
     } else if (ctx.NullLiteral() != null) {
-      System.out.println("Null");
-
+      return new NullLiteral(range, rawText);
     } else {
       System.err.println("ERROR!");
+      return super.visitLiteral(ctx);
     }
-    return super.visitLiteral(ctx);
   }
 
   @Override
@@ -248,12 +246,51 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitCompilationUnit(JavaParser.CompilationUnitContext ctx) {
-    return super.visitCompilationUnit(ctx);
+
+    // get Range
+    Range range = getRange(ctx);
+
+    // get Package Declaration
+    PackageDeclaration packageDeclaration = (PackageDeclaration) visit(ctx.packageDeclaration());
+
+    // get Import Declaration List
+    List<ImportDeclaration> importDeclarationList = new ArrayList<>();
+    for(JavaParser.ImportDeclarationContext importDeclarationContext : ctx.importDeclaration()) {
+      ImportDeclaration importDeclaration = (ImportDeclaration) visit(importDeclarationContext);
+      importDeclarationList.add(importDeclaration);
+    }
+
+    // get Type Declaration List
+    List<TypeDeclaration> typeDeclarationList = new ArrayList<>();
+    for(JavaParser.TypeDeclarationContext typeDeclarationContext : ctx.typeDeclaration()) {
+      TypeDeclaration typeDeclaration = (TypeDeclaration) visit(typeDeclarationContext);
+      typeDeclarationList.add(typeDeclaration);
+    }
+
+    return new CompilationUnit(range, packageDeclaration, importDeclarationList, typeDeclarationList);
   }
 
   @Override
   public AstNode visitPackageDeclaration(JavaParser.PackageDeclarationContext ctx) {
-    return super.visitPackageDeclaration(ctx);
+
+    //
+    Range range = getRange(ctx);
+
+    //
+    List<PackageModifier> packageModifierList = new ArrayList<>();
+    for (JavaParser.PackageModifierContext packageModifierContext : ctx.packageModifier()) {
+      PackageModifier packageModifier = (PackageModifier) visit(packageModifierContext);
+      packageModifierList.add(packageModifier);
+    }
+
+    //
+    List<String> identifierList = new ArrayList<>();
+    for (TerminalNode identifierNode : ctx.Identifier()){
+      String identifier = identifierNode.getText();
+      identifierList.add(identifier);
+    }
+
+    return new PackageDeclaration(range, packageModifierList, identifierList);
   }
 
   @Override
@@ -263,7 +300,19 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitImportDeclaration(JavaParser.ImportDeclarationContext ctx) {
-    return super.visitImportDeclaration(ctx);
+    if (ctx.singleStaticImportDeclaration() != null) {
+      return (SingleStaticImportDeclaration) visit(ctx.singleStaticImportDeclaration());
+    } else if (ctx.singleTypeImportDeclaration() != null) {
+      return (SingleTypeImportDeclaration) visit(ctx.singleTypeImportDeclaration());
+    } else if (ctx.staticImportOnDemandDeclaration() != null) {
+      return (StaticImportOnDemandDeclaration) visit(ctx.staticImportOnDemandDeclaration());
+    } else if (ctx.typeImportOnDemandDeclaration() != null) {
+      return (TypeImportOnDemandDeclaration) visit(ctx.typeImportOnDemandDeclaration());
+    } else {
+      System.err.println("ERROR");
+      return super.visitImportDeclaration(ctx);
+    }
+
   }
 
   @Override
@@ -288,7 +337,17 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitTypeDeclaration(JavaParser.TypeDeclarationContext ctx) {
-    return super.visitTypeDeclaration(ctx);
+
+    //
+    if (ctx.classDeclaration() != null) {
+      return (ClassDeclaration) visit(ctx.classDeclaration());
+    } else if (ctx.interfaceDeclaration() != null) {
+      return (InterfaceDeclaration) visit(ctx.interfaceDeclaration());
+    } else {
+      System.err.println("ERROR");
+      return super.visitTypeDeclaration(ctx);
+    }
+
   }
 
   @Override
