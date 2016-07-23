@@ -11,21 +11,21 @@ public class Name extends AstNode {
 
   private final String identifier;
 
-  public Name(Range range,
+  public Name(Range range, AstNode parent,
               String identifier) {
-    super(range);
+    super(range, parent);
     this.identifier = identifier;
   }
 
-  public Name(Position start, Position end,
+  public Name(Position start, Position end, AstNode parent,
               String identifier) {
-    super(start, end);
+    super(start, end, parent);
     this.identifier = identifier;
   }
 
-  public Name(int startLine, int startCol, int endLine, int endCol,
+  public Name(int startLine, int startCol, int endLine, int endCol, AstNode parent,
               String identifier) {
-    super(startLine, startCol, endLine, endCol);
+    super(startLine, startCol, endLine, endCol, parent);
     this.identifier = identifier;
   }
 }

@@ -51,38 +51,44 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get raw text
     String rawText = ctx.getText();
 
+    // get parent
+    AstNode parent = null;
+    if( ctx.getParent() != null ) {
+      parent = visit(ctx.getParent());
+    }
+
     if (ctx.IntegerLiteral() != null) {
       // HEXADECIMAL / BINARY / OCTAL / DECIMAL
       if (rawText.startsWith("0x") || rawText.startsWith("0X")) {
         // Hex INTEGER / LONG Literals
-        return new HexIntegerLiteral(range, rawText);
+        return new HexIntegerLiteral(range, parent, rawText);
       } else if (rawText.startsWith("0b") || rawText.startsWith("0B")) {
         // Binary INTEGER / LONG Literals
-        return new BinaryIntegerLiteral(range, rawText);
+        return new BinaryIntegerLiteral(range, parent, rawText);
       } else if (rawText.startsWith("0") && !rawText.equals("0")) {
         // Oct INTEGER / LONG Literals
-        return new OctalIntegerLiteral(range, rawText);
+        return new OctalIntegerLiteral(range, parent, rawText);
       } else {
         // Dec INTEGER / LONG Literals
-        return new DecimalIntegerLiteral(range, rawText);
+        return new DecimalIntegerLiteral(range, parent, rawText);
       }
     } else if (ctx.BooleanLiteral() != null) {
       // System.out.println("Boolean");
-      return new BooleanLiteral(range, rawText);
+      return new BooleanLiteral(range, parent, rawText);
 
     } else if (ctx.StringLiteral() != null) {
-      return new StringLiteral(range, rawText);
+      return new StringLiteral(range, parent, rawText);
 
     } else if (ctx.CharacterLiteral() != null) {
-      return new CharacterLiteral(range, rawText);
+      return new CharacterLiteral(range, parent, rawText);
     } else if (ctx.FloatingPointLiteral() != null) {
       if(rawText.startsWith("0x") || rawText.startsWith("0X")) {
-        return new HexFloatLiteral(range, rawText);
+        return new HexFloatLiteral(range, parent, rawText);
       } else {
-        return new DecimalFloatLiteral(range, rawText);
+        return new DecimalFloatLiteral(range, parent, rawText);
       }
     } else if (ctx.NullLiteral() != null) {
-      return new NullLiteral(range, rawText);
+      return new NullLiteral(range, parent, rawText);
     } else {
       System.err.println("ERROR!");
       return super.visitLiteral(ctx);
@@ -250,6 +256,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get Range
     Range range = getRange(ctx);
 
+    // get Parent
+    AstNode parent = null;
+    if( ctx.getParent() != null ) {
+      parent = visit(ctx.getParent());
+    }
     // get Package Declaration
     PackageDeclaration packageDeclaration = (PackageDeclaration) visit(ctx.packageDeclaration());
 
@@ -267,7 +278,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       typeDeclarationList.add(typeDeclaration);
     }
 
-    return new CompilationUnit(range, packageDeclaration, importDeclarationList, typeDeclarationList);
+    return new CompilationUnit(range, parent, packageDeclaration, importDeclarationList, typeDeclarationList);
   }
 
   @Override
@@ -276,6 +287,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     //
     Range range = getRange(ctx);
 
+    // get Parent
+    AstNode parent = null;
+    if( ctx.getParent() != null ) {
+      parent = visit(ctx.getParent());
+    }
     //
     List<PackageModifier> packageModifierList = new ArrayList<>();
     for (JavaParser.PackageModifierContext packageModifierContext : ctx.packageModifier()) {
@@ -290,7 +306,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       identifierList.add(identifier);
     }
 
-    return new PackageDeclaration(range, packageModifierList, identifierList);
+    return new PackageDeclaration(range, parent, packageModifierList, identifierList);
   }
 
   @Override

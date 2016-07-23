@@ -1,5 +1,6 @@
 package codit.ast.pojos.packages;
 
+import codit.ast.AstNode;
 import codit.ast.Position;
 import codit.ast.Range;
 import codit.ast.pojos.names.PackageOrTypeName;
@@ -10,21 +11,18 @@ import codit.ast.pojos.names.PackageOrTypeName;
 public class TypeImportOnDemandDeclaration extends ImportDeclaration {
   private final PackageOrTypeName packageOrTypeName;
 
-  public TypeImportOnDemandDeclaration(Range range,
-                                         PackageOrTypeName packageOrTypeName) {
-    super(range);
+  public TypeImportOnDemandDeclaration(Range range, AstNode parent, PackageOrTypeName packageOrTypeName) {
+    super(range, parent);
     this.packageOrTypeName = packageOrTypeName;
   }
 
-  public TypeImportOnDemandDeclaration(Position start, Position end,
-                                         PackageOrTypeName packageOrTypeName) {
-    super(start, end);
+  public TypeImportOnDemandDeclaration(Position start, Position end, AstNode parent, PackageOrTypeName packageOrTypeName) {
+    super(start, end, parent);
     this.packageOrTypeName = packageOrTypeName;
   }
 
-  public TypeImportOnDemandDeclaration(int startLine, int startCol, int endLine, int endCol,
-                                         PackageOrTypeName packageOrTypeName) {
-    super(startLine, startCol, endLine, endCol);
+  public TypeImportOnDemandDeclaration(int startLine, int startCol, int endLine, int endCol, AstNode parent, PackageOrTypeName packageOrTypeName) {
+    super(startLine, startCol, endLine, endCol, parent);
     this.packageOrTypeName = packageOrTypeName;
   }
 }

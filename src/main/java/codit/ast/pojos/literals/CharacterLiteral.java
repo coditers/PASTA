@@ -1,5 +1,6 @@
 package codit.ast.pojos.literals;
 
+import codit.ast.AstNode;
 import codit.ast.Position;
 import codit.ast.Range;
 
@@ -10,23 +11,25 @@ public class CharacterLiteral extends Literal {
 
   // private final char val;
 
-  public CharacterLiteral(Range range, String rawString) {
-    super(range, rawString);
+  public CharacterLiteral(Range range, AstNode parent, String rawString) {
+    super(range, parent, rawString);
     // this.val = parseChar(rawString);
   }
 
-  public CharacterLiteral(Position start, Position end, String rawString) {
-    super(start, end, rawString);
+  public CharacterLiteral(Position start, Position end, AstNode parent, String rawString) {
+    super(start, end, parent, rawString);
     // this.val = parseChar(rawString);
   }
 
-  public CharacterLiteral(int startLine, int startCol, int endLine, int endCol, String rawString) {
-    super(startLine, startCol, endLine, endCol, rawString);
+  public CharacterLiteral(int startLine, int startCol, int endLine, int endCol, AstNode parent, String rawString) {
+    super(startLine, startCol, endLine, endCol, parent, rawString);
     // this.val = parseChar(rawString);
   }
+
 
   // public char parseChar(String rawString) { }
 
   // public char getValue() {}
+
 
 }

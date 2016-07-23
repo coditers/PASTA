@@ -1,5 +1,6 @@
 package codit.ast.pojos.literals.integers;
 
+import codit.ast.AstNode;
 import codit.ast.Position;
 import codit.ast.Range;
 import codit.ast.pojos.literals.Literal;
@@ -24,26 +25,26 @@ public abstract class IntegerLiteral extends Literal {
   // private final int value;
 
   /** Constructors */
-  public IntegerLiteral(Range range, String rawString) {
-    super(range, rawString);
+  public IntegerLiteral(Range range, AstNode parent, String rawString) {
+    super(range, parent, rawString);
     // this.isLong = isLong(rawString);
     // this.value = parseInt(rawString);
   }
 
-  public IntegerLiteral(Position start, Position end, String rawString) {
-    super(start, end, rawString);
+  public IntegerLiteral(Position start, Position end, AstNode parent, String rawString) {
+    super(start, end, parent, rawString);
     // this.isLong = isLong(rawString);
     // this.value = parseInt(rawString);
   }
 
-  public IntegerLiteral(int startLine, int startCol, int endLine, int endCol, String rawString) {
-    super(startLine, startCol, endLine, endCol, rawString);
+  public IntegerLiteral(int startLine, int startCol, int endLine, int endCol, AstNode parent, String rawString) {
+    super(startLine, startCol, endLine, endCol, parent, rawString);
     // this.isLong = isLong(rawString);
     // this.value = parseInt(rawString);
   }
 
   // TODO - Semantic step
-//   public boolean isLong(String rs) { return rs.endsWith("L") || rs.endsWith("l"); }
+  // public boolean isLong(String rs) { return rs.endsWith("L") || rs.endsWith("l"); }
   // public abstract int parseInt(String rawString);
 
   // TODO - Getter for field variable

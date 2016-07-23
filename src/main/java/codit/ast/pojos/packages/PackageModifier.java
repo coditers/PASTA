@@ -12,21 +12,18 @@ public class PackageModifier extends AstNode {
 
   Annotation annotation;
 
-  public PackageModifier(Range range,
-                         Annotation annotation) {
-    super(range);
+  public PackageModifier(Range range, AstNode parent, Annotation annotation) {
+    super(range, parent);
     this.annotation = annotation;
   }
 
-  public PackageModifier(Position start, Position end,
-                         Annotation annotation) {
-    super(start, end);
+  public PackageModifier(Position start, Position end, AstNode parent, Annotation annotation) {
+    super(start, end, parent);
     this.annotation = annotation;
   }
 
-  public PackageModifier(int startLine, int startCol, int endLine, int endCol,
-                         Annotation annotation) {
-    super(startLine, startCol, endLine, endCol);
+  public PackageModifier(int startLine, int startCol, int endLine, int endCol, AstNode parent, Annotation annotation) {
+    super(startLine, startCol, endLine, endCol, parent);
     this.annotation = annotation;
   }
 }

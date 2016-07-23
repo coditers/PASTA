@@ -16,4 +16,10 @@ public class Range {
     this.start = new Position(startLine, startCol);
     this.end = new Position(endLine, endCol);
   }
+
+  @Override
+  public String toString() {
+    return "[start " + start.line + ":" + start.column +
+        " end " + end.line + ":" + end.column + " ]";
+  }
 }

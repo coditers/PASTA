@@ -1,5 +1,6 @@
 package codit.ast.pojos.literals.doubles;
 
+import codit.ast.AstNode;
 import codit.ast.Position;
 import codit.ast.Range;
 
@@ -8,15 +9,16 @@ import codit.ast.Range;
  */
 @Deprecated
 public class DecimalDoubleLiteral extends DoubleLiteral {
-  public DecimalDoubleLiteral(Range range, String rawString) {
-    super(range, rawString);
+
+  public DecimalDoubleLiteral(Range range, AstNode parent, String rawString) {
+    super(range, parent, rawString);
   }
 
-  public DecimalDoubleLiteral(Position start, Position end, String rawString) {
-    super(start, end, rawString);
+  public DecimalDoubleLiteral(Position start, Position end, AstNode parent, String rawString) {
+    super(start, end, parent, rawString);
   }
 
-  public DecimalDoubleLiteral(int startLine, int startCol, int endLine, int endCol, String rawString) {
-    super(startLine, startCol, endLine, endCol, rawString);
+  public DecimalDoubleLiteral(int startLine, int startCol, int endLine, int endCol, AstNode parent, String rawString) {
+    super(startLine, startCol, endLine, endCol, parent, rawString);
   }
 }

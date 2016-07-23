@@ -20,35 +20,35 @@ public class CompilationUnit extends AstNode {
   // [0...N]
   private final List<TypeDeclaration> typeDeclarationList;
 
-  public CompilationUnit(Range range, 
+  public CompilationUnit(Range range, AstNode parent,
                          PackageDeclaration packageDeclaration, 
                          Collection<ImportDeclaration> importDeclarationList,
                          Collection<TypeDeclaration> typeDeclarationList) {
     
-    super(range);
+    super(range, parent);
     this.packageDeclaration = packageDeclaration;
     this.importDeclarationList = new ArrayList<ImportDeclaration>(importDeclarationList);
     this.typeDeclarationList = new ArrayList<TypeDeclaration>(typeDeclarationList);
   }
 
-  public CompilationUnit(Position start, Position end, 
+  public CompilationUnit(Position start, Position end, AstNode parent,
                          PackageDeclaration packageDeclaration, 
                          Collection<ImportDeclaration> importDeclarationList, 
                          Collection<TypeDeclaration> typeDeclarationList) {
     
-    super(start, end);
+    super(start, end, parent);
     this.packageDeclaration = packageDeclaration;
     this.importDeclarationList = new ArrayList<ImportDeclaration>(importDeclarationList);
     this.typeDeclarationList = new ArrayList<TypeDeclaration>(typeDeclarationList);
   }
 
   public CompilationUnit(int startLine, int startCol, 
-                         int endLine, int endCol, 
+                         int endLine, int endCol, AstNode parent,
                          PackageDeclaration packageDeclaration, 
                          Collection<ImportDeclaration> importDeclarationList, 
                          Collection<TypeDeclaration> typeDeclarationList) {
     
-    super(startLine, startCol, endLine, endCol);
+    super(startLine, startCol, endLine, endCol, parent);
     this.packageDeclaration = packageDeclaration;
     this.importDeclarationList = new ArrayList<ImportDeclaration>(importDeclarationList);
     this.typeDeclarationList = new ArrayList<TypeDeclaration>(typeDeclarationList);
