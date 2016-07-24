@@ -17,6 +17,14 @@ public class Range {
     this.end = new Position(endLine, endCol);
   }
 
+  public Position getStart() {
+    return start;
+  }
+
+  public Position getEnd() {
+    return end;
+  }
+
   @Override
   public String toString() {
     return "[start " + start.line + ":" + start.column +

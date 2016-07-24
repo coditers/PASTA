@@ -12,7 +12,7 @@ public abstract class AstNode {
   private final Range range;
 
   @Nullable
-  private final AstNode parent;
+  private AstNode parent;
 
   public AstNode(Range range, AstNode parent) {
     this.range = range;

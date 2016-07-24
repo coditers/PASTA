@@ -1,6 +1,7 @@
 package codit.ast.builder;
 
 import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.List;
 
 import codit.ast.AstNode;
 import codit.ast.Range;
+import codit.ast.pojos.annotations.Annotation;
 import codit.ast.pojos.classes.ClassDeclaration;
 import codit.ast.pojos.interfaces.InterfaceDeclaration;
 import codit.ast.pojos.literals.BooleanLiteral;
@@ -29,6 +31,15 @@ import codit.ast.pojos.packages.SingleTypeImportDeclaration;
 import codit.ast.pojos.packages.StaticImportOnDemandDeclaration;
 import codit.ast.pojos.packages.TypeDeclaration;
 import codit.ast.pojos.packages.TypeImportOnDemandDeclaration;
+import codit.ast.pojos.types.ArrayType;
+import codit.ast.pojos.types.ClassOrInterfaceType;
+import codit.ast.pojos.types.Dims;
+import codit.ast.pojos.types.MultiClassOrInterfaceType;
+import codit.ast.pojos.types.PrimitiveType;
+import codit.ast.pojos.types.ReferenceType;
+import codit.ast.pojos.types.TypeArgument;
+import codit.ast.pojos.types.TypeVariable;
+import codit.ast.pojos.types.UnitClassOrInterfaceType;
 import codit.gencode.JavaBaseVisitor;
 import codit.gencode.JavaParser;
 
@@ -52,43 +63,43 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     String rawText = ctx.getText();
 
     // get parent
-    AstNode parent = null;
-    if( ctx.getParent() != null ) {
-      parent = visit(ctx.getParent());
-    }
+//    AstNode parent = null;
+//    if( ctx.getParent() != null ) {
+//      parent = visit(ctx.getParent());
+//    }
 
     if (ctx.IntegerLiteral() != null) {
       // HEXADECIMAL / BINARY / OCTAL / DECIMAL
       if (rawText.startsWith("0x") || rawText.startsWith("0X")) {
         // Hex INTEGER / LONG Literals
-        return new HexIntegerLiteral(range, parent, rawText);
+        return new HexIntegerLiteral(range, null, rawText);
       } else if (rawText.startsWith("0b") || rawText.startsWith("0B")) {
         // Binary INTEGER / LONG Literals
-        return new BinaryIntegerLiteral(range, parent, rawText);
+        return new BinaryIntegerLiteral(range, null, rawText);
       } else if (rawText.startsWith("0") && !rawText.equals("0")) {
         // Oct INTEGER / LONG Literals
-        return new OctalIntegerLiteral(range, parent, rawText);
+        return new OctalIntegerLiteral(range, null, rawText);
       } else {
         // Dec INTEGER / LONG Literals
-        return new DecimalIntegerLiteral(range, parent, rawText);
+        return new DecimalIntegerLiteral(range, null, rawText);
       }
     } else if (ctx.BooleanLiteral() != null) {
       // System.out.println("Boolean");
-      return new BooleanLiteral(range, parent, rawText);
+      return new BooleanLiteral(range, null, rawText);
 
     } else if (ctx.StringLiteral() != null) {
-      return new StringLiteral(range, parent, rawText);
+      return new StringLiteral(range, null, rawText);
 
     } else if (ctx.CharacterLiteral() != null) {
-      return new CharacterLiteral(range, parent, rawText);
+      return new CharacterLiteral(range, null, rawText);
     } else if (ctx.FloatingPointLiteral() != null) {
       if(rawText.startsWith("0x") || rawText.startsWith("0X")) {
-        return new HexFloatLiteral(range, parent, rawText);
+        return new HexFloatLiteral(range, null, rawText);
       } else {
-        return new DecimalFloatLiteral(range, parent, rawText);
+        return new DecimalFloatLiteral(range, null, rawText);
       }
     } else if (ctx.NullLiteral() != null) {
-      return new NullLiteral(range, parent, rawText);
+      return new NullLiteral(range, null, rawText);
     } else {
       System.err.println("ERROR!");
       return super.visitLiteral(ctx);
@@ -97,82 +108,336 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitType(JavaParser.TypeContext ctx) {
-    return super.visitType(ctx);
+    if (ctx.primitiveType() != null) {
+      return (PrimitiveType) visit(ctx.primitiveType());
+    } else if (ctx.referenceType() != null) {
+      return (ReferenceType) visit(ctx.referenceType());
+    } else {
+      System.err.println("ERROR : visitType");
+      return super.visitType(ctx);
+    }
   }
 
   @Override
   public AstNode visitPrimitiveType(JavaParser.PrimitiveTypeContext ctx) {
-    return super.visitPrimitiveType(ctx);
+
+    // get range of symbol
+    Range range = getRange(ctx);
+
+    // get Annotation List
+    List<Annotation> annotationList = new ArrayList<>();
+    for(JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+      Annotation annotation = (Annotation) visit(annotationContext);
+      annotationList.add(annotation);
+    }
+
+    String text;
+    if (ctx.numericType() != null) {
+
+      if (ctx.numericType().integralType() != null) {
+        text = ctx.numericType().integralType().getText();
+
+      } else if (ctx.numericType().floatingPointType() != null) {
+        text = ctx.numericType().floatingPointType().getText();
+
+      } else {
+        System.err.println("ERROR");
+        return super.visitPrimitiveType(ctx);
+      }
+
+    } else { text = "boolean"; }
+
+    return new PrimitiveType(range, null, annotationList, PrimitiveType.Primitive.valueOf(text));
   }
 
   @Override
-  public AstNode visitNumericType(JavaParser.NumericTypeContext ctx) {
+  public AstNode visitNumericType(JavaParser.NumericTypeContext ctx) { // Not necessary
     return super.visitNumericType(ctx);
   }
 
   @Override
-  public AstNode visitIntegralType(JavaParser.IntegralTypeContext ctx) {
+  public AstNode visitIntegralType(JavaParser.IntegralTypeContext ctx) { // Not necessary
     return super.visitIntegralType(ctx);
   }
 
   @Override
-  public AstNode visitFloatingPointType(JavaParser.FloatingPointTypeContext ctx) {
+  public AstNode visitFloatingPointType(JavaParser.FloatingPointTypeContext ctx) { // Not necessary
     return super.visitFloatingPointType(ctx);
   }
 
   @Override
   public AstNode visitReferenceType(JavaParser.ReferenceTypeContext ctx) {
-    return super.visitReferenceType(ctx);
+    
+    if (ctx.classOrInterfaceType() != null) {
+      return (ClassOrInterfaceType) visit(ctx.classOrInterfaceType());   
+    } /*else if (ctx.typeVariable() != null) {
+      return (TypeVariable) visit(ctx.typeVariable());
+    } else if (ctx.arrayType() != null) {
+      return (ArrayType);
+    } */else {
+      System.err.println("ERROR : visitReferenceType");
+      return super.visitReferenceType(ctx);
+    }
   }
 
   @Override
   public AstNode visitClassOrInterfaceType(JavaParser.ClassOrInterfaceTypeContext ctx) {
-    return super.visitClassOrInterfaceType(ctx);
+
+    // get Range
+    Range range = getRange(ctx);
+
+    // is Interface
+    boolean isInterface = false;
+    if (ctx.getChild(ctx.getChildCount()-1).getParent()
+        instanceof JavaParser.InterfaceType_lf_classOrInterfaceTypeContext) {
+      isInterface = true;
+    }
+
+    // get Class or Interface Type List ( except last child )
+    UnitClassOrInterfaceType unitClassOrInterfaceType = null;
+
+    if (ctx.classType_lfno_classOrInterfaceType() != null) {
+      unitClassOrInterfaceType
+          = (UnitClassOrInterfaceType) visit(ctx.classType_lfno_classOrInterfaceType());
+    } else if (ctx.interfaceType_lfno_classOrInterfaceType() != null) {
+      unitClassOrInterfaceType
+          = (UnitClassOrInterfaceType) visit(ctx.interfaceType_lfno_classOrInterfaceType());
+    } else {
+      System.err.println("ERROR : visitClassOrInterfaceType");
+    }
+
+
+    // get Unit Class Or Interface Type ( last child )
+    List<UnitClassOrInterfaceType> unitClassOrInterfaceTypeList = new ArrayList<>();
+
+    for (int i = 1; i < ctx.getChildCount() ; i++) {
+      ParseTree child = ctx.getChild(i);
+      if (child instanceof JavaParser.ClassType_lf_classOrInterfaceTypeContext) {
+        UnitClassOrInterfaceType unitClassType = (UnitClassOrInterfaceType) visit(child);
+        unitClassOrInterfaceTypeList.add( unitClassType );
+      } else if (child instanceof JavaParser.InterfaceType_lf_classOrInterfaceTypeContext) {
+        UnitClassOrInterfaceType unitInterfaceType = (UnitClassOrInterfaceType) visit(child);
+        unitClassOrInterfaceTypeList.add( unitInterfaceType );
+      } else {
+        System.err.println("ERROR : visitClassOrInterfaceType");
+      }
+    }
+
+    return new ClassOrInterfaceType(range, null, isInterface, unitClassOrInterfaceType, unitClassOrInterfaceTypeList);
   }
 
   @Override
   public AstNode visitClassType(JavaParser.ClassTypeContext ctx) {
-    return super.visitClassType(ctx);
+    // get range of symbol
+    Range range = getRange(ctx);
+
+    // get parent
+//    AstNode parent = null;
+//    if( ctx.getParent() != null ) {
+//      parent = visit(ctx.getParent());
+//    }
+
+    // is Interface
+    boolean isInterface = false;
+    if (ctx.getParent() instanceof JavaParser.InterfaceType_lfno_classOrInterfaceTypeContext) {
+      isInterface = true;
+    }
+
+    // get Class or Interface Type List
+    ClassOrInterfaceType classOrInterfaceType = null;
+    if( ctx.classOrInterfaceType() != null ) {
+      classOrInterfaceType = (ClassOrInterfaceType) visit(ctx.classOrInterfaceType());
+    }
+
+    // get annotation list
+    List<Annotation> annotationList = new ArrayList<>();
+    for (JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+      Annotation annotation = (Annotation) visit(annotationContext);
+      annotationList.add(annotation);
+    }
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    // get Type argument list
+    List<TypeArgument> typeArgumentList = new ArrayList<>();
+    for (JavaParser.TypeArgumentContext typeArgumentContext
+        : ctx.typeArguments().typeArgumentList().typeArgument()) {
+      TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
+      typeArgumentList.add(typeArgument);
+    }
+
+    return new MultiClassOrInterfaceType(range, null, isInterface, annotationList, identifier, typeArgumentList, classOrInterfaceType);
   }
 
   @Override
   public AstNode visitClassType_lf_classOrInterfaceType(JavaParser.ClassType_lf_classOrInterfaceTypeContext ctx) {
-    return super.visitClassType_lf_classOrInterfaceType(ctx);
+
+    // get range of symbol
+    Range range = getRange(ctx);
+
+    // get parent
+//    AstNode parent = null;
+//    if( ctx.getParent() != null ) {
+//      parent = visit(ctx.getParent());
+//    }
+
+    // is Interface
+    boolean isInterface = false;
+    if (ctx.getParent() instanceof JavaParser.InterfaceType_lf_classOrInterfaceTypeContext) {
+      isInterface = true;
+    }
+
+    // get annotation list
+    List<Annotation> annotationList = new ArrayList<>();
+    for (JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+      Annotation annotation = (Annotation) visit(annotationContext);
+      annotationList.add(annotation);
+    }
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    // get Type argument list
+    List<TypeArgument> typeArgumentList = new ArrayList<>();
+    for (JavaParser.TypeArgumentContext typeArgumentContext
+        : ctx.typeArguments().typeArgumentList().typeArgument()) {
+      TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
+      typeArgumentList.add(typeArgument);
+    }
+
+    return new UnitClassOrInterfaceType(range, null, isInterface, annotationList, identifier, typeArgumentList);
   }
 
   @Override
   public AstNode visitClassType_lfno_classOrInterfaceType(JavaParser.ClassType_lfno_classOrInterfaceTypeContext ctx) {
-    return super.visitClassType_lfno_classOrInterfaceType(ctx);
+
+    // get range of symbol
+    Range range = getRange(ctx);
+
+    // get parent
+//    AstNode parent = null;
+//    if( ctx.getParent() != null ) {
+//      parent = visit(ctx.getParent());
+//    }
+
+    // is Interface
+    boolean isInterface = false;
+    if (ctx.getParent() instanceof JavaParser.InterfaceType_lfno_classOrInterfaceTypeContext) {
+      isInterface = true;
+    }
+
+    // get annotation list
+    List<Annotation> annotationList = new ArrayList<>();
+    for (JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+      Annotation annotation = (Annotation) visit(annotationContext);
+      annotationList.add(annotation);
+    }
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    // get Type argument list
+    List<TypeArgument> typeArgumentList = new ArrayList<>();
+    for (JavaParser.TypeArgumentContext typeArgumentContext
+        : ctx.typeArguments().typeArgumentList().typeArgument()) {
+      TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
+      typeArgumentList.add(typeArgument);
+    }
+
+    return new UnitClassOrInterfaceType(range, null, isInterface, annotationList, identifier, typeArgumentList);
   }
 
   @Override
   public AstNode visitInterfaceType(JavaParser.InterfaceTypeContext ctx) {
+    // Sgift responsibility for construction to visitClassType
     return super.visitInterfaceType(ctx);
   }
 
   @Override
   public AstNode visitInterfaceType_lf_classOrInterfaceType(JavaParser.InterfaceType_lf_classOrInterfaceTypeContext ctx) {
+    // Shift responsibility for construction to visitClassType_lf_classOrInterfaceType
     return super.visitInterfaceType_lf_classOrInterfaceType(ctx);
   }
 
   @Override
   public AstNode visitInterfaceType_lfno_classOrInterfaceType(JavaParser.InterfaceType_lfno_classOrInterfaceTypeContext ctx) {
+    // Shift responsibility for construction to visitClassType_lfno_classOrInterfaceType
     return super.visitInterfaceType_lfno_classOrInterfaceType(ctx);
   }
 
   @Override
   public AstNode visitTypeVariable(JavaParser.TypeVariableContext ctx) {
-    return super.visitTypeVariable(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get annotation list
+    List<Annotation> annotationList = new ArrayList<>();
+    for (JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+      Annotation annotation = (Annotation) visit(annotationContext);
+      annotationList.add(annotation);
+    }
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    return new TypeVariable(range, null, annotationList, identifier);
   }
 
   @Override
   public AstNode visitArrayType(JavaParser.ArrayTypeContext ctx) {
-    return super.visitArrayType(ctx);
+
+    // get Range
+    Range range = getRange(ctx);
+
+    // get Dims
+    Dims dims = (Dims) visit(ctx.dims());
+
+    if ( ctx.classOrInterfaceType() != null ) {
+      ClassOrInterfaceType classOrInterfaceType
+          = (ClassOrInterfaceType) visit(ctx.classOrInterfaceType());
+      return new ArrayType(range, null, classOrInterfaceType, dims);
+    } else if ( ctx.typeVariable() != null ) {
+      TypeVariable typeVariable
+          = (TypeVariable) visit(ctx.typeVariable());
+      return new ArrayType(range, null, typeVariable, dims);
+    } else if ( ctx.primitiveType() != null ) {
+      PrimitiveType primitiveType
+          = (PrimitiveType) visit(ctx.primitiveType());
+      return new ArrayType(range, null, primitiveType, dims);
+    } else {
+      System.err.println("ERROR : visitArrayType");
+      return super.visitArrayType(ctx);
+    }
+
   }
 
   @Override
   public AstNode visitDims(JavaParser.DimsContext ctx) {
-    return super.visitDims(ctx);
+
+    // get Range
+    Range range = getRange(ctx);
+
+    // get list of list of annotations
+    List<List<Annotation>> annotationListList = new ArrayList<>();
+
+    List<Annotation> annotationList = new ArrayList<Annotation>();
+    annotationListList.add(annotationList);
+
+    for (ParseTree child : ctx.children) {
+
+      if (child.getText().equals("[")) {
+        annotationList = new ArrayList<Annotation>();
+        annotationListList.add(annotationList);
+      }
+
+      if (child instanceof JavaParser.AnnotationContext) {
+        Annotation annotation = (Annotation) visit(child);
+        annotationList.add(annotation);
+      }
+    }
+    return new Dims(range, null, annotationListList);
   }
 
   @Override
@@ -257,10 +522,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get Parent
-    AstNode parent = null;
-    if( ctx.getParent() != null ) {
-      parent = visit(ctx.getParent());
-    }
+//    AstNode parent = null;
+//    if( ctx.getParent() != null ) {
+//      parent = visit(ctx.getParent());
+//    }
+
     // get Package Declaration
     PackageDeclaration packageDeclaration = (PackageDeclaration) visit(ctx.packageDeclaration());
 
@@ -278,7 +544,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       typeDeclarationList.add(typeDeclaration);
     }
 
-    return new CompilationUnit(range, parent, packageDeclaration, importDeclarationList, typeDeclarationList);
+    return new CompilationUnit(range, null, packageDeclaration, importDeclarationList, typeDeclarationList);
   }
 
   @Override
@@ -288,10 +554,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get Parent
-    AstNode parent = null;
-    if( ctx.getParent() != null ) {
-      parent = visit(ctx.getParent());
-    }
+//    AstNode parent = null;
+//    if( ctx.getParent() != null ) {
+//      parent = visit(ctx.getParent());
+//    }
+
     //
     List<PackageModifier> packageModifierList = new ArrayList<>();
     for (JavaParser.PackageModifierContext packageModifierContext : ctx.packageModifier()) {
@@ -306,7 +573,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       identifierList.add(identifier);
     }
 
-    return new PackageDeclaration(range, parent, packageModifierList, identifierList);
+    return new PackageDeclaration(range, null, packageModifierList, identifierList);
   }
 
   @Override
@@ -368,6 +635,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitClassDeclaration(JavaParser.ClassDeclarationContext ctx) {
+    // TODO
     return super.visitClassDeclaration(ctx);
   }
 
@@ -658,6 +926,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitInterfaceDeclaration(JavaParser.InterfaceDeclarationContext ctx) {
+    // TODO
     return super.visitInterfaceDeclaration(ctx);
   }
 

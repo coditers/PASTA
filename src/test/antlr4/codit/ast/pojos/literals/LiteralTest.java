@@ -18,9 +18,9 @@ import org.slf4j.LoggerFactory;
 import java.util.Arrays;
 import java.util.Collection;
 
-import codit.visitor.ContextChecker;
 import codit.gencode.JavaLexer;
 import codit.gencode.JavaParser;
+import codit.listener.LoggingListener;
 import codit.strategy.ErrorInspectorStrategy;
 import codit.visitor.ExceptionInspector;
 
@@ -34,6 +34,8 @@ public class LiteralTest {
   public static Collection<Object[]> data() {
     return Arrays.asList(new Object[][]{
         /* String Literals. */
+        {true,  "@Hey This. @Is Interface. @And Class. @Type Test right; "},
+
         {true,  "String literal1  = \"Hello Everybody!\";                                     " },
         {true,  "String literal2  = \"Hello Everybody, \\n I have some question.\";           " },
         {true,  "String literal3  = \"This works in Windows, \\r\\n stands for CRLF.\";       " },
@@ -123,7 +125,7 @@ public class LiteralTest {
     this.testValid = testValid;
     this.testCode = new StringBuilder("");
 
-    testCode.append("public class TestLiteral { public static void main(String[] args) {");
+    testCode.append("package com.estsoft.codit; public class TestLiteral { public static void main(String[] args) {");
     this.testCode.append(testString);
   }
 
@@ -144,7 +146,7 @@ public class LiteralTest {
     parser.setBuildParseTree(true);
 
     // LISTENER - LOGGER
-//    parser.addParseListener(new LoggingListener());
+    parser.addParseListener(new LoggingListener());
     parser.setErrorHandler(new ErrorInspectorStrategy());
     return parser;
   }
@@ -159,7 +161,7 @@ public class LiteralTest {
     ParserRuleContext ruleContext = parser.compilationUnit();
 
     // VISITOR - CONTEXT CHECKER
-    new ContextChecker().visitCompilationUnit((JavaParser.CompilationUnitContext) ruleContext);
+//    new AstBuilder().visitCompilationUnit((JavaParser.CompilationUnitContext) ruleContext);
 
     // VISITOR - EXCEPTION INSPECTOR
     String exception = new ExceptionInspector().visitCompilationUnit((JavaParser.CompilationUnitContext) ruleContext);

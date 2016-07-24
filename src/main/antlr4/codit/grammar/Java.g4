@@ -120,7 +120,7 @@ classOrInterfaceType
 		)*
 	;
 
-classType
+classType // MultiClassOrInterfaceType
 	:	annotation* Identifier typeArguments?
 	|	classOrInterfaceType '.' annotation* Identifier typeArguments?
 	;
@@ -159,6 +159,8 @@ dims
 	:	annotation* '[' ']' (annotation* '[' ']')*
 	;
 
+// TODO AT FIRST OF ALL
+
 typeParameter
 	:	typeParameterModifier* Identifier typeBound?
 	;
@@ -175,6 +177,8 @@ typeBound
 additionalBound
 	:	'&' interfaceType
 	;
+
+//
 
 typeArguments
 	:	'<' typeArgumentList '>'
