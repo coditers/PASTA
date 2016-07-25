@@ -159,7 +159,6 @@ dims
 	:	annotation* '[' ']' (annotation* '[' ']')*
 	;
 
-// TODO AT FIRST OF ALL
 
 typeParameter
 	:	typeParameterModifier* Identifier typeBound?

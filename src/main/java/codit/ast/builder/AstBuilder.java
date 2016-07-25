@@ -22,10 +22,14 @@ import codit.ast.pojos.literals.integers.BinaryIntegerLiteral;
 import codit.ast.pojos.literals.integers.DecimalIntegerLiteral;
 import codit.ast.pojos.literals.integers.HexIntegerLiteral;
 import codit.ast.pojos.literals.integers.OctalIntegerLiteral;
+import codit.ast.pojos.names.AmbiguousName;
+import codit.ast.pojos.names.ExpressionName;
+import codit.ast.pojos.names.MethodName;
+import codit.ast.pojos.names.PackageOrTypeName;
+import codit.ast.pojos.names.TypeName;
 import codit.ast.pojos.packages.CompilationUnit;
 import codit.ast.pojos.packages.ImportDeclaration;
 import codit.ast.pojos.packages.PackageDeclaration;
-import codit.ast.pojos.packages.PackageModifier;
 import codit.ast.pojos.packages.SingleStaticImportDeclaration;
 import codit.ast.pojos.packages.SingleTypeImportDeclaration;
 import codit.ast.pojos.packages.StaticImportOnDemandDeclaration;
@@ -33,13 +37,22 @@ import codit.ast.pojos.packages.TypeDeclaration;
 import codit.ast.pojos.packages.TypeImportOnDemandDeclaration;
 import codit.ast.pojos.types.ArrayType;
 import codit.ast.pojos.types.ClassOrInterfaceType;
+import codit.ast.pojos.types.ClassOrInterfaceTypeBound;
+import codit.ast.pojos.types.ClassType;
 import codit.ast.pojos.types.Dims;
-import codit.ast.pojos.types.MultiClassOrInterfaceType;
+import codit.ast.pojos.types.InterfaceType;
 import codit.ast.pojos.types.PrimitiveType;
 import codit.ast.pojos.types.ReferenceType;
 import codit.ast.pojos.types.TypeArgument;
+import codit.ast.pojos.types.TypeBound;
+import codit.ast.pojos.types.TypeParameter;
 import codit.ast.pojos.types.TypeVariable;
 import codit.ast.pojos.types.UnitClassOrInterfaceType;
+import codit.ast.pojos.types.UnitClassType;
+import codit.ast.pojos.types.UnitInterfaceType;
+import codit.ast.pojos.types.VariableTypeBound;
+import codit.ast.pojos.types.Wildcard;
+import codit.ast.pojos.types.WildcardBounds;
 import codit.gencode.JavaBaseVisitor;
 import codit.gencode.JavaParser;
 
@@ -238,10 +251,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 //    }
 
     // is Interface
-    boolean isInterface = false;
-    if (ctx.getParent() instanceof JavaParser.InterfaceType_lfno_classOrInterfaceTypeContext) {
-      isInterface = true;
-    }
+//    boolean isInterface = false;
+//    if (ctx.getParent() instanceof JavaParser.InterfaceType_lfno_classOrInterfaceTypeContext) {
+//      isInterface = true;
+//    }
 
     // get Class or Interface Type List
     ClassOrInterfaceType classOrInterfaceType = null;
@@ -267,7 +280,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       typeArgumentList.add(typeArgument);
     }
 
-    return new MultiClassOrInterfaceType(range, null, isInterface, annotationList, identifier, typeArgumentList, classOrInterfaceType);
+    return new ClassType(range, null, classOrInterfaceType, annotationList, identifier, typeArgumentList);
   }
 
   @Override
@@ -283,10 +296,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 //    }
 
     // is Interface
-    boolean isInterface = false;
-    if (ctx.getParent() instanceof JavaParser.InterfaceType_lf_classOrInterfaceTypeContext) {
-      isInterface = true;
-    }
+//    boolean isInterface = false;
+//    if (ctx.getParent() instanceof JavaParser.InterfaceType_lf_classOrInterfaceTypeContext) {
+//      isInterface = true;
+//    }
 
     // get annotation list
     List<Annotation> annotationList = new ArrayList<>();
@@ -306,7 +319,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       typeArgumentList.add(typeArgument);
     }
 
-    return new UnitClassOrInterfaceType(range, null, isInterface, annotationList, identifier, typeArgumentList);
+    return new UnitClassType(range, null, annotationList, identifier, typeArgumentList);
   }
 
   @Override
@@ -322,10 +335,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 //    }
 
     // is Interface
-    boolean isInterface = false;
-    if (ctx.getParent() instanceof JavaParser.InterfaceType_lfno_classOrInterfaceTypeContext) {
-      isInterface = true;
-    }
+//    boolean isInterface = false;
+//    if (ctx.getParent() instanceof JavaParser.InterfaceType_lfno_classOrInterfaceTypeContext) {
+//      isInterface = true;
+//    }
 
     // get annotation list
     List<Annotation> annotationList = new ArrayList<>();
@@ -345,25 +358,44 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       typeArgumentList.add(typeArgument);
     }
 
-    return new UnitClassOrInterfaceType(range, null, isInterface, annotationList, identifier, typeArgumentList);
+    return new UnitClassType(range, null, annotationList, identifier, typeArgumentList);
   }
 
   @Override
   public AstNode visitInterfaceType(JavaParser.InterfaceTypeContext ctx) {
-    // Sgift responsibility for construction to visitClassType
-    return super.visitInterfaceType(ctx);
+
+    // get Range
+    Range range = getRange(ctx);
+
+    // get class type
+    ClassType classType = (ClassType) visit(ctx.classType());
+
+    return new InterfaceType(range, null, classType);
   }
 
   @Override
   public AstNode visitInterfaceType_lf_classOrInterfaceType(JavaParser.InterfaceType_lf_classOrInterfaceTypeContext ctx) {
-    // Shift responsibility for construction to visitClassType_lf_classOrInterfaceType
-    return super.visitInterfaceType_lf_classOrInterfaceType(ctx);
+
+    // get Range
+    Range range = getRange(ctx);
+
+    //get unit Class Type
+    UnitClassType unitClassType = (UnitClassType) visit(ctx.classType_lf_classOrInterfaceType());
+
+
+    return new UnitInterfaceType(range, null, unitClassType);
   }
 
   @Override
   public AstNode visitInterfaceType_lfno_classOrInterfaceType(JavaParser.InterfaceType_lfno_classOrInterfaceTypeContext ctx) {
-    // Shift responsibility for construction to visitClassType_lfno_classOrInterfaceType
-    return super.visitInterfaceType_lfno_classOrInterfaceType(ctx);
+
+    // get Range
+    Range range = getRange(ctx);
+
+    //get unit Class Type
+    UnitClassType unitClassType = (UnitClassType) visit(ctx.classType_lfno_classOrInterfaceType());
+
+    return new UnitInterfaceType(range, null, unitClassType);
   }
 
   @Override
@@ -442,77 +474,234 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitTypeParameter(JavaParser.TypeParameterContext ctx) {
-    return super.visitTypeParameter(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get Annotations
+    List<Annotation> annotationList = new ArrayList<>();
+    for(JavaParser.TypeParameterModifierContext typeParameterModifierContext
+        : ctx.typeParameterModifier()) {
+      Annotation annotation = (Annotation) visit(typeParameterModifierContext.annotation());
+      annotationList.add(annotation);
+    }
+
+    // get Identifier
+    String identifier = ctx.Identifier().getText();
+
+    // get Type bound
+    TypeBound typeBound = (TypeBound) visit(ctx.typeBound());
+
+    return new TypeParameter(range, null, annotationList, identifier, typeBound);
   }
 
   @Override
   public AstNode visitTypeParameterModifier(JavaParser.TypeParameterModifierContext ctx) {
+    // Not necessary
     return super.visitTypeParameterModifier(ctx);
   }
 
   @Override
   public AstNode visitTypeBound(JavaParser.TypeBoundContext ctx) {
-    return super.visitTypeBound(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    if(ctx.typeVariable() != null) {
+      TypeVariable typeVariable = (TypeVariable) visit(ctx.typeVariable());
+      return new VariableTypeBound(range, null, typeVariable);
+    } else if (ctx.classOrInterfaceType() != null) {
+
+      // get Class or interface type
+      ClassOrInterfaceType classOrInterfaceType = (ClassOrInterfaceType) visit(ctx.classOrInterfaceType());
+
+      // get Interface type list
+      List<InterfaceType> interfaceTypeList = new ArrayList<>();
+      for(JavaParser.AdditionalBoundContext additionalBoundContext : ctx.additionalBound()) {
+        InterfaceType interfaceType = (InterfaceType) visit(additionalBoundContext.interfaceType());
+        interfaceTypeList.add(interfaceType);
+      }
+
+      return new ClassOrInterfaceTypeBound(range, null, classOrInterfaceType, interfaceTypeList);
+    } else {
+      System.err.println("ERROR : visitTypeBound");
+      return super.visitTypeBound(ctx);
+    }
+
   }
 
   @Override
   public AstNode visitAdditionalBound(JavaParser.AdditionalBoundContext ctx) {
+    // Not necessary
     return super.visitAdditionalBound(ctx);
   }
 
   @Override
   public AstNode visitTypeArguments(JavaParser.TypeArgumentsContext ctx) {
+    // Not necessary
     return super.visitTypeArguments(ctx);
   }
 
   @Override
   public AstNode visitTypeArgumentList(JavaParser.TypeArgumentListContext ctx) {
+    // Not necessary
     return super.visitTypeArgumentList(ctx);
   }
 
   @Override
   public AstNode visitTypeArgument(JavaParser.TypeArgumentContext ctx) {
-    return super.visitTypeArgument(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get Arguable instnace
+    if ( ctx.referenceType() != null ) {
+      ReferenceType referenceType = (ReferenceType) visit(ctx.referenceType());
+      return new TypeArgument(range, null, referenceType);
+    } else if ( ctx.wildcard() != null ) {
+      Wildcard wildcard = (Wildcard) visit(ctx.wildcard());
+      return new TypeArgument(range, null, wildcard);
+    } else {
+      System.err.println("ERROR : visitTypeArgumnet");
+      return super.visitTypeArgument(ctx);
+    }
+
   }
 
   @Override
   public AstNode visitWildcard(JavaParser.WildcardContext ctx) {
-    return super.visitWildcard(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get annotation list
+    List<Annotation> annotationList = new ArrayList<>();
+    for (JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+      Annotation annotation = (Annotation) visit(annotationContext);
+      annotationList.add(annotation);
+    }
+
+    // get wildcard bounds
+    WildcardBounds wildcardBounds = (WildcardBounds) visit(ctx.wildcardBounds());
+
+    return new Wildcard(range, null, annotationList, wildcardBounds);
   }
 
   @Override
   public AstNode visitWildcardBounds(JavaParser.WildcardBoundsContext ctx) {
-    return super.visitWildcardBounds(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // is extends
+    Boolean isExtends;
+    String token = ctx.getChild(0).getText();
+    switch (token) {
+      case "extends":
+        isExtends = true;
+        break;
+      case "super":
+        isExtends = false;
+        break;
+      default:
+        System.err.println("ERROR : visitWildcardBounds [ Expected : nullPointException ]");
+        isExtends = null;
+        break;
+    }
+
+    // get reference type
+    ReferenceType referenceType = (ReferenceType) visit(ctx.referenceType());
+
+    return new WildcardBounds(range, null, isExtends, referenceType);
   }
 
   @Override
   public AstNode visitPackageName(JavaParser.PackageNameContext ctx) {
+    // No necessary
     return super.visitPackageName(ctx);
   }
 
   @Override
   public AstNode visitTypeName(JavaParser.TypeNameContext ctx) {
-    return super.visitTypeName(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get Identifier
+    String identifier = ctx.Identifier().toString();
+
+    // get packageOrTypeName
+    PackageOrTypeName packageOrTypeName = null;
+    if ( ctx.packageOrTypeName() != null ) {
+      packageOrTypeName = (PackageOrTypeName) visit(ctx.packageOrTypeName());
+    }
+
+    return new TypeName(range, null, identifier, packageOrTypeName);
   }
 
   @Override
   public AstNode visitPackageOrTypeName(JavaParser.PackageOrTypeNameContext ctx) {
-    return super.visitPackageOrTypeName(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get Identifier
+    String identifier = ctx.Identifier().toString();
+
+    // get packageOrTypeName
+    PackageOrTypeName packageOrTypeName = null;
+    if ( ctx.packageOrTypeName() != null ) {
+      packageOrTypeName = (PackageOrTypeName) visit(ctx.packageOrTypeName());
+    }
+    return new PackageOrTypeName(range, null, identifier, packageOrTypeName);
   }
 
   @Override
   public AstNode visitExpressionName(JavaParser.ExpressionNameContext ctx) {
-    return super.visitExpressionName(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get Identifier
+    String identifier = ctx.Identifier().toString();
+
+    // get Anbiguous mame
+    AmbiguousName ambiguousName = null;
+    if ( ctx.ambiguousName() != null ) {
+      ambiguousName = (AmbiguousName) visit(ctx.ambiguousName());
+    }
+
+    return new ExpressionName(range, null, identifier, ambiguousName);
   }
 
   @Override
   public AstNode visitMethodName(JavaParser.MethodNameContext ctx) {
-    return super.visitMethodName(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get Identifier
+    String identifier = ctx.Identifier().toString();
+
+    return new MethodName(range, null, identifier);
   }
 
   @Override
   public AstNode visitAmbiguousName(JavaParser.AmbiguousNameContext ctx) {
-    return super.visitAmbiguousName(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get Identifier
+    String identifier = ctx.Identifier().toString();
+
+    // get Anbiguous mame
+    AmbiguousName ambiguousName = null;
+    if ( ctx.ambiguousName() != null ) {
+      ambiguousName = (AmbiguousName) visit(ctx.ambiguousName());
+    }
+
+    return new AmbiguousName(range, null, identifier, ambiguousName);
   }
 
   @Override
@@ -560,10 +749,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 //    }
 
     //
-    List<PackageModifier> packageModifierList = new ArrayList<>();
+    List<Annotation> annotationList = new ArrayList<>();
     for (JavaParser.PackageModifierContext packageModifierContext : ctx.packageModifier()) {
-      PackageModifier packageModifier = (PackageModifier) visit(packageModifierContext);
-      packageModifierList.add(packageModifier);
+      Annotation annotation = (Annotation) visit(packageModifierContext.annotation());
+      annotationList.add(annotation);
     }
 
     //
@@ -573,11 +762,12 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       identifierList.add(identifier);
     }
 
-    return new PackageDeclaration(range, null, packageModifierList, identifierList);
+    return new PackageDeclaration(range, null, annotationList, identifierList);
   }
 
   @Override
   public AstNode visitPackageModifier(JavaParser.PackageModifierContext ctx) {
+    // Not necessary
     return super.visitPackageModifier(ctx);
   }
 
@@ -600,22 +790,53 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitSingleTypeImportDeclaration(JavaParser.SingleTypeImportDeclarationContext ctx) {
-    return super.visitSingleTypeImportDeclaration(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get type name
+    TypeName typeName = (TypeName) visit(ctx.typeName());
+
+    return new SingleTypeImportDeclaration(range, null, typeName);
   }
 
   @Override
   public AstNode visitTypeImportOnDemandDeclaration(JavaParser.TypeImportOnDemandDeclarationContext ctx) {
-    return super.visitTypeImportOnDemandDeclaration(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get package or type name
+    PackageOrTypeName packageOrTypeName = (PackageOrTypeName) visit(ctx.packageOrTypeName());
+
+    return new TypeImportOnDemandDeclaration(range, null, packageOrTypeName);
   }
 
   @Override
   public AstNode visitSingleStaticImportDeclaration(JavaParser.SingleStaticImportDeclarationContext ctx) {
-    return super.visitSingleStaticImportDeclaration(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get Type name
+    TypeName typeName = (TypeName) visit(ctx.typeName());
+
+    // get Modifier
+    String identifier = ctx.Identifier().getText();
+
+    return new SingleStaticImportDeclaration(range, null, typeName, identifier);
   }
 
   @Override
   public AstNode visitStaticImportOnDemandDeclaration(JavaParser.StaticImportOnDemandDeclarationContext ctx) {
-    return super.visitStaticImportOnDemandDeclaration(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get type name
+    TypeName typeName =  (TypeName) visit(ctx.typeName());
+
+    return new StaticImportOnDemandDeclaration(range, null, typeName);
   }
 
   @Override
