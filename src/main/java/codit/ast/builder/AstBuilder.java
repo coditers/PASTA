@@ -497,7 +497,8 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitTypeParameterModifier(JavaParser.TypeParameterModifierContext ctx) {
-    // Not necessary
+    // Not necessary - Functional issues are handed over to visitTypeParameter
+    // Because it only has an annotation as its own parameter.
     return super.visitTypeParameterModifier(ctx);
   }
 
@@ -532,7 +533,8 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitAdditionalBound(JavaParser.AdditionalBoundContext ctx) {
-    // Not necessary
+    // Not necessary - Functional issues are handed over to visitTypeBound
+    // Because it only has an interfaceType as its own parameter.
     return super.visitAdditionalBound(ctx);
   }
 
@@ -856,7 +858,19 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitClassDeclaration(JavaParser.ClassDeclarationContext ctx) {
-    // TODO
+
+    // get range
+    Range range = getRAnge(ctx);
+
+    //
+
+    if (ctx.normalClassDeclaration() != null) {
+
+    } else if(ctx.enumDeclaration() != null) {
+
+    } else {
+
+    }
     return super.visitClassDeclaration(ctx);
   }
 

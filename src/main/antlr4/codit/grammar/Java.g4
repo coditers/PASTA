@@ -629,9 +629,9 @@ interfaceMethodDeclaration
 
 interfaceMethodModifier
 	:	annotation
+	|	'default'
 	|	'public'
 	|	'abstract'
-	|	'default'
 	|	'static'
 	|	'strictfp'
 	;
