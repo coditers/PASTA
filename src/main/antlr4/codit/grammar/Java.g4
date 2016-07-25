@@ -549,6 +549,7 @@ explicitConstructorInvocation
 	|	primary '.' typeArguments? 'super' '(' argumentList? ')' ';'
 	;
 
+
 enumDeclaration
 	:	classModifier* 'enum' Identifier superinterfaces? enumBody
 	;

@@ -8,9 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import codit.ast.AstNode;
+import codit.ast.Modifiers;
 import codit.ast.Range;
 import codit.ast.pojos.annotations.Annotation;
+import codit.ast.pojos.classes.ClassBodyDeclaration;
 import codit.ast.pojos.classes.ClassDeclaration;
+import codit.ast.pojos.classes.EnumDeclaration;
+import codit.ast.pojos.parameters.FormalParameter;
+import codit.ast.pojos.parameters.FormalParameterList;
+import codit.ast.pojos.parameters.LastFormalParameter;
+import codit.ast.pojos.classes.members.MethodDeclarator;
+import codit.ast.pojos.classes.NormalClassDeclaration;
+import codit.ast.pojos.parameters.Parameter;
+import codit.ast.pojos.parameters.ReceiverParameter;
 import codit.ast.pojos.interfaces.InterfaceDeclaration;
 import codit.ast.pojos.literals.BooleanLiteral;
 import codit.ast.pojos.literals.CharacterLiteral;
@@ -859,58 +869,133 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
   @Override
   public AstNode visitClassDeclaration(JavaParser.ClassDeclarationContext ctx) {
 
-    // get range
-    Range range = getRAnge(ctx);
-
-    //
-
     if (ctx.normalClassDeclaration() != null) {
-
+      return (NormalClassDeclaration) visit(ctx.normalClassDeclaration());
     } else if(ctx.enumDeclaration() != null) {
-
+      return (EnumDeclaration) visit(ctx.enumDeclaration());
     } else {
-
+      System.err.println("ERROR : visitClassDeclaration");
+      return super.visitClassDeclaration(ctx);
     }
-    return super.visitClassDeclaration(ctx);
   }
 
   @Override
   public AstNode visitNormalClassDeclaration(JavaParser.NormalClassDeclarationContext ctx) {
-    return super.visitNormalClassDeclaration(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get class Modifier lists
+    List<Annotation> annotationList = new ArrayList<>();
+    int modifiers = 0;
+    for ( JavaParser.ClassModifierContext classModifierContext : ctx.classModifier() ) {
+      if (classModifierContext.annotation() != null) {
+        Annotation annotation = (Annotation) visit(classModifierContext.annotation());
+        annotationList.add(annotation);
+      } else {
+        String normalModifier = classModifierContext.getChild(0).getText();
+        switch(normalModifier) {
+          case "public" :
+            modifiers |= Modifiers.PUBLIC;
+            break;
+          case "protected" :
+            modifiers |= Modifiers.PROTECTED;
+            break;
+          case "private" :
+            modifiers |= Modifiers.PRIVATE;
+            break;
+          case "abstract" :
+            modifiers |= Modifiers.ABSTRACT;
+            break;
+          case "static" :
+            modifiers |= Modifiers.STATIC;
+            break;
+          case "final" :
+            modifiers |= Modifiers.FINAL;
+            break;
+          case "strictfp" :
+            modifiers |= Modifiers.STRICTFP;
+            break;
+          default : // Error
+            modifiers = -1;
+            break;
+        }
+      }
+    }
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    // get type parameter list
+    List<TypeParameter> typeParameterList = new ArrayList<>();
+    for(JavaParser.TypeParameterContext typeParameterContext
+        : ctx.typeParameters().typeParameterList().typeParameter()) {
+      TypeParameter typeParameter = (TypeParameter) visit(typeParameterContext);
+    }
+
+    // get super class
+    ClassType superClass = (ClassType) visit(ctx.superclass().classType());
+
+    // get super interface list
+    List<InterfaceType> superInterfaceList = new ArrayList<>();
+    for (JavaParser.InterfaceTypeContext interfaceTypeContext
+        : ctx.superinterfaces().interfaceTypeList().interfaceType()) {
+      InterfaceType interfaceType = (InterfaceType) visit(interfaceTypeContext);
+      superInterfaceList.add(interfaceType);
+    }
+
+    // get Class Body Declarations
+    List<ClassBodyDeclaration> classBodyDeclarationList = new ArrayList<>();
+    for (JavaParser.ClassBodyDeclarationContext classBodyDeclarationContext
+        : ctx.classBody().classBodyDeclaration()) {
+      ClassBodyDeclaration classBodyDeclaration
+          = (ClassBodyDeclaration) visit(classBodyDeclarationContext);
+      classBodyDeclarationList.add(classBodyDeclaration);
+    }
+
+    return new NormalClassDeclaration(range, null, annotationList, modifiers, identifier,
+        typeParameterList, superClass, superInterfaceList, classBodyDeclarationList);
   }
 
   @Override
   public AstNode visitClassModifier(JavaParser.ClassModifierContext ctx) {
+    // Not necessary
     return super.visitClassModifier(ctx);
   }
 
   @Override
   public AstNode visitTypeParameters(JavaParser.TypeParametersContext ctx) {
+    // Not necessary
     return super.visitTypeParameters(ctx);
   }
 
   @Override
   public AstNode visitTypeParameterList(JavaParser.TypeParameterListContext ctx) {
+    // Not necessary
     return super.visitTypeParameterList(ctx);
   }
 
   @Override
   public AstNode visitSuperclass(JavaParser.SuperclassContext ctx) {
+    // Not necessary
     return super.visitSuperclass(ctx);
   }
 
   @Override
   public AstNode visitSuperinterfaces(JavaParser.SuperinterfacesContext ctx) {
+    // Not necessary
     return super.visitSuperinterfaces(ctx);
   }
 
   @Override
   public AstNode visitInterfaceTypeList(JavaParser.InterfaceTypeListContext ctx) {
+    // Not necessary
     return super.visitInterfaceTypeList(ctx);
   }
 
   @Override
   public AstNode visitClassBody(JavaParser.ClassBodyContext ctx) {
+    // Not necessary
     return super.visitClassBody(ctx);
   }
 
@@ -1036,21 +1121,62 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitMethodDeclarator(JavaParser.MethodDeclaratorContext ctx) {
-    return super.visitMethodDeclarator(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    // get Formal Parameter List
+    FormalParameterList formalParameterList
+        = (FormalParameterList) visit(ctx.formalParameterList());
+
+    // get Dims
+    Dims dims = (Dims) visit(ctx.dims());
+
+    return new MethodDeclarator(range, null, identifier, formalParameterList, dims);
   }
 
   @Override
   public AstNode visitFormalParameterList(JavaParser.FormalParameterListContext ctx) {
-    return super.visitFormalParameterList(ctx);
+    if (ctx.formalParameters() != null) {
+      // get range
+      Range range = getRange(ctx);
+
+      // get List of Parameters
+      List<Parameter> parameterList = new ArrayList<>();
+      for (ParseTree parameterContext : ctx.formalParameters().children) {
+        if(parameterContext instanceof JavaParser.FormalParameterContext) {
+          FormalParameter formalParameter = (FormalParameter) visit(parameterContext);
+          parameterList.add(formalParameter);
+        } else if (parameterContext instanceof JavaParser.ReceiverParameterContext) {
+          ReceiverParameter receiverParameter = (ReceiverParameter) visit(parameterContext);
+          parameterList.add(receiverParameter);
+        } else {
+          System.err.println("ERROR : visitFormalParameterList");
+        }
+      }
+
+      // get lastFormalParameter
+      LastFormalParameter lastFormalParameter =
+          (LastFormalParameter) visit(ctx.lastFormalParameter());
+
+      return new FormalParameterList(range, null, parameterList, lastFormalParameter);
+    } else {
+      return (LastFormalParameter) visit(ctx.lastFormalParameter());
+    }
   }
 
   @Override
   public AstNode visitFormalParameters(JavaParser.FormalParametersContext ctx) {
+    // Not necessary
     return super.visitFormalParameters(ctx);
   }
 
   @Override
   public AstNode visitFormalParameter(JavaParser.FormalParameterContext ctx) {
+    // TODO - construct formal parameter
     return super.visitFormalParameter(ctx);
   }
 
@@ -1061,11 +1187,16 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitLastFormalParameter(JavaParser.LastFormalParameterContext ctx) {
+    if (ctx.formalParameter() != null) {
+      return (FormalParameter) visit(ctx.formalParameter());
+    }
+
     return super.visitLastFormalParameter(ctx);
   }
 
   @Override
   public AstNode visitReceiverParameter(JavaParser.ReceiverParameterContext ctx) {
+    // TODO - construct receiver parameter
     return super.visitReceiverParameter(ctx);
   }
 
@@ -1131,6 +1262,59 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitEnumDeclaration(JavaParser.EnumDeclarationContext ctx) {
+    // get range
+    Range range = getRange(ctx);
+
+    // get class Modifier lists
+    List<Annotation> annotationList = new ArrayList<>();
+    int modifiers = 0;
+    for ( JavaParser.ClassModifierContext classModifierContext : ctx.classModifier() ) {
+      if (classModifierContext.annotation() != null) {
+        Annotation annotation = (Annotation) visit(classModifierContext.annotation());
+        annotationList.add(annotation);
+      } else {
+        String normalModifier = classModifierContext.getChild(0).getText();
+        switch(normalModifier) {
+          case "public" :
+            modifiers |= Modifiers.PUBLIC;
+            break;
+          case "protected" :
+            modifiers |= Modifiers.PROTECTED;
+            break;
+          case "private" :
+            modifiers |= Modifiers.PRIVATE;
+            break;
+          case "abstract" :
+            modifiers |= Modifiers.ABSTRACT;
+            break;
+          case "static" :
+            modifiers |= Modifiers.STATIC;
+            break;
+          case "final" :
+            modifiers |= Modifiers.FINAL;
+            break;
+          case "strictfp" :
+            modifiers |= Modifiers.STRICTFP;
+            break;
+          default : // Error
+            modifiers = -1;
+            break;
+        }
+      }
+    }
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    // get super interface list
+    List<InterfaceType> superInterfaceList = new ArrayList<>();
+    for (JavaParser.InterfaceTypeContext interfaceTypeContext
+        : ctx.superinterfaces().interfaceTypeList().interfaceType()) {
+      InterfaceType interfaceType = (InterfaceType) visit(interfaceTypeContext);
+      superInterfaceList.add(interfaceType);
+    }
+
+
     return super.visitEnumDeclaration(ctx);
   }
 
