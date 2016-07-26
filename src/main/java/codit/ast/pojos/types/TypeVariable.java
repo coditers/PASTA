@@ -6,11 +6,12 @@ import codit.ast.AstNode;
 import codit.ast.Position;
 import codit.ast.Range;
 import codit.ast.pojos.annotations.Annotation;
+import codit.ast.pojos.types.exceptions.Exceptionable;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
-public class TypeVariable extends ReferenceType implements Arrayable {
+public class TypeVariable extends ReferenceType implements Arrayable, Exceptionable {
 
   private final List<Annotation> annotationList;
   private final String identifier;

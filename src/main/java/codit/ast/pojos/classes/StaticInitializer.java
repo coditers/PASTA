@@ -8,7 +8,7 @@ import codit.ast.pojos.blocks.Block;
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
-public class StaticInitializer extends AstNode {
+public class StaticInitializer extends ClassBodyDeclaration {
 
   private final Block block;
 

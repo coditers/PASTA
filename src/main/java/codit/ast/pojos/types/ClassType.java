@@ -8,11 +8,12 @@ import codit.ast.AstNode;
 import codit.ast.Position;
 import codit.ast.Range;
 import codit.ast.pojos.annotations.Annotation;
+import codit.ast.pojos.types.exceptions.Exceptionable;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
-public class ClassType extends MultiClassOrInterfaceType {
+public class ClassType extends MultiClassOrInterfaceType implements Exceptionable {
 
   private final ClassOrInterfaceType classOrInterfaceType;
 

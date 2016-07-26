@@ -1,4 +1,4 @@
-package codit.ast.pojos.classes;
+package codit.ast.pojos.classes.members;
 
 import java.util.List;
 
@@ -6,8 +6,7 @@ import codit.ast.AstNode;
 import codit.ast.Position;
 import codit.ast.Range;
 import codit.ast.pojos.annotations.Annotation;
-import codit.ast.pojos.classes.members.MethodDeclarator;
-import codit.ast.pojos.classes.members.MethodHeader;
+import codit.ast.pojos.classes.Result;
 import codit.ast.pojos.types.TypeParameter;
 import codit.ast.pojos.types.exceptions.ExceptionType;
 

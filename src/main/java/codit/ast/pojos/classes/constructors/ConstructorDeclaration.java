@@ -6,12 +6,13 @@ import codit.ast.AstNode;
 import codit.ast.Position;
 import codit.ast.Range;
 import codit.ast.pojos.annotations.Annotation;
+import codit.ast.pojos.classes.ClassBodyDeclaration;
 import codit.ast.pojos.types.exceptions.ExceptionType;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
-public class ConstructorDeclaration extends AstNode {
+public class ConstructorDeclaration extends ClassBodyDeclaration {
 
   private final List<Annotation> annotationList;
   private final int modifiers;
