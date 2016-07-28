@@ -578,7 +578,7 @@ enumBodyDeclarations
  * Productions from §9 (Interfaces)
  */
 
-interfaceDeclaration
+ interfaceDeclaration
 	:	normalInterfaceDeclaration
 	|	annotationTypeDeclaration
 	;

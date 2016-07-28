@@ -65,7 +65,7 @@ public class Modifiers {
 
   public static final int STRICTFP      = 0x00000800;
 
-
+  public static final int DEFAULT       = 0x00010000;
 
   // Access Modifiers
   public static boolean isNone(int mask) {

@@ -8,7 +8,7 @@ import codit.ast.pojos.classes.members.ClassMemberable;
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
-public class InterfaceDeclaration extends AstNode implements ClassMemberable {
+public class InterfaceDeclaration extends AstNode implements ClassMemberable, InterfaceMemberable, AnnotationTypeMemberable {
   public InterfaceDeclaration(Range range, AstNode parent) {
     super(range, parent);
   }

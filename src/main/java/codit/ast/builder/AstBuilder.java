@@ -11,6 +11,9 @@ import codit.ast.AstNode;
 import codit.ast.Modifiers;
 import codit.ast.Range;
 import codit.ast.pojos.annotations.Annotation;
+import codit.ast.pojos.annotations.MarkerAnnotation;
+import codit.ast.pojos.annotations.NormalAnnotation;
+import codit.ast.pojos.annotations.SingleElementAnnotation;
 import codit.ast.pojos.blocks.Block;
 import codit.ast.pojos.blocks.BlockStatements;
 import codit.ast.pojos.classes.ArrayInitializer;
@@ -40,9 +43,20 @@ import codit.ast.pojos.classes.members.MethodDeclaration;
 import codit.ast.pojos.classes.members.MethodDeclarator;
 import codit.ast.pojos.classes.members.MethodHeader;
 import codit.ast.pojos.classes.members.SimpleMethodHeader;
+import codit.ast.pojos.expressions.ConditionalExpression;
 import codit.ast.pojos.expressions.Expression;
 import codit.ast.pojos.expressions.primaries.Primary;
+import codit.ast.pojos.interfaces.AnnotationTypeDeclaration;
+import codit.ast.pojos.interfaces.AnnotationTypeElementDeclaration;
+import codit.ast.pojos.interfaces.AnnotationTypeMemberable;
+import codit.ast.pojos.interfaces.ConstantDeclaration;
+import codit.ast.pojos.interfaces.ElementValue;
+import codit.ast.pojos.interfaces.ElementValueArrayInitializer;
+import codit.ast.pojos.interfaces.ElementValuePair;
 import codit.ast.pojos.interfaces.InterfaceDeclaration;
+import codit.ast.pojos.interfaces.InterfaceMemberable;
+import codit.ast.pojos.interfaces.InterfaceMethodDeclaration;
+import codit.ast.pojos.interfaces.NormalInterfaceDeclaration;
 import codit.ast.pojos.literals.BooleanLiteral;
 import codit.ast.pojos.literals.CharacterLiteral;
 import codit.ast.pojos.literals.NullLiteral;
@@ -2061,82 +2075,362 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitInterfaceDeclaration(JavaParser.InterfaceDeclarationContext ctx) {
-    // TODO
-    return super.visitInterfaceDeclaration(ctx);
+    if (ctx.annotationTypeDeclaration() != null ) {
+      return (AnnotationTypeDeclaration) visit(ctx.annotationTypeDeclaration());
+    } else if (ctx.normalInterfaceDeclaration() != null) {
+      return (NormalInterfaceDeclaration) visit(ctx.normalInterfaceDeclaration());
+    } else {
+      System.err.println("ERROR : visitInterfaceDeclaration");
+      return super.visitInterfaceDeclaration(ctx);
+    }
   }
 
   @Override
   public AstNode visitNormalInterfaceDeclaration(JavaParser.NormalInterfaceDeclarationContext ctx) {
-    return super.visitNormalInterfaceDeclaration(ctx);
+    // get range
+    Range range = getRange(ctx);
+
+    // get class Modifier lists
+    List<Annotation> annotationList = new ArrayList<>();
+    int modifiers = 0;
+    for ( JavaParser.InterfaceModifierContext interfaceModifierContext : ctx.interfaceModifier()) {
+      if (interfaceModifierContext.annotation() != null) {
+        Annotation annotation = (Annotation) visit(interfaceModifierContext.annotation());
+        annotationList.add(annotation);
+      } else {
+        String normalModifier = interfaceModifierContext.getChild(0).getText();
+        switch(normalModifier) {
+          case "public" :
+            modifiers |= Modifiers.PUBLIC;
+            break;
+          case "protected" :
+            modifiers |= Modifiers.PROTECTED;
+            break;
+          case "private" :
+            modifiers |= Modifiers.PRIVATE;
+            break;
+          case "abstract" :
+            modifiers |= Modifiers.ABSTRACT;
+            break;
+          case "static" :
+            modifiers |= Modifiers.STATIC;
+            break;
+          case "strictfp" :
+            modifiers |= Modifiers.STRICTFP;
+            break;
+          default : // Error
+            modifiers = -1;
+            break;
+        }
+      }
+    }
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    // get list of type parameter
+    List<TypeParameter> typeParameterList = new ArrayList<>();
+    for (JavaParser.TypeParameterContext typeParameterContext
+        : ctx.typeParameters().typeParameterList().typeParameter()) {
+      TypeParameter typeParameter = (TypeParameter) visit(typeParameterContext);
+      typeParameterList.add(typeParameter);
+    }
+
+    // get interface type list
+    List<InterfaceType> interfaceTypeList = new ArrayList<>();
+    for (JavaParser.InterfaceTypeContext interfaceTypeContext
+        : ctx.extendsInterfaces().interfaceTypeList().interfaceType()) {
+      InterfaceType interfaceType = (InterfaceType) visit(interfaceTypeContext);
+      interfaceTypeList.add(interfaceType);
+    }
+
+    // get list of interface Members
+    List<InterfaceMemberable> interfaceMemberableList = new ArrayList<>();
+    for (JavaParser.InterfaceMemberDeclarationContext interfaceMemberDeclarationContext
+        : ctx.interfaceBody().interfaceMemberDeclaration()) {
+      InterfaceMemberable interfaceMemberable = (InterfaceMemberable) visit(interfaceMemberDeclarationContext);
+      interfaceMemberableList.add(interfaceMemberable);
+    }
+
+    return new NormalInterfaceDeclaration(range, null, annotationList, modifiers, identifier, typeParameterList, interfaceTypeList, interfaceMemberableList);
   }
 
   @Override
   public AstNode visitInterfaceModifier(JavaParser.InterfaceModifierContext ctx) {
+    // Not necessary
     return super.visitInterfaceModifier(ctx);
   }
 
   @Override
   public AstNode visitExtendsInterfaces(JavaParser.ExtendsInterfacesContext ctx) {
+    // Not necessary
     return super.visitExtendsInterfaces(ctx);
   }
 
   @Override
   public AstNode visitInterfaceBody(JavaParser.InterfaceBodyContext ctx) {
+    // Not necessary
     return super.visitInterfaceBody(ctx);
   }
 
   @Override
   public AstNode visitInterfaceMemberDeclaration(JavaParser.InterfaceMemberDeclarationContext ctx) {
-    return super.visitInterfaceMemberDeclaration(ctx);
+
+    if( ctx.constantDeclaration() != null ) {
+      return (ConstantDeclaration) visit(ctx.constantDeclaration());
+    } else if (ctx.interfaceMethodDeclaration() != null) {
+      return (InterfaceMethodDeclaration) visit(ctx.interfaceMethodDeclaration());
+    } else if (ctx.classDeclaration() != null) {
+      return (ClassDeclaration) visit(ctx.classDeclaration());
+    } else if (ctx.interfaceDeclaration() != null) {
+      return (InterfaceDeclaration) visit(ctx.interfaceDeclaration());
+    } else {
+      System.err.println("ERROR : visitInterfaceMemberDeclaration");
+      return super.visitInterfaceMemberDeclaration(ctx);
+    }
+
   }
 
   @Override
   public AstNode visitConstantDeclaration(JavaParser.ConstantDeclarationContext ctx) {
-    return super.visitConstantDeclaration(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get class Modifier lists
+    List<Annotation> annotationList = new ArrayList<>();
+    int modifiers = 0;
+    for ( JavaParser.ConstantModifierContext constantModifierContext : ctx.constantModifier()) {
+      if (constantModifierContext.annotation() != null) {
+        Annotation annotation = (Annotation) visit(constantModifierContext.annotation());
+        annotationList.add(annotation);
+      } else {
+        String normalModifier = constantModifierContext.getChild(0).getText();
+        switch(normalModifier) {
+          case "public" :
+            modifiers |= Modifiers.PUBLIC;
+            break;
+          case "static" :
+            modifiers |= Modifiers.STATIC;
+            break;
+          case "final" :
+            modifiers |= Modifiers.FINAL;
+            break;
+          default : // Error
+            modifiers = -1;
+            break;
+        }
+      }
+    }
+
+    // get unannotated type
+    UnannType unannType = (UnannType) visit(ctx.unannType());
+
+    // get list of variable declarator
+    List<VariableDeclarator> variableDeclaratorList = new ArrayList<>();
+    for (JavaParser.VariableDeclaratorContext variableDeclaratorContext
+        : ctx.variableDeclaratorList().variableDeclarator()) {
+      VariableDeclarator variableDeclarator = (VariableDeclarator) visit(variableDeclaratorContext);
+      variableDeclaratorList.add(variableDeclarator);
+    }
+
+    return new ConstantDeclaration(range, null, annotationList, modifiers, unannType, variableDeclaratorList);
   }
 
   @Override
   public AstNode visitConstantModifier(JavaParser.ConstantModifierContext ctx) {
+    // not necessary
     return super.visitConstantModifier(ctx);
   }
 
   @Override
   public AstNode visitInterfaceMethodDeclaration(JavaParser.InterfaceMethodDeclarationContext ctx) {
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get class Modifier lists
+    List<Annotation> annotationList = new ArrayList<>();
+    int modifiers = 0;
+    for ( JavaParser.InterfaceMethodModifierContext interfaceMethodModifierContext
+        : ctx.interfaceMethodModifier()) {
+      if (interfaceMethodModifierContext.annotation() != null) {
+        Annotation annotation = (Annotation) visit(interfaceMethodModifierContext.annotation());
+        annotationList.add(annotation);
+      } else {
+        String normalModifier = interfaceMethodModifierContext.getChild(0).getText();
+        switch(normalModifier) {
+          case "default" :
+            modifiers |= Modifiers.DEFAULT;
+            break;
+          case "public" :
+            modifiers |= Modifiers.PUBLIC;
+            break;
+          case "abstract" :
+            modifiers |= Modifiers.ABSTRACT;
+            break;
+          case "static" :
+            modifiers |= Modifiers.STATIC;
+            break;
+          case "strictfp" :
+            modifiers |= Modifiers.STRICTFP;
+            break;
+          default : // Error
+            modifiers = -1;
+            break;
+        }
+      }
+    }
+
+    // get methodheader
+    MethodHeader methodHeader = (MethodHeader) visit(ctx.methodHeader());
+
+    // get Method body (block)
+    Block block = (Block) visit(ctx.methodBody().block());
+
     return super.visitInterfaceMethodDeclaration(ctx);
   }
 
   @Override
   public AstNode visitInterfaceMethodModifier(JavaParser.InterfaceMethodModifierContext ctx) {
+    // Not necessary
     return super.visitInterfaceMethodModifier(ctx);
   }
 
   @Override
   public AstNode visitAnnotationTypeDeclaration(JavaParser.AnnotationTypeDeclarationContext ctx) {
-    return super.visitAnnotationTypeDeclaration(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get class Modifier lists
+    List<Annotation> annotationList = new ArrayList<>();
+    int modifiers = 0;
+    for ( JavaParser.InterfaceModifierContext interfaceModifierContext : ctx.interfaceModifier()) {
+      if (interfaceModifierContext.annotation() != null) {
+        Annotation annotation = (Annotation) visit(interfaceModifierContext.annotation());
+        annotationList.add(annotation);
+      } else {
+        String normalModifier = interfaceModifierContext.getChild(0).getText();
+        switch(normalModifier) {
+          case "public" :
+            modifiers |= Modifiers.PUBLIC;
+            break;
+          case "protected" :
+            modifiers |= Modifiers.PROTECTED;
+            break;
+          case "private" :
+            modifiers |= Modifiers.PRIVATE;
+            break;
+          case "abstract" :
+            modifiers |= Modifiers.ABSTRACT;
+            break;
+          case "static" :
+            modifiers |= Modifiers.STATIC;
+            break;
+          case "strictfp" :
+            modifiers |= Modifiers.STRICTFP;
+            break;
+          default : // Error
+            modifiers = -1;
+            break;
+        }
+      }
+    }
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    // get annoatation Type Body
+    List<AnnotationTypeMemberable> annotationTypeMemberableList = new ArrayList<>();
+    for (JavaParser.AnnotationTypeMemberDeclarationContext annotationTypeMemberDeclarationContext
+        : ctx.annotationTypeBody().annotationTypeMemberDeclaration()) {
+      AnnotationTypeMemberable annotationTypeMemberable
+          = (AnnotationTypeMemberable) visit(annotationTypeMemberDeclarationContext);
+      annotationTypeMemberableList.add(annotationTypeMemberable);
+    }
+
+    return new AnnotationTypeDeclaration(range, null, annotationList, modifiers, identifier, annotationTypeMemberableList);
   }
 
   @Override
   public AstNode visitAnnotationTypeBody(JavaParser.AnnotationTypeBodyContext ctx) {
+    // Not necessary
     return super.visitAnnotationTypeBody(ctx);
   }
 
   @Override
   public AstNode visitAnnotationTypeMemberDeclaration(JavaParser.AnnotationTypeMemberDeclarationContext ctx) {
-    return super.visitAnnotationTypeMemberDeclaration(ctx);
+    if(ctx.annotationTypeElementDeclaration() != null) {
+      return (AnnotationTypeElementDeclaration) visit(ctx.annotationTypeElementDeclaration());
+    } else if (ctx.constantDeclaration() != null) {
+      return (ConstantDeclaration) visit(ctx.constantDeclaration());
+    } else if (ctx.classDeclaration() != null) {
+      return (ClassDeclaration) visit(ctx.classDeclaration());
+    } else if (ctx.interfaceDeclaration() != null) {
+      return (InterfaceDeclaration) visit(ctx.interfaceDeclaration());
+    } else {
+      System.err.println("ERROR : visitAnnotationTypeMemberDeclaration");
+      return super.visitAnnotationTypeMemberDeclaration(ctx);
+    }
   }
 
   @Override
   public AstNode visitAnnotationTypeElementDeclaration(JavaParser.AnnotationTypeElementDeclarationContext ctx) {
-    return super.visitAnnotationTypeElementDeclaration(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get class Modifier lists
+    List<Annotation> annotationList = new ArrayList<>();
+    int modifiers = 0;
+    for ( JavaParser.AnnotationTypeElementModifierContext annotationTypeElementModifierContext
+        : ctx.annotationTypeElementModifier()) {
+
+      if (annotationTypeElementModifierContext.annotation() != null) {
+        Annotation annotation = (Annotation) visit(annotationTypeElementModifierContext.annotation());
+        annotationList.add(annotation);
+      } else {
+        String normalModifier = annotationTypeElementModifierContext.getChild(0).getText();
+        switch(normalModifier) {
+          case "public" :
+            modifiers |= Modifiers.PUBLIC;
+            break;
+          case "abstract" :
+            modifiers |= Modifiers.ABSTRACT;
+            break;
+          default : // Error
+            modifiers = -1;
+            break;
+        }
+      }
+    }
+
+    // get Unannotated type
+    UnannType unannType = (UnannType) visit(ctx.unannType());
+
+    // get Identifier
+    String identifier = ctx.Identifier().getText();
+
+    // get dims
+    Dims dims = (Dims) visit(ctx.dims());
+
+    // get default Value
+    ElementValue elementValue = (ElementValue) visit(ctx.defaultValue().elementValue());
+
+
+    return new AnnotationTypeElementDeclaration(range, null, annotationList, modifiers, unannType, identifier, dims, elementValue);
   }
 
   @Override
   public AstNode visitAnnotationTypeElementModifier(JavaParser.AnnotationTypeElementModifierContext ctx) {
+    // Not necessary
     return super.visitAnnotationTypeElementModifier(ctx);
   }
 
   @Override
   public AstNode visitDefaultValue(JavaParser.DefaultValueContext ctx) {
+    // Not necessary
     return super.visitDefaultValue(ctx);
   }
 
@@ -2147,46 +2441,112 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitNormalAnnotation(JavaParser.NormalAnnotationContext ctx) {
-    return super.visitNormalAnnotation(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get type name
+    TypeName typeName = (TypeName) visit(ctx.typeName());
+
+    // get list of element value pair
+    List<ElementValuePair> elementValuePairList = new ArrayList<>();
+    for (JavaParser.ElementValuePairContext elementValuePairContext
+        : ctx.elementValuePairList().elementValuePair()) {
+      ElementValuePair elementValuePair = (ElementValuePair) visit(elementValuePairContext);
+      elementValuePairList.add(elementValuePair);
+    }
+
+    return new NormalAnnotation(range, null, typeName, elementValuePairList);
   }
 
   @Override
   public AstNode visitElementValuePairList(JavaParser.ElementValuePairListContext ctx) {
+    // Not necessary
     return super.visitElementValuePairList(ctx);
   }
 
   @Override
   public AstNode visitElementValuePair(JavaParser.ElementValuePairContext ctx) {
-    return super.visitElementValuePair(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    // get elementValue
+    ElementValue elementValue = (ElementValue) visit(ctx.elementValue());
+
+    return new ElementValuePair(range, null, identifier, elementValue);
   }
 
   @Override
   public AstNode visitElementValue(JavaParser.ElementValueContext ctx) {
-    return super.visitElementValue(ctx);
+    if (ctx.conditionalExpression() != null) {
+      return (ConditionalExpression) visit(ctx.conditionalExpression());
+    } else if (ctx.elementValueArrayInitializer() != null) {
+      return (ElementValueArrayInitializer) visit(ctx.elementValueArrayInitializer());
+    } else if (ctx.annotation() != null) {
+      return (Annotation) visit(ctx.annotation());
+    } else {
+      System.err.println("ERROR : visitElementValue");
+      return super.visitElementValue(ctx);
+    }
+
   }
 
   @Override
   public AstNode visitElementValueArrayInitializer(JavaParser.ElementValueArrayInitializerContext ctx) {
-    return super.visitElementValueArrayInitializer(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get list of element values
+    List<ElementValue> elementValueList = new ArrayList<>();
+    for (JavaParser.ElementValueContext elementValueContext : ctx.elementValueList().elementValue()) {
+      ElementValue elementValue = (ElementValue) visit(elementValueContext);
+      elementValueList.add(elementValue);
+    }
+
+    return new ElementValueArrayInitializer(range, null, elementValueList);
   }
 
   @Override
   public AstNode visitElementValueList(JavaParser.ElementValueListContext ctx) {
+    // not necessary
     return super.visitElementValueList(ctx);
   }
 
   @Override
   public AstNode visitMarkerAnnotation(JavaParser.MarkerAnnotationContext ctx) {
-    return super.visitMarkerAnnotation(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get type name
+    TypeName typeName = (TypeName) visit(ctx.typeName());
+
+    return new MarkerAnnotation(range, null, typeName);
   }
 
   @Override
   public AstNode visitSingleElementAnnotation(JavaParser.SingleElementAnnotationContext ctx) {
-    return super.visitSingleElementAnnotation(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get type name
+    TypeName typeName = (TypeName) visit(ctx.typeName());
+
+    // get element value
+    ElementValue elementValue = (ElementValue) visit(ctx.elementValue());
+
+    return new SingleElementAnnotation(range, null, typeName, elementValue);
   }
 
   @Override
   public AstNode visitArrayInitializer(JavaParser.ArrayInitializerContext ctx) {
+
     return super.visitArrayInitializer(ctx);
   }
 
