@@ -2547,11 +2547,23 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
   @Override
   public AstNode visitArrayInitializer(JavaParser.ArrayInitializerContext ctx) {
 
-    return super.visitArrayInitializer(ctx);
+    // get range
+    Range range = getRange(ctx);
+
+    // get list of variable initializer
+    List<VariableInitializer> variableInitializerList = new ArrayList<>();
+    for (JavaParser.VariableInitializerContext variableInitializerContext
+        : ctx.variableInitializerList().variableInitializer()) {
+      VariableInitializer variableInitializer = (VariableInitializer) visit(variableInitializerContext);
+      variableInitializerList.add(variableInitializer);
+    }
+
+    return new ArrayInitializer(range, null, variableInitializerList);
   }
 
   @Override
   public AstNode visitVariableInitializerList(JavaParser.VariableInitializerListContext ctx) {
+    // Not necessary
     return super.visitVariableInitializerList(ctx);
   }
 
