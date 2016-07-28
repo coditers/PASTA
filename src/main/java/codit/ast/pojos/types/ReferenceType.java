@@ -7,7 +7,7 @@ import codit.ast.Range;
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
-public class ReferenceType extends Type implements Arguable {
+public abstract class ReferenceType extends Type implements Arguable {
 
   public ReferenceType(Range range, AstNode parent) {
     super(range, parent);

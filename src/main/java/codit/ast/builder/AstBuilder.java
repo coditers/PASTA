@@ -91,7 +91,19 @@ import codit.ast.pojos.types.Wildcard;
 import codit.ast.pojos.types.WildcardBounds;
 import codit.ast.pojos.types.exceptions.ExceptionType;
 import codit.ast.pojos.types.exceptions.Exceptionable;
+import codit.ast.pojos.types.unann.LfUnannUnitClassType;
+import codit.ast.pojos.types.unann.LfUnannUnitInterfaceType;
+import codit.ast.pojos.types.unann.UnannArrayType;
+import codit.ast.pojos.types.unann.UnannClassOrInterfaceType;
+import codit.ast.pojos.types.unann.UnannClassType;
+import codit.ast.pojos.types.unann.UnannInterfaceType;
+import codit.ast.pojos.types.unann.UnannPrimitiveType;
+import codit.ast.pojos.types.unann.UnannReferenceType;
 import codit.ast.pojos.types.unann.UnannType;
+import codit.ast.pojos.types.unann.UnannTypeVariable;
+import codit.ast.pojos.types.unann.UnannUnitClassOrInterfaceType;
+import codit.ast.pojos.types.unann.UnannUnitClassType;
+import codit.ast.pojos.types.unann.UnannUnitInterfaceType;
 import codit.ast.pojos.variables.VariableDeclarator;
 import codit.ast.pojos.variables.VariableDeclaratorId;
 import codit.ast.pojos.variables.VariableInitializer;
@@ -1196,56 +1208,221 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitUnannType(JavaParser.UnannTypeContext ctx) {
-    return super.visitUnannType(ctx);
+
+    if (ctx.unannPrimitiveType() != null) {
+      return (UnannPrimitiveType) visit(ctx.unannPrimitiveType());
+    } else if (ctx.unannReferenceType() != null) {
+      return (UnannReferenceType) visit(ctx.unannReferenceType());
+    } else {
+      System.err.println("ERROR : visitUnannType");
+      return super.visitUnannType(ctx);
+    }
+
   }
 
   @Override
   public AstNode visitUnannPrimitiveType(JavaParser.UnannPrimitiveTypeContext ctx) {
-    return super.visitUnannPrimitiveType(ctx);
+
+    // get range of symbol
+    Range range = getRange(ctx);
+
+    // get primitive type
+    String text;
+    if (ctx.numericType() != null) {
+
+      if (ctx.numericType().integralType() != null) {
+        text = ctx.numericType().integralType().getText();
+
+      } else if (ctx.numericType().floatingPointType() != null) {
+        text = ctx.numericType().floatingPointType().getText();
+
+      } else {
+        System.err.println("ERROR");
+        return super.visitUnannPrimitiveType(ctx);
+      }
+
+    } else { text = "boolean"; }
+
+    return new UnannPrimitiveType(range, null, PrimitiveType.Primitive.valueOf(text));
   }
 
   @Override
   public AstNode visitUnannReferenceType(JavaParser.UnannReferenceTypeContext ctx) {
-    return super.visitUnannReferenceType(ctx);
+    if (ctx.unannClassOrInterfaceType() != null) {
+      return (UnannClassOrInterfaceType) visit(ctx.unannClassOrInterfaceType());
+    } else if (ctx.unannTypeVariable() != null) {
+      return (UnannTypeVariable) visit(ctx.unannTypeVariable());
+    } else if (ctx.unannArrayType() != null) {
+      return (UnannArrayType) visit(ctx.unannArrayType());
+    } else {
+      System.err.println("ERROR : visitUnannReferenceType");
+      return super.visitUnannReferenceType(ctx);
+    }
   }
 
   @Override
   public AstNode visitUnannClassOrInterfaceType(JavaParser.UnannClassOrInterfaceTypeContext ctx) {
-    return super.visitUnannClassOrInterfaceType(ctx);
+
+    //get range
+    Range range = getRange(ctx);
+
+    // is Interface
+    boolean isInterface = false;
+    if (ctx.getChild(ctx.getChildCount()-1).getParent()
+        instanceof JavaParser.UnannInterfaceType_lf_unannClassOrInterfaceTypeContext) {
+      isInterface = true;
+    }
+
+    // get Class or Interface Type List ( except last child )
+    UnannUnitClassOrInterfaceType unannUnitClassOrInterfaceType = null;
+
+    if (ctx.unannClassType_lfno_unannClassOrInterfaceType() != null) {
+      unannUnitClassOrInterfaceType
+          = (UnannUnitClassOrInterfaceType) visit(ctx.unannClassType_lfno_unannClassOrInterfaceType());
+
+    } else if (ctx.unannInterfaceType_lfno_unannClassOrInterfaceType() != null) {
+      unannUnitClassOrInterfaceType
+          = (UnannUnitClassOrInterfaceType) visit(ctx.unannInterfaceType_lfno_unannClassOrInterfaceType());
+
+    } else {
+      System.err.println("ERROR : visitUnannClassOrInterfaceType");
+
+    }
+
+    // get Unit Class Or Interface Type ( last child )
+    List<UnannUnitClassOrInterfaceType> unannClassOrInterfaceType = new ArrayList<>();
+
+    for (int i = 1; i < ctx.getChildCount() ; i++) {
+      ParseTree child = ctx.getChild(i);
+      if (child instanceof JavaParser.ClassType_lf_classOrInterfaceTypeContext) {
+        UnannUnitClassOrInterfaceType unannUnitClassType = (UnannUnitClassOrInterfaceType) visit(child);
+        unannClassOrInterfaceType.add( unannUnitClassType );
+      } else if (child instanceof JavaParser.UnannInterfaceType_lf_unannClassOrInterfaceTypeContext) {
+        UnannUnitClassOrInterfaceType unannUnitInterfaceType = (UnannUnitClassOrInterfaceType) visit(child);
+        unannClassOrInterfaceType.add( unannUnitInterfaceType );
+      } else {
+        System.err.println("ERROR : visitUnannClassOrInterfaceType");
+      }
+    }
+
+    return new UnannClassOrInterfaceType(range, null, isInterface, unannUnitClassOrInterfaceType, unannClassOrInterfaceType);
   }
 
   @Override
   public AstNode visitUnannClassType(JavaParser.UnannClassTypeContext ctx) {
-    return super.visitUnannClassType(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get unannotated class or interface type
+    UnannClassOrInterfaceType unannClassOrInterfaceType = null;
+    if (ctx.unannClassOrInterfaceType() != null) {
+      unannClassOrInterfaceType = (UnannClassOrInterfaceType) visit(ctx.unannClassOrInterfaceType());
+    }
+
+    // get list of annotation
+    List<Annotation> annotationList = new ArrayList<>();
+    for (JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+      Annotation annotation = (Annotation) visit(annotationContext);
+      annotationList.add(annotation);
+    }
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    // list of type argument
+    List<TypeArgument> typeArgumentList = new ArrayList<>();
+    for (JavaParser.TypeArgumentContext typeArgumentContext
+        : ctx.typeArguments().typeArgumentList().typeArgument()) {
+      TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
+      typeArgumentList.add(typeArgument);
+    }
+
+    return new UnannClassType(range, null, unannClassOrInterfaceType, annotationList, identifier, typeArgumentList);
   }
 
   @Override
   public AstNode visitUnannClassType_lf_unannClassOrInterfaceType(JavaParser.UnannClassType_lf_unannClassOrInterfaceTypeContext ctx) {
-    return super.visitUnannClassType_lf_unannClassOrInterfaceType(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get list of annotation
+    List<Annotation> annotationList = new ArrayList<>();
+    for (JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+      Annotation annotation = (Annotation) visit(annotationContext);
+      annotationList.add(annotation);
+    }
+
+    // get identifiers
+    String identifier = ctx.Identifier().getText();
+
+    // get list of type arguments
+    List<TypeArgument> typeArgumentList = new ArrayList<>();
+    for (JavaParser.TypeArgumentContext typeArgumentContext : ctx.typeArguments().typeArgumentList().typeArgument()) {
+      TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
+    }
+
+    return new LfUnannUnitClassType(range, null, annotationList, identifier, typeArgumentList);
   }
 
   @Override
   public AstNode visitUnannClassType_lfno_unannClassOrInterfaceType(JavaParser.UnannClassType_lfno_unannClassOrInterfaceTypeContext ctx) {
-    return super.visitUnannClassType_lfno_unannClassOrInterfaceType(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    // get list of type argument
+    List<TypeArgument> typeArgumentList = new ArrayList<>();
+    for (JavaParser.TypeArgumentContext typeArgumentContext : ctx.typeArguments().typeArgumentList().typeArgument()) {
+      TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
+    }
+
+    return new UnannUnitClassType(range, null, identifier, typeArgumentList);
   }
 
   @Override
   public AstNode visitUnannInterfaceType(JavaParser.UnannInterfaceTypeContext ctx) {
-    return super.visitUnannInterfaceType(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get unannotated class type
+    UnannClassType unannClassType = (UnannClassType) visit(ctx.unannClassType());
+
+    return new UnannInterfaceType(range, null, unannClassType);
   }
 
   @Override
   public AstNode visitUnannInterfaceType_lf_unannClassOrInterfaceType(JavaParser.UnannInterfaceType_lf_unannClassOrInterfaceTypeContext ctx) {
-    return super.visitUnannInterfaceType_lf_unannClassOrInterfaceType(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get lf unit class type
+    LfUnannUnitClassType lfUnannUnitClassType = (LfUnannUnitClassType) visit(ctx.unannClassType_lf_unannClassOrInterfaceType());
+
+    return new LfUnannUnitInterfaceType(range, null, lfUnannUnitClassType);
   }
 
   @Override
   public AstNode visitUnannInterfaceType_lfno_unannClassOrInterfaceType(JavaParser.UnannInterfaceType_lfno_unannClassOrInterfaceTypeContext ctx) {
-    return super.visitUnannInterfaceType_lfno_unannClassOrInterfaceType(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get unit class type
+    UnannUnitClassType unannUnitClassType = (UnannUnitClassType) visit(ctx.unannClassType_lfno_unannClassOrInterfaceType());
+
+    return new UnannUnitInterfaceType(range, null, unannUnitClassType);
   }
 
   @Override
   public AstNode visitUnannTypeVariable(JavaParser.UnannTypeVariableContext ctx) {
+
     return super.visitUnannTypeVariable(ctx);
   }
 
@@ -1879,6 +2056,8 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // not necessary
     return super.visitEnumBodyDeclarations(ctx);
   }
+
+  //
 
   @Override
   public AstNode visitInterfaceDeclaration(JavaParser.InterfaceDeclarationContext ctx) {
