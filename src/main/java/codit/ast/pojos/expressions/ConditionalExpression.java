@@ -4,6 +4,7 @@ import codit.ast.AstNode;
 import codit.ast.Position;
 import codit.ast.Range;
 import codit.ast.pojos.interfaces.ElementValue;
+import codit.ast.pojos.statements.AssignmentExpression;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>

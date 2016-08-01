@@ -16,6 +16,9 @@ import codit.ast.pojos.annotations.NormalAnnotation;
 import codit.ast.pojos.annotations.SingleElementAnnotation;
 import codit.ast.pojos.blocks.Block;
 import codit.ast.pojos.blocks.BlockStatements;
+import codit.ast.pojos.blocks.InBlockStatement;
+import codit.ast.pojos.blocks.LocalVariableDeclaration;
+import codit.ast.pojos.blocks.LocalVariableDeclarationStatement;
 import codit.ast.pojos.classes.ArrayInitializer;
 import codit.ast.pojos.classes.ClassBodyDeclaration;
 import codit.ast.pojos.classes.ClassDeclaration;
@@ -43,8 +46,9 @@ import codit.ast.pojos.classes.members.MethodDeclaration;
 import codit.ast.pojos.classes.members.MethodDeclarator;
 import codit.ast.pojos.classes.members.MethodHeader;
 import codit.ast.pojos.classes.members.SimpleMethodHeader;
-import codit.ast.pojos.expressions.ConditionalExpression;
 import codit.ast.pojos.expressions.Expression;
+import codit.ast.pojos.expressions.StatementExpression;
+import codit.ast.pojos.expressions.StatementExpressionList;
 import codit.ast.pojos.expressions.primaries.Primary;
 import codit.ast.pojos.interfaces.AnnotationTypeDeclaration;
 import codit.ast.pojos.interfaces.AnnotationTypeElementDeclaration;
@@ -85,6 +89,32 @@ import codit.ast.pojos.parameters.FormalParameterList;
 import codit.ast.pojos.parameters.LastFormalParameter;
 import codit.ast.pojos.parameters.Parameter;
 import codit.ast.pojos.parameters.ReceiverParameter;
+import codit.ast.pojos.statements.Statement;
+import codit.ast.pojos.statements.StatementNoShortIf;
+import codit.ast.pojos.statements.normal.BasicForStatement;
+import codit.ast.pojos.statements.normal.EnhancedForStatement;
+import codit.ast.pojos.statements.normal.ForInit;
+import codit.ast.pojos.statements.normal.IfThenElseStatement;
+import codit.ast.pojos.statements.normal.IfThenStatement;
+import codit.ast.pojos.statements.normal.LabeledStatement;
+import codit.ast.pojos.statements.normal.WhileStatement;
+import codit.ast.pojos.statements.noshortif.BasicForStatementNoShortIf;
+import codit.ast.pojos.statements.noshortif.EnhancedForStatementNoShortIf;
+import codit.ast.pojos.statements.noshortif.IfThenElseStatementNoShortIf;
+import codit.ast.pojos.statements.noshortif.LabeledStatementNoShortIf;
+import codit.ast.pojos.statements.noshortif.WhileStatementNoShortIf;
+import codit.ast.pojos.statements.withoutsubstatement.DoStatement;
+import codit.ast.pojos.statements.withoutsubstatement.EmptyStatement;
+import codit.ast.pojos.statements.withoutsubstatement.ExpressionStatement;
+import codit.ast.pojos.statements.withoutsubstatement.asserts.BinAssertStatement;
+import codit.ast.pojos.statements.withoutsubstatement.asserts.UnaryAssertStatement;
+import codit.ast.pojos.statements.withoutsubstatement.switches.ConstantSwitchLabel;
+import codit.ast.pojos.statements.withoutsubstatement.switches.DefaultSwitchLabel;
+import codit.ast.pojos.statements.withoutsubstatement.switches.EnumSwitchLabel;
+import codit.ast.pojos.statements.withoutsubstatement.switches.SwitchBlock;
+import codit.ast.pojos.statements.withoutsubstatement.switches.SwitchBlockStatementGroup;
+import codit.ast.pojos.statements.withoutsubstatement.switches.SwitchLabel;
+import codit.ast.pojos.statements.withoutsubstatement.switches.SwitchStatement;
 import codit.ast.pojos.types.ArrayType;
 import codit.ast.pojos.types.ClassOrInterfaceType;
 import codit.ast.pojos.types.ClassOrInterfaceTypeBound;
@@ -2483,11 +2513,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
   @Override
   public AstNode visitElementValue(JavaParser.ElementValueContext ctx) {
     if (ctx.conditionalExpression() != null) {
-      return (ConditionalExpression) visit(ctx.conditionalExpression());
+      return visit(ctx.conditionalExpression());
     } else if (ctx.elementValueArrayInitializer() != null) {
-      return (ElementValueArrayInitializer) visit(ctx.elementValueArrayInitializer());
+      return visit(ctx.elementValueArrayInitializer());
     } else if (ctx.annotation() != null) {
-      return (Annotation) visit(ctx.annotation());
+      return visit(ctx.annotation());
     } else {
       System.err.println("ERROR : visitElementValue");
       return super.visitElementValue(ctx);
@@ -2569,179 +2599,634 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitBlock(JavaParser.BlockContext ctx) {
-    return super.visitBlock(ctx);
+
+    // get Range
+    Range range = getRange(ctx);
+
+    // get block statements
+    BlockStatements blockStatements = (BlockStatements) visit(ctx.blockStatements());
+
+
+    return new Block(range, null, blockStatements);
   }
 
   @Override
   public AstNode visitBlockStatements(JavaParser.BlockStatementsContext ctx) {
-    return super.visitBlockStatements(ctx);
+
+    //get Range
+    Range range = getRange(ctx);
+
+    // get block Statement
+    List<InBlockStatement> inBlockStatementList = new ArrayList<>();
+    for (JavaParser.BlockStatementContext blockStatementContext
+        : ctx.blockStatement()) {
+      InBlockStatement inBlockStatement = (InBlockStatement) visit(blockStatementContext);
+      inBlockStatementList.add(inBlockStatement);
+    }
+    return new BlockStatements(range, null, inBlockStatementList);
   }
 
   @Override
   public AstNode visitBlockStatement(JavaParser.BlockStatementContext ctx) {
-    return super.visitBlockStatement(ctx);
+
+    if (ctx.localVariableDeclarationStatement() != null) {
+      return visit(ctx.localVariableDeclarationStatement());
+    } else if (ctx.classDeclaration() != null) {
+      return visit(ctx.classDeclaration());
+    } else if (ctx.statement() != null) {
+      return visit(ctx.statement());
+    } else {
+      System.err.println("ERROR : visitBlockStatement");
+      return super.visitBlockStatement(ctx);
+    }
   }
 
   @Override
   public AstNode visitLocalVariableDeclarationStatement(JavaParser.LocalVariableDeclarationStatementContext ctx) {
-    return super.visitLocalVariableDeclarationStatement(ctx);
+
+    // get Range
+    Range range = getRange(ctx);
+
+    // get local variable declaration
+    LocalVariableDeclaration localVariableDeclaration
+        = (LocalVariableDeclaration) visit(ctx.localVariableDeclaration());
+
+    return new LocalVariableDeclarationStatement(range, null, localVariableDeclaration);
   }
 
   @Override
   public AstNode visitLocalVariableDeclaration(JavaParser.LocalVariableDeclarationContext ctx) {
-    return super.visitLocalVariableDeclaration(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get class Modifier lists
+    List<Annotation> annotationList = new ArrayList<>();
+    int modifiers = 0;
+    for ( JavaParser.VariableModifierContext variableModifierContext : ctx.variableModifier()) {
+
+      if (variableModifierContext.annotation() != null) {
+        Annotation annotation = (Annotation) visit(variableModifierContext.annotation());
+        annotationList.add(annotation);
+      } else {
+        String normalModifier = variableModifierContext.getChild(0).getText();
+        switch(normalModifier) {
+          case "final" :
+            modifiers |= Modifiers.FINAL;
+            break;
+          default : // Error
+            modifiers = -1;
+            break;
+        }
+      }
+    }
+
+    // get Unannotated type
+    UnannType unannType = (UnannType) visit(ctx.unannType());
+
+    // get list of variable declarator
+    List<VariableDeclarator> variableDeclaratorList = new ArrayList<>();
+    for (JavaParser.VariableDeclaratorContext variableDeclaratorContext
+        : ctx.variableDeclaratorList().variableDeclarator()) {
+      VariableDeclarator variableDeclarator = (VariableDeclarator) visit(variableDeclaratorContext);
+      variableDeclaratorList.add(variableDeclarator);
+    }
+
+    return new LocalVariableDeclaration(range, null, annotationList, modifiers, unannType, variableDeclaratorList);
   }
 
   @Override
   public AstNode visitStatement(JavaParser.StatementContext ctx) {
-    return super.visitStatement(ctx);
+    // TODO -
+    if (ctx.statementWithoutTrailingSubstatement() != null) {
+      return visit(ctx.statementWithoutTrailingSubstatement());
+    } else if (ctx.labeledStatement() != null) {
+      return visit(ctx.labeledStatement());
+    } else if (ctx.ifThenStatement() != null) {
+      return visit(ctx.ifThenStatement());
+    } else if (ctx.ifThenElseStatement() != null) {
+      return visit(ctx.ifThenElseStatement());
+    } else if (ctx.whileStatement() != null) {
+      return visit(ctx.whileStatement());
+    } else if (ctx.forStatement() != null) {
+      return visit(ctx.forStatement());
+    } else {
+      System.err.println("ERROR : visitStatement");
+      return super.visitStatement(ctx);
+    }
   }
 
   @Override
   public AstNode visitStatementNoShortIf(JavaParser.StatementNoShortIfContext ctx) {
-    return super.visitStatementNoShortIf(ctx);
+    // TODO -
+    if (ctx.statementWithoutTrailingSubstatement() != null) {
+      return visit(ctx.statementWithoutTrailingSubstatement());
+    } else if (ctx.labeledStatementNoShortIf() != null) {
+      return visit(ctx.labeledStatementNoShortIf());
+    } else if (ctx.ifThenElseStatementNoShortIf() != null) {
+      return visit(ctx.ifThenElseStatementNoShortIf());
+    } else if (ctx.whileStatementNoShortIf() != null) {
+      return visit(ctx.whileStatementNoShortIf());
+    } else if (ctx.forStatementNoShortIf() != null) {
+      return visit(ctx.forStatementNoShortIf());
+    } else {
+      System.err.println("ERROR : visitStatementNoShortIf");
+      return super.visitStatementNoShortIf(ctx);
+    }
   }
 
   @Override
   public AstNode visitStatementWithoutTrailingSubstatement(JavaParser.StatementWithoutTrailingSubstatementContext ctx) {
-    return super.visitStatementWithoutTrailingSubstatement(ctx);
+    // TODO -
+
+    if(ctx.block() != null) {
+      return visit(ctx.block());
+    } else if (ctx.emptyStatement() != null) {
+      return visit(ctx.emptyStatement());
+    } else if (ctx.expressionStatement() != null) {
+      return visit(ctx.expressionStatement());
+    } else if (ctx.assertStatement() != null) {
+      return visit(ctx.assertStatement());
+    } else if (ctx.switchStatement() != null) {
+      return visit(ctx.switchStatement());
+    } else if (ctx.doStatement() != null) {
+      return visit(ctx.doStatement());
+    } else if (ctx.breakStatement() != null) {
+      return visit(ctx.breakStatement());
+    } else if (ctx.continueStatement() != null) {
+      return visit(ctx.continueStatement());
+    } else if (ctx.returnStatement() != null) {
+      return visit(ctx.returnStatement());
+    } else if (ctx.synchronizedStatement() != null) {
+      return visit(ctx.synchronizedStatement());
+    } else if (ctx.throwStatement() != null) {
+      return visit(ctx.throwStatement());
+    } else if (ctx.tryStatement() != null) {
+      return visit(ctx.tryStatement());
+    } else {
+      System.err.println("ERROR : visitStatementWithoutTrailingSubstatement");
+      return super.visitStatementWithoutTrailingSubstatement(ctx);
+    }
   }
 
   @Override
   public AstNode visitEmptyStatement(JavaParser.EmptyStatementContext ctx) {
-    return super.visitEmptyStatement(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    return new EmptyStatement(range, null);
   }
 
   @Override
   public AstNode visitLabeledStatement(JavaParser.LabeledStatementContext ctx) {
-    return super.visitLabeledStatement(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    // get Statement
+    Statement statement = (Statement) visit(ctx.statement());
+
+    return new LabeledStatement(range, null, identifier, statement);
   }
 
   @Override
   public AstNode visitLabeledStatementNoShortIf(JavaParser.LabeledStatementNoShortIfContext ctx) {
-    return super.visitLabeledStatementNoShortIf(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    // get Statement no short if
+    StatementNoShortIf statementNoShortIf = (StatementNoShortIf) visit(ctx.statementNoShortIf());
+
+    return new LabeledStatementNoShortIf(range, null, identifier, statementNoShortIf);
   }
 
   @Override
   public AstNode visitExpressionStatement(JavaParser.ExpressionStatementContext ctx) {
-    return super.visitExpressionStatement(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get statement expression
+    StatementExpression statementExpression
+        = (StatementExpression) visit(ctx.statementExpression());
+
+    return new ExpressionStatement(range, null, statementExpression);
   }
 
   @Override
   public AstNode visitStatementExpression(JavaParser.StatementExpressionContext ctx) {
-    return super.visitStatementExpression(ctx);
+    // TODO -
+    if (ctx.assignment() != null) {
+      return visit(ctx.assignment());
+    } else if (ctx.preIncrementExpression() != null) {
+      return visit(ctx.preIncrementExpression());
+    } else if (ctx.preDecrementExpression() != null) {
+      return visit(ctx.preDecrementExpression());
+    } else if (ctx.postIncrementExpression() != null) {
+      return visit(ctx.postIncrementExpression());
+    } else if (ctx.postDecrementExpression() != null) {
+      return visit(ctx.postDecrementExpression());
+    } else if (ctx.methodInvocation() != null) {
+      return visit(ctx.methodInvocation());
+    } else if (ctx.classInstanceCreationExpression() != null) {
+      return visit(ctx.classInstanceCreationExpression());
+    } else {
+      System.err.println("ERROR : visitStatementExpression");
+      return super.visitStatementExpression(ctx);
+    }
   }
 
   @Override
   public AstNode visitIfThenStatement(JavaParser.IfThenStatementContext ctx) {
-    return super.visitIfThenStatement(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get expression
+    Expression expression = (Expression) visit(ctx.expression());
+
+    // get Statement
+    Statement statement = (Statement) visit(ctx.statement());
+
+    return new IfThenStatement(range, null, expression, statement);
   }
 
   @Override
   public AstNode visitIfThenElseStatement(JavaParser.IfThenElseStatementContext ctx) {
-    return super.visitIfThenElseStatement(ctx);
+    // get range
+    Range range = getRange(ctx);
+
+    // get expression
+    Expression expression = (Expression) visit(ctx.expression());
+
+    // get statement no short if
+    StatementNoShortIf statementNoShortIf = (StatementNoShortIf) visit(ctx.statementNoShortIf());
+
+    // get Statement
+    Statement statement = (Statement) visit(ctx.statement());
+
+    return new IfThenElseStatement(range, null, expression, statementNoShortIf, statement);
   }
 
   @Override
   public AstNode visitIfThenElseStatementNoShortIf(JavaParser.IfThenElseStatementNoShortIfContext ctx) {
-    return super.visitIfThenElseStatementNoShortIf(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get Expression
+    Expression expression = (Expression) visit(ctx.expression());
+
+    // get statement no short if
+    StatementNoShortIf statementNoShortIf = (StatementNoShortIf) visit(ctx.statementNoShortIf(0));
+
+    // get els statement no short if
+    StatementNoShortIf elseStatementNoShortIf = (StatementNoShortIf) visit(ctx.statementNoShortIf(1));
+
+    return new IfThenElseStatementNoShortIf(range, null, expression, statementNoShortIf, elseStatementNoShortIf);
   }
 
   @Override
   public AstNode visitAssertStatement(JavaParser.AssertStatementContext ctx) {
-    return super.visitAssertStatement(ctx);
+
+    // get Range
+    Range range = getRange(ctx);
+
+    // get first expression
+    Expression expression = (Expression) visit(ctx.expression(0));
+
+    // if any, get second expression.
+    if (ctx.expression(1) != null) {
+      Expression secondExpression = (Expression) visit(ctx.expression(1));
+
+      return new BinAssertStatement(range, null, expression, secondExpression);
+    }
+
+    return new UnaryAssertStatement(range, null, expression);
   }
 
   @Override
   public AstNode visitSwitchStatement(JavaParser.SwitchStatementContext ctx) {
-    return super.visitSwitchStatement(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get Expression
+    Expression expression = (Expression) visit(ctx.expression());
+
+    // get switch block
+    SwitchBlock switchBlock = (SwitchBlock) visit(ctx.switchBlock());
+
+    return new SwitchStatement(range, null, expression, switchBlock);
   }
 
   @Override
   public AstNode visitSwitchBlock(JavaParser.SwitchBlockContext ctx) {
-    return super.visitSwitchBlock(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get switch block statement groups
+    List<SwitchBlockStatementGroup> switchBlockStatementGroupList = new ArrayList<>();
+    for (JavaParser.SwitchBlockStatementGroupContext switchBlockStatementGroupContext
+        : ctx.switchBlockStatementGroup()) {
+      SwitchBlockStatementGroup switchBlockStatementGroup
+          = (SwitchBlockStatementGroup) visit(switchBlockStatementGroupContext);
+      switchBlockStatementGroupList.add(switchBlockStatementGroup);
+    }
+
+    // get list of switch labels
+    List<SwitchLabel> switchLabelList = new ArrayList<>();
+    for (JavaParser.SwitchLabelContext switchLabelContext : ctx.switchLabel()) {
+      SwitchLabel switchLabel = (SwitchLabel) visit(switchLabelContext);
+      switchLabelList.add(switchLabel);
+    }
+
+    return new SwitchBlock(range, null, switchBlockStatementGroupList, switchLabelList);
   }
 
   @Override
   public AstNode visitSwitchBlockStatementGroup(JavaParser.SwitchBlockStatementGroupContext ctx) {
-    return super.visitSwitchBlockStatementGroup(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get list of switch labels
+    List<SwitchLabel> switchLabelList = new ArrayList<>();
+    for (JavaParser.SwitchLabelContext switchLabelContext : ctx.switchLabels().switchLabel()) {
+      SwitchLabel switchLabel = (SwitchLabel) visit(switchLabelContext);
+      switchLabelList.add(switchLabel);
+    }
+
+    // get block statements
+    BlockStatements blockStatements = (BlockStatements) visit(ctx.blockStatements());
+
+    return new SwitchBlockStatementGroup(range, null, switchLabelList, blockStatements);
   }
 
   @Override
   public AstNode visitSwitchLabels(JavaParser.SwitchLabelsContext ctx) {
+    // Not necessary
     return super.visitSwitchLabels(ctx);
   }
 
   @Override
   public AstNode visitSwitchLabel(JavaParser.SwitchLabelContext ctx) {
-    return super.visitSwitchLabel(ctx);
+    Range range =getRange(ctx);
+
+    //
+    if (ctx.constantExpression() != null) {
+      Expression constantExpression = (Expression) visit(ctx.constantExpression().expression());
+      return new ConstantSwitchLabel(range, null, constantExpression);
+    } else if (ctx.enumConstantName() != null) {
+      String enumConstantName = ctx.enumConstantName().Identifier().getText();
+      return new EnumSwitchLabel(range, null, enumConstantName);
+    } else if (ctx.getChild(0).getText().equals("default")) {
+      return new DefaultSwitchLabel(range ,null);
+    } else {
+      System.err.println("ERROR : visitSwitchLabel");
+      return super.visitSwitchLabel(ctx);
+    }
   }
 
   @Override
   public AstNode visitEnumConstantName(JavaParser.EnumConstantNameContext ctx) {
+    // Not necessary
     return super.visitEnumConstantName(ctx);
   }
 
   @Override
   public AstNode visitWhileStatement(JavaParser.WhileStatementContext ctx) {
-    return super.visitWhileStatement(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get Expression
+    Expression expression = (Expression) visit(ctx.expression());
+
+    // get Statement
+    Statement statement = (Statement) visit(ctx.statement());
+
+    return new WhileStatement(range, null, expression, statement);
   }
 
   @Override
   public AstNode visitWhileStatementNoShortIf(JavaParser.WhileStatementNoShortIfContext ctx) {
-    return super.visitWhileStatementNoShortIf(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get Expression
+    Expression expression = (Expression) visit(ctx.expression());
+
+    // get statement
+    StatementNoShortIf statementNoShortIf = (StatementNoShortIf) visit(ctx.statementNoShortIf());
+
+    return new WhileStatementNoShortIf(range, null, expression, statementNoShortIf);
   }
 
   @Override
   public AstNode visitDoStatement(JavaParser.DoStatementContext ctx) {
-    return super.visitDoStatement(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get Statement
+    Statement statement = (Statement) visit(ctx.statement());
+
+    // get expression
+    Expression expression = (Expression) visit(ctx.expression());
+
+    return new DoStatement(range, null, statement, expression);
   }
 
   @Override
   public AstNode visitForStatement(JavaParser.ForStatementContext ctx) {
-    return super.visitForStatement(ctx);
+    if (ctx.basicForStatement() != null) {
+      return visit(ctx.basicForStatement());
+    } else if (ctx.enhancedForStatement() != null) {
+      return visit(ctx.enhancedForStatement());
+    } else {
+      System.err.println("ERROR : visitForStatement");
+      return super.visitForStatement(ctx);
+    }
   }
 
   @Override
   public AstNode visitForStatementNoShortIf(JavaParser.ForStatementNoShortIfContext ctx) {
-    return super.visitForStatementNoShortIf(ctx);
+    if (ctx.basicForStatementNoShortIf() != null) {
+      return visit(ctx.basicForStatementNoShortIf());
+    } else if (ctx.enhancedForStatementNoShortIf() != null) {
+      return visit(ctx.enhancedForStatementNoShortIf());
+    } else {
+      System.err.println("ERROR : visitForStatementNoShortIf");
+      return super.visitForStatementNoShortIf(ctx);
+    }
   }
 
   @Override
   public AstNode visitBasicForStatement(JavaParser.BasicForStatementContext ctx) {
-    return super.visitBasicForStatement(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get for init
+    ForInit forInit = (ForInit) visit(ctx.forInit());
+
+    // get for condition
+    Expression forCondition = (Expression) visit(ctx.expression());
+
+    // get for update
+    StatementExpressionList forUpdate = (StatementExpressionList) visit(ctx.forUpdate().statementExpressionList());
+
+    // get statement
+    Statement statement = (Statement) visit(ctx.statement());
+    return new BasicForStatement(range, null, forInit, forCondition, forUpdate, statement);
   }
 
   @Override
   public AstNode visitBasicForStatementNoShortIf(JavaParser.BasicForStatementNoShortIfContext ctx) {
-    return super.visitBasicForStatementNoShortIf(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get for init
+    ForInit forInit = (ForInit) visit(ctx.forInit());
+
+    // get for condition
+    Expression forCondition = (Expression) visit(ctx.expression());
+
+    // get for update
+    StatementExpressionList forUpdate = (StatementExpressionList) visit(ctx.forUpdate().statementExpressionList());
+
+    // get statement
+    StatementNoShortIf statementNoShortIf = (StatementNoShortIf) visit(ctx.statementNoShortIf());
+    return new BasicForStatementNoShortIf(range, null, forInit, forCondition, forUpdate, statementNoShortIf);
   }
 
   @Override
   public AstNode visitForInit(JavaParser.ForInitContext ctx) {
-    return super.visitForInit(ctx);
+    if (ctx.statementExpressionList() != null) {
+      return visit(ctx.statementExpressionList());
+    } else if (ctx.localVariableDeclaration() != null) {
+      return visit(ctx.localVariableDeclaration());
+    } else {
+      System.err.println("ERROR : visitForInit");
+      return super.visitForInit(ctx);
+    }
   }
 
   @Override
   public AstNode visitForUpdate(JavaParser.ForUpdateContext ctx) {
+    // Not Necessary
     return super.visitForUpdate(ctx);
   }
 
   @Override
   public AstNode visitStatementExpressionList(JavaParser.StatementExpressionListContext ctx) {
-    return super.visitStatementExpressionList(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get list of statement expression
+    List<StatementExpression> statementExpressionList = new ArrayList<>();
+
+    return new StatementExpressionList(range, null, statementExpressionList);
   }
 
   @Override
   public AstNode visitEnhancedForStatement(JavaParser.EnhancedForStatementContext ctx) {
-    return super.visitEnhancedForStatement(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get class Modifier lists
+    List<Annotation> annotationList = new ArrayList<>();
+    int modifiers = 0;
+    for ( JavaParser.VariableModifierContext variableModifierContext : ctx.variableModifier()) {
+
+      if (variableModifierContext.annotation() != null) {
+        Annotation annotation = (Annotation) visit(variableModifierContext.annotation());
+        annotationList.add(annotation);
+      } else {
+        String normalModifier = variableModifierContext.getChild(0).getText();
+        switch(normalModifier) {
+          case "final" :
+            modifiers |= Modifiers.FINAL;
+            break;
+          default : // Error
+            modifiers = -1;
+            break;
+        }
+      }
+    }
+
+    // get Unannotated type
+    UnannType unannType = (UnannType) visit(ctx.unannType());
+
+    // get variable declaratior id
+    VariableDeclaratorId variableDeclaratorId = (VariableDeclaratorId) visit(ctx.variableDeclaratorId());
+
+    // get expression
+    Expression expression = (Expression) visit(ctx.expression());
+
+    // get statement
+    Statement statement = (Statement) visit(ctx.statement());
+
+    return new EnhancedForStatement(range, null, annotationList, modifiers, unannType, variableDeclaratorId, expression, statement);
   }
 
   @Override
   public AstNode visitEnhancedForStatementNoShortIf(JavaParser.EnhancedForStatementNoShortIfContext ctx) {
-    return super.visitEnhancedForStatementNoShortIf(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get class Modifier lists
+    List<Annotation> annotationList = new ArrayList<>();
+    int modifiers = 0;
+    for ( JavaParser.VariableModifierContext variableModifierContext : ctx.variableModifier()) {
+
+      if (variableModifierContext.annotation() != null) {
+        Annotation annotation = (Annotation) visit(variableModifierContext.annotation());
+        annotationList.add(annotation);
+      } else {
+        String normalModifier = variableModifierContext.getChild(0).getText();
+        switch(normalModifier) {
+          case "final" :
+            modifiers |= Modifiers.FINAL;
+            break;
+          default : // Error
+            modifiers = -1;
+            break;
+        }
+      }
+    }
+
+    // get Unannotated type
+    UnannType unannType = (UnannType) visit(ctx.unannType());
+
+    // get variable declaratior id
+    VariableDeclaratorId variableDeclaratorId = (VariableDeclaratorId) visit(ctx.variableDeclaratorId());
+
+    // get expression
+    Expression expression = (Expression) visit(ctx.expression());
+
+    // get statement
+    StatementNoShortIf statementNoShortIf = (StatementNoShortIf) visit(ctx.statementNoShortIf());
+
+    return new EnhancedForStatementNoShortIf(range, null, annotationList, modifiers, unannType, variableDeclaratorId, expression, statementNoShortIf);
   }
 
+  // TODO - Aug 2nd, 2016
   @Override
   public AstNode visitBreakStatement(JavaParser.BreakStatementContext ctx) {
     return super.visitBreakStatement(ctx);
@@ -2969,6 +3454,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitConstantExpression(JavaParser.ConstantExpressionContext ctx) {
+    // Not necessary
     return super.visitConstantExpression(ctx);
   }
 

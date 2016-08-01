@@ -1,8 +1,9 @@
-package codit.ast.pojos.expressions;
+package codit.ast.pojos.statements;
 
 import codit.ast.AstNode;
 import codit.ast.Position;
 import codit.ast.Range;
+import codit.ast.pojos.expressions.Expression;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>

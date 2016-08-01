@@ -7,6 +7,7 @@ import codit.ast.Range;
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
+@Deprecated
 public abstract class BlockStatement extends AstNode {
   public BlockStatement(Range range, AstNode parent) {
     super(range, parent);
