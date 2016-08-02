@@ -103,9 +103,14 @@ import codit.ast.pojos.statements.noshortif.EnhancedForStatementNoShortIf;
 import codit.ast.pojos.statements.noshortif.IfThenElseStatementNoShortIf;
 import codit.ast.pojos.statements.noshortif.LabeledStatementNoShortIf;
 import codit.ast.pojos.statements.noshortif.WhileStatementNoShortIf;
+import codit.ast.pojos.statements.withoutsubstatement.BreakStatement;
+import codit.ast.pojos.statements.withoutsubstatement.ContinueStatement;
 import codit.ast.pojos.statements.withoutsubstatement.DoStatement;
 import codit.ast.pojos.statements.withoutsubstatement.EmptyStatement;
 import codit.ast.pojos.statements.withoutsubstatement.ExpressionStatement;
+import codit.ast.pojos.statements.withoutsubstatement.ReturnStatement;
+import codit.ast.pojos.statements.withoutsubstatement.SynchronizedStatement;
+import codit.ast.pojos.statements.withoutsubstatement.ThrowStatement;
 import codit.ast.pojos.statements.withoutsubstatement.asserts.BinAssertStatement;
 import codit.ast.pojos.statements.withoutsubstatement.asserts.UnaryAssertStatement;
 import codit.ast.pojos.statements.withoutsubstatement.switches.ConstantSwitchLabel;
@@ -115,6 +120,13 @@ import codit.ast.pojos.statements.withoutsubstatement.switches.SwitchBlock;
 import codit.ast.pojos.statements.withoutsubstatement.switches.SwitchBlockStatementGroup;
 import codit.ast.pojos.statements.withoutsubstatement.switches.SwitchLabel;
 import codit.ast.pojos.statements.withoutsubstatement.switches.SwitchStatement;
+import codit.ast.pojos.statements.withoutsubstatement.tries.CatchClause;
+import codit.ast.pojos.statements.withoutsubstatement.tries.CatchFormalParameter;
+import codit.ast.pojos.statements.withoutsubstatement.tries.CatchType;
+import codit.ast.pojos.statements.withoutsubstatement.tries.Resource;
+import codit.ast.pojos.statements.withoutsubstatement.tries.TryCatchFinallyStatement;
+import codit.ast.pojos.statements.withoutsubstatement.tries.TryCatchStatement;
+import codit.ast.pojos.statements.withoutsubstatement.tries.TryWithResourcesStatement;
 import codit.ast.pojos.types.ArrayType;
 import codit.ast.pojos.types.ClassOrInterfaceType;
 import codit.ast.pojos.types.ClassOrInterfaceTypeBound;
@@ -3226,80 +3238,244 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     return new EnhancedForStatementNoShortIf(range, null, annotationList, modifiers, unannType, variableDeclaratorId, expression, statementNoShortIf);
   }
 
-  // TODO - Aug 2nd, 2016
   @Override
   public AstNode visitBreakStatement(JavaParser.BreakStatementContext ctx) {
-    return super.visitBreakStatement(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    return new BreakStatement(range, null, identifier);
   }
 
   @Override
   public AstNode visitContinueStatement(JavaParser.ContinueStatementContext ctx) {
-    return super.visitContinueStatement(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    return new ContinueStatement(range, null, identifier);
   }
 
   @Override
   public AstNode visitReturnStatement(JavaParser.ReturnStatementContext ctx) {
-    return super.visitReturnStatement(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get expression
+    Expression expression = (Expression) visit(ctx.expression());
+
+    return new ReturnStatement(range, null, expression);
   }
 
   @Override
   public AstNode visitThrowStatement(JavaParser.ThrowStatementContext ctx) {
-    return super.visitThrowStatement(ctx);
+    // get range
+    Range range = getRange(ctx);
+
+    // get expression
+    Expression expression = (Expression) visit(ctx.expression());
+
+    return new ThrowStatement(range, null, expression);
   }
 
   @Override
   public AstNode visitSynchronizedStatement(JavaParser.SynchronizedStatementContext ctx) {
-    return super.visitSynchronizedStatement(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get expression
+    Expression expression = (Expression) visit(ctx.expression());
+
+    // get block
+    Block block = (Block) visit(ctx.block());
+
+    return new SynchronizedStatement(range, null, expression, block);
   }
 
   @Override
   public AstNode visitTryStatement(JavaParser.TryStatementContext ctx) {
-    return super.visitTryStatement(ctx);
+
+    if (ctx.tryWithResourcesStatement() != null) {
+      return visit(ctx.tryWithResourcesStatement());
+    }
+
+    // Range range
+    Range range = getRange(ctx);
+
+    // get block
+    Block tryBlock = (Block) visit(ctx.block());
+
+    // get catches
+    List<CatchClause> catches = new ArrayList<>();
+    for (JavaParser.CatchClauseContext catchClauseContext : ctx.catches().catchClause()) {
+      CatchClause catchClause = (CatchClause) visit(catchClauseContext);
+      catches.add(catchClause);
+    }
+
+    if (ctx.finally_() != null) {
+      Block finallyBlock = (Block) visit(ctx.finally_().block());
+      return new TryCatchFinallyStatement(range, null, tryBlock, catches, finallyBlock);
+    }
+    return new TryCatchStatement(range, null, tryBlock, catches);
   }
 
   @Override
   public AstNode visitCatches(JavaParser.CatchesContext ctx) {
+    // Not necessary
     return super.visitCatches(ctx);
   }
 
   @Override
   public AstNode visitCatchClause(JavaParser.CatchClauseContext ctx) {
-    return super.visitCatchClause(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get catcg formal Parameter
+    CatchFormalParameter catchFormalParameter
+        = (CatchFormalParameter) visit(ctx.catchFormalParameter());
+
+    // get block
+    Block block = (Block) visit(ctx.block());
+
+    return new CatchClause(range, null, catchFormalParameter, block);
   }
 
   @Override
   public AstNode visitCatchFormalParameter(JavaParser.CatchFormalParameterContext ctx) {
-    return super.visitCatchFormalParameter(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get class Modifier lists
+    List<Annotation> annotationList = new ArrayList<>();
+    int modifiers = 0;
+    for ( JavaParser.VariableModifierContext variableModifierContext : ctx.variableModifier()) {
+
+      if (variableModifierContext.annotation() != null) {
+        Annotation annotation = (Annotation) visit(variableModifierContext.annotation());
+        annotationList.add(annotation);
+      } else {
+        String normalModifier = variableModifierContext.getChild(0).getText();
+        switch(normalModifier) {
+          case "final" :
+            modifiers |= Modifiers.FINAL;
+            break;
+          default : // Error
+            modifiers = -1;
+            break;
+        }
+      }
+    }
+
+    // get Catch type
+    CatchType catchType = (CatchType) visit(ctx.catchType());
+
+    // get variable declaratior id
+    VariableDeclaratorId variableDeclaratorId = (VariableDeclaratorId) visit(ctx.variableDeclaratorId());
+
+    return new CatchFormalParameter(range, null, annotationList, modifiers, catchType, variableDeclaratorId);
   }
 
   @Override
   public AstNode visitCatchType(JavaParser.CatchTypeContext ctx) {
-    return super.visitCatchType(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get unannotated class type
+    UnannClassType unannClassType = (UnannClassType) visit(ctx.unannClassType());
+
+    // get list of class type
+    List<ClassType> classTypeList = new ArrayList<>();
+    for (JavaParser.ClassTypeContext classTypeContext : ctx.classType()) {
+      ClassType classType = (ClassType) visit(classTypeContext);
+      classTypeList.add(classType);
+    }
+
+    return new CatchType(range, null, unannClassType, classTypeList);
   }
 
   @Override
   public AstNode visitFinally_(JavaParser.Finally_Context ctx) {
+    // Not necessary
     return super.visitFinally_(ctx);
   }
 
   @Override
   public AstNode visitTryWithResourcesStatement(JavaParser.TryWithResourcesStatementContext ctx) {
-    return super.visitTryWithResourcesStatement(ctx);
-  }
 
-  @Override
-  public AstNode visitResourceSpecification(JavaParser.ResourceSpecificationContext ctx) {
-    return super.visitResourceSpecification(ctx);
-  }
+    // get range
+    Range range = getRange(ctx);
 
-  @Override
-  public AstNode visitResourceList(JavaParser.ResourceListContext ctx) {
-    return super.visitResourceList(ctx);
+    // get resource specification
+    List<Resource> resourceSpecification = new ArrayList<>();
+    for (JavaParser.ResourceContext resourceContext
+        : ctx.resourceSpecification().resourceList().resource()) {
+      Resource resource = (Resource) visit(resourceContext);
+      resourceSpecification.add(resource);
+    }
+
+    // get try block
+    Block tryBlock = (Block) visit(ctx.block());
+
+    // get catches (list of catch clause)
+    List<CatchClause> catches = new ArrayList<>();
+    for (JavaParser.CatchClauseContext catchClauseContext : ctx.catches().catchClause()) {
+      CatchClause catchClause = (CatchClause) visit(catchClauseContext);
+      catches.add(catchClause);
+    }
+
+    // get finallyBlock
+    Block finallyBlock = (Block) visit(ctx.finally_().block());
+
+    return new TryWithResourcesStatement(range, null, resourceSpecification, tryBlock, catches, finallyBlock);
   }
 
   @Override
   public AstNode visitResource(JavaParser.ResourceContext ctx) {
-    return super.visitResource(ctx);
+    // get range
+    Range range = getRange(ctx);
+
+    // get class Modifier lists
+    List<Annotation> annotationList = new ArrayList<>();
+    int modifiers = 0;
+    for ( JavaParser.VariableModifierContext variableModifierContext : ctx.variableModifier()) {
+
+      if (variableModifierContext.annotation() != null) {
+        Annotation annotation = (Annotation) visit(variableModifierContext.annotation());
+        annotationList.add(annotation);
+      } else {
+        String normalModifier = variableModifierContext.getChild(0).getText();
+        switch(normalModifier) {
+          case "final" :
+            modifiers |= Modifiers.FINAL;
+            break;
+          default : // Error
+            modifiers = -1;
+            break;
+        }
+      }
+    }
+
+    // get Catch type
+    UnannType unannType = (UnannType) visit(ctx.unannType());
+
+    // get variable declaratior id
+    VariableDeclaratorId variableDeclaratorId = (VariableDeclaratorId) visit(ctx.variableDeclaratorId());
+
+    // get expression
+    Expression expression = (Expression) visit(ctx.expression());
+
+    return new Resource(range, null, annotationList, modifiers, unannType, variableDeclaratorId, expression);
   }
 
   @Override
