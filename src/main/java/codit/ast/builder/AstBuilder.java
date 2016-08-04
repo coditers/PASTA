@@ -52,6 +52,11 @@ import codit.ast.pojos.expressions.StatementExpressionList;
 import codit.ast.pojos.expressions.primaries.Primary;
 import codit.ast.pojos.expressions.primaries.PrimaryArrayCreationExpression;
 import codit.ast.pojos.expressions.primaries.PrimaryNoNewArray;
+import codit.ast.pojos.expressions.primaries.arrayaccess.DefaultPrimaryArrayAccess;
+import codit.ast.pojos.expressions.primaries.arrayaccess.DefaultPrimaryExpressionArrayAccess;
+import codit.ast.pojos.expressions.primaries.arrayaccess.LfPrimaryArrayAccess;
+import codit.ast.pojos.expressions.primaries.arrayaccess.LfnoPrimaryArrayAccess;
+import codit.ast.pojos.expressions.primaries.arrayaccess.LfnoPrimaryExpressionArrayAccess;
 import codit.ast.pojos.expressions.primaries.arraycreationexpression.ArrayCreationExpression;
 import codit.ast.pojos.expressions.primaries.arraycreationexpression.BasicClassOrInterfaceArrayCreationExpression;
 import codit.ast.pojos.expressions.primaries.arraycreationexpression.BasicPrimitiveArrayCreationExpression;
@@ -75,6 +80,12 @@ import codit.ast.pojos.expressions.primaries.fieldaccess.PrimaryFieldAccess;
 import codit.ast.pojos.expressions.primaries.fieldaccess.ReferenceFieldAccess;
 import codit.ast.pojos.expressions.primaries.interfaces.DefaultArrayLfPrimary;
 import codit.ast.pojos.expressions.primaries.interfaces.DefaultArrayLfnoPrimary;
+import codit.ast.pojos.expressions.primaries.interfaces.LfArrayDefaultPrimary;
+import codit.ast.pojos.expressions.primaries.interfaces.LfArrayLfPrimary;
+import codit.ast.pojos.expressions.primaries.interfaces.LfArrayLfnoPrimary;
+import codit.ast.pojos.expressions.primaries.interfaces.LfnoArrayDefaultPrimary;
+import codit.ast.pojos.expressions.primaries.interfaces.LfnoArrayLfPrimary;
+import codit.ast.pojos.expressions.primaries.interfaces.LfnoArrayLfnoPrimary;
 import codit.ast.pojos.interfaces.AnnotationTypeDeclaration;
 import codit.ast.pojos.interfaces.AnnotationTypeElementDeclaration;
 import codit.ast.pojos.interfaces.AnnotationTypeMemberable;
@@ -4104,17 +4115,118 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitArrayAccess(JavaParser.ArrayAccessContext ctx) {
-    return super.visitArrayAccess(ctx);
+
+    // ger range
+    Range range = getRange(ctx);
+
+    // get first expression
+    Expression firstExpression = (Expression) visit(ctx.expression(0));
+
+
+    // get list of lf array default primary
+    List<LfArrayDefaultPrimary> lfArrayDefaultPrimaryList = new ArrayList<>();
+    for (JavaParser.PrimaryNoNewArray_lf_arrayAccessContext primaryNoNewArray_lf_arrayAccessContext
+        : ctx.primaryNoNewArray_lf_arrayAccess()) {
+      LfArrayDefaultPrimary lfArrayDefaultPrimary
+          = (LfArrayDefaultPrimary) visit(primaryNoNewArray_lf_arrayAccessContext);
+      lfArrayDefaultPrimaryList.add(lfArrayDefaultPrimary);
+    }
+
+    // get remain expressions
+    List<Expression> expressionList = new ArrayList<>();
+    for (int i = 1; i < ctx.getChildCount(); i++) {
+      Expression expression = (Expression) visit(ctx.expression(i));
+      expressionList.add(expression);
+    }
+
+    if (ctx.expressionName() != null) {
+      ExpressionName expressionName = (ExpressionName) visit(ctx.expressionName());
+      return new DefaultPrimaryExpressionArrayAccess(range, null, expressionName, firstExpression, lfArrayDefaultPrimaryList, expressionList);
+
+    } else if (ctx.primaryNoNewArray_lfno_arrayAccess() != null) {
+      LfnoArrayDefaultPrimary lfnoArrayDefaultPrimary = (LfnoArrayDefaultPrimary) visit(ctx.primaryNoNewArray_lfno_arrayAccess());
+      return new DefaultPrimaryArrayAccess(range, null, lfnoArrayDefaultPrimary, firstExpression, lfArrayDefaultPrimaryList, expressionList);
+
+    } else {
+      System.err.println("ERROR : visitArrayAccess");
+      return super.visitArrayAccess(ctx);
+
+    }
   }
 
   @Override
   public AstNode visitArrayAccess_lf_primary(JavaParser.ArrayAccess_lf_primaryContext ctx) {
-    return super.visitArrayAccess_lf_primary(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get lfno array lf primary
+    LfnoArrayLfPrimary lfnoArrayLfPrimary = (LfnoArrayLfPrimary) visit(ctx.primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary());
+
+    // get Expression
+    Expression firstExpression = (Expression) visit(ctx.expression(0));
+
+
+    // get list of lf array lfno primary
+    List<LfArrayLfPrimary> lfArrayLfPrimaryList= new ArrayList<>();
+    for (JavaParser.PrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primaryContext
+        primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primaryContext
+        : ctx.primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary()) {
+      LfArrayLfPrimary lfArrayLfPrimary
+          = (LfArrayLfPrimary) visit(primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primaryContext);
+      lfArrayLfPrimaryList.add(lfArrayLfPrimary);
+    }
+
+    // get remain expressions
+    List<Expression> expressionList = new ArrayList<>();
+    for (int i = 1; i < ctx.getChildCount(); i++) {
+      Expression expression = (Expression) visit(ctx.expression(i));
+      expressionList.add(expression);
+    }
+
+    return new LfPrimaryArrayAccess(range, null, lfnoArrayLfPrimary, firstExpression, lfArrayLfPrimaryList, expressionList);
   }
 
   @Override
   public AstNode visitArrayAccess_lfno_primary(JavaParser.ArrayAccess_lfno_primaryContext ctx) {
-    return super.visitArrayAccess_lfno_primary(ctx);
+
+    // ger range
+    Range range = getRange(ctx);
+
+    // get first expression
+    Expression firstExpression = (Expression) visit(ctx.expression(0));
+
+
+    // get list of lf array lfno primary
+    List<LfArrayLfnoPrimary> lfArrayLfnoPrimaryList= new ArrayList<>();
+    for (JavaParser.PrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primaryContext
+                    primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primaryContext
+        : ctx.primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary()) {
+      LfArrayLfnoPrimary lfArrayLfnoPrimary
+          = (LfArrayLfnoPrimary) visit(primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primaryContext);
+      lfArrayLfnoPrimaryList.add(lfArrayLfnoPrimary);
+    }
+
+    // get remain expressions
+    List<Expression> expressionList = new ArrayList<>();
+    for (int i = 1; i < ctx.getChildCount(); i++) {
+      Expression expression = (Expression) visit(ctx.expression(i));
+      expressionList.add(expression);
+    }
+
+    if (ctx.expressionName() != null) {
+      ExpressionName expressionName = (ExpressionName) visit(ctx.expressionName());
+      return new LfnoPrimaryExpressionArrayAccess(range, null, expressionName, firstExpression, lfArrayLfnoPrimaryList, expressionList);
+
+    } else if (ctx.primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary() != null) {
+      LfnoArrayLfnoPrimary lfnoArrayLfnoPrimary = (LfnoArrayLfnoPrimary) visit(ctx.primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary());
+      return new LfnoPrimaryArrayAccess(range, null, lfnoArrayLfnoPrimary, firstExpression, lfArrayLfnoPrimaryList, expressionList);
+
+    } else {
+      System.err.println("ERROR : visitArrayAccess");
+      return super.visitArrayAccess_lfno_primary(ctx);
+
+    }
   }
 
   @Override
