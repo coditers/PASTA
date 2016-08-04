@@ -1,4 +1,4 @@
-package codit.ast.pojos.statements;
+package codit.ast.pojos.expressions.assignments;
 
 import codit.ast.AstNode;
 import codit.ast.Position;

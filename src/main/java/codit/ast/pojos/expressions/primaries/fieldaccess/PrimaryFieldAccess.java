@@ -3,6 +3,7 @@ package codit.ast.pojos.expressions.primaries.fieldaccess;
 import codit.ast.AstNode;
 import codit.ast.Position;
 import codit.ast.Range;
+import codit.ast.pojos.expressions.assignments.LeftHandSide;
 import codit.ast.pojos.expressions.primaries.Primary;
 import codit.ast.pojos.expressions.primaries.interfaces.DefaultArrayDefaultPrimary;
 import codit.ast.pojos.expressions.primaries.interfaces.LfnoArrayDefaultPrimary;
@@ -11,7 +12,7 @@ import codit.ast.pojos.expressions.primaries.interfaces.LfnoArrayDefaultPrimary;
  * @author Jisung Lim <iejisung@gmail.com>
  */
 public class PrimaryFieldAccess extends FieldAccess
-    implements DefaultArrayDefaultPrimary, LfnoArrayDefaultPrimary {
+    implements DefaultArrayDefaultPrimary, LfnoArrayDefaultPrimary, LeftHandSide {
 
   private final Primary primary;
   private final String identifier;

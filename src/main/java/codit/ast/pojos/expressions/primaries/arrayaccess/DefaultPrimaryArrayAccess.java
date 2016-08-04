@@ -6,6 +6,7 @@ import codit.ast.AstNode;
 import codit.ast.Position;
 import codit.ast.Range;
 import codit.ast.pojos.expressions.Expression;
+import codit.ast.pojos.expressions.assignments.LeftHandSide;
 import codit.ast.pojos.expressions.primaries.interfaces.DefaultArrayDefaultPrimary;
 import codit.ast.pojos.expressions.primaries.interfaces.LfArrayDefaultPrimary;
 import codit.ast.pojos.expressions.primaries.interfaces.LfnoArrayDefaultPrimary;
@@ -14,7 +15,7 @@ import codit.ast.pojos.expressions.primaries.interfaces.LfnoArrayDefaultPrimary;
  * @author Jisung Lim <iejisung@gmail.com>
  */
 public class DefaultPrimaryArrayAccess extends ArrayAccess
-    implements DefaultArrayDefaultPrimary {
+    implements DefaultArrayDefaultPrimary, LeftHandSide {
 
   private final LfnoArrayDefaultPrimary lfnoArrayDefaultPrimary;
   private final Expression firstExpression;

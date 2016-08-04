@@ -3,11 +3,12 @@ package codit.ast.pojos.names;
 import codit.ast.AstNode;
 import codit.ast.Position;
 import codit.ast.Range;
+import codit.ast.pojos.expressions.assignments.LeftHandSide;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
-public class ExpressionName extends Name {
+public class ExpressionName extends Name implements LeftHandSide {
 
   private final AmbiguousName prev;
 

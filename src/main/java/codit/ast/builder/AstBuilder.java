@@ -47,13 +47,15 @@ import codit.ast.pojos.classes.members.MethodDeclarator;
 import codit.ast.pojos.classes.members.MethodHeader;
 import codit.ast.pojos.classes.members.SimpleMethodHeader;
 import codit.ast.pojos.expressions.Expression;
+import codit.ast.pojos.expressions.StatementExpression;
+import codit.ast.pojos.expressions.StatementExpressionList;
+import codit.ast.pojos.expressions.assignments.Assignment;
+import codit.ast.pojos.expressions.assignments.LeftHandSide;
 import codit.ast.pojos.expressions.lambdas.InferredFormalLambdaParameter;
 import codit.ast.pojos.expressions.lambdas.LambdaBody;
 import codit.ast.pojos.expressions.lambdas.LambdaExpression;
 import codit.ast.pojos.expressions.lambdas.LambdaParameters;
 import codit.ast.pojos.expressions.lambdas.SingleLambdaParameter;
-import codit.ast.pojos.expressions.StatementExpression;
-import codit.ast.pojos.expressions.StatementExpressionList;
 import codit.ast.pojos.expressions.primaries.Primary;
 import codit.ast.pojos.expressions.primaries.PrimaryArrayCreationExpression;
 import codit.ast.pojos.expressions.primaries.PrimaryNoNewArray;
@@ -4633,81 +4635,319 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitAssignmentExpression(JavaParser.AssignmentExpressionContext ctx) {
-    return super.visitAssignmentExpression(ctx);
+
+    if (ctx.conditionalExpression() != null) {
+      return visit(ctx.conditionalExpression());
+    } else if (ctx.assignment() != null) {
+      return visit(ctx.assignment());
+    } else {
+      System.err.println("ERROR : visitAssignmentExpression");
+      return super.visitAssignmentExpression(ctx);
+    }
   }
 
   @Override
   public AstNode visitAssignment(JavaParser.AssignmentContext ctx) {
-    return super.visitAssignment(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get Left hand side
+    LeftHandSide leftHandSide = (LeftHandSide) visit(ctx.leftHandSide());
+
+    // get operator
+    String assignmentOperator = ctx.assignmentOperator().getText();
+
+    // get Expression expression
+    Expression expression = (Expression) visit(ctx.expression());
+
+    return new Assignment(range, null, leftHandSide, assignmentOperator, expression);
   }
 
   @Override
   public AstNode visitLeftHandSide(JavaParser.LeftHandSideContext ctx) {
-    return super.visitLeftHandSide(ctx);
+
+    if (ctx.expressionName() != null) {
+      return visit(ctx.expressionName());
+    } else if (ctx.fieldAccess() != null) {
+      return visit(ctx.fieldAccess());
+    } else if (ctx.arrayAccess() != null) {
+      return visit(ctx.arrayAccess());
+    } else {
+      System.err.println("ERROR : visitLeftHandSide");
+      return super.visitLeftHandSide(ctx);
+    }
   }
 
   @Override
   public AstNode visitAssignmentOperator(JavaParser.AssignmentOperatorContext ctx) {
+    // Not necessary
     return super.visitAssignmentOperator(ctx);
   }
 
   @Override
   public AstNode visitConditionalExpression(JavaParser.ConditionalExpressionContext ctx) {
-    return super.visitConditionalExpression(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    //
+    if (ctx.conditionalExpression() != null) {
+      // TODO
+    } else if (ctx.conditionalOrExpression() != null) {
+      return visit(ctx.conditionalOrExpression());
+    } else {
+      System.err.println("ERROR : visitConditionalExpression");
+      return super.visitConditionalExpression(ctx);
+    }
   }
 
   @Override
   public AstNode visitConditionalOrExpression(JavaParser.ConditionalOrExpressionContext ctx) {
-    return super.visitConditionalOrExpression(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    //
+    if (ctx.conditionalOrExpression() != null) {
+      // TODO
+    } else if (ctx.conditionalAndExpression() != null) {
+      return visit(ctx.conditionalAndExpression());
+    } else {
+      System.err.println("ERROR : visitConditionalOrExpression");
+      return super.visitConditionalOrExpression(ctx);
+    }
   }
 
   @Override
   public AstNode visitConditionalAndExpression(JavaParser.ConditionalAndExpressionContext ctx) {
-    return super.visitConditionalAndExpression(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    //
+    if (ctx.conditionalAndExpression() != null) {
+      // TODO
+    } else if (ctx.inclusiveOrExpression() != null) {
+      return visit(ctx.inclusiveOrExpression());
+    } else {
+      System.err.println("ERROR : visitConditionalAndExpression");
+      return super.visitConditionalAndExpression(ctx);
+    }
   }
 
   @Override
   public AstNode visitInclusiveOrExpression(JavaParser.InclusiveOrExpressionContext ctx) {
-    return super.visitInclusiveOrExpression(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    if (ctx.inclusiveOrExpression() != null) {
+      // TODO
+    } else if (ctx.exclusiveOrExpression() != null) {
+      return visit(ctx.exclusiveOrExpression());
+    } else {
+      System.err.println("ERROR : visitInclusiveOrExpression");
+      return super.visitInclusiveOrExpression(ctx);
+    }
   }
 
   @Override
   public AstNode visitExclusiveOrExpression(JavaParser.ExclusiveOrExpressionContext ctx) {
-    return super.visitExclusiveOrExpression(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    if (ctx.exclusiveOrExpression() != null) {
+      // TODO
+    } else if (ctx.andExpression() != null) {
+      return visit(ctx.andExpression());
+    } else {
+      System.err.println("ERROR : visitExclusiveOrExpression");
+      return super.visitExclusiveOrExpression(ctx);
+    }
   }
 
   @Override
   public AstNode visitAndExpression(JavaParser.AndExpressionContext ctx) {
-    return super.visitAndExpression(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    if (ctx.andExpression() != null) {
+      // TODO
+    } else if (ctx.equalityExpression() != null) {
+      return visit(ctx.equalityExpression());
+    } else {
+      System.err.println("ERROR : visitAndExpression");
+      return super.visitAndExpression(ctx);
+    }
   }
 
   @Override
   public AstNode visitEqualityExpression(JavaParser.EqualityExpressionContext ctx) {
-    return super.visitEqualityExpression(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    if (ctx.equalityExpression() != null) {
+
+      switch(ctx.getChild(1).getText()) {
+        case "==" :
+          // TODO - equals
+          break;
+        case "!=" :
+          // TODO - unequals
+          break;
+        default :
+          System.err.println("ERROR : visitEqualityExpression");
+          return super.visitEqualityExpression(ctx);
+          break;
+      }
+    } else if (ctx.relationalExpression() != null) {
+      return visit(ctx.relationalExpression());
+    } else {
+      System.err.println("ERROR : visitEqualityExpression");
+      return super.visitEqualityExpression(ctx);
+    }
   }
 
   @Override
   public AstNode visitRelationalExpression(JavaParser.RelationalExpressionContext ctx) {
-    return super.visitRelationalExpression(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    //
+    if (ctx.referenceType() != null) {
+      // TODO - instanceof
+    } else if (ctx.relationalExpression() != null) {
+
+      switch(ctx.getChild(1).getText()) {
+        case "<" :
+          // TODO - less than
+          break;
+        case ">" :
+          // TODO - greater than
+          break;
+        case "<=" :
+          // TODO - less than or equal to
+          break;
+        case ">=" :
+          // TODO - greater than or equal to
+          break;
+        default :
+          System.err.println("ERROR : visitRelationalExpression");
+          return super.visitRelationalExpression(ctx);
+          break;
+      }
+    } else if (ctx.shiftExpression() != null) {
+      return visit(ctx.shiftExpression());
+    } else {
+      System.err.println("ERROR : visitRelationalExpression");
+      return super.visitRelationalExpression(ctx);
+    }
   }
 
   @Override
   public AstNode visitShiftExpression(JavaParser.ShiftExpressionContext ctx) {
-    return super.visitShiftExpression(ctx);
+
+    if (ctx.shiftExpression() != null) {
+
+      if (ctx.getChild(1).getText().equals("<")) {
+        // TODO - <<
+      } else if (ctx.getChild(3).getText().equals(">")) {
+        // TODO - >>
+      } else if (ctx.getChild(2).getText().equals(">")) {
+        // TODO - >>>
+      } else {
+        System.err.println("ERROR : visitShiftExpression");
+        return super.visitShiftExpression(ctx);
+      }
+
+    } else if (ctx.additiveExpression() != null) {
+      return visit(ctx.additiveExpression());
+    } else {
+      System.err.println("ERROR : visitShiftExpression");
+      return super.visitShiftExpression(ctx);
+    }
   }
 
   @Override
   public AstNode visitAdditiveExpression(JavaParser.AdditiveExpressionContext ctx) {
-    return super.visitAdditiveExpression(ctx);
+
+    if (ctx.additiveExpression() != null) {
+      switch(ctx.getChild(1).getText()) {
+        case "+" :
+          // TODO - Plus
+          break;
+        case "-" :
+          // TODO - Minus
+          break;
+        default :
+          System.err.println("ERROR : visitAdditiveExpression");
+          return super.visitAdditiveExpression(ctx);
+          break;
+      }
+    } else if (ctx.multiplicativeExpression() != null) {
+      return visit(ctx.multiplicativeExpression());
+    } else {
+      System.err.println("ERROR : visitAdditiveExpression");
+      return super.visitAdditiveExpression(ctx);
+    }
   }
 
   @Override
   public AstNode visitMultiplicativeExpression(JavaParser.MultiplicativeExpressionContext ctx) {
-    return super.visitMultiplicativeExpression(ctx);
+    if (ctx.multiplicativeExpression() != null) {
+      switch(ctx.getChild(1).getText()) {
+        case "*" :
+          // TODO - multi
+          break;
+        case "/" :
+          // TODO - div
+          break;
+        case "%" :
+          // TODO - modulus
+          break;
+        default :
+          System.err.println("ERROR : visitMultiplicativieExpression");
+          return super.visitMultiplicativeExpression(ctx);
+          break;
+      }
+    } else if (ctx.unaryExpression() != null) {
+      visit(ctx.unaryExpression());
+    } else {
+      System.err.println("ERROR : visitMultiplicativieExpression");
+      return super.visitMultiplicativeExpression(ctx);
+    }
   }
 
   @Override
   public AstNode visitUnaryExpression(JavaParser.UnaryExpressionContext ctx) {
+    // get range
+    Range range = getRange(ctx);
+
+    //
+    if (ctx.unaryExpression() != null) {
+      switch(ctx.getChild(0).getText()) {
+        case "+" :
+          // TODO - + unary
+          break;
+        case "-" :
+          // TODO - - unary
+          break;
+        default :
+          System.err.println("ERROR : visitUnaryExpression");
+          return super.visitUnaryExpression(ctx);
+      }
+    } else if (ctx.preIncrementExpression() != null) {
+      return visit(ctx.preIncrementExpression());
+    } else if (ctx.preDecrementExpression() != null) {
+      return visit(ctx.preDecrementExpression());
+    } else if (ctx.unaryExpressionNotPlusMinus() != null) {
+      return visit(ctx.unaryExpressionNotPlusMinus());
+    }
     return super.visitUnaryExpression(ctx);
   }
 
