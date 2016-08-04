@@ -86,6 +86,13 @@ import codit.ast.pojos.expressions.primaries.interfaces.LfArrayLfnoPrimary;
 import codit.ast.pojos.expressions.primaries.interfaces.LfnoArrayDefaultPrimary;
 import codit.ast.pojos.expressions.primaries.interfaces.LfnoArrayLfPrimary;
 import codit.ast.pojos.expressions.primaries.interfaces.LfnoArrayLfnoPrimary;
+import codit.ast.pojos.expressions.primaries.methodinvocation.BasicMethodInvocation;
+import codit.ast.pojos.expressions.primaries.methodinvocation.BasicSuperMethodInvocation;
+import codit.ast.pojos.expressions.primaries.methodinvocation.ExpressionMethodInvocation;
+import codit.ast.pojos.expressions.primaries.methodinvocation.PostfixMethodInvocation;
+import codit.ast.pojos.expressions.primaries.methodinvocation.PrimaryMethodInvocation;
+import codit.ast.pojos.expressions.primaries.methodinvocation.TypeMethodInvocation;
+import codit.ast.pojos.expressions.primaries.methodinvocation.TypeSuperMethodInvocation;
 import codit.ast.pojos.interfaces.AnnotationTypeDeclaration;
 import codit.ast.pojos.interfaces.AnnotationTypeElementDeclaration;
 import codit.ast.pojos.interfaces.AnnotationTypeMemberable;
@@ -4231,17 +4238,106 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitMethodInvocation(JavaParser.MethodInvocationContext ctx) {
-    return super.visitMethodInvocation(ctx);
+    // get Range
+    Range range = getRange(ctx);
+
+    // get argument list
+    List<Expression> argumentList = new ArrayList<>();
+    for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
+      Expression expression = (Expression) visit(expressionContext);
+      argumentList.add(expression);
+    }
+
+    if (ctx.methodName() != null) { //BASIC
+      MethodName methodName = (MethodName) visit(ctx.methodName());
+      return new BasicMethodInvocation(range, null, methodName, argumentList);
+    }
+
+    // get TypeArguments
+    TypeArguments typeArguments = (TypeArguments) visit(ctx.typeArguments());
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    if (ctx.getChild(0).getText().equals("super")) {
+      return new BasicSuperMethodInvocation(range, null, typeArguments, identifier, argumentList);
+    } else if (ctx.typeName() != null && ctx.getChild(2).getText().equals("super")) {
+      TypeName typeName = (TypeName) visit(ctx.typeName());
+      return new TypeSuperMethodInvocation(range, null, typeName, typeArguments, identifier, argumentList);
+    } else if (ctx.typeName() != null) {
+      TypeName typeName = (TypeName) visit(ctx.typeName());
+      return new TypeMethodInvocation(range, null, typeName, typeArguments, identifier, argumentList);
+    } else if (ctx.expressionName() != null) {
+      ExpressionName expressionName = (ExpressionName) visit(ctx.expressionName());
+      return new ExpressionMethodInvocation(range, null, expressionName, typeArguments, identifier, argumentList);
+    } else if (ctx.primary() != null) {
+      Primary primary = (Primary) visit(ctx.primary());
+      return new PrimaryMethodInvocation(range, null, primary, typeArguments, identifier, argumentList);
+    } else {
+      System.err.println("ERROR : visitMethodInvocation");
+      return super.visitMethodInvocation(ctx);
+    }
   }
 
   @Override
   public AstNode visitMethodInvocation_lf_primary(JavaParser.MethodInvocation_lf_primaryContext ctx) {
-    return super.visitMethodInvocation_lf_primary(ctx);
+    // get range
+    Range range = getRange(ctx);
+
+    // get TypeArguments
+    TypeArguments typeArguments = (TypeArguments) visit(ctx.typeArguments());
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    // get argument list
+    List<Expression> argumentList = new ArrayList<>();
+    for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
+      Expression expression = (Expression) visit(expressionContext);
+      argumentList.add(expression);
+    }
+
+    return new PostfixMethodInvocation(range, null, typeArguments,identifier, argumentList);
   }
 
   @Override
   public AstNode visitMethodInvocation_lfno_primary(JavaParser.MethodInvocation_lfno_primaryContext ctx) {
-    return super.visitMethodInvocation_lfno_primary(ctx);
+    // get Range
+    Range range = getRange(ctx);
+
+    // get argument list
+    List<Expression> argumentList = new ArrayList<>();
+    for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
+      Expression expression = (Expression) visit(expressionContext);
+      argumentList.add(expression);
+    }
+
+    if (ctx.methodName() != null) { //BASIC
+      MethodName methodName = (MethodName) visit(ctx.methodName());
+      return new BasicMethodInvocation(range, null, methodName, argumentList);
+    }
+
+    // get TypeArguments
+    TypeArguments typeArguments = (TypeArguments) visit(ctx.typeArguments());
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    if (ctx.getChild(0).getText().equals("super")) {
+      return new BasicSuperMethodInvocation(range, null, typeArguments, identifier, argumentList);
+    } else if (ctx.typeName() != null && ctx.getChild(2).getText().equals("super")) {
+      TypeName typeName = (TypeName) visit(ctx.typeName());
+      return new TypeSuperMethodInvocation(range, null, typeName, typeArguments, identifier, argumentList);
+    } else if (ctx.typeName() != null) {
+      TypeName typeName = (TypeName) visit(ctx.typeName());
+      return new TypeMethodInvocation(range, null, typeName, typeArguments, identifier, argumentList);
+    } else if (ctx.expressionName() != null) {
+      ExpressionName expressionName = (ExpressionName) visit(ctx.expressionName());
+      return new ExpressionMethodInvocation(range, null, expressionName, typeArguments, identifier, argumentList);
+    } else {
+      System.err.println("ERROR : visitMethodInvocation");
+      return super.visitMethodInvocation_lfno_primary(ctx);
+    }
   }
 
   @Override
