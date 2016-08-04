@@ -4,11 +4,12 @@ import codit.ast.AstNode;
 import codit.ast.Position;
 import codit.ast.Range;
 import codit.ast.pojos.expressions.Expression;
+import codit.ast.pojos.expressions.StatementExpression;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
-public class Assignment extends AssignmentExpression {
+public class Assignment extends AssignmentExpression implements StatementExpression {
 
   private final LeftHandSide leftHandSide;
   private final String assignmentOperator;

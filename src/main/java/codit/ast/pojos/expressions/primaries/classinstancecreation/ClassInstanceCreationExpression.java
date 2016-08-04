@@ -3,12 +3,13 @@ package codit.ast.pojos.expressions.primaries.classinstancecreation;
 import codit.ast.AstNode;
 import codit.ast.Position;
 import codit.ast.Range;
+import codit.ast.pojos.expressions.StatementExpression;
 import codit.ast.pojos.expressions.primaries.PrimaryExpression;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
-public abstract class ClassInstanceCreationExpression extends PrimaryExpression {
+public abstract class ClassInstanceCreationExpression extends PrimaryExpression implements StatementExpression {
   public ClassInstanceCreationExpression(Range range, AstNode parent) {
     super(range, parent);
   }

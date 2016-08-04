@@ -1346,6 +1346,7 @@ unaryExpressionNotPlusMinus
 	|	castExpression
 	;
 
+// Why...?
 postfixExpression
 	:	(	primary
 		|	expressionName

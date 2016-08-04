@@ -51,6 +51,52 @@ import codit.ast.pojos.expressions.StatementExpression;
 import codit.ast.pojos.expressions.StatementExpressionList;
 import codit.ast.pojos.expressions.assignments.Assignment;
 import codit.ast.pojos.expressions.assignments.LeftHandSide;
+import codit.ast.pojos.expressions.assignments.operations.AdditiveExpression;
+import codit.ast.pojos.expressions.assignments.operations.AndExpression;
+import codit.ast.pojos.expressions.assignments.operations.ConditionalAndExpression;
+import codit.ast.pojos.expressions.assignments.operations.ConditionalExpression;
+import codit.ast.pojos.expressions.assignments.operations.ConditionalOrExpression;
+import codit.ast.pojos.expressions.assignments.operations.DividesMultipicativeExpression;
+import codit.ast.pojos.expressions.assignments.operations.EqualEqualityExpression;
+import codit.ast.pojos.expressions.assignments.operations.EqualityExpression;
+import codit.ast.pojos.expressions.assignments.operations.ExclusiveOrExpression;
+import codit.ast.pojos.expressions.assignments.operations.ExpressionPostfixExpression;
+import codit.ast.pojos.expressions.assignments.operations.GtRelationalExpression;
+import codit.ast.pojos.expressions.assignments.operations.GtetRelationalExpression;
+import codit.ast.pojos.expressions.assignments.operations.ImplAndExpression;
+import codit.ast.pojos.expressions.assignments.operations.ImplConditionalAndExpression;
+import codit.ast.pojos.expressions.assignments.operations.ImplConditionalOrExpression;
+import codit.ast.pojos.expressions.assignments.operations.ImplExclusiveOrExpression;
+import codit.ast.pojos.expressions.assignments.operations.ImplInclusiveOrExpression;
+import codit.ast.pojos.expressions.assignments.operations.InclusiveOrExpression;
+import codit.ast.pojos.expressions.assignments.operations.InstanceofRelationalExpression;
+import codit.ast.pojos.expressions.assignments.operations.InvertExpression;
+import codit.ast.pojos.expressions.assignments.operations.LeftShiftExpression;
+import codit.ast.pojos.expressions.assignments.operations.LtRelationalExpression;
+import codit.ast.pojos.expressions.assignments.operations.LtetRelationalExpression;
+import codit.ast.pojos.expressions.assignments.operations.MinusUnaryExpression;
+import codit.ast.pojos.expressions.assignments.operations.ModulaMultiplicativeExpression;
+import codit.ast.pojos.expressions.assignments.operations.MultiplicativeExpression;
+import codit.ast.pojos.expressions.assignments.operations.NegativeAdditiveExpression;
+import codit.ast.pojos.expressions.assignments.operations.NotExpression;
+import codit.ast.pojos.expressions.assignments.operations.PlusUnaryExpression;
+import codit.ast.pojos.expressions.assignments.operations.PositiveAdditiveExpression;
+import codit.ast.pojos.expressions.assignments.operations.PostIncrementExpression;
+import codit.ast.pojos.expressions.assignments.operations.PostfixExpression;
+import codit.ast.pojos.expressions.assignments.operations.PreIncrementExpression;
+import codit.ast.pojos.expressions.assignments.operations.PrimaryPostfixExpression;
+import codit.ast.pojos.expressions.assignments.operations.PrimitiveTypeCastExpression;
+import codit.ast.pojos.expressions.assignments.operations.ReferenceTypeLambdaCastExpression;
+import codit.ast.pojos.expressions.assignments.operations.ReferenceTypeUnaryCastExpression;
+import codit.ast.pojos.expressions.assignments.operations.RelationalExpression;
+import codit.ast.pojos.expressions.assignments.operations.RightShiftExpression;
+import codit.ast.pojos.expressions.assignments.operations.ShiftExpression;
+import codit.ast.pojos.expressions.assignments.operations.TernaryConditionalExpression;
+import codit.ast.pojos.expressions.assignments.operations.TimesMultiplicativeExpression;
+import codit.ast.pojos.expressions.assignments.operations.UnaryExpression;
+import codit.ast.pojos.expressions.assignments.operations.UnaryExpressionNotPlusMinus;
+import codit.ast.pojos.expressions.assignments.operations.UnequalEqualityExpression;
+import codit.ast.pojos.expressions.assignments.operations.UnsignedRightShiftExpression;
 import codit.ast.pojos.expressions.lambdas.InferredFormalLambdaParameter;
 import codit.ast.pojos.expressions.lambdas.LambdaBody;
 import codit.ast.pojos.expressions.lambdas.LambdaExpression;
@@ -4691,9 +4737,20 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get range
     Range range = getRange(ctx);
 
-    //
+
     if (ctx.conditionalExpression() != null) {
-      // TODO
+      // get conditional or expression
+      ConditionalOrExpression conditionalOrExpression
+          = (ConditionalOrExpression) visit(ctx.conditionalOrExpression());
+
+      // get expression
+      Expression expression = (Expression) visit(ctx.expression());
+
+      // get condtional Expression
+      ConditionalExpression conditionalExpression = (ConditionalExpression) visit(ctx.conditionalExpression());
+
+      return new TernaryConditionalExpression(range, null, conditionalOrExpression, expression, conditionalExpression);
+
     } else if (ctx.conditionalOrExpression() != null) {
       return visit(ctx.conditionalOrExpression());
     } else {
@@ -4710,7 +4767,12 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     //
     if (ctx.conditionalOrExpression() != null) {
-      // TODO
+      //
+      ConditionalOrExpression conditionalOrExpression = (ConditionalOrExpression) visit(ctx.conditionalOrExpression());
+      ConditionalAndExpression conditionalAndExpression = (ConditionalAndExpression) visit(ctx.conditionalAndExpression());
+
+      return new ImplConditionalOrExpression(range, null, conditionalOrExpression, conditionalAndExpression);
+
     } else if (ctx.conditionalAndExpression() != null) {
       return visit(ctx.conditionalAndExpression());
     } else {
@@ -4727,7 +4789,12 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     //
     if (ctx.conditionalAndExpression() != null) {
-      // TODO
+      //
+      ConditionalAndExpression conditionalAndExpression = (ConditionalAndExpression) visit(ctx.conditionalAndExpression());
+      InclusiveOrExpression inclusiveOrExpression = (InclusiveOrExpression) visit(ctx.inclusiveOrExpression());
+
+      return new ImplConditionalAndExpression(range, null, conditionalAndExpression, inclusiveOrExpression);
+
     } else if (ctx.inclusiveOrExpression() != null) {
       return visit(ctx.inclusiveOrExpression());
     } else {
@@ -4743,7 +4810,12 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     if (ctx.inclusiveOrExpression() != null) {
-      // TODO
+      //
+      InclusiveOrExpression inclusiveOrExpression = (InclusiveOrExpression) visit(ctx.inclusiveOrExpression());
+      ExclusiveOrExpression exclusiveOrExpression = (ExclusiveOrExpression) visit(ctx.exclusiveOrExpression());
+
+      return new ImplInclusiveOrExpression(range, null, inclusiveOrExpression, exclusiveOrExpression);
+
     } else if (ctx.exclusiveOrExpression() != null) {
       return visit(ctx.exclusiveOrExpression());
     } else {
@@ -4759,7 +4831,12 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     if (ctx.exclusiveOrExpression() != null) {
-      // TODO
+      //
+      ExclusiveOrExpression exclusiveOrExpression = (ExclusiveOrExpression) visit(ctx.exclusiveOrExpression());
+      AndExpression andExpression = (AndExpression) visit(ctx.andExpression());
+
+      return new ImplExclusiveOrExpression(range, null, exclusiveOrExpression, andExpression);
+
     } else if (ctx.andExpression() != null) {
       return visit(ctx.andExpression());
     } else {
@@ -4775,7 +4852,12 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     if (ctx.andExpression() != null) {
-      // TODO
+      //
+      AndExpression andExpression = (AndExpression) visit(ctx.andExpression());
+      EqualityExpression equalityExpression = (EqualityExpression) visit(ctx.equalityExpression());
+
+      return new ImplAndExpression(range, null, andExpression, equalityExpression);
+
     } else if (ctx.equalityExpression() != null) {
       return visit(ctx.equalityExpression());
     } else {
@@ -4791,19 +4873,20 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     if (ctx.equalityExpression() != null) {
+      //
+      EqualityExpression equalityExpression = (EqualityExpression) visit(ctx.equalityExpression());
+      RelationalExpression relationalExpression = (RelationalExpression) visit(ctx.relationalExpression());
 
       switch(ctx.getChild(1).getText()) {
         case "==" :
-          // TODO - equals
-          break;
+          return new EqualEqualityExpression(range, null, equalityExpression, relationalExpression);
         case "!=" :
-          // TODO - unequals
-          break;
+          return new UnequalEqualityExpression(range, null, equalityExpression, relationalExpression);
         default :
           System.err.println("ERROR : visitEqualityExpression");
           return super.visitEqualityExpression(ctx);
-          break;
       }
+
     } else if (ctx.relationalExpression() != null) {
       return visit(ctx.relationalExpression());
     } else {
@@ -4819,27 +4902,29 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     //
+    RelationalExpression relationalExpression = (RelationalExpression) visit(ctx.relationalExpression());
+
+    //
     if (ctx.referenceType() != null) {
-      // TODO - instanceof
+      ReferenceType referenceType = (ReferenceType) visit(ctx.referenceType());
+
+      return new InstanceofRelationalExpression(range, null, relationalExpression, referenceType);
     } else if (ctx.relationalExpression() != null) {
+
+      ShiftExpression shiftExpression = (ShiftExpression) visit(ctx.shiftExpression());
 
       switch(ctx.getChild(1).getText()) {
         case "<" :
-          // TODO - less than
-          break;
+          return new LtRelationalExpression(range, null, relationalExpression, shiftExpression);
         case ">" :
-          // TODO - greater than
-          break;
+          return new GtRelationalExpression(range, null, relationalExpression, shiftExpression);
         case "<=" :
-          // TODO - less than or equal to
-          break;
+          return new LtetRelationalExpression(range, null, relationalExpression, shiftExpression);
         case ">=" :
-          // TODO - greater than or equal to
-          break;
+          return new GtetRelationalExpression(range, null, relationalExpression, shiftExpression);
         default :
           System.err.println("ERROR : visitRelationalExpression");
           return super.visitRelationalExpression(ctx);
-          break;
       }
     } else if (ctx.shiftExpression() != null) {
       return visit(ctx.shiftExpression());
@@ -4852,14 +4937,25 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
   @Override
   public AstNode visitShiftExpression(JavaParser.ShiftExpressionContext ctx) {
 
+    // get range
+    Range range = getRange(ctx);
+
+    // AdditiveExpression
+    AdditiveExpression additiveExpression = (AdditiveExpression) visit(ctx.additiveExpression());
+
     if (ctx.shiftExpression() != null) {
+
+      ShiftExpression shiftExpression = (ShiftExpression) visit(ctx.shiftExpression());
 
       if (ctx.getChild(1).getText().equals("<")) {
         // TODO - <<
+        return new LeftShiftExpression(range, null, shiftExpression, additiveExpression);
       } else if (ctx.getChild(3).getText().equals(">")) {
         // TODO - >>
+        return new RightShiftExpression(range, null, shiftExpression, additiveExpression);
       } else if (ctx.getChild(2).getText().equals(">")) {
         // TODO - >>>
+        return new UnsignedRightShiftExpression(range, null, shiftExpression, additiveExpression);
       } else {
         System.err.println("ERROR : visitShiftExpression");
         return super.visitShiftExpression(ctx);
@@ -4876,18 +4972,24 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
   @Override
   public AstNode visitAdditiveExpression(JavaParser.AdditiveExpressionContext ctx) {
 
+    // get range
+    Range range = getRange(ctx);
+
+    // get multiplicative Expression
+    MultiplicativeExpression multiplicativeExpression = (MultiplicativeExpression) visit(ctx.multiplicativeExpression());
+
     if (ctx.additiveExpression() != null) {
+      AdditiveExpression additiveExpression = (AdditiveExpression) visit(ctx.additiveExpression());
       switch(ctx.getChild(1).getText()) {
         case "+" :
           // TODO - Plus
-          break;
+          return new PositiveAdditiveExpression(range, null, additiveExpression, multiplicativeExpression);
         case "-" :
           // TODO - Minus
-          break;
+          return new NegativeAdditiveExpression(range, null, additiveExpression, multiplicativeExpression);
         default :
           System.err.println("ERROR : visitAdditiveExpression");
           return super.visitAdditiveExpression(ctx);
-          break;
       }
     } else if (ctx.multiplicativeExpression() != null) {
       return visit(ctx.multiplicativeExpression());
@@ -4899,24 +5001,33 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitMultiplicativeExpression(JavaParser.MultiplicativeExpressionContext ctx) {
+
+    // get range
+    Range range = getRange(ctx);
+
+    // UnaryExpr
+    UnaryExpression unaryExpression = (UnaryExpression) visit(ctx.unaryExpression());
+
     if (ctx.multiplicativeExpression() != null) {
+
+      MultiplicativeExpression multiplicativeExpression = (MultiplicativeExpression) visit(ctx.multiplicativeExpression());
+
       switch(ctx.getChild(1).getText()) {
         case "*" :
           // TODO - multi
-          break;
+          return new TimesMultiplicativeExpression(range, null, multiplicativeExpression, unaryExpression);
         case "/" :
           // TODO - div
-          break;
+          return new DividesMultipicativeExpression(range, null, multiplicativeExpression, unaryExpression);
         case "%" :
           // TODO - modulus
-          break;
+          return new ModulaMultiplicativeExpression(range, null, multiplicativeExpression, unaryExpression);
         default :
           System.err.println("ERROR : visitMultiplicativieExpression");
           return super.visitMultiplicativeExpression(ctx);
-          break;
       }
     } else if (ctx.unaryExpression() != null) {
-      visit(ctx.unaryExpression());
+      return visit(ctx.unaryExpression());
     } else {
       System.err.println("ERROR : visitMultiplicativieExpression");
       return super.visitMultiplicativeExpression(ctx);
@@ -4930,13 +5041,15 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     //
     if (ctx.unaryExpression() != null) {
+      UnaryExpression unaryExpression = (UnaryExpression) visit(ctx.unaryExpression());
+
       switch(ctx.getChild(0).getText()) {
         case "+" :
           // TODO - + unary
-          break;
+          return new PlusUnaryExpression(range, null, unaryExpression);
         case "-" :
           // TODO - - unary
-          break;
+          return new MinusUnaryExpression(range, null, unaryExpression);
         default :
           System.err.println("ERROR : visitUnaryExpression");
           return super.visitUnaryExpression(ctx);
@@ -4953,46 +5066,176 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitPreIncrementExpression(JavaParser.PreIncrementExpressionContext ctx) {
-    return super.visitPreIncrementExpression(ctx);
+    // get range
+    Range range = getRange(ctx);
+
+    // get Unary Expression
+    UnaryExpression unaryExpression = (UnaryExpression) visit(ctx.unaryExpression());
+
+    return new PreIncrementExpression(range, null, unaryExpression);
   }
 
   @Override
   public AstNode visitPreDecrementExpression(JavaParser.PreDecrementExpressionContext ctx) {
-    return super.visitPreDecrementExpression(ctx);
+    // get range
+    Range range = getRange(ctx);
+
+    // get Unary Expression
+    UnaryExpression unaryExpression = (UnaryExpression) visit(ctx.unaryExpression());
+
+    return new PreIncrementExpression(range, null, unaryExpression);
   }
 
   @Override
   public AstNode visitUnaryExpressionNotPlusMinus(JavaParser.UnaryExpressionNotPlusMinusContext ctx) {
-    return super.visitUnaryExpressionNotPlusMinus(ctx);
+
+    if (ctx.postfixExpression() != null) {
+      return visit(ctx.postfixExpression());
+    } else if (ctx.castExpression() != null) {
+      return visit(ctx.castExpression());
+    } else if (ctx.unaryExpression() != null) {
+
+      // get range
+      Range range = getRange(ctx);
+
+      // get unary expression
+      UnaryExpression unaryExpression = (UnaryExpression) visit(ctx.unaryExpression());
+      switch(ctx.getChild(0).getText()) {
+        case "~" :
+          return new InvertExpression(range, null, unaryExpression);
+        case "!" :
+          return new NotExpression(range, null, unaryExpression);
+        default :
+          System.err.println("ERROR : visitUnaryExpressionNotPlusMinus");
+          return super.visitUnaryExpressionNotPlusMinus(ctx);
+      }
+
+    } else {
+      System.err.println("ERROR : visitUnaryExpressionNotPlusMinus");
+      return super.visitUnaryExpressionNotPlusMinus(ctx);
+    }
   }
 
   @Override
   public AstNode visitPostfixExpression(JavaParser.PostfixExpressionContext ctx) {
-    return super.visitPostfixExpression(ctx);
+    // get range
+    Range range = getRange(ctx);
+
+    // get list of postfix operator
+    List<Boolean> booleanList = new ArrayList<>();
+    for (int i = 1; i < ctx.getChildCount(); i++) {
+
+      Boolean tempBoolean; // TODO ctx.getChild(i).getText().equals("++")
+      if (ctx.getChild(i) instanceof JavaParser.PostIncrementExpression_lf_postfixExpressionContext) {
+        tempBoolean = true;
+      } else if (ctx.getChild(i) instanceof JavaParser.PostDecrementExpression_lf_postfixExpressionContext) {
+        tempBoolean = false;
+      } else {
+        tempBoolean = null;
+      }
+      booleanList.add(tempBoolean);
+    }
+
+    if (ctx.primary() != null) {
+      Primary primary = (Primary) visit(ctx.primary());
+      return new PrimaryPostfixExpression(range, null, primary, booleanList);
+    } else if (ctx.expressionName() != null) {
+      ExpressionName expressionName = (ExpressionName) visit(ctx.expressionName());
+      return new ExpressionPostfixExpression(range, null, expressionName, booleanList);
+    } else {
+      System.err.println("ERROR : visitPostfixExpression");
+      return super.visitPostfixExpression(ctx);
+    }
   }
 
   @Override
   public AstNode visitPostIncrementExpression(JavaParser.PostIncrementExpressionContext ctx) {
-    return super.visitPostIncrementExpression(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get postfix expression
+    PostfixExpression postfixExpression = (PostfixExpression) visit(ctx.postfixExpression());
+
+    return new PostIncrementExpression(range, null, postfixExpression);
   }
 
   @Override
   public AstNode visitPostIncrementExpression_lf_postfixExpression(JavaParser.PostIncrementExpression_lf_postfixExpressionContext ctx) {
+    // Not necessary
     return super.visitPostIncrementExpression_lf_postfixExpression(ctx);
   }
 
   @Override
   public AstNode visitPostDecrementExpression(JavaParser.PostDecrementExpressionContext ctx) {
-    return super.visitPostDecrementExpression(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get postfix expression
+    PostfixExpression postfixExpression = (PostfixExpression) visit(ctx.postfixExpression());
+
+    return new PostIncrementExpression(range, null, postfixExpression);
   }
 
   @Override
   public AstNode visitPostDecrementExpression_lf_postfixExpression(JavaParser.PostDecrementExpression_lf_postfixExpressionContext ctx) {
+    // Not necessary
     return super.visitPostDecrementExpression_lf_postfixExpression(ctx);
   }
 
   @Override
   public AstNode visitCastExpression(JavaParser.CastExpressionContext ctx) {
-    return super.visitCastExpression(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    if (ctx.primitiveType() != null) {
+      // get Primitive type
+      PrimitiveType primitiveType = (PrimitiveType) visit(ctx.primitiveType());
+      int a = 3;
+
+      // get unary Expression
+      UnaryExpression unaryExpression = (UnaryExpression) visit(ctx.unaryExpression());
+
+      return new PrimitiveTypeCastExpression(range, null, primitiveType, unaryExpression);
+
+    } else if (ctx.unaryExpressionNotPlusMinus() != null) {
+      // get Reference type
+      ReferenceType referenceType = (ReferenceType) visit(ctx.referenceType());
+
+      // get list of additional bound
+      List<InterfaceType> additionalBound = new ArrayList<>();
+      for(JavaParser.AdditionalBoundContext additionalBoundContext : ctx.additionalBound()) {
+        InterfaceType interfaceType = (InterfaceType) visit(additionalBoundContext.interfaceType());
+        additionalBound.add(interfaceType);
+      }
+
+      // get unaryExpression not plus minus
+      UnaryExpressionNotPlusMinus unaryExpressionNotPlusMinus
+          = (UnaryExpressionNotPlusMinus) visit(ctx.unaryExpressionNotPlusMinus());
+
+      return new ReferenceTypeUnaryCastExpression(range, null, referenceType, additionalBound, unaryExpressionNotPlusMinus);
+
+    } else if (ctx.lambdaExpression() != null) {
+      // get Reference type
+      ReferenceType referenceType = (ReferenceType) visit(ctx.referenceType());
+
+      // get list of additional bound
+      List<InterfaceType> additionalBound = new ArrayList<>();
+      for(JavaParser.AdditionalBoundContext additionalBoundContext : ctx.additionalBound()) {
+        InterfaceType interfaceType = (InterfaceType) visit(additionalBoundContext.interfaceType());
+        additionalBound.add(interfaceType);
+      }
+
+      // get lambda expression
+      LambdaExpression lambdaExpression = (LambdaExpression) visit(ctx.lambdaExpression());
+
+      return new ReferenceTypeLambdaCastExpression(range, null, referenceType, additionalBound, lambdaExpression);
+
+    } else {
+      System.err.println("ERROR : visitCastExpression");
+      return super.visitCastExpression(ctx);
+    }
   }
 }
