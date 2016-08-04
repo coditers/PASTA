@@ -896,7 +896,7 @@ enhancedForStatement
 enhancedForStatementNoShortIf
 	:	'for' '(' variableModifier* unannType variableDeclaratorId ':' expression ')' statementNoShortIf
 	;
-  // TODO - Aug 2nd, 2016
+
 breakStatement
 	:	'break' Identifier? ';'
 	;
@@ -1056,7 +1056,7 @@ primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary
 	;
 
 
-////////////
+//////////
 
 
 classInstanceCreationExpression
@@ -1074,10 +1074,14 @@ classInstanceCreationExpression_lfno_primary
 	|	expressionName '.' 'new' typeArguments? annotation* Identifier typeArgumentsOrDiamond? '(' argumentList? ')' classBody?
 	;
 
+//
+
 typeArgumentsOrDiamond
 	:	typeArguments
 	|	'<' '>'
 	;
+
+//////////
 
 fieldAccess
 	:	primary '.' Identifier
@@ -1093,6 +1097,8 @@ fieldAccess_lfno_primary
 	:	'super' '.' Identifier
 	|	typeName '.' 'super' '.' Identifier
 	;
+
+//////////
 
 arrayAccess  /* pNNA_lfno_aA [] ( pNNA_lf_aA [] ... pNNA_lf_aA [] ) */
 	:	(	expressionName '[' expression ']'
@@ -1117,6 +1123,8 @@ arrayAccess_lfno_primary
 		)*
 	;
 
+//////////
+
 methodInvocation
 	:	methodName '(' argumentList? ')'
 	|	typeName '.' typeArguments? Identifier '(' argumentList? ')'
@@ -1138,9 +1146,13 @@ methodInvocation_lfno_primary
 	|	typeName '.' 'super' '.' typeArguments? Identifier '(' argumentList? ')'
 	;
 
+//
+
 argumentList
 	:	expression (',' expression)*
 	;
+
+//////////
 
 methodReference
 	:	expressionName '::' typeArguments? Identifier
@@ -1165,6 +1177,8 @@ methodReference_lfno_primary
 	|	arrayType '::' 'new'
 	;
 
+////////// DONE
+
 arrayCreationExpression
 	:	'new' primitiveType dimExprs dims?
 	|	'new' classOrInterfaceType dimExprs dims?
@@ -1180,6 +1194,8 @@ dimExpr
 	:	annotation* '[' expression ']'
 	;
 
+//////////
+
 constantExpression
 	:	expression
 	;
@@ -1188,6 +1204,8 @@ expression
 	:	lambdaExpression
 	|	assignmentExpression
 	;
+
+//////////
 
 lambdaExpression
 	:	lambdaParameters '->' lambdaBody
@@ -1207,6 +1225,8 @@ lambdaBody
 	:	expression
 	|	block
 	;
+
+//////////
 
 assignmentExpression
 	:	conditionalExpression

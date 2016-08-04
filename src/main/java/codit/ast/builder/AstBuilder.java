@@ -50,6 +50,31 @@ import codit.ast.pojos.expressions.Expression;
 import codit.ast.pojos.expressions.StatementExpression;
 import codit.ast.pojos.expressions.StatementExpressionList;
 import codit.ast.pojos.expressions.primaries.Primary;
+import codit.ast.pojos.expressions.primaries.PrimaryArrayCreationExpression;
+import codit.ast.pojos.expressions.primaries.PrimaryNoNewArray;
+import codit.ast.pojos.expressions.primaries.arraycreationexpression.ArrayCreationExpression;
+import codit.ast.pojos.expressions.primaries.arraycreationexpression.BasicClassOrInterfaceArrayCreationExpression;
+import codit.ast.pojos.expressions.primaries.arraycreationexpression.BasicPrimitiveArrayCreationExpression;
+import codit.ast.pojos.expressions.primaries.arraycreationexpression.DimExpr;
+import codit.ast.pojos.expressions.primaries.arraycreationexpression.InitializeClassOrInterfaceArrayCreationExpression;
+import codit.ast.pojos.expressions.primaries.arraycreationexpression.InitializePrimitiveArrayCreationExpression;
+import codit.ast.pojos.expressions.primaries.basics.BasicThisExpression;
+import codit.ast.pojos.expressions.primaries.basics.LiteralExpression;
+import codit.ast.pojos.expressions.primaries.basics.ParenthesizedExpression;
+import codit.ast.pojos.expressions.primaries.basics.PrimitiveClassLiteralExpression;
+import codit.ast.pojos.expressions.primaries.basics.ReferenceClassLiteralExpression;
+import codit.ast.pojos.expressions.primaries.basics.ReferenceThisExpression;
+import codit.ast.pojos.expressions.primaries.basics.VoidClassLiteralExpression;
+import codit.ast.pojos.expressions.primaries.classinstancecreation.BasicClassInstanceCreationExpression;
+import codit.ast.pojos.expressions.primaries.classinstancecreation.ExpressionClassInstanceCreationExpression;
+import codit.ast.pojos.expressions.primaries.classinstancecreation.PostfixClassInstanceCreationExpression;
+import codit.ast.pojos.expressions.primaries.classinstancecreation.PrimaryClassInstanceCreationExpression;
+import codit.ast.pojos.expressions.primaries.fieldaccess.BasicFieldAccess;
+import codit.ast.pojos.expressions.primaries.fieldaccess.PostfixFieldAccess;
+import codit.ast.pojos.expressions.primaries.fieldaccess.PrimaryFieldAccess;
+import codit.ast.pojos.expressions.primaries.fieldaccess.ReferenceFieldAccess;
+import codit.ast.pojos.expressions.primaries.interfaces.DefaultArrayLfPrimary;
+import codit.ast.pojos.expressions.primaries.interfaces.DefaultArrayLfnoPrimary;
 import codit.ast.pojos.interfaces.AnnotationTypeDeclaration;
 import codit.ast.pojos.interfaces.AnnotationTypeElementDeclaration;
 import codit.ast.pojos.interfaces.AnnotationTypeMemberable;
@@ -63,6 +88,7 @@ import codit.ast.pojos.interfaces.InterfaceMethodDeclaration;
 import codit.ast.pojos.interfaces.NormalInterfaceDeclaration;
 import codit.ast.pojos.literals.BooleanLiteral;
 import codit.ast.pojos.literals.CharacterLiteral;
+import codit.ast.pojos.literals.Literal;
 import codit.ast.pojos.literals.NullLiteral;
 import codit.ast.pojos.literals.StringLiteral;
 import codit.ast.pojos.literals.floats.DecimalFloatLiteral;
@@ -131,11 +157,14 @@ import codit.ast.pojos.types.ArrayType;
 import codit.ast.pojos.types.ClassOrInterfaceType;
 import codit.ast.pojos.types.ClassOrInterfaceTypeBound;
 import codit.ast.pojos.types.ClassType;
+import codit.ast.pojos.types.Diamond;
 import codit.ast.pojos.types.Dims;
 import codit.ast.pojos.types.InterfaceType;
 import codit.ast.pojos.types.PrimitiveType;
 import codit.ast.pojos.types.ReferenceType;
 import codit.ast.pojos.types.TypeArgument;
+import codit.ast.pojos.types.TypeArguments;
+import codit.ast.pojos.types.TypeArgumentsOrDiamond;
 import codit.ast.pojos.types.TypeBound;
 import codit.ast.pojos.types.TypeParameter;
 import codit.ast.pojos.types.TypeVariable;
@@ -3480,87 +3509,597 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitPrimary(JavaParser.PrimaryContext ctx) {
-    return super.visitPrimary(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get pNNA_lf_primary
+    List<DefaultArrayLfPrimary> defaultArrayLfPrimaryList = new ArrayList<>();
+    for (JavaParser.PrimaryNoNewArray_lf_primaryContext primaryNoNewArray_lf_primaryContext
+        : ctx.primaryNoNewArray_lf_primary()) {
+      AstNode astNode = visit(primaryNoNewArray_lf_primaryContext);
+
+      //
+      DefaultArrayLfPrimary defaultArrayLfPrimary;
+      if (astNode instanceof DefaultArrayLfPrimary) {
+        defaultArrayLfPrimary = (DefaultArrayLfPrimary) astNode;
+      } else {
+        System.err.println("ERROR : visitPrimary");
+        return super.visitPrimary(ctx);
+      }
+      defaultArrayLfPrimaryList.add(defaultArrayLfPrimary);
+    }
+
+    if (ctx.primaryNoNewArray_lfno_primary() != null) {
+      //
+      AstNode astNode = visit(ctx.primaryNoNewArray_lfno_primary());
+      //
+      DefaultArrayLfnoPrimary defaultArrayLfnoPrimary;
+      if (astNode instanceof DefaultArrayLfnoPrimary) {
+        defaultArrayLfnoPrimary = (DefaultArrayLfnoPrimary) astNode;
+      } else {
+        System.err.println("ERROR : visitPrimary");
+        return super.visitPrimary(ctx);
+      }
+      //
+      return new PrimaryNoNewArray(range, null, defaultArrayLfnoPrimary, defaultArrayLfPrimaryList);
+
+    } else if (ctx.arrayCreationExpression() != null) {
+      //
+      ArrayCreationExpression arrayCreationExpression
+          = (ArrayCreationExpression) visit(ctx.arrayCreationExpression());
+      //
+      return new PrimaryArrayCreationExpression(range, null, arrayCreationExpression, defaultArrayLfPrimaryList);
+
+    } else {
+      System.err.println("ERROR : visitPrimary");
+      return super.visitPrimary(ctx);
+    }
   }
 
   @Override
-  public AstNode visitPrimaryNoNewArray(JavaParser.PrimaryNoNewArrayContext ctx) {
-    return super.visitPrimaryNoNewArray(ctx);
+  public AstNode visitPrimaryNoNewArray(JavaParser.PrimaryNoNewArrayContext ctx) { // Not necessary
+    // get range
+    Range range = getRange(ctx);
+
+    if (ctx.literal() != null) {
+      Literal literal = (Literal) visit(ctx.literal());
+      return new LiteralExpression(range, null, literal);
+    } else if (ctx.getChild(0).getText().equals("void")) {
+      return new VoidClassLiteralExpression(range, null);
+    } else if (ctx.getChild(0).getText().equals("this")) {
+      return new BasicThisExpression(range, null);
+    } else if (ctx.typeName() != null && ctx.getChild(2).getText().equals("this")) {
+      TypeName typeName = (TypeName) visit(ctx.typeName());
+      return new ReferenceThisExpression(range, null, typeName);
+    } else if (ctx.typeName() != null) {
+      TypeName typeName = (TypeName) visit(ctx.typeName());
+      int cnt = 0;
+      for (ParseTree parseTree : ctx.children) {
+        if (parseTree.getText().equals("[")) { ++cnt; }
+      }
+      return new ReferenceClassLiteralExpression(range, null, typeName, cnt);
+    } else if (ctx.getChild(0).getText().equals("(")) {
+      Expression expression = (Expression) visit(ctx.expression());
+      return new ParenthesizedExpression(range, null, expression);
+    } else if (ctx.classInstanceCreationExpression() != null) {
+      return visit(ctx.classInstanceCreationExpression());
+    } else if (ctx.fieldAccess() != null) {
+      return visit(ctx.fieldAccess());
+    } else if (ctx.arrayAccess() != null) {
+      return visit(ctx.arrayAccess());
+    } else if (ctx.methodInvocation() != null) {
+      return visit(ctx.methodInvocation());
+    } else if (ctx.methodReference() != null) {
+      return visit(ctx.methodReference());
+    } else {
+      System.err.println("ERROR : visitPrimaryNoNewArray");
+      return super.visitPrimaryNoNewArray(ctx);
+    }
   }
 
   @Override
   public AstNode visitPrimaryNoNewArray_lf_arrayAccess(JavaParser.PrimaryNoNewArray_lf_arrayAccessContext ctx) {
+    // Not Necessary
     return super.visitPrimaryNoNewArray_lf_arrayAccess(ctx);
   }
 
   @Override
   public AstNode visitPrimaryNoNewArray_lfno_arrayAccess(JavaParser.PrimaryNoNewArray_lfno_arrayAccessContext ctx) {
-    return super.visitPrimaryNoNewArray_lfno_arrayAccess(ctx);
+    // get range
+    Range range = getRange(ctx);
+
+    if (ctx.literal() != null) {
+      Literal literal = (Literal) visit(ctx.literal());
+      return new LiteralExpression(range, null, literal);
+    } else if (ctx.getChild(0).getText().equals("void")) {
+      return new VoidClassLiteralExpression(range, null);
+    } else if (ctx.getChild(0).getText().equals("this")) {
+      return new BasicThisExpression(range, null);
+    } else if (ctx.typeName() != null && ctx.getChild(2).getText().equals("this")) {
+      TypeName typeName = (TypeName) visit(ctx.typeName());
+      return new ReferenceThisExpression(range, null, typeName);
+    } else if (ctx.typeName() != null) {
+      TypeName typeName = (TypeName) visit(ctx.typeName());
+      int cnt = 0;
+      for (ParseTree parseTree : ctx.children) {
+        if (parseTree.getText().equals("[")) { ++cnt; }
+      }
+      return new ReferenceClassLiteralExpression(range, null, typeName, cnt);
+    } else if (ctx.getChild(0).getText().equals("(")) {
+      Expression expression = (Expression) visit(ctx.expression());
+      return new ParenthesizedExpression(range, null, expression);
+    } else if (ctx.classInstanceCreationExpression() != null) {
+      return visit(ctx.classInstanceCreationExpression());
+    } else if (ctx.fieldAccess() != null) {
+      return visit(ctx.fieldAccess());
+    } else if (ctx.methodInvocation() != null) {
+      return visit(ctx.methodInvocation());
+    } else if (ctx.methodReference() != null) {
+      return visit(ctx.methodReference());
+    } else {
+      System.err.println("ERROR : visitPrimaryNoNewArray_lfno_arrayAccess");
+      return super.visitPrimaryNoNewArray_lfno_arrayAccess(ctx);
+    }
   }
 
   @Override
   public AstNode visitPrimaryNoNewArray_lf_primary(JavaParser.PrimaryNoNewArray_lf_primaryContext ctx) {
-    return super.visitPrimaryNoNewArray_lf_primary(ctx);
+    if (ctx.classInstanceCreationExpression_lf_primary() != null) {
+      return visit(ctx.classInstanceCreationExpression_lf_primary());
+    } else if (ctx.fieldAccess_lf_primary() != null) {
+      return visit(ctx.fieldAccess_lf_primary());
+    } else if (ctx.arrayAccess_lf_primary() != null) {
+      return visit(ctx.arrayAccess_lf_primary());
+    } else if (ctx.methodInvocation_lf_primary() != null) {
+      return visit(ctx.methodInvocation_lf_primary());
+    } else if (ctx.methodReference_lf_primary() != null) {
+      return visit(ctx.methodReference_lf_primary());
+    } else {
+      System.err.println("ERROR : visitPrimaryNoNewArray_lf_primary");
+      return super.visitPrimaryNoNewArray_lf_primary(ctx);
+    }
   }
 
   @Override
   public AstNode visitPrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary(JavaParser.PrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primaryContext ctx) {
+    // Not Necessary TODO - check the reliability
     return super.visitPrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary(ctx);
   }
 
   @Override
   public AstNode visitPrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary(JavaParser.PrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primaryContext ctx) {
-    return super.visitPrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary(ctx);
+    if (ctx.classInstanceCreationExpression_lf_primary() != null) {
+      return visit(ctx.classInstanceCreationExpression_lf_primary());
+    } else if (ctx.fieldAccess_lf_primary() != null) {
+      return visit(ctx.fieldAccess_lf_primary());
+    } else if (ctx.methodInvocation_lf_primary() != null) {
+      return visit(ctx.methodInvocation_lf_primary());
+    } else if (ctx.methodReference_lf_primary() != null) {
+      return visit(ctx.methodReference_lf_primary());
+    } else {
+      System.err.println("ERROR : visitPrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary");
+      return super.visitPrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary(ctx);
+    }
   }
 
   @Override
   public AstNode visitPrimaryNoNewArray_lfno_primary(JavaParser.PrimaryNoNewArray_lfno_primaryContext ctx) {
-    return super.visitPrimaryNoNewArray_lfno_primary(ctx);
+    // get range
+    Range range = getRange(ctx);
+
+    if (ctx.literal() != null) {
+      Literal literal = (Literal) visit(ctx.literal());
+      return new LiteralExpression(range, null, literal);
+    } else if (ctx.getChild(0).getText().equals("void")) {
+      return new VoidClassLiteralExpression(range, null);
+    } else if (ctx.getChild(0).getText().equals("this")) {
+      return new BasicThisExpression(range, null);
+    } else if (ctx.typeName() != null && ctx.getChild(2).getText().equals("this")) {
+      TypeName typeName = (TypeName) visit(ctx.typeName());
+      return new ReferenceThisExpression(range, null, typeName);
+    } else if (ctx.typeName() != null) {
+      TypeName typeName = (TypeName) visit(ctx.typeName());
+      int cnt = 0;
+      for (ParseTree parseTree : ctx.children) {
+        if (parseTree.getText().equals("[")) { ++cnt; }
+      }
+      return new ReferenceClassLiteralExpression(range, null, typeName, cnt);
+    } else if (ctx.unannPrimitiveType() != null) {
+      UnannPrimitiveType unannPrimitiveType = (UnannPrimitiveType) visit(ctx.unannPrimitiveType());
+      int cnt = 0;
+      for (ParseTree parseTree : ctx.children) {
+        if (parseTree.getText().equals("[")) { ++cnt; }
+      }
+      return new PrimitiveClassLiteralExpression(range, null, unannPrimitiveType, cnt);
+    } else if (ctx.getChild(0).getText().equals("(")) {
+      Expression expression = (Expression) visit(ctx.expression());
+      return new ParenthesizedExpression(range, null, expression);
+    } else if (ctx.classInstanceCreationExpression_lfno_primary() != null) {
+      return visit(ctx.classInstanceCreationExpression_lfno_primary());
+    } else if (ctx.fieldAccess_lfno_primary() != null) {
+      return visit(ctx.fieldAccess_lfno_primary());
+    } else if (ctx.arrayAccess_lfno_primary() != null) {
+      return visit(ctx.arrayAccess_lfno_primary());
+    } else if (ctx.methodInvocation_lfno_primary() != null) {
+      return visit(ctx.methodInvocation_lfno_primary());
+    } else if (ctx.methodReference_lfno_primary() != null) {
+      return visit(ctx.methodReference_lfno_primary());
+    } else {
+      System.err.println("ERROR : visitPrimaryNoNewArray_lfno_primary");
+      return super.visitPrimaryNoNewArray_lfno_primary(ctx);
+    }
   }
 
   @Override
   public AstNode visitPrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary(JavaParser.PrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primaryContext ctx) {
+    // Not Necessary
     return super.visitPrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary(ctx);
   }
 
   @Override
   public AstNode visitPrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary(JavaParser.PrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primaryContext ctx) {
-    return super.visitPrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary(ctx);
+    // get range
+    Range range = getRange(ctx);
+
+    if (ctx.literal() != null) {
+      Literal literal = (Literal) visit(ctx.literal());
+      return new LiteralExpression(range, null, literal);
+    } else if (ctx.getChild(0).getText().equals("void")) {
+      return new VoidClassLiteralExpression(range, null);
+    } else if (ctx.getChild(0).getText().equals("this")) {
+      return new BasicThisExpression(range, null);
+    } else if (ctx.typeName() != null && ctx.getChild(2).getText().equals("this")) {
+      TypeName typeName = (TypeName) visit(ctx.typeName());
+      return new ReferenceThisExpression(range, null, typeName);
+    } else if (ctx.typeName() != null) {
+      TypeName typeName = (TypeName) visit(ctx.typeName());
+      int cnt = 0;
+      for (ParseTree parseTree : ctx.children) {
+        if (parseTree.getText().equals("[")) { ++cnt; }
+      }
+      return new ReferenceClassLiteralExpression(range, null, typeName, cnt);
+    } else if (ctx.unannPrimitiveType() != null) {
+      UnannPrimitiveType unannPrimitiveType = (UnannPrimitiveType) visit(ctx.unannPrimitiveType());
+      int cnt = 0;
+      for (ParseTree parseTree : ctx.children) {
+        if (parseTree.getText().equals("[")) { ++cnt; }
+      }
+      return new PrimitiveClassLiteralExpression(range, null, unannPrimitiveType, cnt);
+    } else if (ctx.getChild(0).getText().equals("(")) {
+      Expression expression = (Expression) visit(ctx.expression());
+      return new ParenthesizedExpression(range, null, expression);
+    } else if (ctx.classInstanceCreationExpression_lfno_primary() != null) {
+      return visit(ctx.classInstanceCreationExpression_lfno_primary());
+    } else if (ctx.fieldAccess_lfno_primary() != null) {
+      return visit(ctx.fieldAccess_lfno_primary());
+    } else if (ctx.methodInvocation_lfno_primary() != null) {
+      return visit(ctx.methodInvocation_lfno_primary());
+    } else if (ctx.methodReference_lfno_primary() != null) {
+      return visit(ctx.methodReference_lfno_primary());
+    } else {
+      System.err.println("ERROR : visitPrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary");
+      return super.visitPrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary(ctx);
+    }
   }
 
   @Override
   public AstNode visitClassInstanceCreationExpression(JavaParser.ClassInstanceCreationExpressionContext ctx) {
-    return super.visitClassInstanceCreationExpression(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get list of type arguments
+    List<TypeArgument> typeArgumentList = new ArrayList<>();
+    for(JavaParser.TypeArgumentContext typeArgumentContext : ctx.typeArguments().typeArgumentList().typeArgument()) {
+      TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
+      typeArgumentList.add(typeArgument);
+    }
+
+    // get type argument or diamond
+    TypeArgumentsOrDiamond typeArgumentsOrDiamond
+        = (TypeArgumentsOrDiamond) visit(ctx.typeArgumentsOrDiamond());
+
+    // get argument list
+    List<Expression> argumentList = new ArrayList<>();
+    for(JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
+      Expression expression = (Expression) visit(expressionContext);
+      argumentList.add(expression);
+    }
+
+    // get class body
+    List<ClassBodyDeclaration> classBody = new ArrayList<>();
+    for(JavaParser.ClassBodyDeclarationContext classBodyDeclarationContext
+        : ctx.classBody().classBodyDeclaration()) {
+      ClassBodyDeclaration classBodyDeclaration
+          = (ClassBodyDeclaration) visit(classBodyDeclarationContext);
+      classBody.add(classBodyDeclaration);
+    }
+
+
+    if (ctx.expressionName() != null) { // expressionName
+      // get expression name
+      ExpressionName expressionName = (ExpressionName) visit(ctx.expressionName());
+
+      // get annotation list
+      List<Annotation> annotationList = new ArrayList<>();
+      for(JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+        Annotation annotation = (Annotation) visit(annotationContext);
+        annotationList.add(annotation);
+      }
+
+      // get identifier
+      String identifier = ctx.Identifier(0).getText();
+
+      return new ExpressionClassInstanceCreationExpression(range, null,
+          expressionName, typeArgumentList, annotationList, identifier, typeArgumentsOrDiamond, argumentList, classBody);
+
+    } else if (ctx.primary() != null) { // primary
+
+      // get primary
+      Primary primary = (Primary) visit(ctx.primary());
+
+      // get annotation list
+      List<Annotation> annotationList = new ArrayList<>();
+      for(JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+        Annotation annotation = (Annotation) visit(annotationContext);
+        annotationList.add(annotation);
+      }
+
+      // get identifier
+      String identifier = ctx.Identifier(0).getText();
+
+      return new PrimaryClassInstanceCreationExpression(range, null,
+          primary, typeArgumentList, annotationList, identifier, typeArgumentsOrDiamond, argumentList, classBody);
+
+    } else if (ctx.getChild(0).getText().equals("new")) { // basic
+
+      // get list of annotations
+      List<List<Annotation>> annotationListList = new ArrayList<>();
+      List<String> identifierList = new ArrayList<>();
+
+      List<Annotation> annotationList = new ArrayList<>();
+      for (ParseTree parseTree : ctx.children) {
+        if (parseTree instanceof JavaParser.AnnotationContext) {
+          Annotation annotation = (Annotation) visit(parseTree);
+          annotationList.add(annotation);
+        } else if (parseTree.getText().equals(".")) {
+          annotationListList.add(annotationList);
+          annotationList = new ArrayList<>();
+        } else if (parseTree instanceof JavaParser.TypeArgumentsContext
+                 ||parseTree.getText().equals("new")) {
+          // Do nothing
+        } else if (parseTree instanceof JavaParser.TypeArgumentsOrDiamondContext
+                 ||parseTree.getText().equals("(")) {
+          annotationListList.add(annotationList);
+          break;
+        } else {
+          String identifier = ctx.getText();
+          identifierList.add(identifier);
+        }
+      }
+
+      return new BasicClassInstanceCreationExpression(range, null,
+          typeArgumentList, annotationListList, identifierList, typeArgumentsOrDiamond, argumentList, classBody);
+
+    } else {
+      System.err.println("ERROR : visitClassIntanceCreationExpression");
+      return super.visitClassInstanceCreationExpression(ctx);
+    }
   }
 
   @Override
   public AstNode visitClassInstanceCreationExpression_lf_primary(JavaParser.ClassInstanceCreationExpression_lf_primaryContext ctx) {
-    return super.visitClassInstanceCreationExpression_lf_primary(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get list of type arguments
+    List<TypeArgument> typeArgumentList = new ArrayList<>();
+    for(JavaParser.TypeArgumentContext typeArgumentContext : ctx.typeArguments().typeArgumentList().typeArgument()) {
+      TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
+      typeArgumentList.add(typeArgument);
+    }
+
+    // get annotation list
+    List<Annotation> annotationList = new ArrayList<>();
+    for(JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+      Annotation annotation = (Annotation) visit(annotationContext);
+      annotationList.add(annotation);
+    }
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    // get type argument or diamond
+    TypeArgumentsOrDiamond typeArgumentsOrDiamond
+        = (TypeArgumentsOrDiamond) visit(ctx.typeArgumentsOrDiamond());
+
+    // get argument list
+    List<Expression> argumentList = new ArrayList<>();
+    for(JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
+      Expression expression = (Expression) visit(expressionContext);
+      argumentList.add(expression);
+    }
+
+    // get class body
+    List<ClassBodyDeclaration> classBody = new ArrayList<>();
+    for(JavaParser.ClassBodyDeclarationContext classBodyDeclarationContext
+        : ctx.classBody().classBodyDeclaration()) {
+      ClassBodyDeclaration classBodyDeclaration
+          = (ClassBodyDeclaration) visit(classBodyDeclarationContext);
+      classBody.add(classBodyDeclaration);
+    }
+
+    return new PostfixClassInstanceCreationExpression(range, null,
+        typeArgumentList, annotationList, identifier, typeArgumentsOrDiamond, argumentList, classBody);
   }
 
   @Override
   public AstNode visitClassInstanceCreationExpression_lfno_primary(JavaParser.ClassInstanceCreationExpression_lfno_primaryContext ctx) {
-    return super.visitClassInstanceCreationExpression_lfno_primary(ctx);
+    // get range
+    Range range = getRange(ctx);
+
+    // get list of type arguments
+    List<TypeArgument> typeArgumentList = new ArrayList<>();
+    for(JavaParser.TypeArgumentContext typeArgumentContext : ctx.typeArguments().typeArgumentList().typeArgument()) {
+      TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
+      typeArgumentList.add(typeArgument);
+    }
+
+    // get type argument or diamond
+    TypeArgumentsOrDiamond typeArgumentsOrDiamond
+        = (TypeArgumentsOrDiamond) visit(ctx.typeArgumentsOrDiamond());
+
+    // get argument list
+    List<Expression> argumentList = new ArrayList<>();
+    for(JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
+      Expression expression = (Expression) visit(expressionContext);
+      argumentList.add(expression);
+    }
+
+    // get class body
+    List<ClassBodyDeclaration> classBody = new ArrayList<>();
+    for(JavaParser.ClassBodyDeclarationContext classBodyDeclarationContext
+        : ctx.classBody().classBodyDeclaration()) {
+      ClassBodyDeclaration classBodyDeclaration
+          = (ClassBodyDeclaration) visit(classBodyDeclarationContext);
+      classBody.add(classBodyDeclaration);
+    }
+
+
+    if (ctx.expressionName() != null) { // expressionName
+      // get expression name
+      ExpressionName expressionName = (ExpressionName) visit(ctx.expressionName());
+
+      // get annotation list
+      List<Annotation> annotationList = new ArrayList<>();
+      for(JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+        Annotation annotation = (Annotation) visit(annotationContext);
+        annotationList.add(annotation);
+      }
+
+      // get identifier
+      String identifier = ctx.Identifier(0).getText();
+
+      return new ExpressionClassInstanceCreationExpression(range, null,
+          expressionName, typeArgumentList, annotationList, identifier, typeArgumentsOrDiamond, argumentList, classBody);
+
+    }  else if (ctx.getChild(0).getText().equals("new")) { // basic
+
+      // get list of annotations
+      List<List<Annotation>> annotationListList = new ArrayList<>();
+      List<String> identifierList = new ArrayList<>();
+
+      List<Annotation> annotationList = new ArrayList<>();
+      for (ParseTree parseTree : ctx.children) {
+        if (parseTree instanceof JavaParser.AnnotationContext) {
+          Annotation annotation = (Annotation) visit(parseTree);
+          annotationList.add(annotation);
+        } else if (parseTree.getText().equals(".")) {
+          annotationListList.add(annotationList);
+          annotationList = new ArrayList<>();
+        } else if (parseTree instanceof JavaParser.TypeArgumentsContext
+            ||parseTree.getText().equals("new")) {
+          // Do nothing
+        } else if (parseTree instanceof JavaParser.TypeArgumentsOrDiamondContext
+            ||parseTree.getText().equals("(")) {
+          annotationListList.add(annotationList);
+          break;
+        } else {
+          String identifier = ctx.getText();
+          identifierList.add(identifier);
+        }
+      }
+
+      return new BasicClassInstanceCreationExpression(range, null,
+          typeArgumentList, annotationListList, identifierList, typeArgumentsOrDiamond, argumentList, classBody);
+
+    } else {
+      System.err.println("ERROR : visitClassInstanceCreationExpression_lfno_primary");
+      return super.visitClassInstanceCreationExpression_lfno_primary(ctx);
+    }
   }
 
   @Override
   public AstNode visitTypeArgumentsOrDiamond(JavaParser.TypeArgumentsOrDiamondContext ctx) {
-    return super.visitTypeArgumentsOrDiamond(ctx);
+    // get range
+    Range range = getRange(ctx);
+
+
+    if (ctx.typeArguments() != null) {
+      // get type argument list
+      List<TypeArgument> typeArgumentList = new ArrayList<>();
+      for (JavaParser.TypeArgumentContext typeArgumentContext
+          : ctx.typeArguments().typeArgumentList().typeArgument()) {
+        TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
+        typeArgumentList.add(typeArgument);
+      }
+      return new TypeArguments(range, null, typeArgumentList);
+
+    } else if (ctx.getChild(0).getText().equals("<")) {
+      return new Diamond(range, null);
+
+    } else {
+      System.err.println("ERROR : visitTypeArgumentsOrDiamond");
+      return super.visitTypeArgumentsOrDiamond(ctx);
+    }
   }
 
   @Override
   public AstNode visitFieldAccess(JavaParser.FieldAccessContext ctx) {
-    return super.visitFieldAccess(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    if (ctx.primary() != null) {
+      Primary primary = (Primary) visit(ctx.primary());
+      return new PrimaryFieldAccess(range, null, primary, identifier);
+    } else if (ctx.typeName() != null) {
+      TypeName typeName = (TypeName) visit(ctx.typeName());
+      return new ReferenceFieldAccess(range, null, typeName, identifier);
+    } else if (ctx.getChild(0).getText().equals("super")) {
+      return new BasicFieldAccess(range, null, identifier);
+    } else {
+      System.err.println("ERROR : visitFieldAccess");
+      return super.visitFieldAccess(ctx);
+    }
   }
 
   @Override
   public AstNode visitFieldAccess_lf_primary(JavaParser.FieldAccess_lf_primaryContext ctx) {
-    return super.visitFieldAccess_lf_primary(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    return new PostfixFieldAccess(range, null, identifier);
   }
 
   @Override
   public AstNode visitFieldAccess_lfno_primary(JavaParser.FieldAccess_lfno_primaryContext ctx) {
-    return super.visitFieldAccess_lfno_primary(ctx);
+
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    if (ctx.typeName() != null) {
+      TypeName typeName = (TypeName) visit(ctx.typeName());
+      return new ReferenceFieldAccess(range, null, typeName, identifier);
+    } else if (ctx.getChild(0).getText().equals("super")) {
+      return new BasicFieldAccess(range, null, identifier);
+    } else {
+      System.err.println("ERROR : visitFieldAccess_lfno_primary");
+      return super.visitFieldAccess_lfno_primary(ctx);
+    }
   }
 
   @Override
@@ -3615,17 +4154,95 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitArrayCreationExpression(JavaParser.ArrayCreationExpressionContext ctx) {
-    return super.visitArrayCreationExpression(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    if (ctx.primitiveType() != null) {
+
+      // get primitive type
+      PrimitiveType primitiveType = (PrimitiveType) visit(ctx.primitiveType());
+
+      // get dims
+      Dims dims = (Dims) visit(ctx.dims());
+
+      if (ctx.dimExprs() != null) {
+        // get list of dim expression
+        List<DimExpr> dimExprs = new ArrayList<>();
+        for (JavaParser.DimExprContext dimExprContext : ctx.dimExprs().dimExpr()) {
+          DimExpr dimExpr = (DimExpr) visit(dimExprContext);
+          dimExprs.add(dimExpr);
+        }
+        // RETURN
+        return new BasicPrimitiveArrayCreationExpression(range, null, primitiveType, dimExprs, dims);
+
+      } else if (ctx.arrayInitializer() != null) {
+        // get arrayInitializer
+        ArrayInitializer arrayInitializer = (ArrayInitializer) visit(ctx.arrayInitializer());
+        // RETURN
+        return new InitializePrimitiveArrayCreationExpression(range, null, primitiveType, dims, arrayInitializer);
+
+      } else {
+        System.err.println("ERROR : visitArrayCreationExpression");
+        return super.visitArrayCreationExpression(ctx);
+      }
+
+    } else if (ctx.classOrInterfaceType() != null) {
+
+      // get classOrInterface type
+      ClassOrInterfaceType classOrInterfaceType
+          = (ClassOrInterfaceType) visit(ctx.classOrInterfaceType());
+
+      // get dims
+      Dims dims = (Dims) visit(ctx.dims());
+
+      if (ctx.dimExprs() != null) {
+        // get list of dim expression
+        List<DimExpr> dimExprs = new ArrayList<>();
+        for (JavaParser.DimExprContext dimExprContext : ctx.dimExprs().dimExpr()) {
+          DimExpr dimExpr = (DimExpr) visit(dimExprContext);
+          dimExprs.add(dimExpr);
+        }
+        // RETURN
+        return new BasicClassOrInterfaceArrayCreationExpression(range, null, classOrInterfaceType, dimExprs, dims);
+
+      } else if (ctx.arrayInitializer() != null) {
+        // get arrayInitializer
+        ArrayInitializer arrayInitializer = (ArrayInitializer) visit(ctx.arrayInitializer());
+        // RETURN
+        return new InitializeClassOrInterfaceArrayCreationExpression(range, null, classOrInterfaceType, dims, arrayInitializer);
+      } else {
+        System.err.println("ERROR : visitArrayCreationExpression");
+        return super.visitArrayCreationExpression(ctx);
+      }
+    } else {
+      System.err.println("ERROR : visitArrayCreationExpression");
+      return super.visitArrayCreationExpression(ctx);
+    }
   }
 
   @Override
   public AstNode visitDimExprs(JavaParser.DimExprsContext ctx) {
+    // Not necessary
     return super.visitDimExprs(ctx);
   }
 
   @Override
   public AstNode visitDimExpr(JavaParser.DimExprContext ctx) {
-    return super.visitDimExpr(ctx);
+
+    // get Range
+    Range range = getRange(ctx);
+
+    // get list of annotation
+    List<Annotation> annotationList = new ArrayList<>();
+    for (JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+      Annotation annotation = (Annotation) visit(annotationContext);
+    }
+
+    // get expression
+    Expression expression = (Expression) visit(ctx.expression());
+
+    return new DimExpr(range, null, annotationList, expression);
   }
 
   @Override
