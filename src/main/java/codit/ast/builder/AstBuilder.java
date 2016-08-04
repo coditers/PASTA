@@ -47,6 +47,11 @@ import codit.ast.pojos.classes.members.MethodDeclarator;
 import codit.ast.pojos.classes.members.MethodHeader;
 import codit.ast.pojos.classes.members.SimpleMethodHeader;
 import codit.ast.pojos.expressions.Expression;
+import codit.ast.pojos.expressions.lambdas.InferredFormalLambdaParameter;
+import codit.ast.pojos.expressions.lambdas.LambdaBody;
+import codit.ast.pojos.expressions.lambdas.LambdaExpression;
+import codit.ast.pojos.expressions.lambdas.LambdaParameters;
+import codit.ast.pojos.expressions.lambdas.SingleLambdaParameter;
 import codit.ast.pojos.expressions.StatementExpression;
 import codit.ast.pojos.expressions.StatementExpressionList;
 import codit.ast.pojos.expressions.primaries.Primary;
@@ -4555,27 +4560,75 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitExpression(JavaParser.ExpressionContext ctx) {
-    return super.visitExpression(ctx);
+    if (ctx.lambdaExpression() != null) {
+      return visit(ctx.lambdaExpression());
+    } else if (ctx.assignmentExpression() != null) {
+      return visit(ctx.assignmentExpression());
+    } else {
+      System.err.println("ERROR : visitExpression");
+      return super.visitExpression(ctx);
+    }
   }
 
   @Override
   public AstNode visitLambdaExpression(JavaParser.LambdaExpressionContext ctx) {
-    return super.visitLambdaExpression(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get Lambda parameters
+    LambdaParameters lambdaParameters = (LambdaParameters) visit(ctx.lambdaParameters());
+
+    // get Lambda body
+    LambdaBody lambdaBody = (LambdaBody) visit(ctx.lambdaBody());
+
+    return new LambdaExpression(range, null, lambdaParameters, lambdaBody);
   }
 
   @Override
   public AstNode visitLambdaParameters(JavaParser.LambdaParametersContext ctx) {
-    return super.visitLambdaParameters(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    if (ctx.Identifier() != null) {
+      String identifier = ctx.Identifier().getText();
+      return new SingleLambdaParameter(range, null, identifier);
+    } else if (ctx.formalParameterList() != null) {
+      return visit(ctx.formalParameterList());
+    } else if (ctx.inferredFormalParameterList() != null) {
+      return visit(ctx.inferredFormalParameterList());
+    } else {
+      System.err.println("ERROR : visitLambdaParameters");
+      return super.visitLambdaParameters(ctx);
+    }
   }
 
   @Override
   public AstNode visitInferredFormalParameterList(JavaParser.InferredFormalParameterListContext ctx) {
-    return super.visitInferredFormalParameterList(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get identifiers
+    List<String> identifierList = new ArrayList<>();
+    for (TerminalNode terminalNode : ctx.Identifier()) {
+      String identifier = terminalNode.getText();
+      identifierList.add(identifier);
+    }
+    return new InferredFormalLambdaParameter(range, null, identifierList);
   }
 
   @Override
   public AstNode visitLambdaBody(JavaParser.LambdaBodyContext ctx) {
-    return super.visitLambdaBody(ctx);
+    if (ctx.expression() != null) {
+      return visit(ctx.expression());
+    } else if (ctx.block() != null) {
+      return visit(ctx.block());
+    } else {
+      System.err.println("ERROR : visitLambdaBody");
+      return super.visitLambdaBody(ctx);
+    }
   }
 
   @Override

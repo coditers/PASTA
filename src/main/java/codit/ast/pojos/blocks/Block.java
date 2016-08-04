@@ -3,11 +3,12 @@ package codit.ast.pojos.blocks;
 import codit.ast.AstNode;
 import codit.ast.Position;
 import codit.ast.Range;
+import codit.ast.pojos.expressions.lambdas.LambdaBody;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
-public class Block extends AstNode {
+public class Block extends AstNode implements LambdaBody {
 
   private final BlockStatements blockStatements;
 

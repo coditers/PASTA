@@ -3,11 +3,12 @@ package codit.ast.pojos.expressions;
 import codit.ast.AstNode;
 import codit.ast.Position;
 import codit.ast.Range;
+import codit.ast.pojos.expressions.lambdas.LambdaBody;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
-public abstract class Expression extends AstNode {
+public abstract class Expression extends AstNode implements LambdaBody {
   public Expression(Range range, AstNode parent) {
     super(range, parent);
   }
