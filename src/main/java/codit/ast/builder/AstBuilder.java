@@ -93,6 +93,14 @@ import codit.ast.pojos.expressions.primaries.methodinvocation.PostfixMethodInvoc
 import codit.ast.pojos.expressions.primaries.methodinvocation.PrimaryMethodInvocation;
 import codit.ast.pojos.expressions.primaries.methodinvocation.TypeMethodInvocation;
 import codit.ast.pojos.expressions.primaries.methodinvocation.TypeSuperMethodInvocation;
+import codit.ast.pojos.expressions.primaries.methodreference.ArrayMethodReference;
+import codit.ast.pojos.expressions.primaries.methodreference.BasicSuperMethodReference;
+import codit.ast.pojos.expressions.primaries.methodreference.ClassMethodReference;
+import codit.ast.pojos.expressions.primaries.methodreference.ExpressionMethodReference;
+import codit.ast.pojos.expressions.primaries.methodreference.PostfixMethodReference;
+import codit.ast.pojos.expressions.primaries.methodreference.PrimaryMethodReference;
+import codit.ast.pojos.expressions.primaries.methodreference.ReferenceMethodReference;
+import codit.ast.pojos.expressions.primaries.methodreference.TypeSuperMethodReference;
 import codit.ast.pojos.interfaces.AnnotationTypeDeclaration;
 import codit.ast.pojos.interfaces.AnnotationTypeElementDeclaration;
 import codit.ast.pojos.interfaces.AnnotationTypeMemberable;
@@ -4342,22 +4350,108 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitArgumentList(JavaParser.ArgumentListContext ctx) {
+    // Not necessary
     return super.visitArgumentList(ctx);
   }
 
   @Override
   public AstNode visitMethodReference(JavaParser.MethodReferenceContext ctx) {
-    return super.visitMethodReference(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // RETURN array type
+    if (ctx.arrayType() != null) {
+      ArrayType arrayType = (ArrayType) visit(ctx.arrayType());
+      return new ArrayMethodReference(range, null, arrayType);
+    }
+
+    // get type arguments
+    TypeArguments typeArguments = (TypeArguments) visit(ctx.typeArguments());
+
+    // RETURN class type
+    if (ctx.classType() != null) {
+      ClassType classType = (ClassType) visit(ctx.classType());
+      return new ClassMethodReference(range, null, classType, typeArguments);
+    }
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    //
+    if (ctx.expressionName() != null) {
+      ExpressionName expressionName = (ExpressionName) visit(ctx.expressionName());
+      return new ExpressionMethodReference(range, null, expressionName, typeArguments, identifier);
+    } else if (ctx.referenceType() != null) {
+      ReferenceType referenceType = (ReferenceType) visit(ctx.referenceType());
+      return new ReferenceMethodReference(range, null, referenceType, typeArguments, identifier);
+    } else if (ctx.primary() != null) {
+      Primary primary = (Primary) visit(ctx.primary());
+      return new PrimaryMethodReference(range, null, primary, typeArguments, identifier);
+    } else if (ctx.getChild(0).getText().equals("super")) {
+      return new BasicSuperMethodReference(range, null, typeArguments, identifier);
+    } else if (ctx.typeName() != null) {
+      TypeName typeName = (TypeName) visit(ctx.typeName());
+      return new TypeSuperMethodReference(range, null,typeName, typeArguments, identifier);
+    } else {
+      System.err.println("ERROR : visitMethodReference");
+      return super.visitMethodReference(ctx);
+    }
   }
 
   @Override
   public AstNode visitMethodReference_lf_primary(JavaParser.MethodReference_lf_primaryContext ctx) {
-    return super.visitMethodReference_lf_primary(ctx);
+    // get range
+    Range range = getRange(ctx);
+
+    // get Type arguments
+    TypeArguments typeArguments = (TypeArguments) visit(ctx.typeArguments());
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    return new PostfixMethodReference(range, null, typeArguments, identifier);
   }
 
   @Override
   public AstNode visitMethodReference_lfno_primary(JavaParser.MethodReference_lfno_primaryContext ctx) {
-    return super.visitMethodReference_lfno_primary(ctx);
+    // get range
+    Range range = getRange(ctx);
+
+    // RETURN array type
+    if (ctx.arrayType() != null) {
+      ArrayType arrayType = (ArrayType) visit(ctx.arrayType());
+      return new ArrayMethodReference(range, null, arrayType);
+    }
+
+    // get type arguments
+    TypeArguments typeArguments = (TypeArguments) visit(ctx.typeArguments());
+
+    // RETURN class type
+    if (ctx.classType() != null) {
+      ClassType classType = (ClassType) visit(ctx.classType());
+      return new ClassMethodReference(range, null, classType, typeArguments);
+    }
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    //
+    if (ctx.expressionName() != null) {
+      ExpressionName expressionName = (ExpressionName) visit(ctx.expressionName());
+      return new ExpressionMethodReference(range, null, expressionName, typeArguments, identifier);
+    } else if (ctx.referenceType() != null) {
+      ReferenceType referenceType = (ReferenceType) visit(ctx.referenceType());
+      return new ReferenceMethodReference(range, null, referenceType, typeArguments, identifier);
+    } else if (ctx.getChild(0).getText().equals("super")) {
+      return new BasicSuperMethodReference(range, null, typeArguments, identifier);
+    } else if (ctx.typeName() != null) {
+      TypeName typeName = (TypeName) visit(ctx.typeName());
+      return new TypeSuperMethodReference(range, null,typeName, typeArguments, identifier);
+    } else {
+      System.err.println("ERROR : visitMethodReference_lfno_primary");
+      return super.visitMethodReference_lfno_primary(ctx);
+    }
   }
 
   @Override
