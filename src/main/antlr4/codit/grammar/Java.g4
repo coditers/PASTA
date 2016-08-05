@@ -1347,6 +1347,17 @@ unaryExpressionNotPlusMinus
 	;
 
 // Why...?
+/*
+Note that the raw grammar lacks any semantics. It's just syntax, and not every syntactically
+valid program will generally be valid. For example, the requirement that variables have to be
+declared before usage is typically not covered by the grammar (you can, but it's cumbersome).
+
+Postfix-increment yields an rvalue - and just as you cannot postfix-increment literals, you
+cannot postfix-increment the result if i++.
+
+Quoting from the JLS (3rd ed., page 486):
+  The result of the postfix increment expression is not a variable, but a value.
+*/
 postfixExpression
 	:	(	primary
 		|	expressionName

@@ -12,7 +12,6 @@ import codit.ast.pojos.expressions.primaries.Primary;
  */
 public class PrimaryPostfixExpression extends PostfixExpression {
 
-
   private final Primary primary;
   private final List<Boolean> isPlusList;
 

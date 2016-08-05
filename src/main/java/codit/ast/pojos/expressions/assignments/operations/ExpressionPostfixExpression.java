@@ -11,6 +11,7 @@ import codit.ast.pojos.names.ExpressionName;
  * @author Jisung Lim <iejisung@gmail.com>
  */
 public class ExpressionPostfixExpression extends PostfixExpression {
+
   private final ExpressionName expressionName;
   private final List<Boolean> isPlusList;
 

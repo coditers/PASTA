@@ -4592,6 +4592,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     List<Annotation> annotationList = new ArrayList<>();
     for (JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
       Annotation annotation = (Annotation) visit(annotationContext);
+      annotationList.add(annotation);
     }
 
     // get expression
@@ -4751,8 +4752,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
       return new TernaryConditionalExpression(range, null, conditionalOrExpression, expression, conditionalExpression);
 
+    // forward to conditional OR expression
     } else if (ctx.conditionalOrExpression() != null) {
       return visit(ctx.conditionalOrExpression());
+
     } else {
       System.err.println("ERROR : visitConditionalExpression");
       return super.visitConditionalExpression(ctx);
@@ -4765,16 +4768,21 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get range
     Range range = getRange(ctx);
 
-    //
+    // CondtionalOR || ConditionalAND
     if (ctx.conditionalOrExpression() != null) {
-      //
+
+      // get conditional OR expression
       ConditionalOrExpression conditionalOrExpression = (ConditionalOrExpression) visit(ctx.conditionalOrExpression());
+
+      // get conditional AND expression
       ConditionalAndExpression conditionalAndExpression = (ConditionalAndExpression) visit(ctx.conditionalAndExpression());
 
       return new ImplConditionalOrExpression(range, null, conditionalOrExpression, conditionalAndExpression);
 
+    // forward to conditional AND expression
     } else if (ctx.conditionalAndExpression() != null) {
       return visit(ctx.conditionalAndExpression());
+
     } else {
       System.err.println("ERROR : visitConditionalOrExpression");
       return super.visitConditionalOrExpression(ctx);
@@ -4787,16 +4795,21 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get range
     Range range = getRange(ctx);
 
-    //
+    // ConditionalAND && inclusiveOR
     if (ctx.conditionalAndExpression() != null) {
-      //
+
+      // get conditional AND expression
       ConditionalAndExpression conditionalAndExpression = (ConditionalAndExpression) visit(ctx.conditionalAndExpression());
+
+      // get inclusive OR expression
       InclusiveOrExpression inclusiveOrExpression = (InclusiveOrExpression) visit(ctx.inclusiveOrExpression());
 
       return new ImplConditionalAndExpression(range, null, conditionalAndExpression, inclusiveOrExpression);
 
+    // forward to inclusive OR expression
     } else if (ctx.inclusiveOrExpression() != null) {
       return visit(ctx.inclusiveOrExpression());
+
     } else {
       System.err.println("ERROR : visitConditionalAndExpression");
       return super.visitConditionalAndExpression(ctx);
@@ -4809,15 +4822,21 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get range
     Range range = getRange(ctx);
 
+    // inclusiveOR | exclusiveOR
     if (ctx.inclusiveOrExpression() != null) {
-      //
+
+      // get inclusiveOR
       InclusiveOrExpression inclusiveOrExpression = (InclusiveOrExpression) visit(ctx.inclusiveOrExpression());
+
+      // get exclusiveOR
       ExclusiveOrExpression exclusiveOrExpression = (ExclusiveOrExpression) visit(ctx.exclusiveOrExpression());
 
       return new ImplInclusiveOrExpression(range, null, inclusiveOrExpression, exclusiveOrExpression);
 
+    // forward to exclusive OR expression
     } else if (ctx.exclusiveOrExpression() != null) {
       return visit(ctx.exclusiveOrExpression());
+
     } else {
       System.err.println("ERROR : visitInclusiveOrExpression");
       return super.visitInclusiveOrExpression(ctx);
@@ -4830,15 +4849,21 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get range
     Range range = getRange(ctx);
 
+    // exclusiveOR ^ AND
     if (ctx.exclusiveOrExpression() != null) {
-      //
+
+      // get exclusiveOR
       ExclusiveOrExpression exclusiveOrExpression = (ExclusiveOrExpression) visit(ctx.exclusiveOrExpression());
+
+      // get AND
       AndExpression andExpression = (AndExpression) visit(ctx.andExpression());
 
       return new ImplExclusiveOrExpression(range, null, exclusiveOrExpression, andExpression);
 
+    // forward to AND expression
     } else if (ctx.andExpression() != null) {
       return visit(ctx.andExpression());
+
     } else {
       System.err.println("ERROR : visitExclusiveOrExpression");
       return super.visitExclusiveOrExpression(ctx);
@@ -4851,15 +4876,21 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get range
     Range range = getRange(ctx);
 
+    // AND & EQUALITY
     if (ctx.andExpression() != null) {
-      //
+
+      // get AND expression
       AndExpression andExpression = (AndExpression) visit(ctx.andExpression());
+
+      // get Equality expression
       EqualityExpression equalityExpression = (EqualityExpression) visit(ctx.equalityExpression());
 
       return new ImplAndExpression(range, null, andExpression, equalityExpression);
 
+    // forward to Equality expression
     } else if (ctx.equalityExpression() != null) {
       return visit(ctx.equalityExpression());
+
     } else {
       System.err.println("ERROR : visitAndExpression");
       return super.visitAndExpression(ctx);
@@ -4872,23 +4903,30 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get range
     Range range = getRange(ctx);
 
+    // Equality ( == | != ) Relational
     if (ctx.equalityExpression() != null) {
-      //
+
+      // get Equality expression
       EqualityExpression equalityExpression = (EqualityExpression) visit(ctx.equalityExpression());
+
+      // get Relational expression
       RelationalExpression relationalExpression = (RelationalExpression) visit(ctx.relationalExpression());
 
+      // distinguish the type of operator
       switch(ctx.getChild(1).getText()) {
-        case "==" :
+        case "==" : // Equal expression
           return new EqualEqualityExpression(range, null, equalityExpression, relationalExpression);
-        case "!=" :
+        case "!=" : // Unequal expression
           return new UnequalEqualityExpression(range, null, equalityExpression, relationalExpression);
-        default :
+        default   : // ERROR
           System.err.println("ERROR : visitEqualityExpression");
           return super.visitEqualityExpression(ctx);
       }
 
+    // forward to Relational expression
     } else if (ctx.relationalExpression() != null) {
       return visit(ctx.relationalExpression());
+
     } else {
       System.err.println("ERROR : visitEqualityExpression");
       return super.visitEqualityExpression(ctx);
@@ -4901,33 +4939,41 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get range
     Range range = getRange(ctx);
 
-    //
+    // get Relational expression
     RelationalExpression relationalExpression = (RelationalExpression) visit(ctx.relationalExpression());
 
-    //
+    // Relational 'instanceof' ReferenceType
     if (ctx.referenceType() != null) {
+
+      // get Reference expression
       ReferenceType referenceType = (ReferenceType) visit(ctx.referenceType());
 
       return new InstanceofRelationalExpression(range, null, relationalExpression, referenceType);
+
+    // Relational ( < | > | <= | >= ) Shift
     } else if (ctx.relationalExpression() != null) {
 
+      // get Shift expression
       ShiftExpression shiftExpression = (ShiftExpression) visit(ctx.shiftExpression());
 
       switch(ctx.getChild(1).getText()) {
-        case "<" :
+        case "<"  : // less than
           return new LtRelationalExpression(range, null, relationalExpression, shiftExpression);
-        case ">" :
+        case ">"  : // greater than
           return new GtRelationalExpression(range, null, relationalExpression, shiftExpression);
-        case "<=" :
+        case "<=" : // less than equal to
           return new LtetRelationalExpression(range, null, relationalExpression, shiftExpression);
-        case ">=" :
+        case ">=" : // greater than equal to
           return new GtetRelationalExpression(range, null, relationalExpression, shiftExpression);
-        default :
+        default   :
           System.err.println("ERROR : visitRelationalExpression");
           return super.visitRelationalExpression(ctx);
       }
+
+    // forward to Shift expression
     } else if (ctx.shiftExpression() != null) {
       return visit(ctx.shiftExpression());
+
     } else {
       System.err.println("ERROR : visitRelationalExpression");
       return super.visitRelationalExpression(ctx);
@@ -4940,29 +4986,30 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get range
     Range range = getRange(ctx);
 
-    // AdditiveExpression
-    AdditiveExpression additiveExpression = (AdditiveExpression) visit(ctx.additiveExpression());
-
+    // Shift ( >> | << | >>> ) Additive
     if (ctx.shiftExpression() != null) {
 
+      // get shift expression
       ShiftExpression shiftExpression = (ShiftExpression) visit(ctx.shiftExpression());
 
-      if (ctx.getChild(1).getText().equals("<")) {
-        // TODO - <<
+      // get Additive expression
+      AdditiveExpression additiveExpression = (AdditiveExpression) visit(ctx.additiveExpression());
+
+      if (ctx.getChild(1).getText().equals("<")) { // left shift
         return new LeftShiftExpression(range, null, shiftExpression, additiveExpression);
-      } else if (ctx.getChild(3).getText().equals(">")) {
-        // TODO - >>
-        return new RightShiftExpression(range, null, shiftExpression, additiveExpression);
-      } else if (ctx.getChild(2).getText().equals(">")) {
-        // TODO - >>>
+      } else if (ctx.getChild(3).getText().equals(">")) { // unsigned right shift
         return new UnsignedRightShiftExpression(range, null, shiftExpression, additiveExpression);
+      } else if (ctx.getChild(1).getText().equals(">")) { // right shift
+        return new RightShiftExpression(range, null, shiftExpression, additiveExpression);
       } else {
         System.err.println("ERROR : visitShiftExpression");
         return super.visitShiftExpression(ctx);
       }
 
+    // forward to Additive expression
     } else if (ctx.additiveExpression() != null) {
       return visit(ctx.additiveExpression());
+
     } else {
       System.err.println("ERROR : visitShiftExpression");
       return super.visitShiftExpression(ctx);
@@ -4975,24 +5022,29 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get range
     Range range = getRange(ctx);
 
-    // get multiplicative Expression
-    MultiplicativeExpression multiplicativeExpression = (MultiplicativeExpression) visit(ctx.multiplicativeExpression());
-
+    // Additive ( + | - ) Multiplicative
     if (ctx.additiveExpression() != null) {
+
+      // get Additive expression
       AdditiveExpression additiveExpression = (AdditiveExpression) visit(ctx.additiveExpression());
+
+      // get Multiplicative expression
+      MultiplicativeExpression multiplicativeExpression = (MultiplicativeExpression) visit(ctx.multiplicativeExpression());
+
       switch(ctx.getChild(1).getText()) {
-        case "+" :
-          // TODO - Plus
+        case "+" : // positive additive
           return new PositiveAdditiveExpression(range, null, additiveExpression, multiplicativeExpression);
-        case "-" :
-          // TODO - Minus
+        case "-" : // negative additive
           return new NegativeAdditiveExpression(range, null, additiveExpression, multiplicativeExpression);
-        default :
+        default  : // ERROR
           System.err.println("ERROR : visitAdditiveExpression");
           return super.visitAdditiveExpression(ctx);
       }
+
+    // forward to Multiplicative expression
     } else if (ctx.multiplicativeExpression() != null) {
       return visit(ctx.multiplicativeExpression());
+
     } else {
       System.err.println("ERROR : visitAdditiveExpression");
       return super.visitAdditiveExpression(ctx);
@@ -5005,29 +5057,32 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get range
     Range range = getRange(ctx);
 
-    // UnaryExpr
-    UnaryExpression unaryExpression = (UnaryExpression) visit(ctx.unaryExpression());
 
+    // Multiplicative ( * | / | % ) Unary
     if (ctx.multiplicativeExpression() != null) {
 
+      // get Multiplicative expression
       MultiplicativeExpression multiplicativeExpression = (MultiplicativeExpression) visit(ctx.multiplicativeExpression());
 
+      // get Unary expression
+      UnaryExpression unaryExpression = (UnaryExpression) visit(ctx.unaryExpression());
+
       switch(ctx.getChild(1).getText()) {
-        case "*" :
-          // TODO - multi
+        case "*" : // MUL
           return new TimesMultiplicativeExpression(range, null, multiplicativeExpression, unaryExpression);
-        case "/" :
-          // TODO - div
+        case "/" : // DIV
           return new DividesMultipicativeExpression(range, null, multiplicativeExpression, unaryExpression);
-        case "%" :
-          // TODO - modulus
+        case "%" : // MOD
           return new ModulaMultiplicativeExpression(range, null, multiplicativeExpression, unaryExpression);
-        default :
+        default  : // ERR
           System.err.println("ERROR : visitMultiplicativieExpression");
           return super.visitMultiplicativeExpression(ctx);
       }
+
+    // forawrd to Unary expression
     } else if (ctx.unaryExpression() != null) {
       return visit(ctx.unaryExpression());
+
     } else {
       System.err.println("ERROR : visitMultiplicativieExpression");
       return super.visitMultiplicativeExpression(ctx);
@@ -5039,29 +5094,37 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get range
     Range range = getRange(ctx);
 
-    //
+    // ( + | - ) unaryExpression
     if (ctx.unaryExpression() != null) {
+
+      // get Unary expression
       UnaryExpression unaryExpression = (UnaryExpression) visit(ctx.unaryExpression());
 
       switch(ctx.getChild(0).getText()) {
-        case "+" :
-          // TODO - + unary
+        case "+" : // Prefix PLUS
           return new PlusUnaryExpression(range, null, unaryExpression);
-        case "-" :
-          // TODO - - unary
+        case "-" : // Prefix MINUS
           return new MinusUnaryExpression(range, null, unaryExpression);
-        default :
+        default  : // ERROR
           System.err.println("ERROR : visitUnaryExpression");
           return super.visitUnaryExpression(ctx);
       }
+
+    // forward to PreIncrementExpression
     } else if (ctx.preIncrementExpression() != null) {
       return visit(ctx.preIncrementExpression());
+
+    // forward to PreDecrementExpression
     } else if (ctx.preDecrementExpression() != null) {
       return visit(ctx.preDecrementExpression());
+
+    // forward to UnaryExpression
     } else if (ctx.unaryExpressionNotPlusMinus() != null) {
       return visit(ctx.unaryExpressionNotPlusMinus());
+    } else {
+      System.err.println("ERROR : visitUnaryExpression");
+      return super.visitUnaryExpression(ctx);
     }
-    return super.visitUnaryExpression(ctx);
   }
 
   @Override
@@ -5072,6 +5135,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get Unary Expression
     UnaryExpression unaryExpression = (UnaryExpression) visit(ctx.unaryExpression());
 
+    //
     return new PreIncrementExpression(range, null, unaryExpression);
   }
 
@@ -5089,26 +5153,33 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
   @Override
   public AstNode visitUnaryExpressionNotPlusMinus(JavaParser.UnaryExpressionNotPlusMinusContext ctx) {
 
-    if (ctx.postfixExpression() != null) {
-      return visit(ctx.postfixExpression());
-    } else if (ctx.castExpression() != null) {
-      return visit(ctx.castExpression());
-    } else if (ctx.unaryExpression() != null) {
+    // ( ~ | ! ) UnaryExpression
+    if (ctx.unaryExpression() != null) {
 
       // get range
       Range range = getRange(ctx);
 
       // get unary expression
       UnaryExpression unaryExpression = (UnaryExpression) visit(ctx.unaryExpression());
+
+      //
       switch(ctx.getChild(0).getText()) {
-        case "~" :
+        case "~" : // INVERT
           return new InvertExpression(range, null, unaryExpression);
-        case "!" :
+        case "!" : // NOT
           return new NotExpression(range, null, unaryExpression);
-        default :
+        default  : // ERR
           System.err.println("ERROR : visitUnaryExpressionNotPlusMinus");
           return super.visitUnaryExpressionNotPlusMinus(ctx);
       }
+
+    // forward to postfix expression
+    } else if (ctx.postfixExpression() != null) {
+      return visit(ctx.postfixExpression());
+
+    // forward to cast expression
+    } else if (ctx.castExpression() != null) {
+      return visit(ctx.castExpression());
 
     } else {
       System.err.println("ERROR : visitUnaryExpressionNotPlusMinus");
@@ -5118,30 +5189,39 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitPostfixExpression(JavaParser.PostfixExpressionContext ctx) {
+
     // get range
     Range range = getRange(ctx);
 
     // get list of postfix operator
-    List<Boolean> booleanList = new ArrayList<>();
+    List<Boolean> isPlusList = new ArrayList<>();
     for (int i = 1; i < ctx.getChildCount(); i++) {
 
-      Boolean tempBoolean; // TODO ctx.getChild(i).getText().equals("++")
-      if (ctx.getChild(i) instanceof JavaParser.PostIncrementExpression_lf_postfixExpressionContext) {
-        tempBoolean = true;
-      } else if (ctx.getChild(i) instanceof JavaParser.PostDecrementExpression_lf_postfixExpressionContext) {
-        tempBoolean = false;
-      } else {
-        tempBoolean = null;
+      Boolean isPlus;
+      switch(ctx.getChild(i).getText()) {
+        case "++" :
+          isPlus = true;
+          break;
+        case "--" :
+          isPlus = false;
+          break;
+        default   :
+          System.err.println("ERROR : visitPostfixExpression");
+          return super.visitPostfixExpression(ctx);
       }
-      booleanList.add(tempBoolean);
+      isPlusList.add(isPlus);
     }
 
+    // Primary ( -- | ++ )
     if (ctx.primary() != null) {
       Primary primary = (Primary) visit(ctx.primary());
-      return new PrimaryPostfixExpression(range, null, primary, booleanList);
+      return new PrimaryPostfixExpression(range, null, primary, isPlusList);
+
+    // Expression ( -- | ++ )
     } else if (ctx.expressionName() != null) {
       ExpressionName expressionName = (ExpressionName) visit(ctx.expressionName());
-      return new ExpressionPostfixExpression(range, null, expressionName, booleanList);
+      return new ExpressionPostfixExpression(range, null, expressionName, isPlusList);
+
     } else {
       System.err.println("ERROR : visitPostfixExpression");
       return super.visitPostfixExpression(ctx);
@@ -5193,7 +5273,6 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     if (ctx.primitiveType() != null) {
       // get Primitive type
       PrimitiveType primitiveType = (PrimitiveType) visit(ctx.primitiveType());
-      int a = 3;
 
       // get unary Expression
       UnaryExpression unaryExpression = (UnaryExpression) visit(ctx.unaryExpression());
