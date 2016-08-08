@@ -1,9 +1,10 @@
 package codit.ast.pojos.statements;
 
+import codit.ast.ParseTree;
 import codit.ast.pojos.blocks.InBlockStatement;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
-public interface Statement extends InBlockStatement {
+public interface Statement extends InBlockStatement, ParseTree {
 }

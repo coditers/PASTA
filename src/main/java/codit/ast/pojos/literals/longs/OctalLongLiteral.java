@@ -7,7 +7,6 @@ import codit.ast.Range;
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
-@Deprecated
 public class OctalLongLiteral extends LongLiteral {
   public OctalLongLiteral(Range range, AstNode parent, String rawString) {
     super(range, parent, rawString);

@@ -1,5 +1,7 @@
 package codit.ast.pojos.literals;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.AstNode;
 import codit.ast.Position;
 import codit.ast.Range;
@@ -31,26 +33,25 @@ public abstract class Literal extends AstNode {
     this.rawString = rawString;
   }
 
+  @JsonProperty(value="str")
   public String getRawString() {
     return rawString;
   }
 
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
-
-    if (!(o instanceof Literal)) { // For comparing subclass with superclass
-      return false;
-    }
+    if (!(o instanceof Literal)) return false;
 
     Literal literal = (Literal) o;
 
-    return rawString.equals(literal.rawString);
+    return rawString != null ? rawString.equals(literal.rawString) : literal.rawString == null;
 
   }
 
   @Override
   public int hashCode() {
-    return rawString.hashCode();
+    return rawString != null ? rawString.hashCode() : 0;
   }
 }

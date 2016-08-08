@@ -7,7 +7,6 @@ import codit.ast.Range;
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
-@Deprecated
 public class DecimalLongLiteral extends LongLiteral {
   public DecimalLongLiteral(Range range, AstNode parent, String rawString) {
     super(range, parent, rawString);

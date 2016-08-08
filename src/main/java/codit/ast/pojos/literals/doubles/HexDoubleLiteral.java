@@ -7,7 +7,6 @@ import codit.ast.Range;
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
-@Deprecated
 public class HexDoubleLiteral extends DoubleLiteral {
 
   public HexDoubleLiteral(Range range, AstNode parent, String rawString) {

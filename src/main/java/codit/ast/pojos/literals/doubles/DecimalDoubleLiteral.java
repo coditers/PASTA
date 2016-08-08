@@ -7,7 +7,6 @@ import codit.ast.Range;
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
-@Deprecated
 public class DecimalDoubleLiteral extends DoubleLiteral {
 
   public DecimalDoubleLiteral(Range range, AstNode parent, String rawString) {

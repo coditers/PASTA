@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions.primaries.basics;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.AstNode;
 import codit.ast.Position;
 import codit.ast.Range;
@@ -31,5 +33,10 @@ public class LiteralExpression extends BasicExpression
   public LiteralExpression(int startLine, int startCol, int endLine, int endCol, AstNode parent, Literal literal) {
     super(startLine, startCol, endLine, endCol, parent);
     this.literal = literal;
+  }
+
+  @JsonProperty("literal")
+  public Literal getLiteral() {
+    return literal;
   }
 }

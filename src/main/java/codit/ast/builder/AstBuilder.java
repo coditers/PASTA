@@ -167,12 +167,18 @@ import codit.ast.pojos.literals.CharacterLiteral;
 import codit.ast.pojos.literals.Literal;
 import codit.ast.pojos.literals.NullLiteral;
 import codit.ast.pojos.literals.StringLiteral;
+import codit.ast.pojos.literals.doubles.DecimalDoubleLiteral;
+import codit.ast.pojos.literals.doubles.HexDoubleLiteral;
 import codit.ast.pojos.literals.floats.DecimalFloatLiteral;
 import codit.ast.pojos.literals.floats.HexFloatLiteral;
 import codit.ast.pojos.literals.integers.BinaryIntegerLiteral;
 import codit.ast.pojos.literals.integers.DecimalIntegerLiteral;
 import codit.ast.pojos.literals.integers.HexIntegerLiteral;
 import codit.ast.pojos.literals.integers.OctalIntegerLiteral;
+import codit.ast.pojos.literals.longs.BinaryLongLiteral;
+import codit.ast.pojos.literals.longs.DecimalLongLiteral;
+import codit.ast.pojos.literals.longs.HexLongLiteral;
+import codit.ast.pojos.literals.longs.OctalLongLiteral;
 import codit.ast.pojos.names.AmbiguousName;
 import codit.ast.pojos.names.ExpressionName;
 import codit.ast.pojos.names.MethodName;
@@ -297,16 +303,32 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       // HEXADECIMAL / BINARY / OCTAL / DECIMAL
       if (rawText.startsWith("0x") || rawText.startsWith("0X")) {
         // Hex INTEGER / LONG Literals
-        return new HexIntegerLiteral(range, null, rawText);
+        if(rawText.endsWith("L") || rawText.endsWith("l")) {
+          return new HexLongLiteral(range, null, rawText);
+        } else {
+          return new HexIntegerLiteral(range, null, rawText);
+        }
       } else if (rawText.startsWith("0b") || rawText.startsWith("0B")) {
         // Binary INTEGER / LONG Literals
-        return new BinaryIntegerLiteral(range, null, rawText);
+        if(rawText.endsWith("L") || rawText.endsWith("l")) {
+          return new BinaryLongLiteral(range, null, rawText);
+        } else {
+          return new BinaryIntegerLiteral(range, null, rawText);
+        }
       } else if (rawText.startsWith("0") && !rawText.equals("0")) {
         // Oct INTEGER / LONG Literals
-        return new OctalIntegerLiteral(range, null, rawText);
+        if(rawText.endsWith("L") || rawText.endsWith("l")) {
+          return new OctalLongLiteral(range, null, rawText);
+        } else {
+          return new OctalIntegerLiteral(range, null, rawText);
+        }
       } else {
         // Dec INTEGER / LONG Literals
-        return new DecimalIntegerLiteral(range, null, rawText);
+        if(rawText.endsWith("L") || rawText.endsWith("l")) {
+          return new DecimalLongLiteral(range, null, rawText);
+        } else {
+          return new DecimalIntegerLiteral(range, null, rawText);
+        }
       }
     } else if (ctx.BooleanLiteral() != null) {
       // System.out.println("Boolean");
@@ -319,9 +341,17 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       return new CharacterLiteral(range, null, rawText);
     } else if (ctx.FloatingPointLiteral() != null) {
       if(rawText.startsWith("0x") || rawText.startsWith("0X")) {
-        return new HexFloatLiteral(range, null, rawText);
+        if (rawText.endsWith("f") || rawText.endsWith("F")) {
+          return new HexFloatLiteral(range, null, rawText);
+        } else {
+          return new HexDoubleLiteral(range, null, rawText);
+        }
       } else {
-        return new DecimalFloatLiteral(range, null, rawText);
+        if (rawText.endsWith("f") || rawText.endsWith("F")) {
+          return new DecimalFloatLiteral(range, null, rawText);
+        } else {
+          return new DecimalDoubleLiteral(range, null, rawText);
+        }
       }
     } else if (ctx.NullLiteral() != null) {
       return new NullLiteral(range, null, rawText);
@@ -3764,6 +3794,12 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
   }
 
   @Override
+  public AstNode visitPrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary(JavaParser.PrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primaryContext ctx) {
+    // Not Necessary
+    return super.visitPrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary(ctx);
+  }
+
+  @Override
   public AstNode visitPrimaryNoNewArray_lfno_primary(JavaParser.PrimaryNoNewArray_lfno_primaryContext ctx) {
     // get range
     Range range = getRange(ctx);
@@ -3809,12 +3845,6 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       System.err.println("ERROR : visitPrimaryNoNewArray_lfno_primary");
       return super.visitPrimaryNoNewArray_lfno_primary(ctx);
     }
-  }
-
-  @Override
-  public AstNode visitPrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary(JavaParser.PrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primaryContext ctx) {
-    // Not Necessary
-    return super.visitPrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary(ctx);
   }
 
   @Override
