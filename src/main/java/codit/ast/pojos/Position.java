@@ -1,4 +1,4 @@
-package codit.ast;
+package codit.ast.pojos;
 
 /**
  * Created by Jisung on 7/19/2016.

@@ -1,6 +1,6 @@
-package codit.ast.pojos.interfaces;
+package codit.ast.pojos.annotations;
 
-import codit.ast.ParseTree;
+import codit.ast.pojos.ParseTree;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>

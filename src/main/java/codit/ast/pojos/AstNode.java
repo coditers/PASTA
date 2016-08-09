@@ -1,4 +1,4 @@
-package codit.ast;
+package codit.ast.pojos;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.internal.NotNull;

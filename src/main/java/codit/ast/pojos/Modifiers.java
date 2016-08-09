@@ -1,4 +1,4 @@
-package codit.ast;
+package codit.ast.pojos;
 
 /**
  *
