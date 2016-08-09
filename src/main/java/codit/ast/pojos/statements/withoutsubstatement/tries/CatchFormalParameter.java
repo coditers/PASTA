@@ -2,9 +2,9 @@ package codit.ast.pojos.statements.withoutsubstatement.tries;
 
 import java.util.List;
 
-import codit.ast.AstNode;
-import codit.ast.Position;
-import codit.ast.Range;
+import codit.ast.pojos.AstNode;
+import codit.ast.pojos.Position;
+import codit.ast.pojos.Range;
 import codit.ast.pojos.annotations.Annotation;
 import codit.ast.pojos.variables.VariableDeclaratorId;
 

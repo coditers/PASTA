@@ -2,12 +2,11 @@ package codit.ast.pojos.expressions.primaries.arrayaccess;
 
 import java.util.List;
 
-import codit.ast.AstNode;
-import codit.ast.Position;
-import codit.ast.Range;
+import codit.ast.pojos.AstNode;
+import codit.ast.pojos.Position;
+import codit.ast.pojos.Range;
 import codit.ast.pojos.expressions.Expression;
 import codit.ast.pojos.expressions.primaries.interfaces.DefaultArrayLfPrimary;
-import codit.ast.pojos.expressions.primaries.interfaces.LfArrayLfPrimary;
 import codit.ast.pojos.expressions.primaries.interfaces.LfnoArrayLfPrimary;
 
 /**

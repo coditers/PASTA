@@ -1,8 +1,11 @@
 package codit.ast.pojos.names;
 
-import codit.ast.AstNode;
-import codit.ast.Position;
-import codit.ast.Range;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sun.istack.internal.Nullable;
+
+import codit.ast.pojos.AstNode;
+import codit.ast.pojos.Position;
+import codit.ast.pojos.Range;
 import codit.ast.pojos.expressions.assignments.LeftHandSide;
 
 /**
@@ -10,6 +13,7 @@ import codit.ast.pojos.expressions.assignments.LeftHandSide;
  */
 public class ExpressionName extends Name implements LeftHandSide {
 
+  @Nullable
   private final AmbiguousName prev;
 
   public ExpressionName(Range range, AstNode parent, String identifier, AmbiguousName prev) {
@@ -25,5 +29,29 @@ public class ExpressionName extends Name implements LeftHandSide {
   public ExpressionName(int startLine, int startCol, int endLine, int endCol, AstNode parent, String identifier, AmbiguousName prev) {
     super(startLine, startCol, endLine, endCol, parent, identifier);
     this.prev = prev;
+  }
+
+  @JsonProperty(value="prev")
+  public AmbiguousName getPrev() {
+    return prev;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof ExpressionName)) return false;
+    if (!super.equals(o)) return false;
+
+    ExpressionName that = (ExpressionName) o;
+
+    return prev != null ? prev.equals(that.prev) : that.prev == null;
+
+  }
+
+  @Override
+  public int hashCode() {
+    int result = super.hashCode();
+    result = 31 * result + (prev != null ? prev.hashCode() : 0);
+    return result;
   }
 }

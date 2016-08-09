@@ -1,12 +1,13 @@
 package codit.ast.pojos.expressions.primaries.classinstancecreation;
 
-import codit.ast.AstNode;
-import codit.ast.Position;
-import codit.ast.Range;
+import codit.ast.pojos.AstNode;
+import codit.ast.pojos.Position;
+import codit.ast.pojos.Range;
 import codit.ast.pojos.expressions.StatementExpression;
 import codit.ast.pojos.expressions.primaries.PrimaryExpression;
 
 /**
+ * TODO - Compose test case
  * @author Jisung Lim <iejisung@gmail.com>
  */
 public abstract class ClassInstanceCreationExpression extends PrimaryExpression implements StatementExpression {

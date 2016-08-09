@@ -1,8 +1,9 @@
 package codit.ast.pojos.interfaces;
 
-import codit.ast.AstNode;
-import codit.ast.Position;
-import codit.ast.Range;
+import codit.ast.pojos.AstNode;
+import codit.ast.pojos.Position;
+import codit.ast.pojos.Range;
+import codit.ast.pojos.annotations.AnnotationTypeMemberable;
 import codit.ast.pojos.classes.members.ClassMemberable;
 
 /**

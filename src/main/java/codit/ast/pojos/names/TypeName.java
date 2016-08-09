@@ -1,14 +1,18 @@
 package codit.ast.pojos.names;
 
-import codit.ast.AstNode;
-import codit.ast.Position;
-import codit.ast.Range;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sun.istack.internal.Nullable;
+
+import codit.ast.pojos.AstNode;
+import codit.ast.pojos.Position;
+import codit.ast.pojos.Range;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
 public class TypeName extends Name {
 
+  @Nullable
   private final PackageOrTypeName prev;
 
   public TypeName(Range range, AstNode parent,
@@ -30,5 +34,29 @@ public class TypeName extends Name {
                   PackageOrTypeName prev) {
     super(startLine, startCol, endLine, endCol, parent, identifier);
     this.prev = prev;
+  }
+
+  @JsonProperty(value="prev")
+  public PackageOrTypeName getPrev() {
+    return prev;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof TypeName)) return false;
+    if (!super.equals(o)) return false;
+
+    TypeName typeName = (TypeName) o;
+
+    return prev != null ? prev.equals(typeName.prev) : typeName.prev == null;
+
+  }
+
+  @Override
+  public int hashCode() {
+    int result = super.hashCode();
+    result = 31 * result + (prev != null ? prev.hashCode() : 0);
+    return result;
   }
 }

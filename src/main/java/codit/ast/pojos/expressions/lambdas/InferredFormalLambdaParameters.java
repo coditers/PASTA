@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions.lambdas;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -29,5 +31,10 @@ public class InferredFormalLambdaParameters extends LambdaParameters {
                                         List<String> identifierList) {
     super(startLine, startCol, endLine, endCol, parent);
     this.identifierList = identifierList;
+  }
+
+  @JsonProperty("IdentifierList")
+  public List<String> getIdentifierList() {
+    return identifierList;
   }
 }

@@ -1,8 +1,10 @@
 package codit.ast.pojos.expressions.assignments;
 
-import codit.ast.AstNode;
-import codit.ast.Position;
-import codit.ast.Range;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import codit.ast.pojos.AstNode;
+import codit.ast.pojos.Position;
+import codit.ast.pojos.Range;
 import codit.ast.pojos.expressions.Expression;
 import codit.ast.pojos.expressions.StatementExpression;
 
@@ -43,5 +45,19 @@ public class Assignment extends AssignmentExpression implements StatementExpress
     this.leftHandSide = leftHandSide;
     this.assignmentOperator = assignmentOperator;
     this.expression = expression;
+  }
+
+  @JsonProperty("LeftHandSide")
+  public LeftHandSide getLeftHandSide() {
+    return leftHandSide;
+  }
+
+  @JsonProperty("AssignmentOperator")
+  public String getAssignmentOperator() {
+    return assignmentOperator;
+  }
+  @JsonProperty("Expression")
+  public Expression getExpression() {
+    return expression;
   }
 }

@@ -1,8 +1,8 @@
 package codit.ast.pojos.expressions.primaries.arraycreationexpression;
 
-import codit.ast.AstNode;
-import codit.ast.Position;
-import codit.ast.Range;
+import codit.ast.pojos.AstNode;
+import codit.ast.pojos.Position;
+import codit.ast.pojos.Range;
 import codit.ast.pojos.classes.ArrayInitializer;
 import codit.ast.pojos.types.Dims;
 import codit.ast.pojos.types.PrimitiveType;

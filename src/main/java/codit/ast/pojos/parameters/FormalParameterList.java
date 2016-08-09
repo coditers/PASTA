@@ -1,10 +1,12 @@
 package codit.ast.pojos.parameters;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
-import codit.ast.AstNode;
-import codit.ast.Position;
-import codit.ast.Range;
+import codit.ast.pojos.AstNode;
+import codit.ast.pojos.Position;
+import codit.ast.pojos.Range;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>
@@ -37,5 +39,15 @@ public class FormalParameterList extends AstNode {
     super(startLine, startCol, endLine, endCol, parent);
     this.parameterList = parameterList;
     this.lastFormalParameter = lastFormalParameter;
+  }
+
+  @JsonProperty("ParameterList")
+  public List<Parameter> getParameterList() {
+    return parameterList;
+  }
+
+  @JsonProperty("LastFormalParameter")
+  public LastFormalParameter getLastFormalParameter() {
+    return lastFormalParameter;
   }
 }

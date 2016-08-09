@@ -1,12 +1,8 @@
 package codit.ast.pojos.expressions.primaries.basics;
 
-import codit.ast.AstNode;
-import codit.ast.Position;
-import codit.ast.Range;
-import codit.ast.pojos.expressions.primaries.interfacearray.LfDefaultArrayAccess;
-import codit.ast.pojos.expressions.primaries.interfacearray.LfNoArrayAccess;
-import codit.ast.pojos.expressions.primaries.interfaceprimary.LfDefaultPrimary;
-import codit.ast.pojos.expressions.primaries.interfaceprimary.LfNoPrimary;
+import codit.ast.pojos.AstNode;
+import codit.ast.pojos.Position;
+import codit.ast.pojos.Range;
 import codit.ast.pojos.expressions.primaries.interfaces.DefaultArrayDefaultPrimary;
 import codit.ast.pojos.expressions.primaries.interfaces.DefaultArrayLfnoPrimary;
 import codit.ast.pojos.expressions.primaries.interfaces.LfnoArrayDefaultPrimary;
@@ -15,6 +11,7 @@ import codit.ast.pojos.expressions.primaries.interfaces.LfnoArrayLfnoPrimary;
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
+
 public class VoidClassLiteralExpression extends BasicExpression
     implements DefaultArrayDefaultPrimary, DefaultArrayLfnoPrimary,
     LfnoArrayDefaultPrimary, LfnoArrayLfnoPrimary {

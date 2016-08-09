@@ -16,8 +16,8 @@ import org.junit.runners.Parameterized;
 import java.util.Arrays;
 import java.util.Collection;
 
-import codit.ast.AstNode;
-import codit.ast.Range;
+import codit.ast.pojos.AstNode;
+import codit.ast.pojos.Range;
 import codit.ast.builder.AstBuilder;
 import codit.ast.compiler.SubCompiler;
 import codit.ast.pojos.literals.doubles.DecimalDoubleLiteral;

@@ -1,6 +1,6 @@
 package codit.ast.visitor;
 
-import codit.ast.AstNode;
+import codit.ast.pojos.AstNode;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>

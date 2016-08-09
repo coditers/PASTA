@@ -30,4 +30,23 @@ public class Range {
     return "[start " + start.line + ":" + start.column +
         " end " + end.line + ":" + end.column + " ]";
   }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof Range)) return false;
+
+    Range range = (Range) o;
+
+    if (start != null ? !start.equals(range.start) : range.start != null) return false;
+    return end != null ? end.equals(range.end) : range.end == null;
+
+  }
+
+  @Override
+  public int hashCode() {
+    int result = start != null ? start.hashCode() : 0;
+    result = 31 * result + (end != null ? end.hashCode() : 0);
+    return result;
+  }
 }

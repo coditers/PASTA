@@ -1,6 +1,6 @@
 package codit.ast.pojos.types;
 
-import codit.ast.ParseTree;
+import codit.ast.pojos.ParseTree;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>

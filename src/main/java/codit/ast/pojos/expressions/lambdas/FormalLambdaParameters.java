@@ -1,8 +1,10 @@
 package codit.ast.pojos.expressions.lambdas;
 
-import codit.ast.AstNode;
-import codit.ast.Position;
-import codit.ast.Range;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import codit.ast.pojos.AstNode;
+import codit.ast.pojos.Position;
+import codit.ast.pojos.Range;
 import codit.ast.pojos.parameters.FormalParameterList;
 
 /**
@@ -28,5 +30,10 @@ public class FormalLambdaParameters extends LambdaParameters {
                                 FormalParameterList formalParameterList) {
     super(startLine, startCol, endLine, endCol, parent);
     this.formalParameterList = formalParameterList;
+  }
+
+  @JsonProperty("FormalParameterList")
+  public FormalParameterList getFormalParameterList() {
+    return formalParameterList;
   }
 }

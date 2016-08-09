@@ -1,8 +1,10 @@
 package codit.ast.pojos.annotations;
 
-import codit.ast.AstNode;
-import codit.ast.Position;
-import codit.ast.Range;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import codit.ast.pojos.AstNode;
+import codit.ast.pojos.Position;
+import codit.ast.pojos.Range;
 import codit.ast.pojos.interfaces.ElementValue;
 import codit.ast.pojos.names.TypeName;
 
@@ -30,5 +32,15 @@ public class SingleElementAnnotation extends Annotation {
     super(startLine, startCol, endLine, endCol, parent);
     this.typeName = typeName;
     this.elementValue = elementValue;
+  }
+
+  @JsonProperty("TypeName")
+  public TypeName getTypeName() {
+    return typeName;
+  }
+
+  @JsonProperty("ElementValue")
+  public ElementValue getElementValue() {
+    return elementValue;
   }
 }

@@ -7,9 +7,9 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 import java.util.ArrayList;
 import java.util.List;
 
-import codit.ast.AstNode;
-import codit.ast.Modifiers;
-import codit.ast.Range;
+import codit.ast.pojos.AstNode;
+import codit.ast.pojos.Modifiers;
+import codit.ast.pojos.Range;
 import codit.ast.pojos.annotations.Annotation;
 import codit.ast.pojos.annotations.MarkerAnnotation;
 import codit.ast.pojos.annotations.NormalAnnotation;
@@ -97,7 +97,7 @@ import codit.ast.pojos.expressions.assignments.operations.UnaryExpression;
 import codit.ast.pojos.expressions.assignments.operations.UnaryExpressionNotPlusMinus;
 import codit.ast.pojos.expressions.assignments.operations.UnequalEqualityExpression;
 import codit.ast.pojos.expressions.assignments.operations.UnsignedRightShiftExpression;
-import codit.ast.pojos.expressions.lambdas.InferredFormalLambdaParameter;
+import codit.ast.pojos.expressions.lambdas.InferredFormalLambdaParameters;
 import codit.ast.pojos.expressions.lambdas.LambdaBody;
 import codit.ast.pojos.expressions.lambdas.LambdaExpression;
 import codit.ast.pojos.expressions.lambdas.LambdaParameters;
@@ -151,9 +151,9 @@ import codit.ast.pojos.expressions.primaries.methodreference.PostfixMethodRefere
 import codit.ast.pojos.expressions.primaries.methodreference.PrimaryMethodReference;
 import codit.ast.pojos.expressions.primaries.methodreference.ReferenceMethodReference;
 import codit.ast.pojos.expressions.primaries.methodreference.TypeSuperMethodReference;
-import codit.ast.pojos.interfaces.AnnotationTypeDeclaration;
-import codit.ast.pojos.interfaces.AnnotationTypeElementDeclaration;
-import codit.ast.pojos.interfaces.AnnotationTypeMemberable;
+import codit.ast.pojos.annotations.AnnotationTypeDeclaration;
+import codit.ast.pojos.annotations.AnnotationTypeElementDeclaration;
+import codit.ast.pojos.annotations.AnnotationTypeMemberable;
 import codit.ast.pojos.interfaces.ConstantDeclaration;
 import codit.ast.pojos.interfaces.ElementValue;
 import codit.ast.pojos.interfaces.ElementValueArrayInitializer;
@@ -871,7 +871,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get Identifier
-    String identifier = ctx.Identifier().toString();
+    String identifier = ctx.Identifier().getText();
 
     // get packageOrTypeName
     PackageOrTypeName packageOrTypeName = null;
@@ -889,7 +889,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get Identifier
-    String identifier = ctx.Identifier().toString();
+    String identifier = ctx.Identifier().getText();
 
     // get packageOrTypeName
     PackageOrTypeName packageOrTypeName = null;
@@ -906,7 +906,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get Identifier
-    String identifier = ctx.Identifier().toString();
+    String identifier = ctx.Identifier().getText();
 
     // get Anbiguous mame
     AmbiguousName ambiguousName = null;
@@ -924,7 +924,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get Identifier
-    String identifier = ctx.Identifier().toString();
+    String identifier = ctx.Identifier().getText();
 
     return new MethodName(range, null, identifier);
   }
@@ -936,7 +936,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get Identifier
-    String identifier = ctx.Identifier().toString();
+    String identifier = ctx.Identifier().getText();
 
     // get Anbiguous mame
     AmbiguousName ambiguousName = null;
@@ -2618,7 +2618,20 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitAnnotation(JavaParser.AnnotationContext ctx) {
-    return super.visitAnnotation(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    if (ctx.normalAnnotation() != null) {
+      return visit(ctx.normalAnnotation());
+    } else if (ctx.markerAnnotation() != null) {
+      return visit(ctx.markerAnnotation());
+    } else if (ctx.singleElementAnnotation() != null) {
+      return visit(ctx.singleElementAnnotation());
+    } else {
+      System.err.println("ERROR : visitAnnotation");
+      return super.visitAnnotation(ctx);
+    }
   }
 
   @Override
@@ -3668,7 +3681,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
   }
 
   @Override
-  public AstNode visitPrimaryNoNewArray(JavaParser.PrimaryNoNewArrayContext ctx) { // Not necessary
+  public AstNode visitPrimaryNoNewArray(JavaParser.PrimaryNoNewArrayContext ctx) {
     // get range
     Range range = getRange(ctx);
 
@@ -3831,6 +3844,8 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     } else if (ctx.getChild(0).getText().equals("(")) {
       Expression expression = (Expression) visit(ctx.expression());
       return new ParenthesizedExpression(range, null, expression);
+
+
     } else if (ctx.classInstanceCreationExpression_lfno_primary() != null) {
       return visit(ctx.classInstanceCreationExpression_lfno_primary());
     } else if (ctx.fieldAccess_lfno_primary() != null) {
@@ -4696,7 +4711,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       String identifier = terminalNode.getText();
       identifierList.add(identifier);
     }
-    return new InferredFormalLambdaParameter(range, null, identifierList);
+    return new InferredFormalLambdaParameters(range, null, identifierList);
   }
 
   @Override
@@ -4970,35 +4985,39 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get range
     Range range = getRange(ctx);
 
-    // get Relational expression
-    RelationalExpression relationalExpression = (RelationalExpression) visit(ctx.relationalExpression());
+    if (ctx.relationalExpression() != null) {
+      // get Relational expression
+      RelationalExpression relationalExpression = (RelationalExpression) visit(ctx.relationalExpression());
 
-    // Relational 'instanceof' ReferenceType
-    if (ctx.referenceType() != null) {
+      // Relational 'instanceof' ReferenceType
+      if (ctx.referenceType() != null) {
 
-      // get Reference expression
-      ReferenceType referenceType = (ReferenceType) visit(ctx.referenceType());
+        // get Reference expression
+        ReferenceType referenceType = (ReferenceType) visit(ctx.referenceType());
 
-      return new InstanceofRelationalExpression(range, null, relationalExpression, referenceType);
+        return new InstanceofRelationalExpression(range, null, relationalExpression, referenceType);
 
-    // Relational ( < | > | <= | >= ) Shift
-    } else if (ctx.relationalExpression() != null) {
+      // Relational ( < | > | <= | >= ) Shift
+      } else if (ctx.shiftExpression() != null) {
+        // get Shift expression
+        ShiftExpression shiftExpression = (ShiftExpression) visit(ctx.shiftExpression());
 
-      // get Shift expression
-      ShiftExpression shiftExpression = (ShiftExpression) visit(ctx.shiftExpression());
-
-      switch(ctx.getChild(1).getText()) {
-        case "<"  : // less than
-          return new LtRelationalExpression(range, null, relationalExpression, shiftExpression);
-        case ">"  : // greater than
-          return new GtRelationalExpression(range, null, relationalExpression, shiftExpression);
-        case "<=" : // less than equal to
-          return new LtetRelationalExpression(range, null, relationalExpression, shiftExpression);
-        case ">=" : // greater than equal to
-          return new GtetRelationalExpression(range, null, relationalExpression, shiftExpression);
-        default   :
-          System.err.println("ERROR : visitRelationalExpression");
-          return super.visitRelationalExpression(ctx);
+        switch (ctx.getChild(1).getText()) {
+          case "<": // less than
+            return new LtRelationalExpression(range, null, relationalExpression, shiftExpression);
+          case ">": // greater than
+            return new GtRelationalExpression(range, null, relationalExpression, shiftExpression);
+          case "<=": // less than equal to
+            return new LtetRelationalExpression(range, null, relationalExpression, shiftExpression);
+          case ">=": // greater than equal to
+            return new GtetRelationalExpression(range, null, relationalExpression, shiftExpression);
+          default:
+            System.err.println("ERROR : visitRelationalExpression");
+            return super.visitRelationalExpression(ctx);
+        }
+      } else {
+        System.err.println("ERROR : visitRelationalExpression");
+        return super.visitRelationalExpression(ctx);
       }
 
     // forward to Shift expression

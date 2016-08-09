@@ -1,9 +1,9 @@
 package codit.ast.pojos.expressions.primaries.interfaces;
 
-import codit.ast.ParseTree;
+import codit.ast.pojos.ParseTree;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
-public interface LfArrayDefaultPrimary extends ParseTree {
+public interface LfArrayDefaultPrimary extends ArrayPrimary {
 }

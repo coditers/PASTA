@@ -54,4 +54,20 @@ public abstract class AstNode implements ParseTree{
   public void accept(AstBaseVisitor visitor) {
     visitor.visit(this);
   }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof AstNode)) return false;
+
+    AstNode astNode = (AstNode) o;
+
+    return parent != null ? parent.equals(astNode.parent) : astNode.parent == null;
+
+  }
+
+  @Override
+  public int hashCode() {
+    return parent != null ? parent.hashCode() : 0;
+  }
 }

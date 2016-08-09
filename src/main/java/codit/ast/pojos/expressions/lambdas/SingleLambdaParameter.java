@@ -1,8 +1,10 @@
 package codit.ast.pojos.expressions.lambdas;
 
-import codit.ast.AstNode;
-import codit.ast.Position;
-import codit.ast.Range;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import codit.ast.pojos.AstNode;
+import codit.ast.pojos.Position;
+import codit.ast.pojos.Range;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>
@@ -27,5 +29,10 @@ public class SingleLambdaParameter extends LambdaParameters {
                                String identifier) {
     super(startLine, startCol, endLine, endCol, parent);
     this.identifier = identifier;
+  }
+
+  @JsonProperty("Identifier")
+  public String getIdentifier() {
+    return identifier;
   }
 }

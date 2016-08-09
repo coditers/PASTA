@@ -1,8 +1,8 @@
 package codit.ast.pojos.expressions.assignments.operations;
 
-import codit.ast.AstNode;
-import codit.ast.Position;
-import codit.ast.Range;
+import codit.ast.pojos.AstNode;
+import codit.ast.pojos.Position;
+import codit.ast.pojos.Range;
 import codit.ast.pojos.expressions.StatementExpression;
 
 /**

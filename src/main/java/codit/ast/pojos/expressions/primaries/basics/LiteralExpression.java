@@ -2,9 +2,9 @@ package codit.ast.pojos.expressions.primaries.basics;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import codit.ast.AstNode;
-import codit.ast.Position;
-import codit.ast.Range;
+import codit.ast.pojos.AstNode;
+import codit.ast.pojos.Position;
+import codit.ast.pojos.Range;
 import codit.ast.pojos.expressions.primaries.interfaces.DefaultArrayDefaultPrimary;
 import codit.ast.pojos.expressions.primaries.interfaces.DefaultArrayLfnoPrimary;
 import codit.ast.pojos.expressions.primaries.interfaces.LfnoArrayDefaultPrimary;
@@ -38,5 +38,24 @@ public class LiteralExpression extends BasicExpression
   @JsonProperty("literal")
   public Literal getLiteral() {
     return literal;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof LiteralExpression)) return false;
+    if (!super.equals(o)) return false;
+
+    LiteralExpression that = (LiteralExpression) o;
+
+    return literal != null ? literal.equals(that.literal) : that.literal == null;
+
+  }
+
+  @Override
+  public int hashCode() {
+    int result = super.hashCode();
+    result = 31 * result + (literal != null ? literal.hashCode() : 0);
+    return result;
   }
 }

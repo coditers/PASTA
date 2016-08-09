@@ -1,6 +1,6 @@
 package codit.ast.visitor;
 
-import codit.ast.AstNode;
+import codit.ast.pojos.AstNode;
 import codit.ast.pojos.literals.BooleanLiteral;
 import codit.ast.pojos.literals.CharacterLiteral;
 import codit.ast.pojos.literals.Literal;

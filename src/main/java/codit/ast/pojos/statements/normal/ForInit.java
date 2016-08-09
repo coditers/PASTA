@@ -1,6 +1,6 @@
 package codit.ast.pojos.statements.normal;
 
-import codit.ast.ParseTree;
+import codit.ast.pojos.ParseTree;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>

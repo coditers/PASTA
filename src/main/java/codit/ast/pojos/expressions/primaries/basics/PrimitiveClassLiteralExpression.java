@@ -1,8 +1,8 @@
 package codit.ast.pojos.expressions.primaries.basics;
 
-import codit.ast.AstNode;
-import codit.ast.Position;
-import codit.ast.Range;
+import codit.ast.pojos.AstNode;
+import codit.ast.pojos.Position;
+import codit.ast.pojos.Range;
 import codit.ast.pojos.expressions.primaries.interfaces.DefaultArrayLfnoPrimary;
 import codit.ast.pojos.expressions.primaries.interfaces.LfnoArrayLfnoPrimary;
 import codit.ast.pojos.types.unann.UnannPrimitiveType;
@@ -38,5 +38,26 @@ public class PrimitiveClassLiteralExpression extends BasicExpression
     super(startLine, startCol, endLine, endCol, parent);
     this.unannPrimitiveType = unannPrimitiveType;
     this.numberOfBracket = numberOfBracket;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof PrimitiveClassLiteralExpression)) return false;
+    if (!super.equals(o)) return false;
+
+    PrimitiveClassLiteralExpression that = (PrimitiveClassLiteralExpression) o;
+
+    if (numberOfBracket != that.numberOfBracket) return false;
+    return unannPrimitiveType != null ? unannPrimitiveType.equals(that.unannPrimitiveType) : that.unannPrimitiveType == null;
+
+  }
+
+  @Override
+  public int hashCode() {
+    int result = super.hashCode();
+    result = 31 * result + (unannPrimitiveType != null ? unannPrimitiveType.hashCode() : 0);
+    result = 31 * result + numberOfBracket;
+    return result;
   }
 }

@@ -1,10 +1,13 @@
 package codit.ast.pojos.expressions.primaries.classinstancecreation;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.Collections;
 import java.util.List;
 
-import codit.ast.AstNode;
-import codit.ast.Position;
-import codit.ast.Range;
+import codit.ast.pojos.AstNode;
+import codit.ast.pojos.Position;
+import codit.ast.pojos.Range;
 import codit.ast.pojos.annotations.Annotation;
 import codit.ast.pojos.classes.ClassBodyDeclaration;
 import codit.ast.pojos.expressions.Expression;
@@ -17,6 +20,7 @@ import codit.ast.pojos.types.TypeArgument;
 import codit.ast.pojos.types.TypeArgumentsOrDiamond;
 
 /**
+ * TODO - Compose test case
  * @author Jisung Lim <iejisung@gmail.com>
  */
 public class ExpressionClassInstanceCreationExpression extends ClassInstanceCreationExpression
@@ -84,5 +88,75 @@ public class ExpressionClassInstanceCreationExpression extends ClassInstanceCrea
     this.typeArgumentsOrDiamond = typeArgumentsOrDiamond;
     this.argumentList = argumentList;
     this.classBody = classBody;
+  }
+
+  @JsonProperty(value="ExpressionName")
+  public ExpressionName getExpressionName() {
+    return expressionName;
+  }
+
+  @JsonProperty(value="TypeArgumentList")
+  public List<TypeArgument> getTypeArgumentList() {
+    return Collections.unmodifiableList(typeArgumentList);
+  }
+
+  @JsonProperty(value="AnnotationList")
+  public List<Annotation> getAnnotationList() {
+    return Collections.unmodifiableList(annotationList);
+  }
+
+  @JsonProperty(value="Identifier")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  @JsonProperty(value="TypeArgumentsOrDiamond")
+  public TypeArgumentsOrDiamond getTypeArgumentsOrDiamond() {
+    return typeArgumentsOrDiamond;
+  }
+
+  @JsonProperty(value="ArgumentList")
+  public List<Expression> getArgumentList() {
+    return Collections.unmodifiableList(argumentList);
+  }
+
+  @JsonProperty(value="ClassBody")
+  public List<ClassBodyDeclaration> getClassBody() {
+    return Collections.unmodifiableList(classBody);
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof ExpressionClassInstanceCreationExpression)) return false;
+
+    ExpressionClassInstanceCreationExpression that = (ExpressionClassInstanceCreationExpression) o;
+
+    if (expressionName != null ? !expressionName.equals(that.expressionName) : that.expressionName != null)
+      return false;
+    if (typeArgumentList != null ? !typeArgumentList.equals(that.typeArgumentList) : that.typeArgumentList != null)
+      return false;
+    if (annotationList != null ? !annotationList.equals(that.annotationList) : that.annotationList != null)
+      return false;
+    if (identifier != null ? !identifier.equals(that.identifier) : that.identifier != null)
+      return false;
+    if (typeArgumentsOrDiamond != null ? !typeArgumentsOrDiamond.equals(that.typeArgumentsOrDiamond) : that.typeArgumentsOrDiamond != null)
+      return false;
+    if (argumentList != null ? !argumentList.equals(that.argumentList) : that.argumentList != null)
+      return false;
+    return classBody != null ? classBody.equals(that.classBody) : that.classBody == null;
+
+  }
+
+  @Override
+  public int hashCode() {
+    int result = expressionName != null ? expressionName.hashCode() : 0;
+    result = 31 * result + (typeArgumentList != null ? typeArgumentList.hashCode() : 0);
+    result = 31 * result + (annotationList != null ? annotationList.hashCode() : 0);
+    result = 31 * result + (identifier != null ? identifier.hashCode() : 0);
+    result = 31 * result + (typeArgumentsOrDiamond != null ? typeArgumentsOrDiamond.hashCode() : 0);
+    result = 31 * result + (argumentList != null ? argumentList.hashCode() : 0);
+    result = 31 * result + (classBody != null ? classBody.hashCode() : 0);
+    return result;
   }
 }

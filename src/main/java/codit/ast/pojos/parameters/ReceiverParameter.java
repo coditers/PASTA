@@ -1,10 +1,12 @@
 package codit.ast.pojos.parameters;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
-import codit.ast.AstNode;
-import codit.ast.Position;
-import codit.ast.Range;
+import codit.ast.pojos.AstNode;
+import codit.ast.pojos.Position;
+import codit.ast.pojos.Range;
 import codit.ast.pojos.annotations.Annotation;
 import codit.ast.pojos.types.unann.UnannType;
 
@@ -47,5 +49,20 @@ public class ReceiverParameter extends Parameter {
     this.annotationList = annotationList;
     this.unannType = unannType;
     this.identifier = identifier;
+  }
+
+  @JsonProperty("AnnotationList")
+  public List<Annotation> getAnnotationList() {
+    return annotationList;
+  }
+
+  @JsonProperty("UnannType")
+  public UnannType getUnannType() {
+    return unannType;
+  }
+
+  @JsonProperty("Identifier")
+  public String getIdentifier() {
+    return identifier;
   }
 }

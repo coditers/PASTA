@@ -1,11 +1,8 @@
 package codit.ast.pojos.expressions.primaries.fieldaccess;
 
-import codit.ast.AstNode;
-import codit.ast.Position;
-import codit.ast.Range;
-import codit.ast.pojos.expressions.primaries.interfacearray.LfDefaultArrayAccess;
-import codit.ast.pojos.expressions.primaries.interfacearray.LfNoArrayAccess;
-import codit.ast.pojos.expressions.primaries.interfaceprimary.LfPrimary;
+import codit.ast.pojos.AstNode;
+import codit.ast.pojos.Position;
+import codit.ast.pojos.Range;
 import codit.ast.pojos.expressions.primaries.interfaces.DefaultArrayLfPrimary;
 import codit.ast.pojos.expressions.primaries.interfaces.LfnoArrayLfPrimary;
 

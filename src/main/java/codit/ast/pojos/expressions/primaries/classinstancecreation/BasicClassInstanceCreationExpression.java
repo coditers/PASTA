@@ -1,10 +1,13 @@
 package codit.ast.pojos.expressions.primaries.classinstancecreation;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.Collections;
 import java.util.List;
 
-import codit.ast.AstNode;
-import codit.ast.Position;
-import codit.ast.Range;
+import codit.ast.pojos.AstNode;
+import codit.ast.pojos.Position;
+import codit.ast.pojos.Range;
 import codit.ast.pojos.annotations.Annotation;
 import codit.ast.pojos.classes.ClassBodyDeclaration;
 import codit.ast.pojos.expressions.Expression;
@@ -16,6 +19,7 @@ import codit.ast.pojos.types.TypeArgument;
 import codit.ast.pojos.types.TypeArgumentsOrDiamond;
 
 /**
+ * TODO - Compose test case
  * @author Jisung Lim <iejisung@gmail.com>
  */
 public class BasicClassInstanceCreationExpression extends ClassInstanceCreationExpression
@@ -75,5 +79,67 @@ public class BasicClassInstanceCreationExpression extends ClassInstanceCreationE
     this.typeArgumentsOrDiamond = typeArgumentsOrDiamond;
     this.argumentList = argumentList;
     this.classBody = classBody;
+  }
+
+  @JsonProperty(value="TypeArgumentList")
+  public List<TypeArgument> getTypeArgumentList() {
+    return Collections.unmodifiableList(typeArgumentList);
+  }
+
+  @JsonProperty(value="AnnotationListList")
+  public List<List<Annotation>> getAnnotationListList() {
+    return Collections.unmodifiableList(annotationListList);
+  }
+
+  @JsonProperty(value="IdentifierList")
+  public List<String> getIdentifierList() {
+    return Collections.unmodifiableList(identifierList);
+  }
+
+  @JsonProperty(value="TypeArgumentsOrDiamond")
+  public TypeArgumentsOrDiamond getTypeArgumentsOrDiamond() {
+    return typeArgumentsOrDiamond;
+  }
+
+  @JsonProperty(value="ArgumentList")
+  public List<Expression> getArgumentList() {
+    return argumentList;
+  }
+
+  @JsonProperty(value="ClassBody")
+  public List<ClassBodyDeclaration> getClassBody() {
+    return classBody;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof BasicClassInstanceCreationExpression)) return false;
+
+    BasicClassInstanceCreationExpression that = (BasicClassInstanceCreationExpression) o;
+
+    if (typeArgumentList != null ? !typeArgumentList.equals(that.typeArgumentList) : that.typeArgumentList != null)
+      return false;
+    if (annotationListList != null ? !annotationListList.equals(that.annotationListList) : that.annotationListList != null)
+      return false;
+    if (identifierList != null ? !identifierList.equals(that.identifierList) : that.identifierList != null)
+      return false;
+    if (typeArgumentsOrDiamond != null ? !typeArgumentsOrDiamond.equals(that.typeArgumentsOrDiamond) : that.typeArgumentsOrDiamond != null)
+      return false;
+    if (argumentList != null ? !argumentList.equals(that.argumentList) : that.argumentList != null)
+      return false;
+    return classBody != null ? classBody.equals(that.classBody) : that.classBody == null;
+
+  }
+
+  @Override
+  public int hashCode() {
+    int result = typeArgumentList != null ? typeArgumentList.hashCode() : 0;
+    result = 31 * result + (annotationListList != null ? annotationListList.hashCode() : 0);
+    result = 31 * result + (identifierList != null ? identifierList.hashCode() : 0);
+    result = 31 * result + (typeArgumentsOrDiamond != null ? typeArgumentsOrDiamond.hashCode() : 0);
+    result = 31 * result + (argumentList != null ? argumentList.hashCode() : 0);
+    result = 31 * result + (classBody != null ? classBody.hashCode() : 0);
+    return result;
   }
 }

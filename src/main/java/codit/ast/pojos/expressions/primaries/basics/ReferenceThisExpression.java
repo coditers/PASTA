@@ -1,8 +1,10 @@
 package codit.ast.pojos.expressions.primaries.basics;
 
-import codit.ast.AstNode;
-import codit.ast.Position;
-import codit.ast.Range;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import codit.ast.pojos.AstNode;
+import codit.ast.pojos.Position;
+import codit.ast.pojos.Range;
 import codit.ast.pojos.expressions.primaries.interfaces.DefaultArrayDefaultPrimary;
 import codit.ast.pojos.expressions.primaries.interfaces.DefaultArrayLfnoPrimary;
 import codit.ast.pojos.expressions.primaries.interfaces.LfnoArrayDefaultPrimary;
@@ -31,5 +33,29 @@ public class ReferenceThisExpression extends BasicExpression
   public ReferenceThisExpression(int startLine, int startCol, int endLine, int endCol, AstNode parent, TypeName typeName) {
     super(startLine, startCol, endLine, endCol, parent);
     this.typeName = typeName;
+  }
+
+  @JsonProperty(value="TypeName")
+  public TypeName getTypeName() {
+    return typeName;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof ReferenceThisExpression)) return false;
+    if (!super.equals(o)) return false;
+
+    ReferenceThisExpression that = (ReferenceThisExpression) o;
+
+    return typeName != null ? typeName.equals(that.typeName) : that.typeName == null;
+
+  }
+
+  @Override
+  public int hashCode() {
+    int result = super.hashCode();
+    result = 31 * result + (typeName != null ? typeName.hashCode() : 0);
+    return result;
   }
 }

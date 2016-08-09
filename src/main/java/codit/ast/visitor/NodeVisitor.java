@@ -1,6 +1,6 @@
 package codit.ast.visitor;
 
-import codit.ast.AstNode;
+import codit.ast.pojos.AstNode;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>
@@ -34,4 +34,6 @@ public interface NodeVisitor<T> {
    * @return The result of visiting error node.
    */
   T visitErrorNode(AstNode astNode);
+
+
 }
