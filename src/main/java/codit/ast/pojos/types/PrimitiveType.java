@@ -56,6 +56,8 @@ public class PrimitiveType extends Type implements Arrayable {
     Primitive(String token) {
       this.token = token;
     }
+
+
   }
 
 }

@@ -238,11 +238,11 @@ ambiguousName
  * Productions from §7 (Packages)
  */
 
-compilationUnit
-	:	packageDeclaration? importDeclaration* typeDeclaration* EOF
+compilationUnit      //// TODO
+	:	packageDeclaration? importDeclaration* typeDeclaration* EOF      //// TODO
 	;
 
-packageDeclaration
+packageDeclaration      //// TODO - NONE
 	:	packageModifier* 'package' Identifier ('.' Identifier)* ';'
 	;
 
@@ -250,7 +250,7 @@ packageModifier
 	:	annotation
 	;
 
-importDeclaration
+importDeclaration      //// TODO - NONE
 	:	singleTypeImportDeclaration
 	|	typeImportOnDemandDeclaration
 	|	singleStaticImportDeclaration
@@ -273,8 +273,8 @@ staticImportOnDemandDeclaration
 	:	'import' 'static' typeName '.' '*' ';'
 	;
 
-typeDeclaration
-	:	classDeclaration
+typeDeclaration      //// TODO
+	:	classDeclaration      //// TODO
 	|	interfaceDeclaration
 	|	';'
 	;
@@ -283,18 +283,18 @@ typeDeclaration
  * Productions from §8 (Classes)
  */
 
-classDeclaration
-	:	normalClassDeclaration
+classDeclaration      //// TODO
+	:	normalClassDeclaration      //// TODO
 	|	enumDeclaration
 	;
 
-normalClassDeclaration
-	:	classModifier* 'class' Identifier typeParameters? superclass? superinterfaces? classBody
+normalClassDeclaration      //// TODO
+	:	classModifier* 'class' Identifier typeParameters? superclass? superinterfaces? classBody      //// TODO
 	;
 
-classModifier
+classModifier      //// TODO
 	:	annotation
-	|	'public'
+	|	'public'      //// TODO
 	|	'protected'
 	|	'private'
 	|	'abstract'
@@ -323,30 +323,30 @@ interfaceTypeList
 	:	interfaceType (',' interfaceType)*
 	;
 
-classBody
-	:	'{' classBodyDeclaration* '}'
+classBody      //// TODO
+	:	'{' classBodyDeclaration* '}'      //// TODO
 	;
 
-classBodyDeclaration
-	:	classMemberDeclaration
-	|	instanceInitializer
-	|	staticInitializer
-	|	constructorDeclaration
+classBodyDeclaration      //// TODO
+	:	classMemberDeclaration      //// TODO
+	|	instanceInitializer      //// TODO
+	|	staticInitializer      //// TODO
+	|	constructorDeclaration      //// TODO
 	;
 
-classMemberDeclaration
-	:	fieldDeclaration
-	|	methodDeclaration
-	|	classDeclaration
-	|	interfaceDeclaration
+classMemberDeclaration      //// TODO
+	:	fieldDeclaration      //// TODO
+	|	methodDeclaration      //// TODO
+	|	classDeclaration      //// TODO
+	|	interfaceDeclaration      //// TODO
 	|	';'
 	;
 
-fieldDeclaration
+fieldDeclaration      //// TODO
 	:	fieldModifier* unannType variableDeclaratorList ';'
 	;
 
-fieldModifier
+fieldModifier      //// TODO
 	:	annotation
 	|	'public'
 	|	'protected'
@@ -357,21 +357,21 @@ fieldModifier
 	|	'volatile'
 	;
 
-variableDeclaratorList
+variableDeclaratorList      //// TODO
 	:	variableDeclarator (',' variableDeclarator)*
 	;
 
-variableDeclarator
+variableDeclarator      //// TODO
 	:	variableDeclaratorId ('=' variableInitializer)?
 	;
 
-variableDeclaratorId
+variableDeclaratorId      //// TODO
 	:	Identifier dims?
 	;
 
-variableInitializer
-	:	expression
-	|	arrayInitializer
+variableInitializer      //// TODO
+	:	expression      //// TODO
+	|	arrayInitializer      //// TODO
 	;
 
 unannType
@@ -434,13 +434,13 @@ unannArrayType
 	|	unannTypeVariable dims
 	;
 
-methodDeclaration
-	:	methodModifier* methodHeader methodBody
+methodDeclaration      //// TODO
+	:	methodModifier* methodHeader methodBody      //// TODO
 	;
 
-methodModifier
+methodModifier      //// TODO
 	:	annotation
-	|	'public'
+	|	'public'      //// TODO
 	|	'protected'
 	|	'private'
 	|	'abstract'
@@ -451,13 +451,13 @@ methodModifier
 	|	'strictfp'
 	;
 
-methodHeader
-	:	result methodDeclarator throws_?
+methodHeader      //// TODO
+	:	result methodDeclarator throws_?      //// TODO
 	|	typeParameters annotation* result methodDeclarator throws_?
 	;
 
-result
-	:	unannType
+result      //// TODO
+	:	unannType      //// TODO
 	|	'void'
 	;
 
@@ -506,26 +506,26 @@ exceptionType
 	|	typeVariable
 	;
 
-methodBody
-	:	block
+methodBody      //// TODO
+	:	block      //// TODO
 	|	';'
 	;
 
-instanceInitializer
-	:	block
+instanceInitializer      //// TODO
+	:	block      //// TODO
 	;
 
-staticInitializer
-	:	'static' block
+staticInitializer      //// TODO
+	:	'static' block      //// TODO
 	;
 
 constructorDeclaration
 	:	constructorModifier* constructorDeclarator throws_? constructorBody
 	;
 
-constructorModifier
+constructorModifier      //// TODO
 	:	annotation
-	|	'public'
+	|	'public'      //// TODO
 	|	'protected'
 	|	'private'
 	;
@@ -578,7 +578,7 @@ enumBodyDeclarations
  * Productions from §9 (Interfaces)
  */
 
- interfaceDeclaration
+interfaceDeclaration
 	:	normalInterfaceDeclaration
 	|	annotationTypeDeclaration
 	;
@@ -711,12 +711,12 @@ singleElementAnnotation
  * Productions from §10 (Arrays)
  */
 
-arrayInitializer
-	:	'{' variableInitializerList? ','? '}'
+arrayInitializer      //// TODO
+	:	'{' variableInitializerList? ','? '}'      //// TODO
 	;
 
-variableInitializerList
-	:	variableInitializer (',' variableInitializer)*
+variableInitializerList      //// TODO
+	:	variableInitializer (',' variableInitializer)*      //// TODO
 	;
 
 /*

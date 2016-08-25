@@ -37,62 +37,43 @@ public class NameTest {
   @Parameterized.Parameters
   public static Collection<Object[]> data() {
     return Arrays.asList(new Object[][]{
-        { TYPE_NAME,
+        {
+            TYPE_NAME,
             "com.estsoft.pojos.AstNode;",
-            new TypeName
-                (
-                    RANGE, null, "AstNode",
-                    new PackageOrTypeName
-                        (
-                            RANGE, null, "pojos",
-                            new PackageOrTypeName
-                                (
-                                    RANGE, null, "estsoft",
-                                    new PackageOrTypeName(RANGE, null, "com", null)
-                                )
-                        )
-                )
+            new TypeName (RANGE, null, "AstNode",
+                new PackageOrTypeName (RANGE, null, "pojos",
+                    new PackageOrTypeName (RANGE, null, "estsoft",
+                        new PackageOrTypeName(RANGE, null, "com", null))))
         },
 
-        { PACKAGE_OR_TYPE_NAME,
+        {
+            PACKAGE_OR_TYPE_NAME,
             "com.estsoft.pojos",
-
-            new PackageOrTypeName
-                (
-                    RANGE, null, "pojos",
-                    new PackageOrTypeName
-                        (
-                            RANGE, null, "estsoft",
-                            new PackageOrTypeName(RANGE, null, "com", null)
-                        )
-                )
+            new PackageOrTypeName (RANGE, null, "pojos",
+                new PackageOrTypeName (RANGE, null, "estsoft",
+                    new PackageOrTypeName(RANGE, null, "com", null)))
         },
 
-        { EXPRESSION_NAME,
+        {
+            EXPRESSION_NAME,
             "modifiers.ModifierSet.STATIC;",
-
-            new ExpressionName
-                (
-                    RANGE, null, "STATIC",
-                    new AmbiguousName
-                        (
-                            RANGE, null, "ModifierSet",
-                            new AmbiguousName(RANGE, null, "modifiers", null)
-                        )
-                )
+            new ExpressionName (RANGE, null, "STATIC",
+                new AmbiguousName (RANGE, null, "ModifierSet",
+                    new AmbiguousName (RANGE, null, "modifiers", null)))
         },
 
-        { AMBIGUOUS_NAME,
+        {
+            AMBIGUOUS_NAME,
             "modifiers.ModifierSet",
-
-            new AmbiguousName
-                (
-                    RANGE, null, "ModifierSet",
-                    new AmbiguousName(RANGE, null, "modifiers", null)
-                )
+            new AmbiguousName (RANGE, null, "ModifierSet",
+                new AmbiguousName(RANGE, null, "modifiers", null))
         },
 
-        {METHOD_NAME, "someMethod", new MethodName(RANGE, null, "someMethod") }
+        {
+            METHOD_NAME,
+            "someMethod",
+            new MethodName(RANGE, null, "someMethod")
+        }
     });
   }
 

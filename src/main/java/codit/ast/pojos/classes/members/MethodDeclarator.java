@@ -4,6 +4,7 @@ import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
 import codit.ast.pojos.parameters.FormalParameterList;
+import codit.ast.pojos.parameters.MultiFormalParameterList;
 import codit.ast.pojos.types.Dims;
 
 /**

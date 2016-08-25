@@ -40,28 +40,21 @@ public class BasicsTest {
 
         { // literal
             "0x1A3B12",
-            new LiteralExpression
-                (
-                    RANGE, null,
-                    new HexIntegerLiteral(RANGE, null, "0x1A3B12")
-                )
+            new LiteralExpression (RANGE, null,
+                new HexIntegerLiteral(RANGE, null, "0x1A3B12"))
         },
+
         { // typeName ( '[' ']' )* '.' 'class'
             "pojos.Modifiers.TERM[][].class",
-            new ReferenceClassLiteralExpression
-                (
-                    RANGE, null,
-                    new TypeName(RANGE, null, "TERM",
-                        new PackageOrTypeName(RANGE, null, "Modifiers",
-                            new PackageOrTypeName(RANGE, null, "pojos",
-                                null
-                            )
-                        )
-                    ),
-                    2
-                )
+            new ReferenceClassLiteralExpression (RANGE, null,
+                new TypeName(RANGE, null, "TERM",
+                    new PackageOrTypeName(RANGE, null, "Modifiers",
+                        new PackageOrTypeName(RANGE, null, "pojos", null))),
+                2
+            )
         },
-        /* TODO
+
+        /* TODO - UNANNOTATED_PRIMITIVE_TYPE
         { // unannPrimitiveType ( '[' ']' )* '.' 'class'
             "",
             new PrimitiveClassLiteralExpression
@@ -75,29 +68,26 @@ public class BasicsTest {
                 )
         },
         */
+
         { // 'void' '.' 'class'
             "void.class",
             new VoidClassLiteralExpression(RANGE, null)
         },
+
         { // 'this'
             "this",
             new BasicThisExpression(RANGE, null)
         },
+
         { // typeName '.' 'this'
             "pojos.Modifiers.TERM.this",
-            new ReferenceThisExpression
-                (
-                    RANGE, null,
-                    new TypeName(RANGE, null, "TERM",
-                        new PackageOrTypeName(RANGE, null, "Modifiers",
-                            new PackageOrTypeName(RANGE, null, "pojos",
-                                null
-                            )
-                        )
-                    )
-                )
+            new ReferenceThisExpression (RANGE, null,
+                new TypeName(RANGE, null, "TERM",
+                    new PackageOrTypeName(RANGE, null, "Modifiers",
+                        new PackageOrTypeName(RANGE, null, "pojos", null))))
         },
-        /* TODO
+
+        /* TODO - PARENTHESIZED_EXPRESSION
         { // '(' expression ')'
             "()"
         }

@@ -195,8 +195,12 @@ import codit.ast.pojos.packages.TypeImportOnDemandDeclaration;
 import codit.ast.pojos.parameters.FormalParameter;
 import codit.ast.pojos.parameters.FormalParameterList;
 import codit.ast.pojos.parameters.LastFormalParameter;
+import codit.ast.pojos.parameters.MultiFormalParameterList;
+import codit.ast.pojos.parameters.MultiLastFormalParameter;
 import codit.ast.pojos.parameters.Parameter;
 import codit.ast.pojos.parameters.ReceiverParameter;
+import codit.ast.pojos.parameters.SingleFormalParameterList;
+import codit.ast.pojos.parameters.SingleLastFormalParameter;
 import codit.ast.pojos.statements.Statement;
 import codit.ast.pojos.statements.StatementNoShortIf;
 import codit.ast.pojos.statements.normal.BasicForStatement;
@@ -960,7 +964,12 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 //    }
 
     // get Package Declaration
-    PackageDeclaration packageDeclaration = (PackageDeclaration) visit(ctx.packageDeclaration());
+    PackageDeclaration packageDeclaration;
+    if(ctx.packageDeclaration() != null) {
+      packageDeclaration = (PackageDeclaration) visit(ctx.packageDeclaration());
+    } else {
+      packageDeclaration = null;
+    }
 
     // get Import Declaration List
     List<ImportDeclaration> importDeclarationList = new ArrayList<>();
@@ -1159,21 +1168,28 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get type parameter list
     List<TypeParameter> typeParameterList = new ArrayList<>();
-    for(JavaParser.TypeParameterContext typeParameterContext
-        : ctx.typeParameters().typeParameterList().typeParameter()) {
-      TypeParameter typeParameter = (TypeParameter) visit(typeParameterContext);
-      typeParameterList.add(typeParameter);
+    if (ctx.typeParameters() != null) {
+      for(JavaParser.TypeParameterContext typeParameterContext
+          : ctx.typeParameters().typeParameterList().typeParameter()) {
+        TypeParameter typeParameter = (TypeParameter) visit(typeParameterContext);
+        typeParameterList.add(typeParameter);
+      }
     }
 
     // get super class
-    ClassType superClass = (ClassType) visit(ctx.superclass().classType());
+    ClassType superClass = null;
+    if (ctx.superclass() != null) {
+      superClass = (ClassType) visit(ctx.superclass().classType());
+    }
 
     // get super interface list
     List<InterfaceType> superInterfaceList = new ArrayList<>();
-    for (JavaParser.InterfaceTypeContext interfaceTypeContext
-        : ctx.superinterfaces().interfaceTypeList().interfaceType()) {
-      InterfaceType interfaceType = (InterfaceType) visit(interfaceTypeContext);
-      superInterfaceList.add(interfaceType);
+    if (ctx.superinterfaces() != null) {
+      for (JavaParser.InterfaceTypeContext interfaceTypeContext
+          : ctx.superinterfaces().interfaceTypeList().interfaceType()) {
+        InterfaceType interfaceType = (InterfaceType) visit(interfaceTypeContext);
+        superInterfaceList.add(interfaceType);
+      }
     }
 
     // get Class Body Declarations
@@ -1429,7 +1445,6 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
       } else if (ctx.numericType().floatingPointType() != null) {
         text = ctx.numericType().floatingPointType().getText();
-
       } else {
         System.err.println("ERROR");
         return super.visitUnannPrimitiveType(ctx);
@@ -1437,7 +1452,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     } else { text = "boolean"; }
 
-    return new UnannPrimitiveType(range, null, PrimitiveType.Primitive.valueOf(text));
+    return new UnannPrimitiveType(range, null, PrimitiveType.Primitive.valueOf(text.toUpperCase()));
   }
 
   @Override
@@ -1752,6 +1767,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
   @Override
   public AstNode visitMethodDeclarator(JavaParser.MethodDeclaratorContext ctx) {
 
+
     // get range
     Range range = getRange(ctx);
 
@@ -1759,25 +1775,34 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     String identifier = ctx.Identifier().getText();
 
     // get Formal Parameter List
-    FormalParameterList formalParameterList
-        = (FormalParameterList) visit(ctx.formalParameterList());
-
+    FormalParameterList formalParameterList = null;
+    if (ctx.formalParameterList() != null) {
+      formalParameterList = (FormalParameterList) visit(ctx.formalParameterList());
+    }
     // get Dims
-    Dims dims = (Dims) visit(ctx.dims());
+    Dims dims = null;
+    if (ctx.dims() != null) {
+      dims = (Dims) visit(ctx.dims());
+    }
 
     return new MethodDeclarator(range, null, identifier, formalParameterList, dims);
   }
 
   @Override
   public AstNode visitFormalParameterList(JavaParser.FormalParameterListContext ctx) {
+    // get range
+    Range range = getRange(ctx);
+
+    // get lastFormalParameter
+    LastFormalParameter lastFormalParameter =
+        (LastFormalParameter) visit(ctx.lastFormalParameter());
+
     if (ctx.formalParameters() != null) {
-      // get range
-      Range range = getRange(ctx);
 
       // get List of Parameters
       List<Parameter> parameterList = new ArrayList<>();
       for (ParseTree parameterContext : ctx.formalParameters().children) {
-        if(parameterContext instanceof JavaParser.FormalParameterContext) {
+        if (parameterContext instanceof JavaParser.FormalParameterContext) {
           FormalParameter formalParameter = (FormalParameter) visit(parameterContext);
           parameterList.add(formalParameter);
         } else if (parameterContext instanceof JavaParser.ReceiverParameterContext) {
@@ -1787,14 +1812,9 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
           System.err.println("ERROR : visitFormalParameterList");
         }
       }
-
-      // get lastFormalParameter
-      LastFormalParameter lastFormalParameter =
-          (LastFormalParameter) visit(ctx.lastFormalParameter());
-
-      return new FormalParameterList(range, null, parameterList, lastFormalParameter);
+      return new MultiFormalParameterList(range, null, parameterList, lastFormalParameter);
     } else {
-      return visit(ctx.lastFormalParameter());
+      return new SingleFormalParameterList(range, null, lastFormalParameter);
     }
   }
 
@@ -1848,12 +1868,15 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
   @Override
   public AstNode visitLastFormalParameter(JavaParser.LastFormalParameterContext ctx) {
-    if (ctx.formalParameter() != null) {
-      return visit(ctx.formalParameter());
-    } else if (ctx.variableDeclaratorId() != null) {
-      // get range
-      Range range = getRange(ctx);
+    // get range
+    Range range = getRange(ctx);
 
+    if (ctx.formalParameter() != null) {
+      FormalParameter formalParameter = (FormalParameter) visit(ctx.formalParameter());
+
+      return new SingleLastFormalParameter(range, null, formalParameter);
+
+    } else if (ctx.variableDeclaratorId() != null) {
       // get Annotation and modifiers
       List<Annotation> annotationList = new ArrayList<>();
       int modifiers = 0;
@@ -1888,7 +1911,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       VariableDeclaratorId variableDeclaratorId
           = (VariableDeclaratorId) visit(ctx.variableDeclaratorId());
 
-      return new LastFormalParameter(range, null, annotationList, modifiers, unannType, secondAnnotationList, variableDeclaratorId);
+      return new MultiLastFormalParameter(range, null, annotationList, modifiers, unannType, secondAnnotationList, variableDeclaratorId);
     } else {
       System.err.println("ERROR : visitLastFormalParameter");
       return super.visitLastFormalParameter(ctx);
@@ -2054,7 +2077,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     String identifier = ctx.simpleTypeName().Identifier().getText();
 
     // get formal parameter list
-    FormalParameterList formalParameterList = (FormalParameterList) visit(ctx.formalParameterList());
+    MultiFormalParameterList formalParameterList = (MultiFormalParameterList) visit(ctx.formalParameterList());
     return new ConstructorDeclarator(range, null, typeParameterList, identifier, formalParameterList);
   }
 
@@ -2074,7 +2097,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     ExplicitConstructorInvocation explicitConstructorInvocation
         = (ExplicitConstructorInvocation) visit(ctx.explicitConstructorInvocation());
 
-    // get block statements
+    // get block flowchart
     BlockStatements blockStatements = (BlockStatements) visit(ctx.blockStatements());
 
     return new ConstructorBody(range, null, explicitConstructorInvocation, blockStatements);
@@ -2768,7 +2791,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get Range
     Range range = getRange(ctx);
 
-    // get block statements
+    // get block flowchart
     BlockStatements blockStatements = (BlockStatements) visit(ctx.blockStatements());
 
 
@@ -3130,7 +3153,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       switchLabelList.add(switchLabel);
     }
 
-    // get block statements
+    // get block flowchart
     BlockStatements blockStatements = (BlockStatements) visit(ctx.blockStatements());
 
     return new SwitchBlockStatementGroup(range, null, switchLabelList, blockStatements);
