@@ -10,9 +10,7 @@ public class CompileApp {
 
   public static void main(String[] args) {
 
-    String fileName = "Task";
-
-    Compiler compiler = new Compiler("C:\\Users\\Jisung\\IdeaProjects\\codit\\j-compiler\\src\\test\\resources\\" + fileName + ".java");
+    Compiler compiler = new Compiler(args[0]);
 
     AstNode astTree = compiler.compile();
 
