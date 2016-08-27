@@ -1,5 +1,7 @@
 package codit.ast.pojos.interfaces;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -55,5 +57,25 @@ public class InterfaceMethodDeclaration extends AstNode implements InterfaceMemb
     this.modifiers = modifiers;
     this.methodHeader = methodHeader;
     this.block = block;
+  }
+
+  @JsonProperty("AnnotationList")
+  public List<Annotation> getAnnotationList() {
+    return annotationList;
+  }
+
+  @JsonProperty("Modifiers")
+  public int getModifiers() {
+    return modifiers;
+  }
+
+  @JsonProperty("MethodHeader")
+  public MethodHeader getMethodHeader() {
+    return methodHeader;
+  }
+
+  @JsonProperty("Block")
+  public Block getBlock() {
+    return block;
   }
 }

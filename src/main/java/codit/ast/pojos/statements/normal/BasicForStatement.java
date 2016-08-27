@@ -1,5 +1,7 @@
 package codit.ast.pojos.statements.normal;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -54,5 +56,25 @@ public class BasicForStatement extends ForStatement {
     this.forCondition = forCondition;
     this.statementExpressionList = statementExpressionList;
     this.statement = statement;
+  }
+
+  @JsonProperty("ForInit")
+  public ForInit getForInit() {
+    return forInit;
+  }
+
+  @JsonProperty("ForCondition")
+  public Expression getForCondition() {
+    return forCondition;
+  }
+
+  @JsonProperty("StatementExpressionList")
+  public StatementExpressionList getStatementExpressionList() {
+    return statementExpressionList;
+  }
+
+  @JsonProperty("Statement")
+  public Statement getStatement() {
+    return statement;
   }
 }

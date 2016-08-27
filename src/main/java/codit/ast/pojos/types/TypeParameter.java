@@ -1,5 +1,7 @@
 package codit.ast.pojos.types;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -45,5 +47,20 @@ public class TypeParameter extends AstNode {
     this.annotationList = new ArrayList<>(annotationList);
     this.identifier = identifier;
     this.typeBound = typeBound;
+  }
+
+  @JsonProperty("AnnotationList")
+  public List<Annotation> getAnnotationList() {
+    return annotationList;
+  }
+
+  @JsonProperty("Identifier")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  @JsonProperty("TypeBound")
+  public TypeBound getTypeBound() {
+    return typeBound;
   }
 }

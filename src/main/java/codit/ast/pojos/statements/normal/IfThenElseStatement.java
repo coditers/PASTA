@@ -1,5 +1,7 @@
 package codit.ast.pojos.statements.normal;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -44,5 +46,20 @@ public class IfThenElseStatement extends AstNode implements Statement {
     this.expression = expression;
     this.statementNoShortIf = statementNoShortIf;
     this.statement = statement;
+  }
+
+  @JsonProperty("Expression")
+  public Expression getExpression() {
+    return expression;
+  }
+
+  @JsonProperty("StatementNoShortIf")
+  public StatementNoShortIf getStatementNoShortIf() {
+    return statementNoShortIf;
+  }
+
+  @JsonProperty("Statement")
+  public Statement getStatement() {
+    return statement;
   }
 }

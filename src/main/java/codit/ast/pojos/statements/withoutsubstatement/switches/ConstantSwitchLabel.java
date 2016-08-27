@@ -1,5 +1,7 @@
 package codit.ast.pojos.statements.withoutsubstatement.switches;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -25,5 +27,10 @@ public class ConstantSwitchLabel extends SwitchLabel {
   public ConstantSwitchLabel(int startLine, int startCol, int endLine, int endCol, AstNode parent, Expression constantExpression) {
     super(startLine, startCol, endLine, endCol, parent);
     this.constantExpression = constantExpression;
+  }
+
+  @JsonProperty("ConstantExpression")
+  public Expression getConstantExpression() {
+    return constantExpression;
   }
 }

@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions.assignments.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -34,5 +36,15 @@ public class InstanceofRelationalExpression extends RelationalExpression {
     super(startLine, startCol, endLine, endCol, parent);
     this.relationalExpression = relationalExpression;
     this.referenceType = referenceType;
+  }
+
+  @JsonProperty("RelationalExpression")
+  public RelationalExpression getRelationalExpression() {
+    return relationalExpression;
+  }
+
+  @JsonProperty("ReferenceType")
+  public ReferenceType getReferenceType() {
+    return referenceType;
   }
 }

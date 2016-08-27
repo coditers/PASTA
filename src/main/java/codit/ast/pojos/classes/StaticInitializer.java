@@ -1,5 +1,7 @@
 package codit.ast.pojos.classes;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -28,5 +30,10 @@ public class StaticInitializer extends ClassBodyDeclaration {
                            Block block) {
     super(startLine, startCol, endLine, endCol, parent);
     this.block = block;
+  }
+
+  @JsonProperty("Block")
+  public Block getBlock() {
+    return block;
   }
 }

@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions.primaries.methodinvocation;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -60,5 +62,25 @@ public class TypeMethodInvocation extends MethodInvocation
     this.typeArguments = typeArguments;
     this.identifier = identifier;
     this.argumentList = argumentList;
+  }
+
+  @JsonProperty("TypeName")
+  public TypeName getTypeName() {
+    return typeName;
+  }
+
+  @JsonProperty("TypeArguments")
+  public TypeArguments getTypeArguments() {
+    return typeArguments;
+  }
+
+  @JsonProperty("Identifier")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  @JsonProperty("ArgumentList")
+  public List<Expression> getArgumentList() {
+    return argumentList;
   }
 }

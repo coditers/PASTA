@@ -1,5 +1,8 @@
 package codit.ast.pojos.expressions.primaries.methodreference;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -49,5 +52,20 @@ public class ExpressionMethodReference extends MethodReference
     this.expressionName = expressionName;
     this.typeArguments = typeArguments;
     this.identifier = identifier;
+  }
+
+  @JsonProperty("ExpressionName")
+  public ExpressionName getExpressionName() {
+    return expressionName;
+  }
+
+  @JsonProperty("TypeArguments")
+  public TypeArguments getTypeArguments() {
+    return typeArguments;
+  }
+
+  @JsonProperty("Identifier")
+  public String getIdentifier() {
+    return identifier;
   }
 }

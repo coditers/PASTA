@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions.assignments.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -34,5 +36,15 @@ public class ImplConditionalAndExpression extends ConditionalAndExpression {
     super(startLine, startCol, endLine, endCol, parent);
     this.conditionalAndExpression = conditionalAndExpression;
     this.inclusiveOrExpression = inclusiveOrExpression;
+  }
+
+  @JsonProperty("ConditionalAndExpression")
+  public ConditionalAndExpression getConditionalAndExpression() {
+    return conditionalAndExpression;
+  }
+
+  @JsonProperty("InclusiveOrExpression")
+  public InclusiveOrExpression getInclusiveOrExpression() {
+    return inclusiveOrExpression;
   }
 }

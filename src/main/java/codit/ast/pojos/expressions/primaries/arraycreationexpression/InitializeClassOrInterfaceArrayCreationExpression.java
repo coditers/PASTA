@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions.primaries.arraycreationexpression;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -44,5 +46,20 @@ public class InitializeClassOrInterfaceArrayCreationExpression extends ArrayCrea
     this.classOrInterfaceType = classOrInterfaceType;
     this.dims = dims;
     this.arrayInitializer = arrayInitializer;
+  }
+
+  @JsonProperty("ClassOrInterfaceType")
+  public ClassOrInterfaceType getClassOrInterfaceType() {
+    return classOrInterfaceType;
+  }
+
+  @JsonProperty("Dims")
+  public Dims getDims() {
+    return dims;
+  }
+
+  @JsonProperty("ArrayInitializer")
+  public ArrayInitializer getArrayInitializer() {
+    return arrayInitializer;
   }
 }

@@ -1,5 +1,7 @@
 package codit.ast.pojos.interfaces;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -56,5 +58,25 @@ public class ConstantDeclaration extends AstNode implements InterfaceMemberable,
     this.modifiers = modifiers;
     this.unannType = unannType;
     this.variableDeclaratorList = variableDeclaratorList;
+  }
+
+  @JsonProperty("AnnotationList")
+  public List<Annotation> getAnnotationList() {
+    return annotationList;
+  }
+
+  @JsonProperty("Modifiers")
+  public int getModifiers() {
+    return modifiers;
+  }
+
+  @JsonProperty("UnannType")
+  public UnannType getUnannType() {
+    return unannType;
+  }
+
+  @JsonProperty("VariableDeclaratorList")
+  public List<VariableDeclarator> getVariableDeclaratorList() {
+    return variableDeclaratorList;
   }
 }

@@ -1,5 +1,7 @@
 package codit.ast.pojos.statements.withoutsubstatement.tries;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -35,5 +37,15 @@ public class CatchClause extends AstNode {
     super(startLine, startCol, endLine, endCol, parent);
     this.catchFormalParameter = catchFormalParameter;
     this.block = block;
+  }
+
+  @JsonProperty("CatchFormalParameter")
+  public CatchFormalParameter getCatchFormalParameter() {
+    return catchFormalParameter;
+  }
+
+  @JsonProperty("Block")
+  public Block getBlock() {
+    return block;
   }
 }

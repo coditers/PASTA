@@ -1,5 +1,7 @@
 package codit.ast.pojos.annotations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -53,5 +55,25 @@ public class AnnotationTypeDeclaration extends InterfaceDeclaration {
     this.modifiers = modifiers;
     this.identifier = identifier;
     this.annotationTypeBody = annotationTypeBody;
+  }
+
+  @JsonProperty("AnnotationList")
+  public List<Annotation> getAnnotationList() {
+    return annotationList;
+  }
+
+  @JsonProperty("Modifiers")
+  public int getModifiers() {
+    return modifiers;
+  }
+
+  @JsonProperty("Identifier")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  @JsonProperty("AnnotationTypeBody")
+  public List<AnnotationTypeMemberable> getAnnotationTypeBody() {
+    return annotationTypeBody;
   }
 }

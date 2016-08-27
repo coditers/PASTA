@@ -1,5 +1,7 @@
 package codit.ast.pojos.statements.withoutsubstatement.switches;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -37,6 +39,16 @@ public class SwitchStatement extends AstNode implements StatementWithoutTrailing
     super(startLine, startCol, endLine, endCol, parent);
     this.expression = expression;
     this.switchBlock = switchBlock;
+  }
+
+  @JsonProperty("Expression")
+  public Expression getExpression() {
+    return expression;
+  }
+
+  @JsonProperty("SwitchBlock")
+  public SwitchBlock getSwitchBlock() {
+    return switchBlock;
   }
 }
 

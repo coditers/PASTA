@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions.primaries.methodinvocation;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -44,5 +46,15 @@ public class BasicMethodInvocation extends MethodInvocation
     super(startLine, startCol, endLine, endCol, parent);
     this.methodName = methodName;
     this.argumentList = argumentList;
+  }
+
+  @JsonProperty("MethodName")
+  public MethodName getMethodName() {
+    return methodName;
+  }
+
+  @JsonProperty("ArgumentList")
+  public List<Expression> getArgumentList() {
+    return argumentList;
   }
 }

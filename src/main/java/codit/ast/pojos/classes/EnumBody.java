@@ -1,6 +1,8 @@
 package codit.ast.pojos.classes;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -38,5 +40,15 @@ public class EnumBody extends AstNode {
     super(startLine, startCol, endLine, endCol, parent);
     this.enumConstantList = enumConstantList;
     this.enumBodyDeclarationList = enumBodyDeclarationList;
+  }
+
+  @JsonProperty("EnumConstantList")
+  public List<EnumConstant> getEnumConstantList() {
+    return enumConstantList;
+  }
+
+  @JsonProperty("EnumBodyDeclarationList")
+  public List<ClassBodyDeclaration> getEnumBodyDeclarationList() {
+    return enumBodyDeclarationList;
   }
 }

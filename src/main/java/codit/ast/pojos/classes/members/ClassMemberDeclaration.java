@@ -1,5 +1,7 @@
 package codit.ast.pojos.classes.members;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -28,5 +30,10 @@ public class ClassMemberDeclaration extends ClassBodyDeclaration {
                                 ClassMemberable classMemberable) {
     super(startLine, startCol, endLine, endCol, parent);
     this.classMemberable = classMemberable;
+  }
+
+  @JsonProperty("ClassMemberDeclaration")
+  public ClassMemberable getClassMemberable() {
+    return classMemberable;
   }
 }

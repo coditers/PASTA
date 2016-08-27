@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions.assignments.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -31,5 +33,15 @@ public class ExpressionPostfixExpression extends PostfixExpression {
     super(startLine, startCol, endLine, endCol, parent);
     this.expressionName = expressionName;
     this.isPlusList = isPlusList;
+  }
+
+  @JsonProperty("ExpressionName")
+  public ExpressionName getExpressionName() {
+    return expressionName;
+  }
+
+  @JsonProperty("IsPlusList")
+  public List<Boolean> getIsPlusList() {
+    return isPlusList;
   }
 }

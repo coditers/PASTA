@@ -1,5 +1,7 @@
 package codit.ast.pojos.classes.members;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -57,5 +59,25 @@ public class FieldDeclaration extends AstNode implements ClassMemberable {
     this.modifiers = modifiers;
     this.unannType = unannType;
     this.variableDeclaratorList = new ArrayList<>(variableDeclaratorList);
+  }
+
+  @JsonProperty("AnnotationList")
+  public List<Annotation> getAnnotationList() {
+    return annotationList;
+  }
+
+  @JsonProperty("Modifiers")
+  public int getModifiers() {
+    return modifiers;
+  }
+
+  @JsonProperty("UnannType")
+  public UnannType getUnannType() {
+    return unannType;
+  }
+
+  @JsonProperty("VariableDeclaratorList")
+  public List<VariableDeclarator> getVariableDeclaratorList() {
+    return variableDeclaratorList;
   }
 }

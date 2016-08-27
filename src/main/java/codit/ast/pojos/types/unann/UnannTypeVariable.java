@@ -1,5 +1,7 @@
 package codit.ast.pojos.types.unann;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -24,5 +26,10 @@ public class UnannTypeVariable extends UnannReferenceType implements UnannArraya
   public UnannTypeVariable(int startLine, int startCol, int endLine, int endCol, AstNode parent, String identifier) {
     super(startLine, startCol, endLine, endCol, parent);
     this.identifier = identifier;
+  }
+
+  @JsonProperty("Identifier")
+  public String getIdentifier() {
+    return identifier;
   }
 }

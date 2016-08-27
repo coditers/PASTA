@@ -1,14 +1,17 @@
 package codit.ast.pojos.blocks;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
 import codit.ast.pojos.expressions.lambdas.LambdaBody;
+import codit.ast.pojos.statements.StatementWithoutTrailingSubstatement;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
-public class Block extends AstNode implements LambdaBody {
+public class Block extends AstNode implements LambdaBody, StatementWithoutTrailingSubstatement {
 
   private final BlockStatements blockStatements;
 
@@ -28,5 +31,10 @@ public class Block extends AstNode implements LambdaBody {
                BlockStatements blockStatements) {
     super(startLine, startCol, endLine, endCol, parent);
     this.blockStatements = blockStatements;
+  }
+
+  @JsonProperty("BlockStatements")
+  public BlockStatements getBlockStatements() {
+    return blockStatements;
   }
 }

@@ -1,5 +1,7 @@
 package codit.ast.pojos.classes;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -30,5 +32,10 @@ public class ArrayInitializer extends VariableInitializer {
                           List<VariableInitializer> variableInitializerList) {
     super(startLine, startCol, endLine, endCol, parent);
     this.variableInitializerList = variableInitializerList;
+  }
+
+  @JsonProperty("VariableInitializerList")
+  public List<VariableInitializer> getVariableInitializerList() {
+    return variableInitializerList;
   }
 }

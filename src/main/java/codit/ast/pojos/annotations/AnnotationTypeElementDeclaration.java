@@ -1,5 +1,7 @@
 package codit.ast.pojos.annotations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -71,5 +73,35 @@ public class AnnotationTypeElementDeclaration extends AstNode implements Annotat
     this.identifier = identifier;
     this.dims = dims;
     this.defaultValue = defaultValue;
+  }
+
+  @JsonProperty("AnnotationList")
+  public List<Annotation> getAnnotationList() {
+    return annotationList;
+  }
+
+  @JsonProperty("Modifiers")
+  public int getModifiers() {
+    return modifiers;
+  }
+
+  @JsonProperty("UnannType")
+  public UnannType getUnannType() {
+    return unannType;
+  }
+
+  @JsonProperty("Identifier")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  @JsonProperty("Dims")
+  public Dims getDims() {
+    return dims;
+  }
+
+  @JsonProperty("DefaultValue")
+  public ElementValue getDefaultValue() {
+    return defaultValue;
   }
 }

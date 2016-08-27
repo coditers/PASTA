@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions.assignments.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -28,5 +30,15 @@ public class PrimitiveTypeCastExpression extends CastExpression {
     super(startLine, startCol, endLine, endCol, parent);
     this.primitiveType = primitiveType;
     this.unaryExpression = unaryExpression;
+  }
+
+  @JsonProperty("PrimitiveType")
+  public PrimitiveType getPrimitiveType() {
+    return primitiveType;
+  }
+
+  @JsonProperty("UnaryExpression")
+  public UnaryExpression getUnaryExpression() {
+    return unaryExpression;
   }
 }

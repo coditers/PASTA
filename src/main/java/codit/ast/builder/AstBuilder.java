@@ -97,6 +97,7 @@ import codit.ast.pojos.expressions.assignments.operations.UnaryExpression;
 import codit.ast.pojos.expressions.assignments.operations.UnaryExpressionNotPlusMinus;
 import codit.ast.pojos.expressions.assignments.operations.UnequalEqualityExpression;
 import codit.ast.pojos.expressions.assignments.operations.UnsignedRightShiftExpression;
+import codit.ast.pojos.expressions.lambdas.FormalLambdaParameters;
 import codit.ast.pojos.expressions.lambdas.InferredFormalLambdaParameters;
 import codit.ast.pojos.expressions.lambdas.LambdaBody;
 import codit.ast.pojos.expressions.lambdas.LambdaExpression;
@@ -264,11 +265,14 @@ import codit.ast.pojos.types.exceptions.ExceptionType;
 import codit.ast.pojos.types.exceptions.Exceptionable;
 import codit.ast.pojos.types.unann.LfUnannUnitClassType;
 import codit.ast.pojos.types.unann.LfUnannUnitInterfaceType;
+import codit.ast.pojos.types.unann.UnannArrayType;
+import codit.ast.pojos.types.unann.UnannArrayable;
 import codit.ast.pojos.types.unann.UnannClassOrInterfaceType;
 import codit.ast.pojos.types.unann.UnannClassType;
 import codit.ast.pojos.types.unann.UnannInterfaceType;
 import codit.ast.pojos.types.unann.UnannPrimitiveType;
 import codit.ast.pojos.types.unann.UnannType;
+import codit.ast.pojos.types.unann.UnannTypeVariable;
 import codit.ast.pojos.types.unann.UnannUnitClassOrInterfaceType;
 import codit.ast.pojos.types.unann.UnannUnitClassType;
 import codit.ast.pojos.types.unann.UnannUnitInterfaceType;
@@ -406,7 +410,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     } else { text = "boolean"; }
 
-    return new PrimitiveType(range, null, annotationList, PrimitiveType.Primitive.valueOf(text));
+    return new PrimitiveType(range, null, annotationList, PrimitiveType.Primitive.valueOf(text.toUpperCase()));
   }
 
   @Override
@@ -520,10 +524,12 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get Type argument list
     List<TypeArgument> typeArgumentList = new ArrayList<>();
-    for (JavaParser.TypeArgumentContext typeArgumentContext
-        : ctx.typeArguments().typeArgumentList().typeArgument()) {
-      TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
-      typeArgumentList.add(typeArgument);
+    if (ctx.typeArguments() != null) {
+      for (JavaParser.TypeArgumentContext typeArgumentContext
+          : ctx.typeArguments().typeArgumentList().typeArgument()) {
+        TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
+        typeArgumentList.add(typeArgument);
+      }
     }
 
     return new ClassType(range, null, classOrInterfaceType, annotationList, identifier, typeArgumentList);
@@ -598,12 +604,13 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get Type argument list
     List<TypeArgument> typeArgumentList = new ArrayList<>();
-    for (JavaParser.TypeArgumentContext typeArgumentContext
-        : ctx.typeArguments().typeArgumentList().typeArgument()) {
-      TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
-      typeArgumentList.add(typeArgument);
+    if (ctx.typeArguments() != null) {
+      for (JavaParser.TypeArgumentContext typeArgumentContext
+          : ctx.typeArguments().typeArgumentList().typeArgument()) {
+        TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
+        typeArgumentList.add(typeArgument);
+      }
     }
-
     return new UnitClassType(range, null, annotationList, identifier, typeArgumentList);
   }
 
@@ -669,8 +676,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get Range
     Range range = getRange(ctx);
 
-    // get Dims
-    Dims dims = (Dims) visit(ctx.dims());
+    // get dims
+    Dims dims = null;
+    if(ctx.dims() != null) {
+      dims = (Dims) visit(ctx.dims());
+    }
 
     if ( ctx.classOrInterfaceType() != null ) {
       ClassOrInterfaceType classOrInterfaceType
@@ -1330,8 +1340,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       }
     }
 
-    // get unannType
-    UnannType unannType = (UnannType) visit(ctx.unannType());
+    // get Unannotated type
+    UnannType unannType = null;
+    if (ctx.unannType() != null) {
+      unannType = (UnannType) visit(ctx.unannType());
+    }
 
     // get list of variable declarator
     List<VariableDeclarator> variableDeclaratorList = new ArrayList<>();
@@ -1367,8 +1380,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
         = (VariableDeclaratorId) visit(ctx.variableDeclaratorId());
 
     // get variable Initializer
-    VariableInitializer variableInitializer
-        = (VariableInitializer) visit(ctx.variableInitializer());
+    VariableInitializer variableInitializer = null;
+    if (ctx.variableInitializer() != null) {
+        variableInitializer = (VariableInitializer) visit(ctx.variableInitializer());
+    }
     return new VariableDeclarator(range, null, variableDeclaratorId, variableInitializer);
   }
 
@@ -1382,7 +1397,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     String identifier = ctx.Identifier().toString();
 
     // get Dims
-    Dims dims = (Dims) visit(ctx.dims());
+    Dims dims = null;
+    if (ctx.dims() != null) {
+      dims = (Dims) visit(ctx.dims());
+    }
 
     return new VariableDeclaratorId(range, null, identifier, dims);
   }
@@ -1541,12 +1559,13 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // list of type argument
     List<TypeArgument> typeArgumentList = new ArrayList<>();
-    for (JavaParser.TypeArgumentContext typeArgumentContext
-        : ctx.typeArguments().typeArgumentList().typeArgument()) {
-      TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
-      typeArgumentList.add(typeArgument);
+    if (ctx.typeArguments() != null) {
+      for (JavaParser.TypeArgumentContext typeArgumentContext
+          : ctx.typeArguments().typeArgumentList().typeArgument()) {
+        TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
+        typeArgumentList.add(typeArgument);
+      }
     }
-
     return new UnannClassType(range, null, unannClassOrInterfaceType, annotationList, identifier, typeArgumentList);
   }
 
@@ -1568,9 +1587,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of type arguments
     List<TypeArgument> typeArgumentList = new ArrayList<>();
-    for (JavaParser.TypeArgumentContext typeArgumentContext : ctx.typeArguments().typeArgumentList().typeArgument()) {
-      TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
-      typeArgumentList.add(typeArgument);
+    if (ctx.typeArguments() != null) {
+      for (JavaParser.TypeArgumentContext typeArgumentContext : ctx.typeArguments().typeArgumentList().typeArgument()) {
+        TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
+        typeArgumentList.add(typeArgument);
+      }
     }
 
     return new LfUnannUnitClassType(range, null, annotationList, identifier, typeArgumentList);
@@ -1587,9 +1608,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of type argument
     List<TypeArgument> typeArgumentList = new ArrayList<>();
-    for (JavaParser.TypeArgumentContext typeArgumentContext : ctx.typeArguments().typeArgumentList().typeArgument()) {
-      TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
-      typeArgumentList.add(typeArgument);
+    if (ctx.typeArguments() != null) {
+      for (JavaParser.TypeArgumentContext typeArgumentContext : ctx.typeArguments().typeArgumentList().typeArgument()) {
+        TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
+        typeArgumentList.add(typeArgument);
+      }
     }
 
     return new UnannUnitClassType(range, null, identifier, typeArgumentList);
@@ -1634,12 +1657,38 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
   @Override
   public AstNode visitUnannTypeVariable(JavaParser.UnannTypeVariableContext ctx) {
 
-    return super.visitUnannTypeVariable(ctx);
+    // get range
+    Range range = getRange(ctx);
+
+    // get identifier
+    String identifier = ctx.Identifier().getText();
+
+    return new UnannTypeVariable(range, null, identifier);
   }
 
   @Override
   public AstNode visitUnannArrayType(JavaParser.UnannArrayTypeContext ctx) {
-    return super.visitUnannArrayType(ctx);
+
+    // get range
+    Range range = getRange(ctx);
+
+    // get dims
+    Dims dims = (Dims) visit(ctx.dims());
+
+    //
+    if (ctx.unannPrimitiveType() != null) {
+      UnannArrayable unannPrimitiveType = (UnannPrimitiveType) visit(ctx.unannPrimitiveType());
+      return new UnannArrayType(range, null, unannPrimitiveType, dims);
+    } else if (ctx.unannClassOrInterfaceType() != null) {
+      UnannArrayable unannClassOrInterfaceType = (UnannClassOrInterfaceType) visit(ctx.unannClassOrInterfaceType());
+      return new UnannArrayType(range, null, unannClassOrInterfaceType, dims);
+    } else if (ctx.unannTypeVariable() != null) {
+      UnannArrayable unannTypeVariable = (UnannTypeVariable) visit(ctx.unannTypeVariable());
+      return new UnannArrayType(range, null, unannTypeVariable, dims);
+    } else {
+      System.err.println("ERROR : visitUnannArrayType");
+      return super.visitUnannArrayType(ctx);
+    }
   }
 
   @Override
@@ -1722,10 +1771,12 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of exception type
     List<ExceptionType> exceptionTypeList = new ArrayList<>();
-    for(JavaParser.ExceptionTypeContext exceptionTypeContext
-        : ctx.throws_().exceptionTypeList().exceptionType()) {
-      ExceptionType exceptionType = (ExceptionType) visit(exceptionTypeContext);
-      exceptionTypeList.add(exceptionType);
+    if (ctx.throws_() != null) {
+      for (JavaParser.ExceptionTypeContext exceptionTypeContext
+          : ctx.throws_().exceptionTypeList().exceptionType()) {
+        ExceptionType exceptionType = (ExceptionType) visit(exceptionTypeContext);
+        exceptionTypeList.add(exceptionType);
+      }
     }
 
     if(ctx.typeParameters() != null) {
@@ -1759,7 +1810,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get Unannotated type
-    UnannType unannType = (UnannType) visit(ctx.unannType());
+    UnannType unannType = null;
+    if (ctx.unannType() != null) {
+      unannType = (UnannType) visit(ctx.unannType());
+    }
 
     return new Result(range, null, unannType);
   }
@@ -1801,17 +1855,17 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
       // get List of Parameters
       List<Parameter> parameterList = new ArrayList<>();
-      for (ParseTree parameterContext : ctx.formalParameters().children) {
-        if (parameterContext instanceof JavaParser.FormalParameterContext) {
-          FormalParameter formalParameter = (FormalParameter) visit(parameterContext);
-          parameterList.add(formalParameter);
-        } else if (parameterContext instanceof JavaParser.ReceiverParameterContext) {
-          ReceiverParameter receiverParameter = (ReceiverParameter) visit(parameterContext);
-          parameterList.add(receiverParameter);
-        } else {
-          System.err.println("ERROR : visitFormalParameterList");
-        }
+      if (ctx.formalParameters().receiverParameter() != null) {
+        ReceiverParameter receiverParameter
+            = (ReceiverParameter) visit(ctx.formalParameters().receiverParameter());
+        parameterList.add(receiverParameter);
       }
+
+      for (ParseTree parameterContext : ctx.formalParameters().formalParameter()) {
+        FormalParameter formalParameter = (FormalParameter) visit(parameterContext);
+        parameterList.add(formalParameter);
+      }
+
       return new MultiFormalParameterList(range, null, parameterList, lastFormalParameter);
     } else {
       return new SingleFormalParameterList(range, null, lastFormalParameter);
@@ -1851,7 +1905,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get unnan type
-    UnannType unannType = (UnannType) visit(ctx.unannType());
+    UnannType unannType = null;
+    if (ctx.unannType() != null) {
+      unannType = (UnannType) visit(ctx.unannType());
+    }
 
     // get variable declarator id
     VariableDeclaratorId variableDeclaratorId
@@ -1897,8 +1954,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
         }
       }
 
-      // get unnanotated type
-      UnannType unannType = (UnannType) visit(ctx.unannType());
+      // get Unannotated type
+      UnannType unannType = null;
+      if (ctx.unannType() != null) {
+        unannType = (UnannType) visit(ctx.unannType());
+      }
 
       // get Second list of annotations
       List<Annotation> secondAnnotationList = new ArrayList<>();
@@ -1932,7 +1992,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get Unannotated type
-    UnannType unannType = (UnannType) visit(ctx.unannType());
+    UnannType unannType = null;
+    if (ctx.unannType() != null) {
+      unannType = (UnannType) visit(ctx.unannType());
+    }
 
     // get identifier
     String identifier = ctx.Identifier().getText();
@@ -2040,10 +2103,12 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of exception
     List<ExceptionType> exceptionTypeList = new ArrayList<>();
-    for(JavaParser.ExceptionTypeContext exceptionTypeContext
-        : ctx.throws_().exceptionTypeList().exceptionType()) {
-      ExceptionType exceptionType = (ExceptionType) visit(exceptionTypeContext);
-      exceptionTypeList.add(exceptionType);
+    if (ctx.throws_() != null) {
+      for (JavaParser.ExceptionTypeContext exceptionTypeContext
+          : ctx.throws_().exceptionTypeList().exceptionType()) {
+        ExceptionType exceptionType = (ExceptionType) visit(exceptionTypeContext);
+        exceptionTypeList.add(exceptionType);
+      }
     }
 
     // get constructor Body
@@ -2067,17 +2132,19 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of type parameters
     List<TypeParameter> typeParameterList = new ArrayList<>();
-    for (JavaParser.TypeParameterContext typeParameterContext :
-        ctx.typeParameters().typeParameterList().typeParameter()) {
-      TypeParameter typeParameter = (TypeParameter) visit(typeParameterContext);
-      typeParameterList.add(typeParameter);
+    if (ctx.typeParameters() != null) {
+      for (JavaParser.TypeParameterContext typeParameterContext :
+          ctx.typeParameters().typeParameterList().typeParameter()) {
+        TypeParameter typeParameter = (TypeParameter) visit(typeParameterContext);
+        typeParameterList.add(typeParameter);
+      }
     }
 
     // get identifier
     String identifier = ctx.simpleTypeName().Identifier().getText();
 
     // get formal parameter list
-    MultiFormalParameterList formalParameterList = (MultiFormalParameterList) visit(ctx.formalParameterList());
+    FormalParameterList formalParameterList = (FormalParameterList) visit(ctx.formalParameterList());
     return new ConstructorDeclarator(range, null, typeParameterList, identifier, formalParameterList);
   }
 
@@ -2094,8 +2161,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get explicit constructor invocation
-    ExplicitConstructorInvocation explicitConstructorInvocation
-        = (ExplicitConstructorInvocation) visit(ctx.explicitConstructorInvocation());
+    ExplicitConstructorInvocation explicitConstructorInvocation = null;
+    if (ctx.explicitConstructorInvocation() != null) {
+      explicitConstructorInvocation
+          = (ExplicitConstructorInvocation) visit(ctx.explicitConstructorInvocation());
+    }
 
     // get block flowchart
     BlockStatements blockStatements = (BlockStatements) visit(ctx.blockStatements());
@@ -2111,29 +2181,33 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of type argument
     List<TypeArgument> typeArgumentList = new ArrayList<>();
-    for (JavaParser.TypeArgumentContext typeArgumentContext
-        : ctx.typeArguments().typeArgumentList().typeArgument()) {
-      TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
-      typeArgumentList.add(typeArgument);
+    if (ctx.typeArguments() != null) {
+      for (JavaParser.TypeArgumentContext typeArgumentContext
+          : ctx.typeArguments().typeArgumentList().typeArgument()) {
+        TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
+        typeArgumentList.add(typeArgument);
+      }
     }
 
-    // get arguemnt list
-    List<Expression> expressionList = new ArrayList<>();
-    for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
-      Expression expression = (Expression) visit(expressionContext);
-      expressionList.add(expression);
+    // get argument list
+    List<Expression> argumentList = new ArrayList<>();
+    if (ctx.argumentList() != null) {
+      for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
+        Expression expression = (Expression) visit(expressionContext);
+        argumentList.add(expression);
+      }
     }
 
     if (ctx.expressionName() != null) {
       ExpressionName expressionName = (ExpressionName) visit(ctx.expressionName());
-      return new ExpressionSuperConstructorInvocation(range, null, typeArgumentList, expressionList, expressionName);
+      return new ExpressionSuperConstructorInvocation(range, null, typeArgumentList, argumentList, expressionName);
     } else if (ctx.primary() != null) {
       Primary primary = (Primary) visit(ctx.primary());
-      return new PrimarySuperConstructorInvocation(range, null, typeArgumentList, expressionList, primary);
+      return new PrimarySuperConstructorInvocation(range, null, typeArgumentList, argumentList, primary);
     } else if (ctx.getText().contains("super")) {
-      return new SuperConstructorInvocation(range, null, typeArgumentList, expressionList);
+      return new SuperConstructorInvocation(range, null, typeArgumentList, argumentList);
     } else if (ctx.getText().contains("this")) {
-      return new ThisConstructorInvocation(range, null, typeArgumentList, expressionList);
+      return new ThisConstructorInvocation(range, null, typeArgumentList, argumentList);
     } else {
       System.err.println("ERROR : visitExplicitConstructorInvocation");
       return super.visitExplicitConstructorInvocation(ctx);
@@ -2247,11 +2321,13 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get identifier
     String identifier = ctx.Identifier().getText();
 
-    //get list of expression
-    List<Expression> expressionList = new ArrayList<>();
-    for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
-      Expression expression = (Expression) visit(expressionContext);
-      expressionList.add(expression);
+    // get argument list
+    List<Expression> argumentList = new ArrayList<>();
+    if (ctx.argumentList() != null) {
+      for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
+        Expression expression = (Expression) visit(expressionContext);
+        argumentList.add(expression);
+      }
     }
 
     // get lost of class body declaration
@@ -2261,7 +2337,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       classBodyDeclarationList.add(classBodyDeclaration);
     }
 
-    return new EnumConstant(range, null, annotationList, identifier, expressionList, classBodyDeclarationList);
+    return new EnumConstant(range, null, annotationList, identifier, argumentList, classBodyDeclarationList);
   }
 
   @Override
@@ -2428,8 +2504,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       }
     }
 
-    // get unannotated type
-    UnannType unannType = (UnannType) visit(ctx.unannType());
+    // get Unannotated type
+    UnannType unannType = null;
+    if (ctx.unannType() != null) {
+      unannType = (UnannType) visit(ctx.unannType());
+    }
 
     // get list of variable declarator
     List<VariableDeclarator> variableDeclaratorList = new ArrayList<>();
@@ -2612,13 +2691,18 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get Unannotated type
-    UnannType unannType = (UnannType) visit(ctx.unannType());
-
+    UnannType unannType = null;
+    if (ctx.unannType() != null) {
+      unannType = (UnannType) visit(ctx.unannType());
+    }
     // get Identifier
     String identifier = ctx.Identifier().getText();
 
     // get dims
-    Dims dims = (Dims) visit(ctx.dims());
+    Dims dims = null;
+    if(ctx.dims() != null) {
+      dims = (Dims) visit(ctx.dims());
+    }
 
     // get default Value
     ElementValue elementValue = (ElementValue) visit(ctx.defaultValue().elementValue());
@@ -2792,7 +2876,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get block flowchart
-    BlockStatements blockStatements = (BlockStatements) visit(ctx.blockStatements());
+
+    BlockStatements blockStatements = null;
+    if (ctx.blockStatements() != null) {
+      blockStatements = (BlockStatements) visit(ctx.blockStatements());
+    }
 
 
     return new Block(range, null, blockStatements);
@@ -2870,7 +2958,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get Unannotated type
-    UnannType unannType = (UnannType) visit(ctx.unannType());
+    UnannType unannType = null;
+    if (ctx.unannType() != null) {
+      unannType = (UnannType) visit(ctx.unannType());
+    }
 
     // get list of variable declarator
     List<VariableDeclarator> variableDeclaratorList = new ArrayList<>();
@@ -3357,7 +3448,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get Unannotated type
-    UnannType unannType = (UnannType) visit(ctx.unannType());
+    UnannType unannType = null;
+    if (ctx.unannType() != null) {
+      unannType = (UnannType) visit(ctx.unannType());
+    }
 
     // get variable declaratior id
     VariableDeclaratorId variableDeclaratorId = (VariableDeclaratorId) visit(ctx.variableDeclaratorId());
@@ -3399,7 +3493,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get Unannotated type
-    UnannType unannType = (UnannType) visit(ctx.unannType());
+    UnannType unannType = null;
+    if (ctx.unannType() != null) {
+      unannType = (UnannType) visit(ctx.unannType());
+    }
 
     // get variable declaratior id
     VariableDeclaratorId variableDeclaratorId = (VariableDeclaratorId) visit(ctx.variableDeclaratorId());
@@ -3420,7 +3517,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get identifier
-    String identifier = ctx.Identifier().getText();
+    String identifier = null;
+    if (ctx.Identifier() != null) {
+      identifier = ctx.Identifier().getText();
+    }
 
     return new BreakStatement(range, null, identifier);
   }
@@ -3432,7 +3532,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get identifier
-    String identifier = ctx.Identifier().getText();
+    String identifier = null;
+    if (ctx.Identifier() != null) {
+      identifier = ctx.Identifier().getText();
+    }
 
     return new ContinueStatement(range, null, identifier);
   }
@@ -3444,7 +3547,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get expression
-    Expression expression = (Expression) visit(ctx.expression());
+    Expression expression = null;
+    if (ctx.expression() != null) {
+      expression = (Expression) visit(ctx.expression());
+    }
 
     return new ReturnStatement(range, null, expression);
   }
@@ -3641,8 +3747,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       }
     }
 
-    // get Catch type
-    UnannType unannType = (UnannType) visit(ctx.unannType());
+    // get Unannotated type
+    UnannType unannType = null;
+    if (ctx.unannType() != null) {
+      unannType = (UnannType) visit(ctx.unannType());
+    }
 
     // get variable declaratior id
     VariableDeclaratorId variableDeclaratorId = (VariableDeclaratorId) visit(ctx.variableDeclaratorId());
@@ -3950,9 +4059,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get argument list
     List<Expression> argumentList = new ArrayList<>();
-    for(JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
-      Expression expression = (Expression) visit(expressionContext);
-      argumentList.add(expression);
+    if (ctx.argumentList() != null) {
+      for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
+        Expression expression = (Expression) visit(expressionContext);
+        argumentList.add(expression);
+      }
     }
 
     // get class body
@@ -4065,9 +4176,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get argument list
     List<Expression> argumentList = new ArrayList<>();
-    for(JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
-      Expression expression = (Expression) visit(expressionContext);
-      argumentList.add(expression);
+    if (ctx.argumentList() != null) {
+      for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
+        Expression expression = (Expression) visit(expressionContext);
+        argumentList.add(expression);
+      }
     }
 
     // get class body
@@ -4090,31 +4203,38 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of type arguments
     List<TypeArgument> typeArgumentList = new ArrayList<>();
-    for(JavaParser.TypeArgumentContext typeArgumentContext : ctx.typeArguments().typeArgumentList().typeArgument()) {
-      TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
-      typeArgumentList.add(typeArgument);
+    if (ctx.typeArguments() != null) {
+      for (JavaParser.TypeArgumentContext typeArgumentContext : ctx.typeArguments().typeArgumentList().typeArgument()) {
+        TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
+        typeArgumentList.add(typeArgument);
+      }
     }
 
     // get type argument or diamond
-    TypeArgumentsOrDiamond typeArgumentsOrDiamond
-        = (TypeArgumentsOrDiamond) visit(ctx.typeArgumentsOrDiamond());
+    TypeArgumentsOrDiamond typeArgumentsOrDiamond = null;
+    if (ctx.typeArgumentsOrDiamond() != null) {
+      typeArgumentsOrDiamond = (TypeArgumentsOrDiamond) visit(ctx.typeArgumentsOrDiamond());
+    }
 
     // get argument list
     List<Expression> argumentList = new ArrayList<>();
-    for(JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
-      Expression expression = (Expression) visit(expressionContext);
-      argumentList.add(expression);
+    if (ctx.argumentList() != null) {
+      for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
+        Expression expression = (Expression) visit(expressionContext);
+        argumentList.add(expression);
+      }
     }
 
     // get class body
     List<ClassBodyDeclaration> classBody = new ArrayList<>();
-    for(JavaParser.ClassBodyDeclarationContext classBodyDeclarationContext
-        : ctx.classBody().classBodyDeclaration()) {
-      ClassBodyDeclaration classBodyDeclaration
-          = (ClassBodyDeclaration) visit(classBodyDeclarationContext);
-      classBody.add(classBodyDeclaration);
+    if (ctx.classBody() != null && ctx.classBody().classBodyDeclaration() != null) {
+      for (JavaParser.ClassBodyDeclarationContext classBodyDeclarationContext
+          : ctx.classBody().classBodyDeclaration()) {
+        ClassBodyDeclaration classBodyDeclaration
+            = (ClassBodyDeclaration) visit(classBodyDeclarationContext);
+        classBody.add(classBodyDeclaration);
+      }
     }
-
 
     if (ctx.expressionName() != null) { // expressionName
       // get expression name
@@ -4271,7 +4391,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get remain expressions
     List<Expression> expressionList = new ArrayList<>();
-    for (int i = 1; i < ctx.getChildCount(); i++) {
+    for (int i = 1; i < ctx.expression().size(); i++) {
       Expression expression = (Expression) visit(ctx.expression(i));
       expressionList.add(expression);
     }
@@ -4316,7 +4436,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get remain expressions
     List<Expression> expressionList = new ArrayList<>();
-    for (int i = 1; i < ctx.getChildCount(); i++) {
+    for (int i = 1; i < ctx.expression().size(); i++) {
       Expression expression = (Expression) visit(ctx.expression(i));
       expressionList.add(expression);
     }
@@ -4346,7 +4466,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get remain expressions
     List<Expression> expressionList = new ArrayList<>();
-    for (int i = 1; i < ctx.getChildCount(); i++) {
+    for (int i = 1; i < ctx.expression().size(); i++) {
       Expression expression = (Expression) visit(ctx.expression(i));
       expressionList.add(expression);
     }
@@ -4373,9 +4493,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get argument list
     List<Expression> argumentList = new ArrayList<>();
-    for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
-      Expression expression = (Expression) visit(expressionContext);
-      argumentList.add(expression);
+    if (ctx.argumentList() != null) {
+      for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
+        Expression expression = (Expression) visit(expressionContext);
+        argumentList.add(expression);
+      }
     }
 
     if (ctx.methodName() != null) { //BASIC
@@ -4384,8 +4506,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get TypeArguments
-    TypeArguments typeArguments = (TypeArguments) visit(ctx.typeArguments());
-
+    TypeArguments typeArguments = null;
+    if (ctx.typeArguments() != null) {
+      typeArguments = (TypeArguments) visit(ctx.typeArguments());
+    }
     // get identifier
     String identifier = ctx.Identifier().getText();
 
@@ -4415,16 +4539,21 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get TypeArguments
-    TypeArguments typeArguments = (TypeArguments) visit(ctx.typeArguments());
+    TypeArguments typeArguments = null;
+    if (ctx.typeArguments() != null) {
+      typeArguments = (TypeArguments) visit(ctx.typeArguments());
+    }
 
     // get identifier
     String identifier = ctx.Identifier().getText();
 
     // get argument list
     List<Expression> argumentList = new ArrayList<>();
-    for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
-      Expression expression = (Expression) visit(expressionContext);
-      argumentList.add(expression);
+    if (ctx.argumentList() != null) {
+      for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
+        Expression expression = (Expression) visit(expressionContext);
+        argumentList.add(expression);
+      }
     }
 
     return new PostfixMethodInvocation(range, null, typeArguments,identifier, argumentList);
@@ -4437,9 +4566,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get argument list
     List<Expression> argumentList = new ArrayList<>();
-    for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
-      Expression expression = (Expression) visit(expressionContext);
-      argumentList.add(expression);
+    if (ctx.argumentList() != null) {
+      for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
+        Expression expression = (Expression) visit(expressionContext);
+        argumentList.add(expression);
+      }
     }
 
     if (ctx.methodName() != null) { //BASIC
@@ -4448,7 +4579,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get TypeArguments
-    TypeArguments typeArguments = (TypeArguments) visit(ctx.typeArguments());
+    TypeArguments typeArguments = null;
+    if (ctx.typeArguments() != null) {
+      typeArguments = (TypeArguments) visit(ctx.typeArguments());
+    }
 
     // get identifier
     String identifier = ctx.Identifier().getText();
@@ -4588,7 +4722,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       PrimitiveType primitiveType = (PrimitiveType) visit(ctx.primitiveType());
 
       // get dims
-      Dims dims = (Dims) visit(ctx.dims());
+      Dims dims = null;
+      if(ctx.dims() != null) {
+        dims = (Dims) visit(ctx.dims());
+      }
 
       if (ctx.dimExprs() != null) {
         // get list of dim expression
@@ -4618,7 +4755,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
           = (ClassOrInterfaceType) visit(ctx.classOrInterfaceType());
 
       // get dims
-      Dims dims = (Dims) visit(ctx.dims());
+      Dims dims = null;
+      if(ctx.dims() != null) {
+        dims = (Dims) visit(ctx.dims());
+      }
 
       if (ctx.dimExprs() != null) {
         // get list of dim expression
@@ -4713,7 +4853,8 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       String identifier = ctx.Identifier().getText();
       return new SingleLambdaParameter(range, null, identifier);
     } else if (ctx.formalParameterList() != null) {
-      return visit(ctx.formalParameterList());
+      FormalParameterList formalParameterList = (FormalParameterList) visit(ctx.formalParameterList());
+      return new FormalLambdaParameters(range, null, formalParameterList);
     } else if (ctx.inferredFormalParameterList() != null) {
       return visit(ctx.inferredFormalParameterList());
     } else {

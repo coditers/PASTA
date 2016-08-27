@@ -1,5 +1,7 @@
 package codit.ast.pojos.statements.withoutsubstatement.switches;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -36,5 +38,15 @@ public class SwitchBlock extends AstNode {
     super(startLine, startCol, endLine, endCol, parent);
     this.switchBlockStatementGroupList = switchBlockStatementGroupList;
     this.switchLabelList = switchLabelList;
+  }
+
+  @JsonProperty("SwitchBlockStatementGroupList")
+  public List<SwitchBlockStatementGroup> getSwitchBlockStatementGroupList() {
+    return switchBlockStatementGroupList;
+  }
+
+  @JsonProperty("SwitchLabelList")
+  public List<SwitchLabel> getSwitchLabelList() {
+    return switchLabelList;
   }
 }

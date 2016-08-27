@@ -1,5 +1,7 @@
 package codit.ast.pojos.statements.withoutsubstatement.tries;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -54,5 +56,25 @@ public class CatchFormalParameter extends AstNode {
     this.modifiers = modifiers;
     this.catchType = catchType;
     this.variableDeclaratorId = variableDeclaratorId;
+  }
+
+  @JsonProperty("AnnotationList")
+  public List<Annotation> getAnnotationList() {
+    return annotationList;
+  }
+
+  @JsonProperty("Modifiers")
+  public int getModifiers() {
+    return modifiers;
+  }
+
+  @JsonProperty("CatchType")
+  public CatchType getCatchType() {
+    return catchType;
+  }
+
+  @JsonProperty("VariableDeclaratorId")
+  public VariableDeclaratorId getVariableDeclaratorId() {
+    return variableDeclaratorId;
   }
 }

@@ -1,5 +1,7 @@
 package codit.ast.pojos.types;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -34,5 +36,15 @@ public class ArrayType extends ReferenceType {
     super(startLine, startCol, endLine, endCol, parent);
     this.arrayable = arrayable;
     this.dims = dims;
+  }
+
+  @JsonProperty("Arrayable")
+  public Arrayable getArrayable() {
+    return arrayable;
+  }
+
+  @JsonProperty("Dims")
+  public Dims getDims() {
+    return dims;
   }
 }

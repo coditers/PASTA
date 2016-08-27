@@ -1,5 +1,7 @@
 package codit.ast.pojos.types.unann;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -31,5 +33,10 @@ public class UnannPrimitiveType extends UnannType implements UnannArrayable {
                             PrimitiveType.Primitive type) {
     super(startLine, startCol, endLine, endCol, parent);
     this.type = type;
+  }
+
+  @JsonProperty("Primitive")
+  public PrimitiveType.Primitive getType() {
+    return type;
   }
 }

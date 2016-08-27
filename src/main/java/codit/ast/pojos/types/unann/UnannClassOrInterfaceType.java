@@ -1,5 +1,7 @@
 package codit.ast.pojos.types.unann;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -42,5 +44,20 @@ public class UnannClassOrInterfaceType extends UnannReferenceType implements Una
     this.isInterface = isInterface;
     this.unannUnitClassOrInterfaceType = unannUnitClassOrInterfaceType;
     this.unannClassOrInterfaceType = unannClassOrInterfaceType;
+  }
+
+  @JsonProperty("isInterface")
+  public boolean isInterface() {
+    return isInterface;
+  }
+
+  @JsonProperty("UnannUnitClassOrInterfaceType")
+  public UnannUnitClassOrInterfaceType getUnannUnitClassOrInterfaceType() {
+    return unannUnitClassOrInterfaceType;
+  }
+
+  @JsonProperty("UnannClassOrInterfaceType")
+  public List<UnannUnitClassOrInterfaceType> getUnannClassOrInterfaceType() {
+    return unannClassOrInterfaceType;
   }
 }

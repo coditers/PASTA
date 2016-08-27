@@ -1,5 +1,8 @@
 package codit.ast.pojos.expressions.primaries.methodinvocation;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -44,5 +47,25 @@ public class PrimaryMethodInvocation extends MethodInvocation
     this.typeArguments = typeArguments;
     this.identifier = identifier;
     this.argumentList = argumentList;
+  }
+
+  @JsonProperty("Primary")
+  public Primary getPrimary() {
+    return primary;
+  }
+
+  @JsonProperty("TypeArguments")
+  public TypeArguments getTypeArguments() {
+    return typeArguments;
+  }
+
+  @JsonProperty("Identifier")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  @JsonProperty("ArgumentList")
+  public List<Expression> getArgumentList() {
+    return argumentList;
   }
 }

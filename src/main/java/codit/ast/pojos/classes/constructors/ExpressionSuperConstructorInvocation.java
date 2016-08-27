@@ -1,5 +1,7 @@
 package codit.ast.pojos.classes.constructors;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -38,5 +40,10 @@ public class ExpressionSuperConstructorInvocation extends ExplicitConstructorInv
                                               ExpressionName expressionName) {
     super(startLine, startCol, endLine, endCol, parent, typeArgumentList, argumentList);
     this.expressionName = expressionName;
+  }
+
+  @JsonProperty("ExpressionName")
+  public ExpressionName getExpressionName() {
+    return expressionName;
   }
 }

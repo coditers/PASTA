@@ -1,5 +1,7 @@
 package codit.ast.pojos.types;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -55,5 +57,25 @@ public class ClassType extends MultiClassOrInterfaceType implements Exceptionabl
     this.annotaitonList = new ArrayList<>(annotaitonList);
     this.identifier = identifier;
     this.typeArgumentList = new ArrayList<>(typeArgumentList);
+  }
+
+  @JsonProperty("ClassOrInterfaceType")
+  public ClassOrInterfaceType getClassOrInterfaceType() {
+    return classOrInterfaceType;
+  }
+
+  @JsonProperty("AnnotaitonList")
+  public List<Annotation> getAnnotaitonList() {
+    return annotaitonList;
+  }
+
+  @JsonProperty("Identifier")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  @JsonProperty("TypeArgumentList")
+  public List<TypeArgument> getTypeArgumentList() {
+    return typeArgumentList;
   }
 }

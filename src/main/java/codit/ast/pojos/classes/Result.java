@@ -1,5 +1,7 @@
 package codit.ast.pojos.classes;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -27,5 +29,8 @@ public class Result extends AstNode {
     this.unannType = unannType;
   }
 
-
+  @JsonProperty("UnannType")
+  public UnannType getUnannType() {
+    return unannType;
+  }
 }

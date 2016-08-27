@@ -1,5 +1,7 @@
 package codit.ast.pojos.statements.withoutsubstatement.asserts;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -25,5 +27,10 @@ public class UnaryAssertStatement extends AssertStatement {
   public UnaryAssertStatement(int startLine, int startCol, int endLine, int endCol, AstNode parent, Expression expression) {
     super(startLine, startCol, endLine, endCol, parent);
     this.expression = expression;
+  }
+
+  @JsonProperty("Expression")
+  public Expression getExpression() {
+    return expression;
   }
 }

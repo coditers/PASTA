@@ -1,5 +1,7 @@
 package codit.ast.pojos.packages;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -52,5 +54,21 @@ public class CompilationUnit extends AstNode {
     this.packageDeclaration = packageDeclaration;
     this.importDeclarationList = new ArrayList<ImportDeclaration>(importDeclarationList);
     this.typeDeclarationList = new ArrayList<TypeDeclaration>(typeDeclarationList);
+  }
+
+
+  @JsonProperty("PackageDeclaration")
+  public PackageDeclaration getPackageDeclaration() {
+    return packageDeclaration;
+  }
+
+  @JsonProperty("ImportDeclarationList")
+  public List<ImportDeclaration> getImportDeclarationList() {
+    return importDeclarationList;
+  }
+
+  @JsonProperty("TypeDeclarationList")
+  public List<TypeDeclaration> getTypeDeclarationList() {
+    return typeDeclarationList;
   }
 }

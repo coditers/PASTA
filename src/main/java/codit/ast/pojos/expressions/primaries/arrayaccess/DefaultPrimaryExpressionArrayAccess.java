@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions.primaries.arrayaccess;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -56,5 +58,20 @@ public class DefaultPrimaryExpressionArrayAccess extends ArrayAccess
     this.firstExpression = firstExpression;
     //this.lfArrayDefaultPrimaryList = lfArrayDefaultPrimaryList;
     this.expressionList = expressionList;
+  }
+
+  @JsonProperty("ExpressionName")
+  public ExpressionName getExpressionName() {
+    return expressionName;
+  }
+
+  @JsonProperty("Expression")
+  public Expression getFirstExpression() {
+    return firstExpression;
+  }
+
+  @JsonProperty("ExpressionList")
+  public List<Expression> getExpressionList() {
+    return expressionList;
   }
 }

@@ -1,5 +1,7 @@
 package codit.ast.pojos.statements.withoutsubstatement;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -37,5 +39,15 @@ public class DoStatement extends AstNode implements StatementWithoutTrailingSubs
     super(startLine, startCol, endLine, endCol, parent);
     this.statement = statement;
     this.expression = expression;
+  }
+
+  @JsonProperty("Statement")
+  public Statement getStatement() {
+    return statement;
+  }
+
+  @JsonProperty("Expression")
+  public Expression getExpression() {
+    return expression;
   }
 }

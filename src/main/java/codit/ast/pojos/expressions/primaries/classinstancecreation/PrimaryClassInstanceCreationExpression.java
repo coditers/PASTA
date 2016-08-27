@@ -1,5 +1,8 @@
 package codit.ast.pojos.expressions.primaries.classinstancecreation;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -82,4 +85,41 @@ public class PrimaryClassInstanceCreationExpression extends ClassInstanceCreatio
     this.argumentList = argumentList;
     this.classBody = classBody;
   }
+
+  @JsonProperty("Primary")
+  public Primary getPrimary() {
+    return primary;
+  }
+
+  @JsonProperty("TypeArgumentList")
+  public List<TypeArgument> getTypeArgumentList() {
+    return typeArgumentList;
+  }
+
+  @JsonProperty("AnnotationList")
+  public List<Annotation> getAnnotationList() {
+    return annotationList;
+  }
+
+  @JsonProperty("Identifier")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  @JsonProperty("TypeArgumentsOrDiamond")
+  public TypeArgumentsOrDiamond getTypeArgumentsOrDiamond() {
+    return typeArgumentsOrDiamond;
+  }
+
+  @JsonProperty("ArgumentList")
+  public List<Expression> getArgumentList() {
+    return argumentList;
+  }
+
+  @JsonProperty("ClassBody")
+  public List<ClassBodyDeclaration> getClassBody() {
+    return classBody;
+  }
+
+
 }

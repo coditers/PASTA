@@ -1,5 +1,7 @@
 package codit.ast.pojos.types;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -24,5 +26,10 @@ public class InterfaceType extends MultiClassOrInterfaceType {
   public InterfaceType(int startLine, int startCol, int endLine, int endCol, AstNode parent, ClassType classType) {
     super(startLine, startCol, endLine, endCol, parent);
     this.classType = classType;
+  }
+
+  @JsonProperty("ClassType")
+  public ClassType getClassType() {
+    return classType;
   }
 }

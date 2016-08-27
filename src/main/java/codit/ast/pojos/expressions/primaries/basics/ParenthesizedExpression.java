@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions.primaries.basics;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -31,5 +33,10 @@ public class ParenthesizedExpression extends BasicExpression
   public ParenthesizedExpression(int startLine, int startCol, int endLine, int endCol, AstNode parent, Expression expression) {
     super(startLine, startCol, endLine, endCol, parent);
     this.expression = expression;
+  }
+
+  @JsonProperty("Expression")
+  public Expression getExpression() {
+    return expression;
   }
 }

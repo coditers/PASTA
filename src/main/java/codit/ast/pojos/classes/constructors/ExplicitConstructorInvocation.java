@@ -1,5 +1,7 @@
 package codit.ast.pojos.classes.constructors;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -39,5 +41,15 @@ public abstract class ExplicitConstructorInvocation extends AstNode {
     super(startLine, startCol, endLine, endCol, parent);
     this.typeArgumentList = typeArgumentList;
     this.argumentList = argumentList;
+  }
+
+  @JsonProperty("TypeArgumentList")
+  public List<TypeArgument> getTypeArgumentList() {
+    return typeArgumentList;
+  }
+
+  @JsonProperty("ArgumentList")
+  public List<Expression> getArgumentList() {
+    return argumentList;
   }
 }

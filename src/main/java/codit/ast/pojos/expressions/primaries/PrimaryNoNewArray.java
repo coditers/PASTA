@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions.primaries;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -39,5 +41,15 @@ public class PrimaryNoNewArray extends Primary {
     super(startLine, startCol, endLine, endCol, parent);
     this.defaultArrayLfnoPrimary = defaultArrayLfnoPrimary;
     this.defaultArrayLfPrimaryList = defaultArrayLfPrimaryList;
+  }
+
+  @JsonProperty("DefaultArrayLfnoPrimary")
+  public DefaultArrayLfnoPrimary getDefaultArrayLfnoPrimary() {
+    return defaultArrayLfnoPrimary;
+  }
+
+  @JsonProperty("DefaultArrayLfPrimaryList")
+  public List<DefaultArrayLfPrimary> getDefaultArrayLfPrimaryList() {
+    return defaultArrayLfPrimaryList;
   }
 }

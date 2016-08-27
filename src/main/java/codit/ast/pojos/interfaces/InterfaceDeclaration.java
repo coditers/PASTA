@@ -5,11 +5,12 @@ import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
 import codit.ast.pojos.annotations.AnnotationTypeMemberable;
 import codit.ast.pojos.classes.members.ClassMemberable;
+import codit.ast.pojos.packages.TypeDeclaration;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
-public class InterfaceDeclaration extends AstNode implements ClassMemberable, InterfaceMemberable, AnnotationTypeMemberable {
+public class InterfaceDeclaration extends TypeDeclaration implements ClassMemberable, InterfaceMemberable, AnnotationTypeMemberable {
   public InterfaceDeclaration(Range range, AstNode parent) {
     super(range, parent);
   }

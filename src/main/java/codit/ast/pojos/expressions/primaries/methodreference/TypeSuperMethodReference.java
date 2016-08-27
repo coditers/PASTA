@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions.primaries.methodreference;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -49,5 +51,20 @@ public class TypeSuperMethodReference extends MethodReference
     this.typeName = typeName;
     this.typeArguments = typeArguments;
     this.identifier = identifier;
+  }
+
+  @JsonProperty("TypeName")
+  public TypeName getTypeName() {
+    return typeName;
+  }
+
+  @JsonProperty("TypeArguments")
+  public TypeArguments getTypeArguments() {
+    return typeArguments;
+  }
+
+  @JsonProperty("Identifier")
+  public String getIdentifier() {
+    return identifier;
   }
 }

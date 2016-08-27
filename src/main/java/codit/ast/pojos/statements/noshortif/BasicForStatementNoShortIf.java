@@ -1,5 +1,7 @@
 package codit.ast.pojos.statements.noshortif;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -55,5 +57,25 @@ public class BasicForStatementNoShortIf extends ForStatementNoShortIf {
     this.forCondition = forCondition;
     this.statementExpressionList = statementExpressionList;
     this.statementNoShortIf = statementNoShortIf;
+  }
+
+  @JsonProperty("ForInit")
+  public ForInit getForInit() {
+    return forInit;
+  }
+
+  @JsonProperty("ForCondition")
+  public Expression getForCondition() {
+    return forCondition;
+  }
+
+  @JsonProperty("StatementExpressionList")
+  public StatementExpressionList getStatementExpressionList() {
+    return statementExpressionList;
+  }
+
+  @JsonProperty("StatementNoShortIf")
+  public StatementNoShortIf getStatementNoShortIf() {
+    return statementNoShortIf;
   }
 }

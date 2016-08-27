@@ -1,5 +1,7 @@
 package codit.ast.pojos.types.unann;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -30,5 +32,15 @@ public class UnannArrayType extends UnannReferenceType {
     super(startLine, startCol, endLine, endCol, parent);
     this.unannArrayable = unannArrayable;
     this.dims = dims;
+  }
+
+  @JsonProperty("UnannArrayable")
+  public UnannArrayable getUnannArrayable() {
+    return unannArrayable;
+  }
+
+  @JsonProperty("Dims")
+  public Dims getDims() {
+    return dims;
   }
 }

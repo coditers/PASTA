@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions.assignments.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -46,5 +48,20 @@ public class ReferenceTypeLambdaCastExpression extends CastExpression {
     this.referenceType = referenceType;
     this.interfaceTypeList = interfaceTypeList;
     this.lambdaExpression = lambdaExpression;
+  }
+
+  @JsonProperty("ReferenceType")
+  public ReferenceType getReferenceType() {
+    return referenceType;
+  }
+
+  @JsonProperty("InterfaceTypeList")
+  public List<InterfaceType> getInterfaceTypeList() {
+    return interfaceTypeList;
+  }
+
+  @JsonProperty("LambdaExpression")
+  public LambdaExpression getLambdaExpression() {
+    return lambdaExpression;
   }
 }

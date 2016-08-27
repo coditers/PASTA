@@ -1,5 +1,7 @@
 package codit.ast.pojos.statements.withoutsubstatement.tries;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -39,5 +41,15 @@ public class TryCatchStatement extends TryStatement {
     super(startLine, startCol, endLine, endCol, parent);
     this.tryBlock = tryBlock;
     this.catchClauseList = catchClauseList;
+  }
+
+  @JsonProperty("TryBlock")
+  public Block getTryBlock() {
+    return tryBlock;
+  }
+
+  @JsonProperty("CatchClauseList")
+  public List<CatchClause> getCatchClauseList() {
+    return catchClauseList;
   }
 }

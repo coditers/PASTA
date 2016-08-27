@@ -1,5 +1,7 @@
 package codit.ast.pojos.types.unann;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -27,5 +29,10 @@ public class UnannInterfaceType extends UnannMultiClassOrInterfaceType {
                             UnannClassType unannClassType) {
     super(startLine, startCol, endLine, endCol, parent);
     this.unannClassType = unannClassType;
+  }
+
+  @JsonProperty("UnannClassType")
+  public UnannClassType getUnannClassType() {
+    return unannClassType;
   }
 }

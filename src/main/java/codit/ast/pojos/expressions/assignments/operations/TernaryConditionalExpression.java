@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions.assignments.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -41,5 +43,20 @@ public class TernaryConditionalExpression extends ConditionalExpression {
     this.conditionalOrExpression = conditionalOrExpression;
     this.expression = expression;
     this.conditionalExpression = conditionalExpression;
+  }
+
+  @JsonProperty("ConditionalOrExpression")
+  public ConditionalOrExpression getConditionalOrExpression() {
+    return conditionalOrExpression;
+  }
+
+  @JsonProperty("Expression")
+  public Expression getExpression() {
+    return expression;
+  }
+
+  @JsonProperty("ConditionalExpression")
+  public ConditionalExpression getConditionalExpression() {
+    return conditionalExpression;
   }
 }

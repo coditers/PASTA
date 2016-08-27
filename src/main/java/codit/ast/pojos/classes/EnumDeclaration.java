@@ -1,5 +1,7 @@
 package codit.ast.pojos.classes;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -62,5 +64,30 @@ public class EnumDeclaration extends ClassDeclaration {
     this.identifier = identifier;
     this.superInterfaceList = superInterfaceList;
     this.enumBody = enumBody;
+  }
+
+  @JsonProperty("AnnotationList")
+  public List<Annotation> getAnnotationList() {
+    return annotationList;
+  }
+
+  @JsonProperty("Modifiers")
+  public int getModifiers() {
+    return modifiers;
+  }
+
+  @JsonProperty("Identifier")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  @JsonProperty("SuperInterfaceList")
+  public List<InterfaceType> getSuperInterfaceList() {
+    return superInterfaceList;
+  }
+
+  @JsonProperty("EnumBody")
+  public EnumBody getEnumBody() {
+    return enumBody;
   }
 }

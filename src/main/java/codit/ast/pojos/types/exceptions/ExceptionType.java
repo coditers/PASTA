@@ -1,5 +1,7 @@
 package codit.ast.pojos.types.exceptions;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -26,5 +28,10 @@ public class ExceptionType extends AstNode {
                        Exceptionable exceptionable) {
     super(startLine, startCol, endLine, endCol, parent);
     this.exceptionable = exceptionable;
+  }
+
+  @JsonProperty("Exceptionable")
+  public Exceptionable getExceptionable() {
+    return exceptionable;
   }
 }

@@ -1,5 +1,7 @@
 package codit.ast.pojos.types;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -39,5 +41,15 @@ public class Wildcard extends AstNode implements Arguable {
     super(startLine, startCol, endLine, endCol, parent);
     this.annotationList = new ArrayList<>(annotationList);
     this.wildcardBounds = wildcardBounds;
+  }
+
+  @JsonProperty("AnnotationList")
+  public List<Annotation> getAnnotationList() {
+    return annotationList;
+  }
+
+  @JsonProperty("WildcardBounds")
+  public WildcardBounds getWildcardBounds() {
+    return wildcardBounds;
   }
 }

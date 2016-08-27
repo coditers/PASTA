@@ -1,5 +1,7 @@
 package codit.ast.pojos.classes.members;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -36,5 +38,20 @@ public class MethodHeader extends AstNode {
     this.result = result;
     this.methodDeclarator = methodDeclarator;
     this.exceptionTypeList = exceptionTypeList;
+  }
+
+  @JsonProperty("Result")
+  public Result getResult() {
+    return result;
+  }
+
+  @JsonProperty("MethodDeclarator")
+  public MethodDeclarator getMethodDeclarator() {
+    return methodDeclarator;
+  }
+
+  @JsonProperty("ExceptionTypeList")
+  public List<ExceptionType> getExceptionTypeList() {
+    return exceptionTypeList;
   }
 }

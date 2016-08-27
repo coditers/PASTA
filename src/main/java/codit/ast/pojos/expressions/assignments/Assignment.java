@@ -56,6 +56,7 @@ public class Assignment extends AssignmentExpression implements StatementExpress
   public String getAssignmentOperator() {
     return assignmentOperator;
   }
+
   @JsonProperty("Expression")
   public Expression getExpression() {
     return expression;

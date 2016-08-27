@@ -1,5 +1,7 @@
 package codit.ast.pojos.packages;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -40,5 +42,15 @@ public class PackageDeclaration extends AstNode {
     super(startLine, startCol, endLine, endCol, parent);
     this.annotationList = new ArrayList<>(annotationList);
     this.identifierList = new ArrayList<>(identifierList);
+  }
+
+  @JsonProperty("AnnotationList")
+  public List<Annotation> getAnnotationList() {
+    return annotationList;
+  }
+
+  @JsonProperty("IdentifierList")
+  public List<String> getIdentifierList() {
+    return identifierList;
   }
 }

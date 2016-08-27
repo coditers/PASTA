@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions.assignments.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -33,5 +35,15 @@ public class UnequalEqualityExpression extends EqualityExpression {
     super(startLine, startCol, endLine, endCol, parent);
     this.equalityExpression = equalityExpression;
     this.relationalExpression = relationalExpression;
+  }
+
+  @JsonProperty("EqualityExpression")
+  public EqualityExpression getEqualityExpression() {
+    return equalityExpression;
+  }
+
+  @JsonProperty("RelationalExpression")
+  public RelationalExpression getRelationalExpression() {
+    return relationalExpression;
   }
 }

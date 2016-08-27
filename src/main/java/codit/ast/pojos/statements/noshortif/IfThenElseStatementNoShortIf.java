@@ -1,5 +1,7 @@
 package codit.ast.pojos.statements.noshortif;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -43,5 +45,20 @@ public class IfThenElseStatementNoShortIf extends AstNode implements StatementNo
     this.expression = expression;
     this.statementNoShortIf = statementNoShortIf;
     this.elseStatementNoShortIf = elseStatementNoShortIf;
+  }
+
+  @JsonProperty("Expression")
+  public Expression getExpression() {
+    return expression;
+  }
+
+  @JsonProperty("StatementNoShortIf")
+  public StatementNoShortIf getStatementNoShortIf() {
+    return statementNoShortIf;
+  }
+
+  @JsonProperty("ElseStatementNoShortIf")
+  public StatementNoShortIf getElseStatementNoShortIf() {
+    return elseStatementNoShortIf;
   }
 }

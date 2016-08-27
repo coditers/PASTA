@@ -22,7 +22,7 @@ public class Compile {
 
       String sCurrentLine;
 
-      br = new BufferedReader(new FileReader("C:\\Users\\Jisung\\IdeaProjects\\codit\\j-compiler\\src\\test\\resources\\testcode.txt"));
+      br = new BufferedReader(new FileReader("C:\\Users\\Jisung\\IdeaProjects\\codit\\j-compiler\\src\\test\\resources\\testcode2.txt"));
 
       while ((sCurrentLine = br.readLine()) != null) {
         stringBuilder.append("\r\n");

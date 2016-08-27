@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions.primaries.arraycreationexpression;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -32,5 +34,15 @@ public class DimExpr extends AstNode {
     super(startLine, startCol, endLine, endCol, parent);
     this.annotationList = annotationList;
     this.expression = expression;
+  }
+
+  @JsonProperty("AnnotationList")
+  public List<Annotation> getAnnotationList() {
+    return annotationList;
+  }
+
+  @JsonProperty("Expression")
+  public Expression getExpression() {
+    return expression;
   }
 }

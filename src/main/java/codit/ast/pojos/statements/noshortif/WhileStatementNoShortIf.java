@@ -1,5 +1,7 @@
 package codit.ast.pojos.statements.noshortif;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -36,5 +38,15 @@ public class WhileStatementNoShortIf extends AstNode implements StatementNoShort
     super(startLine, startCol, endLine, endCol, parent);
     this.expression = expression;
     this.statementNoShortIf = statementNoShortIf;
+  }
+
+  @JsonProperty("Expression")
+  public Expression getExpression() {
+    return expression;
+  }
+
+  @JsonProperty("StatementNoShortIf")
+  public StatementNoShortIf getStatementNoShortIf() {
+    return statementNoShortIf;
   }
 }

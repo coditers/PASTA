@@ -1,5 +1,7 @@
 package codit.ast.pojos.types;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -45,5 +47,20 @@ public class ClassOrInterfaceType extends ReferenceType implements Arrayable {
     this.isInterface = isInterface;
     this.unitClassOrInterfaceType = unitClassOrInterfaceType;
     this.classOrInterfaceType = new ArrayList<>(classOrInterfaceType);
+  }
+
+  @JsonProperty("isInterface")
+  public boolean isInterface() {
+    return isInterface;
+  }
+
+  @JsonProperty("UnitClassOrInterfaceType")
+  public UnitClassOrInterfaceType getUnitClassOrInterfaceType() {
+    return unitClassOrInterfaceType;
+  }
+
+  @JsonProperty("ClassOrInterfaceType")
+  public List<UnitClassOrInterfaceType> getClassOrInterfaceType() {
+    return classOrInterfaceType;
   }
 }

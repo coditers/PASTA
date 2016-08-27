@@ -1,5 +1,7 @@
 package codit.ast.pojos.packages;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -24,5 +26,10 @@ public class StaticImportOnDemandDeclaration extends ImportDeclaration {
   public StaticImportOnDemandDeclaration(int startLine, int startCol, int endLine, int endCol, AstNode parent, TypeName typeName) {
     super(startLine, startCol, endLine, endCol, parent);
     this.typeName = typeName;
+  }
+
+  @JsonProperty("TypeName")
+  public TypeName getTypeName() {
+    return typeName;
   }
 }

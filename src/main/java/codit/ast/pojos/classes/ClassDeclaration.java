@@ -7,11 +7,12 @@ import codit.ast.pojos.blocks.InBlockStatement;
 import codit.ast.pojos.classes.members.ClassMemberable;
 import codit.ast.pojos.annotations.AnnotationTypeMemberable;
 import codit.ast.pojos.interfaces.InterfaceMemberable;
+import codit.ast.pojos.packages.TypeDeclaration;
 
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
-public abstract class ClassDeclaration extends AstNode implements ClassMemberable, InterfaceMemberable, AnnotationTypeMemberable, InBlockStatement {
+public abstract class ClassDeclaration extends TypeDeclaration implements ClassMemberable, InterfaceMemberable, AnnotationTypeMemberable, InBlockStatement {
   public ClassDeclaration(Range range, AstNode parent) {
     super(range, parent);
   }

@@ -1,5 +1,7 @@
 package codit.ast.pojos.statements.withoutsubstatement.switches;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -24,5 +26,10 @@ public class EnumSwitchLabel extends SwitchLabel {
   public EnumSwitchLabel(int startLine, int startCol, int endLine, int endCol, AstNode parent, String enumConstantName) {
     super(startLine, startCol, endLine, endCol, parent);
     this.enumConstantName = enumConstantName;
+  }
+
+  @JsonProperty("EnumConstantName")
+  public String getEnumConstantName() {
+    return enumConstantName;
   }
 }

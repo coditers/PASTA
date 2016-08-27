@@ -1,5 +1,7 @@
 package codit.ast.pojos.interfaces;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -29,5 +31,10 @@ public class ElementValueArrayInitializer extends AstNode implements ElementValu
                                       List<ElementValue> elementValueListList) {
     super(startLine, startCol, endLine, endCol, parent);
     this.elementValueListList = elementValueListList;
+  }
+
+  @JsonProperty("ElementValueListList")
+  public List<ElementValue> getElementValueListList() {
+    return elementValueListList;
   }
 }

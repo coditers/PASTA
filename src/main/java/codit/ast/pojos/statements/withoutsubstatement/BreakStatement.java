@@ -1,5 +1,7 @@
 package codit.ast.pojos.statements.withoutsubstatement;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -28,5 +30,10 @@ public class BreakStatement extends AstNode implements StatementWithoutTrailingS
                         String identifier) {
     super(startLine, startCol, endLine, endCol, parent);
     this.identifier = identifier;
+  }
+
+  @JsonProperty("Identifier")
+  public String getIdentifier() {
+    return identifier;
   }
 }

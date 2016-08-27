@@ -1,5 +1,7 @@
 package codit.ast.pojos.interfaces;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -71,5 +73,35 @@ public class NormalInterfaceDeclaration extends InterfaceDeclaration {
     this.typeParameterList = typeParameterList;
     this.interfaceTypeList = interfaceTypeList;
     this.interfaceBody = interfaceBody;
+  }
+
+  @JsonProperty("AnnotationList")
+  public List<Annotation> getAnnotationList() {
+    return annotationList;
+  }
+
+  @JsonProperty("Modifiers")
+  public int getModifiers() {
+    return modifiers;
+  }
+
+  @JsonProperty("Identifier")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  @JsonProperty("TypeParameterList")
+  public List<TypeParameter> getTypeParameterList() {
+    return typeParameterList;
+  }
+
+  @JsonProperty("InterfaceTypeList")
+  public List<InterfaceType> getInterfaceTypeList() {
+    return interfaceTypeList;
+  }
+
+  @JsonProperty("InterfaceBody")
+  public List<InterfaceMemberable> getInterfaceBody() {
+    return interfaceBody;
   }
 }

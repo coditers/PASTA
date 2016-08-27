@@ -1,5 +1,7 @@
 package codit.ast.pojos.types.unann;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -55,5 +57,25 @@ public class UnannClassType extends UnannMultiClassOrInterfaceType {
     this.annotationList = annotationList;
     this.identifier = identifier;
     this.typeArgumentList = typeArgumentList;
+  }
+
+  @JsonProperty("UnannClassOrInterfaceType")
+  public UnannClassOrInterfaceType getUnannClassOrInterfaceType() {
+    return unannClassOrInterfaceType;
+  }
+
+  @JsonProperty("AnnotationList")
+  public List<Annotation> getAnnotationList() {
+    return annotationList;
+  }
+
+  @JsonProperty("Identifier")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  @JsonProperty("TypeArgumentList")
+  public List<TypeArgument> getTypeArgumentList() {
+    return typeArgumentList;
   }
 }

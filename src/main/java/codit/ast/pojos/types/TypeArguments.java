@@ -1,5 +1,7 @@
 package codit.ast.pojos.types;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -29,5 +31,10 @@ public class TypeArguments extends TypeArgumentsOrDiamond {
   public TypeArguments(int startLine, int startCol, int endLine, int endCol, AstNode parent, List<TypeArgument> typeArgumentList) {
     super(startLine, startCol, endLine, endCol, parent);
     this.typeArgumentList = typeArgumentList;
+  }
+
+  @JsonProperty("TypeArgumentList")
+  public List<TypeArgument> getTypeArgumentList() {
+    return typeArgumentList;
   }
 }

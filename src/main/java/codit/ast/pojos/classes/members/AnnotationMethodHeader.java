@@ -1,5 +1,7 @@
 package codit.ast.pojos.classes.members;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -49,5 +51,15 @@ public class AnnotationMethodHeader extends MethodHeader {
     super(startLine, startCol, endLine, endCol, parent, result, methodDeclarator, exceptionTypeList);
     TypeParameterList = typeParameterList;
     this.annotationList = annotationList;
+  }
+
+  @JsonProperty("TypeParameterList")
+  public List<TypeParameter> getTypeParameterList() {
+    return TypeParameterList;
+  }
+
+  @JsonProperty("AnnotationList")
+  public List<Annotation> getAnnotationList() {
+    return annotationList;
   }
 }

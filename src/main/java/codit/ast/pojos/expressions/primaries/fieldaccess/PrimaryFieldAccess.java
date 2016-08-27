@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions.primaries.fieldaccess;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -33,5 +35,15 @@ public class PrimaryFieldAccess extends FieldAccess
     super(startLine, startCol, endLine, endCol, parent);
     this.primary = primary;
     this.identifier = identifier;
+  }
+
+  @JsonProperty("Primary")
+  public Primary getPrimary() {
+    return primary;
+  }
+
+  @JsonProperty("Identifier")
+  public String getIdentifier() {
+    return identifier;
   }
 }

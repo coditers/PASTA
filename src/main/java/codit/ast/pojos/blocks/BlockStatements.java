@@ -1,5 +1,7 @@
 package codit.ast.pojos.blocks;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -26,5 +28,10 @@ public class BlockStatements extends AstNode {
   public BlockStatements(int startLine, int startCol, int endLine, int endCol, AstNode parent, List<InBlockStatement> blockStatementList) {
     super(startLine, startCol, endLine, endCol, parent);
     this.blockStatementList = blockStatementList;
+  }
+
+  @JsonProperty("BlockStatementList")
+  public List<InBlockStatement> getBlockStatementList() {
+    return blockStatementList;
   }
 }

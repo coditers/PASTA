@@ -1,5 +1,7 @@
 package codit.ast.pojos.statements.withoutsubstatement;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -29,5 +31,10 @@ public class ExpressionStatement extends AstNode implements StatementWithoutTrai
                              StatementExpression statementExpression) {
     super(startLine, startCol, endLine, endCol, parent);
     this.statementExpression = statementExpression;
+  }
+
+  @JsonProperty("StatementExpression")
+  public StatementExpression getStatementExpression() {
+    return statementExpression;
   }
 }

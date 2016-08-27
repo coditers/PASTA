@@ -1,5 +1,7 @@
 package codit.ast.pojos.types;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -60,6 +62,15 @@ public class PrimitiveType extends Type implements Arrayable {
 
   }
 
+  @JsonProperty("AnnotationList")
+  public List<Annotation> getAnnotationList() {
+    return annotationList;
+  }
+
+  @JsonProperty("Type")
+  public Primitive getType() {
+    return type;
+  }
 }
 
 

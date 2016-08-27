@@ -1,5 +1,7 @@
 package codit.ast.pojos.types;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -24,5 +26,10 @@ public class TypeArgument extends AstNode {
   public TypeArgument(int startLine, int startCol, int endLine, int endCol, AstNode parent, Arguable arguable) {
     super(startLine, startCol, endLine, endCol, parent);
     this.arguable = arguable;
+  }
+
+  @JsonProperty("Arguable")
+  public Arguable getArguable() {
+    return arguable;
   }
 }

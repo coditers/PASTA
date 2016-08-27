@@ -1,5 +1,7 @@
 package codit.ast.pojos.classes.constructors;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -63,5 +65,30 @@ public class ConstructorDeclaration extends ClassBodyDeclaration {
     this.constructorDeclarator = constructorDeclarator;
     this.exceptionTypeList = exceptionTypeList;
     this.constructorBody = constructorBody;
+  }
+
+  @JsonProperty("AnnotationList")
+  public List<Annotation> getAnnotationList() {
+    return annotationList;
+  }
+
+  @JsonProperty("Modifiers")
+  public int getModifiers() {
+    return modifiers;
+  }
+
+  @JsonProperty("ConstructorDeclarator")
+  public ConstructorDeclarator getConstructorDeclarator() {
+    return constructorDeclarator;
+  }
+
+  @JsonProperty("ExceptionTypeList")
+  public List<ExceptionType> getExceptionTypeList() {
+    return exceptionTypeList;
+  }
+
+  @JsonProperty("ConstructorBody")
+  public ConstructorBody getConstructorBody() {
+    return constructorBody;
   }
 }

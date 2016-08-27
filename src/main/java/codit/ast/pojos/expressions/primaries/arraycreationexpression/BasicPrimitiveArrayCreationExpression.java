@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions.primaries.arraycreationexpression;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -45,5 +47,20 @@ public class BasicPrimitiveArrayCreationExpression extends ArrayCreationExpressi
     this.primitiveType = primitiveType;
     this.dimExprList = dimExprList;
     this.dims = dims;
+  }
+
+  @JsonProperty("PrimitiveType")
+  public PrimitiveType getPrimitiveType() {
+    return primitiveType;
+  }
+
+  @JsonProperty("DimExprList")
+  public List<DimExpr> getDimExprList() {
+    return dimExprList;
+  }
+
+  @JsonProperty("Dims")
+  public Dims getDims() {
+    return dims;
   }
 }

@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions.assignments.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -34,5 +36,15 @@ public class ImplExclusiveOrExpression extends ExclusiveOrExpression {
     super(startLine, startCol, endLine, endCol, parent);
     this.exclusiveOrExpression = exclusiveOrExpression;
     this.andExpression = andExpression;
+  }
+
+  @JsonProperty("ExclusiveOrExpression")
+  public ExclusiveOrExpression getExclusiveOrExpression() {
+    return exclusiveOrExpression;
+  }
+
+  @JsonProperty("AndExpression")
+  public AndExpression getAndExpression() {
+    return andExpression;
   }
 }

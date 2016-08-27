@@ -1,5 +1,7 @@
 package codit.ast.pojos.classes.members;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -44,5 +46,20 @@ public class MethodDeclarator extends AstNode {
     this.identifier = identifier;
     this.formalParameterList = formalParameterList;
     this.dims = dims;
+  }
+
+  @JsonProperty("Identifier")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  @JsonProperty("FormalParameters")
+  public FormalParameterList getFormalParameterList() {
+    return formalParameterList;
+  }
+
+  @JsonProperty("Dims")
+  public Dims getDims() {
+    return dims;
   }
 }

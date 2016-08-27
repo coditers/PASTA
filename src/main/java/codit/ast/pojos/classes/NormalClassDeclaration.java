@@ -1,5 +1,7 @@
 package codit.ast.pojos.classes;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -80,5 +82,40 @@ public class NormalClassDeclaration extends ClassDeclaration {
     this.superClass = superClass;
     this.superInterfaceList = new ArrayList<>(superInterfaceList);
     this.classBodyDeclarationList = new ArrayList<>(classBodyDeclarationList);
+  }
+
+  @JsonProperty("AnnotationList")
+  public List<Annotation> getAnnotationList() {
+    return annotationList;
+  }
+
+  @JsonProperty("Modifiers")
+  public int getModifiers() {
+    return modifiers;
+  }
+
+  @JsonProperty("Identifier")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  @JsonProperty("TypeParameterList")
+  public List<TypeParameter> getTypeParameterList() {
+    return typeParameterList;
+  }
+
+  @JsonProperty("SuperClass")
+  public ClassType getSuperClass() {
+    return superClass;
+  }
+
+  @JsonProperty("SuperInterfaceList")
+  public List<InterfaceType> getSuperInterfaceList() {
+    return superInterfaceList;
+  }
+
+  @JsonProperty("ClassBodyDeclarationList")
+  public List<ClassBodyDeclaration> getClassBodyDeclarationList() {
+    return classBodyDeclarationList;
   }
 }

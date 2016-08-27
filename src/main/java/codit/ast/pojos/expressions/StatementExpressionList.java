@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -30,5 +32,10 @@ public class StatementExpressionList extends AstNode implements ForInit {
                                  List<StatementExpression> statementExpressionList) {
     super(startLine, startCol, endLine, endCol, parent);
     this.statementExpressionList = statementExpressionList;
+  }
+
+  @JsonProperty("StatementExpressionList")
+  public List<StatementExpression> getStatementExpressionList() {
+    return statementExpressionList;
   }
 }

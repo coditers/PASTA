@@ -1,5 +1,7 @@
 package codit.ast.pojos.statements.normal;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -36,5 +38,15 @@ public class WhileStatement extends AstNode implements Statement {
     super(startLine, startCol, endLine, endCol, parent);
     this.expression = expression;
     this.statement = statement;
+  }
+
+  @JsonProperty("Expression")
+  public Expression getExpression() {
+    return expression;
+  }
+
+  @JsonProperty("Statement")
+  public Statement getStatement() {
+    return statement;
   }
 }

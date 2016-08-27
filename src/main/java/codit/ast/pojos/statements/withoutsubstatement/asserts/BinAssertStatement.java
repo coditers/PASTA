@@ -1,5 +1,7 @@
 package codit.ast.pojos.statements.withoutsubstatement.asserts;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -36,5 +38,15 @@ public class BinAssertStatement extends AssertStatement {
     super(startLine, startCol, endLine, endCol, parent);
     this.conditionExpression = conditionExpression;
     this.aftermathExpression = aftermathExpression;
+  }
+
+  @JsonProperty("ConditionExpression")
+  public Expression getConditionExpression() {
+    return conditionExpression;
+  }
+
+  @JsonProperty("AftermathExpression")
+  public Expression getAftermathExpression() {
+    return aftermathExpression;
   }
 }

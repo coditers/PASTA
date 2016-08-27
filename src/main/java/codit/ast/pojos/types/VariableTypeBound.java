@@ -1,5 +1,7 @@
 package codit.ast.pojos.types;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -27,5 +29,10 @@ public class VariableTypeBound extends TypeBound {
                            TypeVariable typeVariable) {
     super(startLine, startCol, endLine, endCol, parent);
     this.typeVariable = typeVariable;
+  }
+
+  @JsonProperty("TypeVariable")
+  public TypeVariable getTypeVariable() {
+    return typeVariable;
   }
 }

@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions.primaries.basics;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -59,5 +61,15 @@ public class PrimitiveClassLiteralExpression extends BasicExpression
     result = 31 * result + (unannPrimitiveType != null ? unannPrimitiveType.hashCode() : 0);
     result = 31 * result + numberOfBracket;
     return result;
+  }
+
+  @JsonProperty("UnannPrimitiveType")
+  public UnannPrimitiveType getUnannPrimitiveType() {
+    return unannPrimitiveType;
+  }
+
+  @JsonProperty("NumberOfBracket")
+  public int getNumberOfBracket() {
+    return numberOfBracket;
   }
 }

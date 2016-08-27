@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions.primaries.fieldaccess;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -27,5 +29,10 @@ public class PostfixFieldAccess extends FieldAccess
   public PostfixFieldAccess(int startLine, int startCol, int endLine, int endCol, AstNode parent, String identifier) {
     super(startLine, startCol, endLine, endCol, parent);
     this.identifier = identifier;
+  }
+
+  @JsonProperty("Identifier")
+  public String getIdentifier() {
+    return identifier;
   }
 }

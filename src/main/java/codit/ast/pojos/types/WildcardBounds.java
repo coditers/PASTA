@@ -1,5 +1,7 @@
 package codit.ast.pojos.types;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -34,5 +36,15 @@ public class WildcardBounds extends AstNode {
     super(startLine, startCol, endLine, endCol, parent);
     this.isExtends = isExtends;
     this.referenceType = referenceType;
+  }
+
+  @JsonProperty("isExtends")
+  public boolean isExtends() {
+    return isExtends;
+  }
+
+  @JsonProperty("ReferenceType")
+  public ReferenceType getReferenceType() {
+    return referenceType;
   }
 }

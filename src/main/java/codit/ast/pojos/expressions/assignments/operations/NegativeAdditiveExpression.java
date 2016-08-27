@@ -1,5 +1,7 @@
 package codit.ast.pojos.expressions.assignments.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -28,5 +30,15 @@ public class NegativeAdditiveExpression extends AdditiveExpression {
     super(startLine, startCol, endLine, endCol, parent);
     this.additiveExpression = additiveExpression;
     this.multiplicativeExpression = multiplicativeExpression;
+  }
+
+  @JsonProperty("AdditiveExpression")
+  public AdditiveExpression getAdditiveExpression() {
+    return additiveExpression;
+  }
+
+  @JsonProperty("MultiplicativeExpression")
+  public MultiplicativeExpression getMultiplicativeExpression() {
+    return multiplicativeExpression;
   }
 }

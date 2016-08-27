@@ -1,5 +1,7 @@
 package codit.ast.pojos.statements.withoutsubstatement.tries;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -38,5 +40,15 @@ public class CatchType extends AstNode {
     super(startLine, startCol, endLine, endCol, parent);
     this.unannClassType = unannClassType;
     this.classTypeList = classTypeList;
+  }
+
+  @JsonProperty("UnannClassType")
+  public UnannClassType getUnannClassType() {
+    return unannClassType;
+  }
+
+  @JsonProperty("ClassTypeList")
+  public List<ClassType> getClassTypeList() {
+    return classTypeList;
   }
 }

@@ -1,5 +1,7 @@
 package codit.ast.pojos.statements.normal;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -30,5 +32,15 @@ public class LabeledStatement extends AstNode implements Statement {
     super(startLine, startCol, endLine, endCol, parent);
     this.identifier = identifier;
     this.statement = statement;
+  }
+
+  @JsonProperty("Identifier")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  @JsonProperty("Statement")
+  public Statement getStatement() {
+    return statement;
   }
 }

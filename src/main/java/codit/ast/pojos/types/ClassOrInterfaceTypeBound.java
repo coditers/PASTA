@@ -1,5 +1,7 @@
 package codit.ast.pojos.types;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -36,5 +38,15 @@ public class ClassOrInterfaceTypeBound extends TypeBound {
     super(startLine, startCol, endLine, endCol, parent);
     this.classOrInterfaceType = classOrInterfaceType;
     this.interfaceTypeList = interfaceTypeList;
+  }
+
+  @JsonProperty("ClassOrInterfaceType")
+  public ClassOrInterfaceType getClassOrInterfaceType() {
+    return classOrInterfaceType;
+  }
+
+  @JsonProperty("InterfaceTypeList")
+  public List<InterfaceType> getInterfaceTypeList() {
+    return interfaceTypeList;
   }
 }
