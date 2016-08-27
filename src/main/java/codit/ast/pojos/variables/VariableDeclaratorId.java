@@ -1,5 +1,7 @@
 package codit.ast.pojos.variables;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
 import codit.ast.pojos.Range;
@@ -35,5 +37,15 @@ public class VariableDeclaratorId extends AstNode {
     super(startLine, startCol, endLine, endCol, parent);
     this.identifier = identifier;
     this.dims = dims;
+  }
+
+  @JsonProperty("Identifier")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  @JsonProperty("Dims")
+  public Dims getDims() {
+    return dims;
   }
 }
