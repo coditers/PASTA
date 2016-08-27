@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 import org.antlr.v4.runtime.ParserRuleContext;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -26,6 +27,7 @@ import codit.gencode.JavaParser;
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
+@Ignore
 @RunWith(Parameterized.class)
 public class PrimaryNoNewArrayTest {
 
@@ -48,6 +50,7 @@ public class PrimaryNoNewArrayTest {
     this.targetNode = targetNode;
   }
 
+  @Ignore
   @Test
   public void testLiteral() {
     SubCompiler subCompiler = new SubCompiler();

@@ -1,8 +1,6 @@
 package codit.ast.pojos;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sun.istack.internal.NotNull;
-import com.sun.istack.internal.Nullable;
 
 import codit.ast.visitor.AstBaseVisitor;
 
@@ -11,12 +9,10 @@ import codit.ast.visitor.AstBaseVisitor;
  */
 public abstract class AstNode implements ParseTree{
 
-  @NotNull
   @JsonIgnore
   private final Range range;
 
 
-  @Nullable
   @JsonIgnore
   private AstNode parent;
 

@@ -1,7 +1,6 @@
 package codit.ast.pojos.names;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.sun.istack.internal.Nullable;
 
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
@@ -12,7 +11,6 @@ import codit.ast.pojos.Range;
  */
 public class AmbiguousName extends Name {
 
-  @Nullable
   private final AmbiguousName prev;
 
   public AmbiguousName(Range range, AstNode parent,

@@ -1,7 +1,6 @@
 package codit.ast.pojos.names;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.sun.istack.internal.NotNull;
 
 import codit.ast.pojos.AstNode;
 import codit.ast.pojos.Position;
@@ -12,7 +11,6 @@ import codit.ast.pojos.Range;
  */
 public class Name extends AstNode {
 
-  @NotNull
   private final String identifier;
 
   public Name(Range range, AstNode parent,

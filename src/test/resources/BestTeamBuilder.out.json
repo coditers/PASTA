@@ -1,0 +1,4794 @@
+{
+  "PackageDeclaration" : {
+    "AnnotationList" : [ ],
+    "IdentifierList" : [ "io", "jaylim", "algorithm" ]
+  },
+  "ImportDeclarationList" : [ {
+    "TypeName" : {
+      "identifier" : "File",
+      "prev" : {
+        "identifier" : "io",
+        "prev" : {
+          "identifier" : "java",
+          "prev" : null
+        }
+      }
+    }
+  }, {
+    "TypeName" : {
+      "identifier" : "IOException",
+      "prev" : {
+        "identifier" : "io",
+        "prev" : {
+          "identifier" : "java",
+          "prev" : null
+        }
+      }
+    }
+  }, {
+    "TypeName" : {
+      "identifier" : "PrintWriter",
+      "prev" : {
+        "identifier" : "io",
+        "prev" : {
+          "identifier" : "java",
+          "prev" : null
+        }
+      }
+    }
+  }, {
+    "TypeName" : {
+      "identifier" : "ArrayList",
+      "prev" : {
+        "identifier" : "util",
+        "prev" : {
+          "identifier" : "java",
+          "prev" : null
+        }
+      }
+    }
+  }, {
+    "TypeName" : {
+      "identifier" : "Arrays",
+      "prev" : {
+        "identifier" : "util",
+        "prev" : {
+          "identifier" : "java",
+          "prev" : null
+        }
+      }
+    }
+  }, {
+    "TypeName" : {
+      "identifier" : "List",
+      "prev" : {
+        "identifier" : "util",
+        "prev" : {
+          "identifier" : "java",
+          "prev" : null
+        }
+      }
+    }
+  }, {
+    "TypeName" : {
+      "identifier" : "Fielder",
+      "prev" : {
+        "identifier" : "fielder",
+        "prev" : {
+          "identifier" : "algorithm",
+          "prev" : {
+            "identifier" : "jaylim",
+            "prev" : {
+              "identifier" : "io",
+              "prev" : null
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "TypeName" : {
+      "identifier" : "Player",
+      "prev" : {
+        "identifier" : "player",
+        "prev" : {
+          "identifier" : "algorithm",
+          "prev" : {
+            "identifier" : "jaylim",
+            "prev" : {
+              "identifier" : "io",
+              "prev" : null
+            }
+          }
+        }
+      }
+    }
+  } ],
+  "TypeDeclarationList" : [ {
+    "AnnotationList" : [ ],
+    "Modifiers" : 1,
+    "Identifier" : "BestTeamBuilder",
+    "TypeParameterList" : [ ],
+    "SuperClass" : null,
+    "SuperInterfaceList" : [ {
+      "ClassType" : {
+        "ClassOrInterfaceType" : null,
+        "AnnotaitonList" : [ ],
+        "Identifier" : "ConstantsSet",
+        "TypeArgumentList" : [ ]
+      }
+    } ],
+    "ClassBodyDeclarationList" : [ {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 2,
+        "UnannType" : {
+          "UnannUnitClassOrInterfaceType" : {
+            "Identifier" : "List",
+            "TypeArgumentList" : [ {
+              "Arguable" : {
+                "UnitClassOrInterfaceType" : {
+                  "AnnotationList" : [ ],
+                  "Identifier" : "List",
+                  "TypeArgumentList" : [ {
+                    "Arguable" : {
+                      "UnitClassOrInterfaceType" : {
+                        "AnnotationList" : [ ],
+                        "Identifier" : "Player",
+                        "TypeArgumentList" : [ ]
+                      },
+                      "ClassOrInterfaceType" : [ ],
+                      "isInterface" : false
+                    }
+                  } ]
+                },
+                "ClassOrInterfaceType" : [ ],
+                "isInterface" : false
+              }
+            } ]
+          },
+          "UnannClassOrInterfaceType" : [ ],
+          "isInterface" : false
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "skTotalEntries",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "Primary" : {
+                "DefaultArrayLfnoPrimary" : {
+                  "TypeArgumentList" : [ ],
+                  "AnnotationListList" : [ [ ] ],
+                  "IdentifierList" : [ "newArrayList<>()" ],
+                  "TypeArgumentsOrDiamond" : { },
+                  "ArgumentList" : [ ],
+                  "ClassBody" : [ ]
+                },
+                "DefaultArrayLfPrimaryList" : [ ]
+              },
+              "IsPlusList" : [ ]
+            }
+          }
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 2,
+        "UnannType" : {
+          "UnannUnitClassOrInterfaceType" : {
+            "Identifier" : "List",
+            "TypeArgumentList" : [ {
+              "Arguable" : {
+                "UnitClassOrInterfaceType" : {
+                  "AnnotationList" : [ ],
+                  "Identifier" : "List",
+                  "TypeArgumentList" : [ {
+                    "Arguable" : {
+                      "UnitClassOrInterfaceType" : {
+                        "AnnotationList" : [ ],
+                        "Identifier" : "Player",
+                        "TypeArgumentList" : [ ]
+                      },
+                      "ClassOrInterfaceType" : [ ],
+                      "isInterface" : false
+                    }
+                  } ]
+                },
+                "ClassOrInterfaceType" : [ ],
+                "isInterface" : false
+              }
+            } ]
+          },
+          "UnannClassOrInterfaceType" : [ ],
+          "isInterface" : false
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "nonSkTotalEntries",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "Primary" : {
+                "DefaultArrayLfnoPrimary" : {
+                  "TypeArgumentList" : [ ],
+                  "AnnotationListList" : [ [ ] ],
+                  "IdentifierList" : [ "newArrayList<>()" ],
+                  "TypeArgumentsOrDiamond" : { },
+                  "ArgumentList" : [ ],
+                  "ClassBody" : [ ]
+                },
+                "DefaultArrayLfPrimaryList" : [ ]
+              },
+              "IsPlusList" : [ ]
+            }
+          }
+        } ]
+      }
+    }, {
+      "AnnotationList" : [ ],
+      "Modifiers" : 1,
+      "ConstructorDeclarator" : {
+        "TypeParameterList" : [ ],
+        "Identifier" : "BestTeamBuilder",
+        "FormalParameterList" : {
+          "LastFormalParameter" : {
+            "FormalParameter" : {
+              "AnnotationList" : [ ],
+              "Modifiers" : 16,
+              "UnannType" : {
+                "UnannUnitClassOrInterfaceType" : {
+                  "Identifier" : "List",
+                  "TypeArgumentList" : [ {
+                    "Arguable" : {
+                      "UnitClassOrInterfaceType" : {
+                        "AnnotationList" : [ ],
+                        "Identifier" : "Player",
+                        "TypeArgumentList" : [ ]
+                      },
+                      "ClassOrInterfaceType" : [ ],
+                      "isInterface" : false
+                    }
+                  } ]
+                },
+                "UnannClassOrInterfaceType" : [ ],
+                "isInterface" : false
+              },
+              "VariableDeclaratorId" : {
+                "Identifier" : "playerList",
+                "Dims" : null
+              }
+            }
+          }
+        }
+      },
+      "ExceptionTypeList" : [ ],
+      "ConstructorBody" : {
+        "ExplicitConstructorInvocation" : null,
+        "BlockStatements" : {
+          "BlockStatementList" : [ {
+            "ForInit" : {
+              "AnnotationList" : [ ],
+              "Modifiers" : 0,
+              "UnannType" : {
+                "Primitive" : "INT"
+              },
+              "VariableDeclaratorList" : [ {
+                "VariableDeclaratorId" : {
+                  "Identifier" : "i",
+                  "Dims" : null
+                },
+                "VariableInitializer" : {
+                  "Expression" : {
+                    "Primary" : {
+                      "DefaultArrayLfnoPrimary" : {
+                        "literal" : {
+                          "str" : "0"
+                        }
+                      },
+                      "DefaultArrayLfPrimaryList" : [ ]
+                    },
+                    "IsPlusList" : [ ]
+                  }
+                }
+              } ]
+            },
+            "ForCondition" : {
+              "RelationalExpression" : {
+                "ExpressionName" : {
+                  "identifier" : "i",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              },
+              "ShiftExpression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "literal" : {
+                      "str" : "9"
+                    }
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              }
+            },
+            "StatementExpressionList" : {
+              "StatementExpressionList" : [ ]
+            },
+            "Statement" : {
+              "BlockStatements" : {
+                "BlockStatementList" : [ {
+                  "StatementExpression" : {
+                    "TypeName" : {
+                      "identifier" : "skTotalEntries",
+                      "prev" : null
+                    },
+                    "TypeArguments" : null,
+                    "Identifier" : "add",
+                    "ArgumentList" : [ {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeArgumentList" : [ ],
+                          "AnnotationListList" : [ [ ] ],
+                          "IdentifierList" : [ "newArrayList<>()" ],
+                          "TypeArgumentsOrDiamond" : { },
+                          "ArgumentList" : [ ],
+                          "ClassBody" : [ ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    } ]
+                  }
+                }, {
+                  "StatementExpression" : {
+                    "TypeName" : {
+                      "identifier" : "nonSkTotalEntries",
+                      "prev" : null
+                    },
+                    "TypeArguments" : null,
+                    "Identifier" : "add",
+                    "ArgumentList" : [ {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeArgumentList" : [ ],
+                          "AnnotationListList" : [ [ ] ],
+                          "IdentifierList" : [ "newArrayList<>()" ],
+                          "TypeArgumentsOrDiamond" : { },
+                          "ArgumentList" : [ ],
+                          "ClassBody" : [ ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    } ]
+                  }
+                } ]
+              }
+            }
+          }, {
+            "StatementExpression" : {
+              "MethodName" : {
+                "identifier" : "sortDescending"
+              },
+              "ArgumentList" : [ {
+                "ExpressionName" : {
+                  "identifier" : "playerList",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              } ]
+            }
+          }, {
+            "StatementExpression" : {
+              "MethodName" : {
+                "identifier" : "classifyPlayerList"
+              },
+              "ArgumentList" : [ {
+                "ExpressionName" : {
+                  "identifier" : "playerList",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              } ]
+            }
+          } ]
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 2,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : null
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "sortDescending",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "UnannUnitClassOrInterfaceType" : {
+                      "Identifier" : "List",
+                      "TypeArgumentList" : [ {
+                        "Arguable" : {
+                          "UnitClassOrInterfaceType" : {
+                            "AnnotationList" : [ ],
+                            "Identifier" : "Player",
+                            "TypeArgumentList" : [ ]
+                          },
+                          "ClassOrInterfaceType" : [ ],
+                          "isInterface" : false
+                        }
+                      } ]
+                    },
+                    "UnannClassOrInterfaceType" : [ ],
+                    "isInterface" : false
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "totalEntries",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "StatementExpression" : {
+                "TypeName" : {
+                  "identifier" : "totalEntries",
+                  "prev" : null
+                },
+                "TypeArguments" : null,
+                "Identifier" : "sort",
+                "ArgumentList" : [ {
+                  "LambdaParameters" : {
+                    "FormalParameterList" : {
+                      "ParameterList" : [ {
+                        "AnnotationList" : [ ],
+                        "Modifiers" : 0,
+                        "UnannType" : {
+                          "UnannUnitClassOrInterfaceType" : {
+                            "Identifier" : "Player",
+                            "TypeArgumentList" : [ ]
+                          },
+                          "UnannClassOrInterfaceType" : [ ],
+                          "isInterface" : false
+                        },
+                        "VariableDeclaratorId" : {
+                          "Identifier" : "p1",
+                          "Dims" : null
+                        }
+                      } ],
+                      "LastFormalParameter" : {
+                        "FormalParameter" : {
+                          "AnnotationList" : [ ],
+                          "Modifiers" : 0,
+                          "UnannType" : {
+                            "UnannUnitClassOrInterfaceType" : {
+                              "Identifier" : "Player",
+                              "TypeArgumentList" : [ ]
+                            },
+                            "UnannClassOrInterfaceType" : [ ],
+                            "isInterface" : false
+                          },
+                          "VariableDeclaratorId" : {
+                            "Identifier" : "p2",
+                            "Dims" : null
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "LambdaBody" : {
+                    "Primary" : {
+                      "DefaultArrayLfnoPrimary" : {
+                        "Expression" : {
+                          "AdditiveExpression" : {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "TypeName" : {
+                                  "identifier" : "p2",
+                                  "prev" : null
+                                },
+                                "TypeArguments" : null,
+                                "Identifier" : "getRating",
+                                "ArgumentList" : [ ]
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          },
+                          "MultiplicativeExpression" : {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "TypeName" : {
+                                  "identifier" : "p1",
+                                  "prev" : null
+                                },
+                                "TypeArguments" : null,
+                                "Identifier" : "getRating",
+                                "ArgumentList" : [ ]
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          }
+                        }
+                      },
+                      "DefaultArrayLfPrimaryList" : [ ]
+                    },
+                    "IsPlusList" : [ ]
+                  }
+                } ]
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 2,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : null
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "classifyPlayerList",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 16,
+                  "UnannType" : {
+                    "UnannUnitClassOrInterfaceType" : {
+                      "Identifier" : "List",
+                      "TypeArgumentList" : [ {
+                        "Arguable" : {
+                          "UnitClassOrInterfaceType" : {
+                            "AnnotationList" : [ ],
+                            "Identifier" : "Player",
+                            "TypeArgumentList" : [ ]
+                          },
+                          "ClassOrInterfaceType" : [ ],
+                          "isInterface" : false
+                        }
+                      } ]
+                    },
+                    "UnannClassOrInterfaceType" : [ ],
+                    "isInterface" : false
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "playerList",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "AnnotationList" : [ ],
+              "Modifiers" : 0,
+              "UnannType" : {
+                "UnannUnitClassOrInterfaceType" : {
+                  "Identifier" : "Player",
+                  "TypeArgumentList" : [ ]
+                },
+                "UnannClassOrInterfaceType" : [ ],
+                "isInterface" : false
+              },
+              "VariableDeclaratorId" : {
+                "Identifier" : "player",
+                "Dims" : null
+              },
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "playerList",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeName" : {
+                            "identifier" : "player",
+                            "prev" : null
+                          },
+                          "TypeArguments" : null,
+                          "Identifier" : "getTeam",
+                          "ArgumentList" : [ ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    },
+                    "SwitchBlock" : {
+                      "SwitchBlockStatementGroupList" : [ {
+                        "SwitchLabelList" : [ {
+                          "ConstantExpression" : {
+                            "ExpressionName" : {
+                              "identifier" : "TEAM_SK",
+                              "prev" : null
+                            },
+                            "IsPlusList" : [ ]
+                          }
+                        } ],
+                        "BlockStatements" : {
+                          "BlockStatementList" : [ {
+                            "StatementExpression" : {
+                              "MethodName" : {
+                                "identifier" : "initializePositionList"
+                              },
+                              "ArgumentList" : [ {
+                                "ExpressionName" : {
+                                  "identifier" : "skTotalEntries",
+                                  "prev" : null
+                                },
+                                "IsPlusList" : [ ]
+                              }, {
+                                "ExpressionName" : {
+                                  "identifier" : "player",
+                                  "prev" : null
+                                },
+                                "IsPlusList" : [ ]
+                              } ]
+                            }
+                          }, {
+                            "Identifier" : null
+                          } ]
+                        }
+                      }, {
+                        "SwitchLabelList" : [ { } ],
+                        "BlockStatements" : {
+                          "BlockStatementList" : [ {
+                            "StatementExpression" : {
+                              "MethodName" : {
+                                "identifier" : "initializePositionList"
+                              },
+                              "ArgumentList" : [ {
+                                "ExpressionName" : {
+                                  "identifier" : "nonSkTotalEntries",
+                                  "prev" : null
+                                },
+                                "IsPlusList" : [ ]
+                              }, {
+                                "ExpressionName" : {
+                                  "identifier" : "player",
+                                  "prev" : null
+                                },
+                                "IsPlusList" : [ ]
+                              } ]
+                            }
+                          }, {
+                            "Identifier" : null
+                          } ]
+                        }
+                      } ],
+                      "SwitchLabelList" : [ ]
+                    }
+                  } ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 2,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : null
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "initializePositionList",
+            "FormalParameters" : {
+              "ParameterList" : [ {
+                "AnnotationList" : [ ],
+                "Modifiers" : 16,
+                "UnannType" : {
+                  "UnannUnitClassOrInterfaceType" : {
+                    "Identifier" : "List",
+                    "TypeArgumentList" : [ {
+                      "Arguable" : {
+                        "UnitClassOrInterfaceType" : {
+                          "AnnotationList" : [ ],
+                          "Identifier" : "List",
+                          "TypeArgumentList" : [ {
+                            "Arguable" : {
+                              "UnitClassOrInterfaceType" : {
+                                "AnnotationList" : [ ],
+                                "Identifier" : "Player",
+                                "TypeArgumentList" : [ ]
+                              },
+                              "ClassOrInterfaceType" : [ ],
+                              "isInterface" : false
+                            }
+                          } ]
+                        },
+                        "ClassOrInterfaceType" : [ ],
+                        "isInterface" : false
+                      }
+                    } ]
+                  },
+                  "UnannClassOrInterfaceType" : [ ],
+                  "isInterface" : false
+                },
+                "VariableDeclaratorId" : {
+                  "Identifier" : "playerLists",
+                  "Dims" : null
+                }
+              } ],
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "UnannUnitClassOrInterfaceType" : {
+                      "Identifier" : "Player",
+                      "TypeArgumentList" : [ ]
+                    },
+                    "UnannClassOrInterfaceType" : [ ],
+                    "isInterface" : false
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "player",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "TypeName" : {
+                      "identifier" : "player",
+                      "prev" : null
+                    },
+                    "TypeArguments" : null,
+                    "Identifier" : "isCatcherPos",
+                    "ArgumentList" : [ ]
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "StatementExpression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeName" : {
+                            "identifier" : "playerLists",
+                            "prev" : null
+                          },
+                          "TypeArguments" : null,
+                          "Identifier" : "get",
+                          "ArgumentList" : [ {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "literal" : {
+                                  "str" : "0"
+                                }
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          } ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "TypeArguments" : null,
+                      "Identifier" : "add",
+                      "ArgumentList" : [ {
+                        "ExpressionName" : {
+                          "identifier" : "player",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      } ]
+                    }
+                  } ]
+                }
+              }
+            }, {
+              "Expression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "TypeName" : {
+                      "identifier" : "player",
+                      "prev" : null
+                    },
+                    "TypeArguments" : null,
+                    "Identifier" : "isFirstBasemanPos",
+                    "ArgumentList" : [ ]
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "StatementExpression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeName" : {
+                            "identifier" : "playerLists",
+                            "prev" : null
+                          },
+                          "TypeArguments" : null,
+                          "Identifier" : "get",
+                          "ArgumentList" : [ {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "literal" : {
+                                  "str" : "1"
+                                }
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          } ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "TypeArguments" : null,
+                      "Identifier" : "add",
+                      "ArgumentList" : [ {
+                        "ExpressionName" : {
+                          "identifier" : "player",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      } ]
+                    }
+                  } ]
+                }
+              }
+            }, {
+              "Expression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "TypeName" : {
+                      "identifier" : "player",
+                      "prev" : null
+                    },
+                    "TypeArguments" : null,
+                    "Identifier" : "isSecondBasemanPos",
+                    "ArgumentList" : [ ]
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "StatementExpression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeName" : {
+                            "identifier" : "playerLists",
+                            "prev" : null
+                          },
+                          "TypeArguments" : null,
+                          "Identifier" : "get",
+                          "ArgumentList" : [ {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "literal" : {
+                                  "str" : "2"
+                                }
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          } ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "TypeArguments" : null,
+                      "Identifier" : "add",
+                      "ArgumentList" : [ {
+                        "ExpressionName" : {
+                          "identifier" : "player",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      } ]
+                    }
+                  } ]
+                }
+              }
+            }, {
+              "Expression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "TypeName" : {
+                      "identifier" : "player",
+                      "prev" : null
+                    },
+                    "TypeArguments" : null,
+                    "Identifier" : "isThirdBasemanPos",
+                    "ArgumentList" : [ ]
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "StatementExpression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeName" : {
+                            "identifier" : "playerLists",
+                            "prev" : null
+                          },
+                          "TypeArguments" : null,
+                          "Identifier" : "get",
+                          "ArgumentList" : [ {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "literal" : {
+                                  "str" : "3"
+                                }
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          } ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "TypeArguments" : null,
+                      "Identifier" : "add",
+                      "ArgumentList" : [ {
+                        "ExpressionName" : {
+                          "identifier" : "player",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      } ]
+                    }
+                  } ]
+                }
+              }
+            }, {
+              "Expression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "TypeName" : {
+                      "identifier" : "player",
+                      "prev" : null
+                    },
+                    "TypeArguments" : null,
+                    "Identifier" : "isShortStopPos",
+                    "ArgumentList" : [ ]
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "StatementExpression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeName" : {
+                            "identifier" : "playerLists",
+                            "prev" : null
+                          },
+                          "TypeArguments" : null,
+                          "Identifier" : "get",
+                          "ArgumentList" : [ {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "literal" : {
+                                  "str" : "4"
+                                }
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          } ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "TypeArguments" : null,
+                      "Identifier" : "add",
+                      "ArgumentList" : [ {
+                        "ExpressionName" : {
+                          "identifier" : "player",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      } ]
+                    }
+                  } ]
+                }
+              }
+            }, {
+              "Expression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "TypeName" : {
+                      "identifier" : "player",
+                      "prev" : null
+                    },
+                    "TypeArguments" : null,
+                    "Identifier" : "isRightFielderPos",
+                    "ArgumentList" : [ ]
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "StatementExpression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeName" : {
+                            "identifier" : "playerLists",
+                            "prev" : null
+                          },
+                          "TypeArguments" : null,
+                          "Identifier" : "get",
+                          "ArgumentList" : [ {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "literal" : {
+                                  "str" : "5"
+                                }
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          } ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "TypeArguments" : null,
+                      "Identifier" : "add",
+                      "ArgumentList" : [ {
+                        "ExpressionName" : {
+                          "identifier" : "player",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      } ]
+                    }
+                  } ]
+                }
+              }
+            }, {
+              "Expression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "TypeName" : {
+                      "identifier" : "player",
+                      "prev" : null
+                    },
+                    "TypeArguments" : null,
+                    "Identifier" : "isCenterFielderPos",
+                    "ArgumentList" : [ ]
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "StatementExpression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeName" : {
+                            "identifier" : "playerLists",
+                            "prev" : null
+                          },
+                          "TypeArguments" : null,
+                          "Identifier" : "get",
+                          "ArgumentList" : [ {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "literal" : {
+                                  "str" : "6"
+                                }
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          } ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "TypeArguments" : null,
+                      "Identifier" : "add",
+                      "ArgumentList" : [ {
+                        "ExpressionName" : {
+                          "identifier" : "player",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      } ]
+                    }
+                  } ]
+                }
+              }
+            }, {
+              "Expression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "TypeName" : {
+                      "identifier" : "player",
+                      "prev" : null
+                    },
+                    "TypeArguments" : null,
+                    "Identifier" : "isLeftFielderPos",
+                    "ArgumentList" : [ ]
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "StatementExpression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeName" : {
+                            "identifier" : "playerLists",
+                            "prev" : null
+                          },
+                          "TypeArguments" : null,
+                          "Identifier" : "get",
+                          "ArgumentList" : [ {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "literal" : {
+                                  "str" : "7"
+                                }
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          } ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "TypeArguments" : null,
+                      "Identifier" : "add",
+                      "ArgumentList" : [ {
+                        "ExpressionName" : {
+                          "identifier" : "player",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      } ]
+                    }
+                  } ]
+                }
+              }
+            }, {
+              "Expression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "TypeName" : {
+                      "identifier" : "player",
+                      "prev" : null
+                    },
+                    "TypeArguments" : null,
+                    "Identifier" : "isDesignatedHitterPos",
+                    "ArgumentList" : [ ]
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "StatementExpression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeName" : {
+                            "identifier" : "playerLists",
+                            "prev" : null
+                          },
+                          "TypeArguments" : null,
+                          "Identifier" : "get",
+                          "ArgumentList" : [ {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "literal" : {
+                                  "str" : "8"
+                                }
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          } ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "TypeArguments" : null,
+                      "Identifier" : "add",
+                      "ArgumentList" : [ {
+                        "ExpressionName" : {
+                          "identifier" : "player",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      } ]
+                    }
+                  } ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 1,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "UnannArrayable" : {
+                "UnannUnitClassOrInterfaceType" : {
+                  "Identifier" : "Player",
+                  "TypeArgumentList" : [ ]
+                },
+                "UnannClassOrInterfaceType" : [ ],
+                "isInterface" : false
+              },
+              "Dims" : {
+                "AnnotationListList" : [ [ ], [ ] ]
+              }
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "findBestTeam",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "skPlayerPosition",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "UnannArrayable" : {
+                    "Primitive" : "BOOLEAN"
+                  },
+                  "Dims" : {
+                    "AnnotationListList" : [ [ ], [ ] ]
+                  }
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "posBitMask",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "ArrayCreationExpression" : {
+                          "PrimitiveType" : {
+                            "AnnotationList" : [ ],
+                            "Type" : "BOOLEAN"
+                          },
+                          "DimExprList" : [ {
+                            "AnnotationList" : [ ],
+                            "Expression" : {
+                              "Primary" : {
+                                "DefaultArrayLfnoPrimary" : {
+                                  "literal" : {
+                                    "str" : "9"
+                                  }
+                                },
+                                "DefaultArrayLfPrimaryList" : [ ]
+                              },
+                              "IsPlusList" : [ ]
+                            }
+                          } ],
+                          "Dims" : null
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "INT"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "skCnt",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "0"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "INT"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "positionMask",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "0b000000001"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "ForInit" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "INT"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "i",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "0"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              },
+              "ForCondition" : {
+                "RelationalExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "i",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "ShiftExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "length",
+                    "prev" : {
+                      "identifier" : "posBitMask",
+                      "prev" : null
+                    }
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "StatementExpressionList" : {
+                "StatementExpressionList" : [ ]
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "Expression" : {
+                      "EqualityExpression" : {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "Expression" : {
+                              "AndExpression" : {
+                                "ExpressionName" : {
+                                  "identifier" : "skPlayerPosition",
+                                  "prev" : null
+                                },
+                                "IsPlusList" : [ ]
+                              },
+                              "EqualityExpression" : {
+                                "ExpressionName" : {
+                                  "identifier" : "positionMask",
+                                  "prev" : null
+                                },
+                                "IsPlusList" : [ ]
+                              }
+                            }
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      },
+                      "RelationalExpression" : {
+                        "ExpressionName" : {
+                          "identifier" : "positionMask",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    },
+                    "StatementNoShortIf" : {
+                      "BlockStatements" : {
+                        "BlockStatementList" : [ {
+                          "StatementExpression" : {
+                            "LeftHandSide" : {
+                              "ExpressionName" : {
+                                "identifier" : "posBitMask",
+                                "prev" : null
+                              },
+                              "Expression" : {
+                                "ExpressionName" : {
+                                  "identifier" : "i",
+                                  "prev" : null
+                                },
+                                "IsPlusList" : [ ]
+                              },
+                              "ExpressionList" : [ ]
+                            },
+                            "AssignmentOperator" : "=",
+                            "Expression" : {
+                              "Primary" : {
+                                "DefaultArrayLfnoPrimary" : {
+                                  "literal" : {
+                                    "str" : "true"
+                                  }
+                                },
+                                "DefaultArrayLfPrimaryList" : [ ]
+                              },
+                              "IsPlusList" : [ ]
+                            }
+                          }
+                        }, {
+                          "StatementExpression" : {
+                            "PostfixExpression" : {
+                              "ExpressionName" : {
+                                "identifier" : "skCnt",
+                                "prev" : null
+                              },
+                              "IsPlusList" : [ ]
+                            }
+                          }
+                        } ]
+                      }
+                    },
+                    "Statement" : {
+                      "BlockStatements" : {
+                        "BlockStatementList" : [ {
+                          "StatementExpression" : {
+                            "LeftHandSide" : {
+                              "ExpressionName" : {
+                                "identifier" : "posBitMask",
+                                "prev" : null
+                              },
+                              "Expression" : {
+                                "ExpressionName" : {
+                                  "identifier" : "i",
+                                  "prev" : null
+                                },
+                                "IsPlusList" : [ ]
+                              },
+                              "ExpressionList" : [ ]
+                            },
+                            "AssignmentOperator" : "=",
+                            "Expression" : {
+                              "Primary" : {
+                                "DefaultArrayLfnoPrimary" : {
+                                  "literal" : {
+                                    "str" : "false"
+                                  }
+                                },
+                                "DefaultArrayLfPrimaryList" : [ ]
+                              },
+                              "IsPlusList" : [ ]
+                            }
+                          }
+                        } ]
+                      }
+                    }
+                  }, {
+                    "StatementExpression" : {
+                      "LeftHandSide" : {
+                        "identifier" : "positionMask",
+                        "prev" : null
+                      },
+                      "AssignmentOperator" : "=",
+                      "Expression" : {
+                        "ShiftExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "positionMask",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "AdditiveExpression" : {
+                          "Primary" : {
+                            "DefaultArrayLfnoPrimary" : {
+                              "literal" : {
+                                "str" : "1"
+                              }
+                            },
+                            "DefaultArrayLfPrimaryList" : [ ]
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    }
+                  } ]
+                }
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "INT"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "nonSkCnt",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "AdditiveExpression" : {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "literal" : {
+                              "str" : "9"
+                            }
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      },
+                      "MultiplicativeExpression" : {
+                        "ExpressionName" : {
+                          "identifier" : "skCnt",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "Expression" : {
+                "RelationalExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "skCnt",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "ShiftExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "3"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "null"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  } ]
+                }
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "UnannUnitClassOrInterfaceType" : {
+                    "Identifier" : "List",
+                    "TypeArgumentList" : [ {
+                      "Arguable" : {
+                        "UnitClassOrInterfaceType" : {
+                          "AnnotationList" : [ ],
+                          "Identifier" : "List",
+                          "TypeArgumentList" : [ {
+                            "Arguable" : {
+                              "UnitClassOrInterfaceType" : {
+                                "AnnotationList" : [ ],
+                                "Identifier" : "Player",
+                                "TypeArgumentList" : [ ]
+                              },
+                              "ClassOrInterfaceType" : [ ],
+                              "isInterface" : false
+                            }
+                          } ]
+                        },
+                        "ClassOrInterfaceType" : [ ],
+                        "isInterface" : false
+                      }
+                    } ]
+                  },
+                  "UnannClassOrInterfaceType" : [ ],
+                  "isInterface" : false
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "skCandidateEntries",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeArgumentList" : [ ],
+                          "AnnotationListList" : [ [ ] ],
+                          "IdentifierList" : [ "newArrayList<>()" ],
+                          "TypeArgumentsOrDiamond" : { },
+                          "ArgumentList" : [ ],
+                          "ClassBody" : [ ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "UnannUnitClassOrInterfaceType" : {
+                    "Identifier" : "List",
+                    "TypeArgumentList" : [ {
+                      "Arguable" : {
+                        "UnitClassOrInterfaceType" : {
+                          "AnnotationList" : [ ],
+                          "Identifier" : "List",
+                          "TypeArgumentList" : [ {
+                            "Arguable" : {
+                              "UnitClassOrInterfaceType" : {
+                                "AnnotationList" : [ ],
+                                "Identifier" : "Player",
+                                "TypeArgumentList" : [ ]
+                              },
+                              "ClassOrInterfaceType" : [ ],
+                              "isInterface" : false
+                            }
+                          } ]
+                        },
+                        "ClassOrInterfaceType" : [ ],
+                        "isInterface" : false
+                      }
+                    } ]
+                  },
+                  "UnannClassOrInterfaceType" : [ ],
+                  "isInterface" : false
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "nonSkCandidateEntries",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeArgumentList" : [ ],
+                          "AnnotationListList" : [ [ ] ],
+                          "IdentifierList" : [ "newArrayList<>()" ],
+                          "TypeArgumentsOrDiamond" : { },
+                          "ArgumentList" : [ ],
+                          "ClassBody" : [ ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "ForInit" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "INT"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "pos",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "0"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              },
+              "ForCondition" : {
+                "RelationalExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "pos",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "ShiftExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "9"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "StatementExpressionList" : {
+                "StatementExpressionList" : [ ]
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "ExpressionName" : {
+                            "identifier" : "posBitMask",
+                            "prev" : null
+                          },
+                          "Expression" : {
+                            "ExpressionName" : {
+                              "identifier" : "pos",
+                              "prev" : null
+                            },
+                            "IsPlusList" : [ ]
+                          },
+                          "ExpressionList" : [ ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    },
+                    "StatementNoShortIf" : {
+                      "BlockStatements" : {
+                        "BlockStatementList" : [ {
+                          "LocalVariableDeclaration" : {
+                            "AnnotationList" : [ ],
+                            "Modifiers" : 0,
+                            "UnannType" : {
+                              "UnannUnitClassOrInterfaceType" : {
+                                "Identifier" : "List",
+                                "TypeArgumentList" : [ {
+                                  "Arguable" : {
+                                    "UnitClassOrInterfaceType" : {
+                                      "AnnotationList" : [ ],
+                                      "Identifier" : "Player",
+                                      "TypeArgumentList" : [ ]
+                                    },
+                                    "ClassOrInterfaceType" : [ ],
+                                    "isInterface" : false
+                                  }
+                                } ]
+                              },
+                              "UnannClassOrInterfaceType" : [ ],
+                              "isInterface" : false
+                            },
+                            "VariableDeclaratorList" : [ {
+                              "VariableDeclaratorId" : {
+                                "Identifier" : "skPartialEntries",
+                                "Dims" : null
+                              },
+                              "VariableInitializer" : {
+                                "Expression" : {
+                                  "Primary" : {
+                                    "DefaultArrayLfnoPrimary" : {
+                                      "TypeName" : {
+                                        "identifier" : "skTotalEntries",
+                                        "prev" : null
+                                      },
+                                      "TypeArguments" : null,
+                                      "Identifier" : "get",
+                                      "ArgumentList" : [ {
+                                        "ExpressionName" : {
+                                          "identifier" : "pos",
+                                          "prev" : null
+                                        },
+                                        "IsPlusList" : [ ]
+                                      } ]
+                                    },
+                                    "DefaultArrayLfPrimaryList" : [ ]
+                                  },
+                                  "IsPlusList" : [ ]
+                                }
+                              }
+                            } ]
+                          }
+                        }, {
+                          "StatementExpression" : {
+                            "TypeName" : {
+                              "identifier" : "skCandidateEntries",
+                              "prev" : null
+                            },
+                            "TypeArguments" : null,
+                            "Identifier" : "add",
+                            "ArgumentList" : [ {
+                              "Primary" : {
+                                "DefaultArrayLfnoPrimary" : {
+                                  "TypeName" : {
+                                    "identifier" : "skPartialEntries",
+                                    "prev" : null
+                                  },
+                                  "TypeArguments" : null,
+                                  "Identifier" : "subList",
+                                  "ArgumentList" : [ {
+                                    "Primary" : {
+                                      "DefaultArrayLfnoPrimary" : {
+                                        "literal" : {
+                                          "str" : "0"
+                                        }
+                                      },
+                                      "DefaultArrayLfPrimaryList" : [ ]
+                                    },
+                                    "IsPlusList" : [ ]
+                                  }, {
+                                    "ConditionalOrExpression" : {
+                                      "Primary" : {
+                                        "DefaultArrayLfnoPrimary" : {
+                                          "Expression" : {
+                                            "RelationalExpression" : {
+                                              "ExpressionName" : {
+                                                "identifier" : "skCnt",
+                                                "prev" : null
+                                              },
+                                              "IsPlusList" : [ ]
+                                            },
+                                            "ShiftExpression" : {
+                                              "Primary" : {
+                                                "DefaultArrayLfnoPrimary" : {
+                                                  "TypeName" : {
+                                                    "identifier" : "skPartialEntries",
+                                                    "prev" : null
+                                                  },
+                                                  "TypeArguments" : null,
+                                                  "Identifier" : "size",
+                                                  "ArgumentList" : [ ]
+                                                },
+                                                "DefaultArrayLfPrimaryList" : [ ]
+                                              },
+                                              "IsPlusList" : [ ]
+                                            }
+                                          }
+                                        },
+                                        "DefaultArrayLfPrimaryList" : [ ]
+                                      },
+                                      "IsPlusList" : [ ]
+                                    },
+                                    "Expression" : {
+                                      "ExpressionName" : {
+                                        "identifier" : "skCnt",
+                                        "prev" : null
+                                      },
+                                      "IsPlusList" : [ ]
+                                    },
+                                    "ConditionalExpression" : {
+                                      "Primary" : {
+                                        "DefaultArrayLfnoPrimary" : {
+                                          "TypeName" : {
+                                            "identifier" : "skPartialEntries",
+                                            "prev" : null
+                                          },
+                                          "TypeArguments" : null,
+                                          "Identifier" : "size",
+                                          "ArgumentList" : [ ]
+                                        },
+                                        "DefaultArrayLfPrimaryList" : [ ]
+                                      },
+                                      "IsPlusList" : [ ]
+                                    }
+                                  } ]
+                                },
+                                "DefaultArrayLfPrimaryList" : [ ]
+                              },
+                              "IsPlusList" : [ ]
+                            } ]
+                          }
+                        } ]
+                      }
+                    },
+                    "Statement" : {
+                      "BlockStatements" : {
+                        "BlockStatementList" : [ {
+                          "LocalVariableDeclaration" : {
+                            "AnnotationList" : [ ],
+                            "Modifiers" : 0,
+                            "UnannType" : {
+                              "UnannUnitClassOrInterfaceType" : {
+                                "Identifier" : "List",
+                                "TypeArgumentList" : [ {
+                                  "Arguable" : {
+                                    "UnitClassOrInterfaceType" : {
+                                      "AnnotationList" : [ ],
+                                      "Identifier" : "Player",
+                                      "TypeArgumentList" : [ ]
+                                    },
+                                    "ClassOrInterfaceType" : [ ],
+                                    "isInterface" : false
+                                  }
+                                } ]
+                              },
+                              "UnannClassOrInterfaceType" : [ ],
+                              "isInterface" : false
+                            },
+                            "VariableDeclaratorList" : [ {
+                              "VariableDeclaratorId" : {
+                                "Identifier" : "nonSkPartialEntries",
+                                "Dims" : null
+                              },
+                              "VariableInitializer" : {
+                                "Expression" : {
+                                  "Primary" : {
+                                    "DefaultArrayLfnoPrimary" : {
+                                      "TypeName" : {
+                                        "identifier" : "nonSkTotalEntries",
+                                        "prev" : null
+                                      },
+                                      "TypeArguments" : null,
+                                      "Identifier" : "get",
+                                      "ArgumentList" : [ {
+                                        "ExpressionName" : {
+                                          "identifier" : "pos",
+                                          "prev" : null
+                                        },
+                                        "IsPlusList" : [ ]
+                                      } ]
+                                    },
+                                    "DefaultArrayLfPrimaryList" : [ ]
+                                  },
+                                  "IsPlusList" : [ ]
+                                }
+                              }
+                            } ]
+                          }
+                        }, {
+                          "StatementExpression" : {
+                            "TypeName" : {
+                              "identifier" : "nonSkCandidateEntries",
+                              "prev" : null
+                            },
+                            "TypeArguments" : null,
+                            "Identifier" : "add",
+                            "ArgumentList" : [ {
+                              "Primary" : {
+                                "DefaultArrayLfnoPrimary" : {
+                                  "TypeName" : {
+                                    "identifier" : "nonSkPartialEntries",
+                                    "prev" : null
+                                  },
+                                  "TypeArguments" : null,
+                                  "Identifier" : "subList",
+                                  "ArgumentList" : [ {
+                                    "Primary" : {
+                                      "DefaultArrayLfnoPrimary" : {
+                                        "literal" : {
+                                          "str" : "0"
+                                        }
+                                      },
+                                      "DefaultArrayLfPrimaryList" : [ ]
+                                    },
+                                    "IsPlusList" : [ ]
+                                  }, {
+                                    "ConditionalOrExpression" : {
+                                      "Primary" : {
+                                        "DefaultArrayLfnoPrimary" : {
+                                          "Expression" : {
+                                            "RelationalExpression" : {
+                                              "ExpressionName" : {
+                                                "identifier" : "nonSkCnt",
+                                                "prev" : null
+                                              },
+                                              "IsPlusList" : [ ]
+                                            },
+                                            "ShiftExpression" : {
+                                              "Primary" : {
+                                                "DefaultArrayLfnoPrimary" : {
+                                                  "TypeName" : {
+                                                    "identifier" : "nonSkPartialEntries",
+                                                    "prev" : null
+                                                  },
+                                                  "TypeArguments" : null,
+                                                  "Identifier" : "size",
+                                                  "ArgumentList" : [ ]
+                                                },
+                                                "DefaultArrayLfPrimaryList" : [ ]
+                                              },
+                                              "IsPlusList" : [ ]
+                                            }
+                                          }
+                                        },
+                                        "DefaultArrayLfPrimaryList" : [ ]
+                                      },
+                                      "IsPlusList" : [ ]
+                                    },
+                                    "Expression" : {
+                                      "ExpressionName" : {
+                                        "identifier" : "nonSkCnt",
+                                        "prev" : null
+                                      },
+                                      "IsPlusList" : [ ]
+                                    },
+                                    "ConditionalExpression" : {
+                                      "Primary" : {
+                                        "DefaultArrayLfnoPrimary" : {
+                                          "TypeName" : {
+                                            "identifier" : "nonSkPartialEntries",
+                                            "prev" : null
+                                          },
+                                          "TypeArguments" : null,
+                                          "Identifier" : "size",
+                                          "ArgumentList" : [ ]
+                                        },
+                                        "DefaultArrayLfPrimaryList" : [ ]
+                                      },
+                                      "IsPlusList" : [ ]
+                                    }
+                                  } ]
+                                },
+                                "DefaultArrayLfPrimaryList" : [ ]
+                              },
+                              "IsPlusList" : [ ]
+                            } ]
+                          }
+                        } ]
+                      }
+                    }
+                  } ]
+                }
+              }
+            }, {
+              "StatementExpression" : {
+                "MethodName" : {
+                  "identifier" : "findBestPartialTeam"
+                },
+                "ArgumentList" : [ {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }, {
+                  "Primary" : {
+                    "ArrayCreationExpression" : {
+                      "ClassOrInterfaceType" : {
+                        "UnitClassOrInterfaceType" : {
+                          "AnnotationList" : [ ],
+                          "Identifier" : "Player",
+                          "TypeArgumentList" : [ ]
+                        },
+                        "ClassOrInterfaceType" : [ ],
+                        "isInterface" : false
+                      },
+                      "DimExprList" : [ {
+                        "AnnotationList" : [ ],
+                        "Expression" : {
+                          "ExpressionName" : {
+                            "identifier" : "skCnt",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      } ],
+                      "Dims" : null
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }, {
+                  "ExpressionName" : {
+                    "identifier" : "skCandidateEntries",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "UnannArrayable" : {
+                    "UnannUnitClassOrInterfaceType" : {
+                      "Identifier" : "Player",
+                      "TypeArgumentList" : [ ]
+                    },
+                    "UnannClassOrInterfaceType" : [ ],
+                    "isInterface" : false
+                  },
+                  "Dims" : {
+                    "AnnotationListList" : [ [ ], [ ] ]
+                  }
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "skBestPlayer",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeName" : {
+                            "identifier" : "Arrays",
+                            "prev" : null
+                          },
+                          "TypeArguments" : null,
+                          "Identifier" : "copyOf",
+                          "ArgumentList" : [ {
+                            "ExpressionName" : {
+                              "identifier" : "partialBestEntries",
+                              "prev" : null
+                            },
+                            "IsPlusList" : [ ]
+                          }, {
+                            "ExpressionName" : {
+                              "identifier" : "length",
+                              "prev" : {
+                                "identifier" : "partialBestEntries",
+                                "prev" : null
+                              }
+                            },
+                            "IsPlusList" : [ ]
+                          } ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "StatementExpression" : {
+                "MethodName" : {
+                  "identifier" : "findBestPartialTeam"
+                },
+                "ArgumentList" : [ {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }, {
+                  "Primary" : {
+                    "ArrayCreationExpression" : {
+                      "ClassOrInterfaceType" : {
+                        "UnitClassOrInterfaceType" : {
+                          "AnnotationList" : [ ],
+                          "Identifier" : "Player",
+                          "TypeArgumentList" : [ ]
+                        },
+                        "ClassOrInterfaceType" : [ ],
+                        "isInterface" : false
+                      },
+                      "DimExprList" : [ {
+                        "AnnotationList" : [ ],
+                        "Expression" : {
+                          "ExpressionName" : {
+                            "identifier" : "nonSkCnt",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      } ],
+                      "Dims" : null
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }, {
+                  "ExpressionName" : {
+                    "identifier" : "nonSkCandidateEntries",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "UnannArrayable" : {
+                    "UnannUnitClassOrInterfaceType" : {
+                      "Identifier" : "Player",
+                      "TypeArgumentList" : [ ]
+                    },
+                    "UnannClassOrInterfaceType" : [ ],
+                    "isInterface" : false
+                  },
+                  "Dims" : {
+                    "AnnotationListList" : [ [ ], [ ] ]
+                  }
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "nonSkBestPlayer",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeName" : {
+                            "identifier" : "Arrays",
+                            "prev" : null
+                          },
+                          "TypeArguments" : null,
+                          "Identifier" : "copyOf",
+                          "ArgumentList" : [ {
+                            "ExpressionName" : {
+                              "identifier" : "partialBestEntries",
+                              "prev" : null
+                            },
+                            "IsPlusList" : [ ]
+                          }, {
+                            "ExpressionName" : {
+                              "identifier" : "length",
+                              "prev" : {
+                                "identifier" : "partialBestEntries",
+                                "prev" : null
+                              }
+                            },
+                            "IsPlusList" : [ ]
+                          } ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "INT"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "skCnt2",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "0"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "INT"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "nonSkCnt2",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "0"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "UnannArrayable" : {
+                    "UnannUnitClassOrInterfaceType" : {
+                      "Identifier" : "Player",
+                      "TypeArgumentList" : [ ]
+                    },
+                    "UnannClassOrInterfaceType" : [ ],
+                    "isInterface" : false
+                  },
+                  "Dims" : {
+                    "AnnotationListList" : [ [ ], [ ] ]
+                  }
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "localBestTeam",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "ArrayCreationExpression" : {
+                          "ClassOrInterfaceType" : {
+                            "UnitClassOrInterfaceType" : {
+                              "AnnotationList" : [ ],
+                              "Identifier" : "Player",
+                              "TypeArgumentList" : [ ]
+                            },
+                            "ClassOrInterfaceType" : [ ],
+                            "isInterface" : false
+                          },
+                          "DimExprList" : [ {
+                            "AnnotationList" : [ ],
+                            "Expression" : {
+                              "Primary" : {
+                                "DefaultArrayLfnoPrimary" : {
+                                  "literal" : {
+                                    "str" : "9"
+                                  }
+                                },
+                                "DefaultArrayLfPrimaryList" : [ ]
+                              },
+                              "IsPlusList" : [ ]
+                            }
+                          } ],
+                          "Dims" : null
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "ForInit" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "INT"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "pos",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "0"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              },
+              "ForCondition" : {
+                "RelationalExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "pos",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "ShiftExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "9"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "StatementExpressionList" : {
+                "StatementExpressionList" : [ ]
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "ExpressionName" : {
+                            "identifier" : "posBitMask",
+                            "prev" : null
+                          },
+                          "Expression" : {
+                            "ExpressionName" : {
+                              "identifier" : "pos",
+                              "prev" : null
+                            },
+                            "IsPlusList" : [ ]
+                          },
+                          "ExpressionList" : [ ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    },
+                    "StatementNoShortIf" : {
+                      "BlockStatements" : {
+                        "BlockStatementList" : [ {
+                          "LocalVariableDeclaration" : {
+                            "AnnotationList" : [ ],
+                            "Modifiers" : 0,
+                            "UnannType" : {
+                              "UnannUnitClassOrInterfaceType" : {
+                                "Identifier" : "Player",
+                                "TypeArgumentList" : [ ]
+                              },
+                              "UnannClassOrInterfaceType" : [ ],
+                              "isInterface" : false
+                            },
+                            "VariableDeclaratorList" : [ {
+                              "VariableDeclaratorId" : {
+                                "Identifier" : "skPlayer",
+                                "Dims" : null
+                              },
+                              "VariableInitializer" : {
+                                "Expression" : {
+                                  "Primary" : {
+                                    "DefaultArrayLfnoPrimary" : {
+                                      "ExpressionName" : {
+                                        "identifier" : "skBestPlayer",
+                                        "prev" : null
+                                      },
+                                      "Expression" : {
+                                        "ExpressionName" : {
+                                          "identifier" : "skCnt2",
+                                          "prev" : null
+                                        },
+                                        "IsPlusList" : [ true ]
+                                      },
+                                      "ExpressionList" : [ ]
+                                    },
+                                    "DefaultArrayLfPrimaryList" : [ ]
+                                  },
+                                  "IsPlusList" : [ ]
+                                }
+                              }
+                            } ]
+                          }
+                        }, {
+                          "StatementExpression" : {
+                            "LeftHandSide" : {
+                              "ExpressionName" : {
+                                "identifier" : "localBestTeam",
+                                "prev" : null
+                              },
+                              "Expression" : {
+                                "ExpressionName" : {
+                                  "identifier" : "pos",
+                                  "prev" : null
+                                },
+                                "IsPlusList" : [ ]
+                              },
+                              "ExpressionList" : [ ]
+                            },
+                            "AssignmentOperator" : "=",
+                            "Expression" : {
+                              "ExpressionName" : {
+                                "identifier" : "skPlayer",
+                                "prev" : null
+                              },
+                              "IsPlusList" : [ ]
+                            }
+                          }
+                        } ]
+                      }
+                    },
+                    "Statement" : {
+                      "BlockStatements" : {
+                        "BlockStatementList" : [ {
+                          "LocalVariableDeclaration" : {
+                            "AnnotationList" : [ ],
+                            "Modifiers" : 0,
+                            "UnannType" : {
+                              "UnannUnitClassOrInterfaceType" : {
+                                "Identifier" : "Player",
+                                "TypeArgumentList" : [ ]
+                              },
+                              "UnannClassOrInterfaceType" : [ ],
+                              "isInterface" : false
+                            },
+                            "VariableDeclaratorList" : [ {
+                              "VariableDeclaratorId" : {
+                                "Identifier" : "nonSkPlayer",
+                                "Dims" : null
+                              },
+                              "VariableInitializer" : {
+                                "Expression" : {
+                                  "Primary" : {
+                                    "DefaultArrayLfnoPrimary" : {
+                                      "ExpressionName" : {
+                                        "identifier" : "nonSkBestPlayer",
+                                        "prev" : null
+                                      },
+                                      "Expression" : {
+                                        "ExpressionName" : {
+                                          "identifier" : "nonSkCnt2",
+                                          "prev" : null
+                                        },
+                                        "IsPlusList" : [ true ]
+                                      },
+                                      "ExpressionList" : [ ]
+                                    },
+                                    "DefaultArrayLfPrimaryList" : [ ]
+                                  },
+                                  "IsPlusList" : [ ]
+                                }
+                              }
+                            } ]
+                          }
+                        }, {
+                          "StatementExpression" : {
+                            "LeftHandSide" : {
+                              "ExpressionName" : {
+                                "identifier" : "localBestTeam",
+                                "prev" : null
+                              },
+                              "Expression" : {
+                                "ExpressionName" : {
+                                  "identifier" : "pos",
+                                  "prev" : null
+                                },
+                                "IsPlusList" : [ ]
+                              },
+                              "ExpressionList" : [ ]
+                            },
+                            "AssignmentOperator" : "=",
+                            "Expression" : {
+                              "ExpressionName" : {
+                                "identifier" : "nonSkPlayer",
+                                "prev" : null
+                              },
+                              "IsPlusList" : [ ]
+                            }
+                          }
+                        } ]
+                      }
+                    }
+                  } ]
+                }
+              }
+            }, {
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "localBestTeam",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 2,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "partialMaxRating",
+            "Dims" : null
+          },
+          "VariableInitializer" : null
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 2,
+        "UnannType" : {
+          "UnannArrayable" : {
+            "UnannUnitClassOrInterfaceType" : {
+              "Identifier" : "Player",
+              "TypeArgumentList" : [ ]
+            },
+            "UnannClassOrInterfaceType" : [ ],
+            "isInterface" : false
+          },
+          "Dims" : {
+            "AnnotationListList" : [ [ ], [ ] ]
+          }
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "partialBestEntries",
+            "Dims" : null
+          },
+          "VariableInitializer" : null
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 2,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : null
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "findBestPartialTeam",
+            "FormalParameters" : {
+              "ParameterList" : [ {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "INT"
+                },
+                "VariableDeclaratorId" : {
+                  "Identifier" : "pos",
+                  "Dims" : null
+                }
+              }, {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "UnannArrayable" : {
+                    "UnannUnitClassOrInterfaceType" : {
+                      "Identifier" : "Player",
+                      "TypeArgumentList" : [ ]
+                    },
+                    "UnannClassOrInterfaceType" : [ ],
+                    "isInterface" : false
+                  },
+                  "Dims" : {
+                    "AnnotationListList" : [ [ ], [ ] ]
+                  }
+                },
+                "VariableDeclaratorId" : {
+                  "Identifier" : "bestEntry",
+                  "Dims" : null
+                }
+              } ],
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 16,
+                  "UnannType" : {
+                    "UnannUnitClassOrInterfaceType" : {
+                      "Identifier" : "List",
+                      "TypeArgumentList" : [ {
+                        "Arguable" : {
+                          "UnitClassOrInterfaceType" : {
+                            "AnnotationList" : [ ],
+                            "Identifier" : "List",
+                            "TypeArgumentList" : [ {
+                              "Arguable" : {
+                                "UnitClassOrInterfaceType" : {
+                                  "AnnotationList" : [ ],
+                                  "Identifier" : "Player",
+                                  "TypeArgumentList" : [ ]
+                                },
+                                "ClassOrInterfaceType" : [ ],
+                                "isInterface" : false
+                              }
+                            } ]
+                          },
+                          "ClassOrInterfaceType" : [ ],
+                          "isInterface" : false
+                        }
+                      } ]
+                    },
+                    "UnannClassOrInterfaceType" : [ ],
+                    "isInterface" : false
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "candidatePool",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "pos",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "StatementExpression" : {
+                      "LeftHandSide" : {
+                        "identifier" : "partialMaxRating",
+                        "prev" : null
+                      },
+                      "AssignmentOperator" : "=",
+                      "Expression" : {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "literal" : {
+                              "str" : "0"
+                            }
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    }
+                  }, {
+                    "StatementExpression" : {
+                      "LeftHandSide" : {
+                        "identifier" : "partialBestEntries",
+                        "prev" : null
+                      },
+                      "AssignmentOperator" : "=",
+                      "Expression" : {
+                        "Primary" : {
+                          "ArrayCreationExpression" : {
+                            "ClassOrInterfaceType" : {
+                              "UnitClassOrInterfaceType" : {
+                                "AnnotationList" : [ ],
+                                "Identifier" : "Player",
+                                "TypeArgumentList" : [ ]
+                              },
+                              "ClassOrInterfaceType" : [ ],
+                              "isInterface" : false
+                            },
+                            "DimExprList" : [ {
+                              "AnnotationList" : [ ],
+                              "Expression" : {
+                                "Primary" : {
+                                  "DefaultArrayLfnoPrimary" : {
+                                    "TypeName" : {
+                                      "identifier" : "candidatePool",
+                                      "prev" : null
+                                    },
+                                    "TypeArguments" : null,
+                                    "Identifier" : "size",
+                                    "ArgumentList" : [ ]
+                                  },
+                                  "DefaultArrayLfPrimaryList" : [ ]
+                                },
+                                "IsPlusList" : [ ]
+                              }
+                            } ],
+                            "Dims" : null
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    }
+                  } ]
+                }
+              }
+            }, {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "pos",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "TypeName" : {
+                        "identifier" : "candidatePool",
+                        "prev" : null
+                      },
+                      "TypeArguments" : null,
+                      "Identifier" : "size",
+                      "ArgumentList" : [ ]
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "LocalVariableDeclaration" : {
+                      "AnnotationList" : [ ],
+                      "Modifiers" : 0,
+                      "UnannType" : {
+                        "Primitive" : "INT"
+                      },
+                      "VariableDeclaratorList" : [ {
+                        "VariableDeclaratorId" : {
+                          "Identifier" : "totalRating",
+                          "Dims" : null
+                        },
+                        "VariableInitializer" : {
+                          "Expression" : {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "literal" : {
+                                  "str" : "0"
+                                }
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          }
+                        }
+                      } ]
+                    }
+                  }, {
+                    "AnnotationList" : [ ],
+                    "Modifiers" : 0,
+                    "UnannType" : {
+                      "UnannUnitClassOrInterfaceType" : {
+                        "Identifier" : "Player",
+                        "TypeArgumentList" : [ ]
+                      },
+                      "UnannClassOrInterfaceType" : [ ],
+                      "isInterface" : false
+                    },
+                    "VariableDeclaratorId" : {
+                      "Identifier" : "player",
+                      "Dims" : null
+                    },
+                    "Expression" : {
+                      "ExpressionName" : {
+                        "identifier" : "bestEntry",
+                        "prev" : null
+                      },
+                      "IsPlusList" : [ ]
+                    },
+                    "Statement" : {
+                      "BlockStatements" : {
+                        "BlockStatementList" : [ {
+                          "StatementExpression" : {
+                            "LeftHandSide" : {
+                              "identifier" : "totalRating",
+                              "prev" : null
+                            },
+                            "AssignmentOperator" : "+=",
+                            "Expression" : {
+                              "Primary" : {
+                                "DefaultArrayLfnoPrimary" : {
+                                  "TypeName" : {
+                                    "identifier" : "player",
+                                    "prev" : null
+                                  },
+                                  "TypeArguments" : null,
+                                  "Identifier" : "getRating",
+                                  "ArgumentList" : [ ]
+                                },
+                                "DefaultArrayLfPrimaryList" : [ ]
+                              },
+                              "IsPlusList" : [ ]
+                            }
+                          }
+                        } ]
+                      }
+                    }
+                  }, {
+                    "Expression" : {
+                      "RelationalExpression" : {
+                        "ExpressionName" : {
+                          "identifier" : "totalRating",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      },
+                      "ShiftExpression" : {
+                        "ExpressionName" : {
+                          "identifier" : "partialMaxRating",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    },
+                    "Statement" : {
+                      "BlockStatements" : {
+                        "BlockStatementList" : [ {
+                          "StatementExpression" : {
+                            "LeftHandSide" : {
+                              "identifier" : "partialMaxRating",
+                              "prev" : null
+                            },
+                            "AssignmentOperator" : "=",
+                            "Expression" : {
+                              "ExpressionName" : {
+                                "identifier" : "totalRating",
+                                "prev" : null
+                              },
+                              "IsPlusList" : [ ]
+                            }
+                          }
+                        }, {
+                          "StatementExpression" : {
+                            "LeftHandSide" : {
+                              "identifier" : "partialBestEntries",
+                              "prev" : null
+                            },
+                            "AssignmentOperator" : "=",
+                            "Expression" : {
+                              "Primary" : {
+                                "DefaultArrayLfnoPrimary" : {
+                                  "TypeName" : {
+                                    "identifier" : "Arrays",
+                                    "prev" : null
+                                  },
+                                  "TypeArguments" : null,
+                                  "Identifier" : "copyOf",
+                                  "ArgumentList" : [ {
+                                    "ExpressionName" : {
+                                      "identifier" : "bestEntry",
+                                      "prev" : null
+                                    },
+                                    "IsPlusList" : [ ]
+                                  }, {
+                                    "ExpressionName" : {
+                                      "identifier" : "length",
+                                      "prev" : {
+                                        "identifier" : "bestEntry",
+                                        "prev" : null
+                                      }
+                                    },
+                                    "IsPlusList" : [ ]
+                                  } ]
+                                },
+                                "DefaultArrayLfPrimaryList" : [ ]
+                              },
+                              "IsPlusList" : [ ]
+                            }
+                          }
+                        } ]
+                      }
+                    }
+                  }, {
+                    "Expression" : null
+                  } ]
+                }
+              }
+            }, {
+              "AnnotationList" : [ ],
+              "Modifiers" : 0,
+              "UnannType" : {
+                "UnannUnitClassOrInterfaceType" : {
+                  "Identifier" : "Player",
+                  "TypeArgumentList" : [ ]
+                },
+                "UnannClassOrInterfaceType" : [ ],
+                "isInterface" : false
+              },
+              "VariableDeclaratorId" : {
+                "Identifier" : "player",
+                "Dims" : null
+              },
+              "Expression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "TypeName" : {
+                      "identifier" : "candidatePool",
+                      "prev" : null
+                    },
+                    "TypeArguments" : null,
+                    "Identifier" : "get",
+                    "ArgumentList" : [ {
+                      "ExpressionName" : {
+                        "identifier" : "pos",
+                        "prev" : null
+                      },
+                      "IsPlusList" : [ ]
+                    } ]
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "MethodName" : {
+                            "identifier" : "isUnique"
+                          },
+                          "ArgumentList" : [ {
+                            "ExpressionName" : {
+                              "identifier" : "player",
+                              "prev" : null
+                            },
+                            "IsPlusList" : [ ]
+                          }, {
+                            "ExpressionName" : {
+                              "identifier" : "bestEntry",
+                              "prev" : null
+                            },
+                            "IsPlusList" : [ ]
+                          } ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    },
+                    "StatementNoShortIf" : {
+                      "BlockStatements" : {
+                        "BlockStatementList" : [ {
+                          "StatementExpression" : {
+                            "LeftHandSide" : {
+                              "ExpressionName" : {
+                                "identifier" : "bestEntry",
+                                "prev" : null
+                              },
+                              "Expression" : {
+                                "ExpressionName" : {
+                                  "identifier" : "pos",
+                                  "prev" : null
+                                },
+                                "IsPlusList" : [ ]
+                              },
+                              "ExpressionList" : [ ]
+                            },
+                            "AssignmentOperator" : "=",
+                            "Expression" : {
+                              "ExpressionName" : {
+                                "identifier" : "player",
+                                "prev" : null
+                              },
+                              "IsPlusList" : [ ]
+                            }
+                          }
+                        } ]
+                      }
+                    },
+                    "Statement" : {
+                      "BlockStatements" : {
+                        "BlockStatementList" : [ {
+                          "Identifier" : null
+                        } ]
+                      }
+                    }
+                  }, {
+                    "StatementExpression" : {
+                      "MethodName" : {
+                        "identifier" : "findBestPartialTeam"
+                      },
+                      "ArgumentList" : [ {
+                        "AdditiveExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "pos",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "MultiplicativeExpression" : {
+                          "Primary" : {
+                            "DefaultArrayLfnoPrimary" : {
+                              "literal" : {
+                                "str" : "1"
+                              }
+                            },
+                            "DefaultArrayLfPrimaryList" : [ ]
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }, {
+                        "ExpressionName" : {
+                          "identifier" : "bestEntry",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      }, {
+                        "ExpressionName" : {
+                          "identifier" : "candidatePool",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      } ]
+                    }
+                  } ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 2,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "isUnique",
+            "FormalParameters" : {
+              "ParameterList" : [ {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "UnannUnitClassOrInterfaceType" : {
+                    "Identifier" : "Player",
+                    "TypeArgumentList" : [ ]
+                  },
+                  "UnannClassOrInterfaceType" : [ ],
+                  "isInterface" : false
+                },
+                "VariableDeclaratorId" : {
+                  "Identifier" : "player",
+                  "Dims" : null
+                }
+              } ],
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "UnannArrayable" : {
+                      "UnannUnitClassOrInterfaceType" : {
+                        "Identifier" : "Player",
+                        "TypeArgumentList" : [ ]
+                      },
+                      "UnannClassOrInterfaceType" : [ ],
+                      "isInterface" : false
+                    },
+                    "Dims" : {
+                      "AnnotationListList" : [ [ ], [ ] ]
+                    }
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "players",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "AnnotationList" : [ ],
+              "Modifiers" : 0,
+              "UnannType" : {
+                "UnannUnitClassOrInterfaceType" : {
+                  "Identifier" : "Player",
+                  "TypeArgumentList" : [ ]
+                },
+                "UnannClassOrInterfaceType" : [ ],
+                "isInterface" : false
+              },
+              "VariableDeclaratorId" : {
+                "Identifier" : "selectedPlayer",
+                "Dims" : null
+              },
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "players",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "Expression" : {
+                      "EqualityExpression" : {
+                        "ExpressionName" : {
+                          "identifier" : "player",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      },
+                      "RelationalExpression" : {
+                        "ExpressionName" : {
+                          "identifier" : "selectedPlayer",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    },
+                    "Statement" : {
+                      "BlockStatements" : {
+                        "BlockStatementList" : [ {
+                          "Expression" : {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "literal" : {
+                                  "str" : "false"
+                                }
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          }
+                        } ]
+                      }
+                    }
+                  }, {
+                    "Expression" : {
+                      "EqualityExpression" : {
+                        "ExpressionName" : {
+                          "identifier" : "selectedPlayer",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      },
+                      "RelationalExpression" : {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "literal" : {
+                              "str" : "null"
+                            }
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    },
+                    "Statement" : {
+                      "BlockStatements" : {
+                        "BlockStatementList" : [ {
+                          "Expression" : {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "literal" : {
+                                  "str" : "true"
+                                }
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          }
+                        } ]
+                      }
+                    }
+                  } ]
+                }
+              }
+            }, {
+              "Expression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "literal" : {
+                      "str" : "true"
+                    }
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 1,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "UnannUnitClassOrInterfaceType" : {
+                "Identifier" : "List",
+                "TypeArgumentList" : [ {
+                  "Arguable" : {
+                    "UnitClassOrInterfaceType" : {
+                      "AnnotationList" : [ ],
+                      "Identifier" : "Fielder",
+                      "TypeArgumentList" : [ ]
+                    },
+                    "ClassOrInterfaceType" : [ ],
+                    "isInterface" : false
+                  }
+                } ]
+              },
+              "UnannClassOrInterfaceType" : [ ],
+              "isInterface" : false
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "findBestTeam",
+            "FormalParameters" : null,
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ {
+            "Exceptionable" : {
+              "ClassOrInterfaceType" : null,
+              "AnnotaitonList" : [ ],
+              "Identifier" : "IOException",
+              "TypeArgumentList" : [ ]
+            }
+          } ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "INT"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "globalSkCnt",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "0"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "INT"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "globalMax",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "0"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "UnannArrayable" : {
+                    "UnannUnitClassOrInterfaceType" : {
+                      "Identifier" : "Player",
+                      "TypeArgumentList" : [ ]
+                    },
+                    "UnannClassOrInterfaceType" : [ ],
+                    "isInterface" : false
+                  },
+                  "Dims" : {
+                    "AnnotationListList" : [ [ ], [ ] ]
+                  }
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "globalBestPlayers",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "null"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "ForInit" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "INT"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "defPositions",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "0b000000000"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              },
+              "ForCondition" : {
+                "ReationalExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "defPositions",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "ShiftExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0b111111111"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "StatementExpressionList" : {
+                "StatementExpressionList" : [ ]
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "LocalVariableDeclaration" : {
+                      "AnnotationList" : [ ],
+                      "Modifiers" : 0,
+                      "UnannType" : {
+                        "UnannArrayable" : {
+                          "UnannUnitClassOrInterfaceType" : {
+                            "Identifier" : "Player",
+                            "TypeArgumentList" : [ ]
+                          },
+                          "UnannClassOrInterfaceType" : [ ],
+                          "isInterface" : false
+                        },
+                        "Dims" : {
+                          "AnnotationListList" : [ [ ], [ ] ]
+                        }
+                      },
+                      "VariableDeclaratorList" : [ {
+                        "VariableDeclaratorId" : {
+                          "Identifier" : "localBestPlayers",
+                          "Dims" : null
+                        },
+                        "VariableInitializer" : {
+                          "Expression" : {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "MethodName" : {
+                                  "identifier" : "findBestTeam"
+                                },
+                                "ArgumentList" : [ {
+                                  "ExpressionName" : {
+                                    "identifier" : "defPositions",
+                                    "prev" : null
+                                  },
+                                  "IsPlusList" : [ ]
+                                } ]
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          }
+                        }
+                      } ]
+                    }
+                  }, {
+                    "LocalVariableDeclaration" : {
+                      "AnnotationList" : [ ],
+                      "Modifiers" : 0,
+                      "UnannType" : {
+                        "Primitive" : "INT"
+                      },
+                      "VariableDeclaratorList" : [ {
+                        "VariableDeclaratorId" : {
+                          "Identifier" : "skCnt",
+                          "Dims" : null
+                        },
+                        "VariableInitializer" : {
+                          "Expression" : {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "literal" : {
+                                  "str" : "0"
+                                }
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          }
+                        }
+                      } ]
+                    }
+                  }, {
+                    "LocalVariableDeclaration" : {
+                      "AnnotationList" : [ ],
+                      "Modifiers" : 0,
+                      "UnannType" : {
+                        "Primitive" : "INT"
+                      },
+                      "VariableDeclaratorList" : [ {
+                        "VariableDeclaratorId" : {
+                          "Identifier" : "positionMask",
+                          "Dims" : null
+                        },
+                        "VariableInitializer" : {
+                          "Expression" : {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "literal" : {
+                                  "str" : "0b000000001"
+                                }
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          }
+                        }
+                      } ]
+                    }
+                  }, {
+                    "ForInit" : {
+                      "AnnotationList" : [ ],
+                      "Modifiers" : 0,
+                      "UnannType" : {
+                        "Primitive" : "INT"
+                      },
+                      "VariableDeclaratorList" : [ {
+                        "VariableDeclaratorId" : {
+                          "Identifier" : "i",
+                          "Dims" : null
+                        },
+                        "VariableInitializer" : {
+                          "Expression" : {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "literal" : {
+                                  "str" : "0"
+                                }
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          }
+                        }
+                      } ]
+                    },
+                    "ForCondition" : {
+                      "RelationalExpression" : {
+                        "ExpressionName" : {
+                          "identifier" : "i",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      },
+                      "ShiftExpression" : {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "literal" : {
+                              "str" : "9"
+                            }
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    },
+                    "StatementExpressionList" : {
+                      "StatementExpressionList" : [ ]
+                    },
+                    "Statement" : {
+                      "BlockStatements" : {
+                        "BlockStatementList" : [ {
+                          "Expression" : {
+                            "EqualityExpression" : {
+                              "Primary" : {
+                                "DefaultArrayLfnoPrimary" : {
+                                  "Expression" : {
+                                    "AndExpression" : {
+                                      "ExpressionName" : {
+                                        "identifier" : "defPositions",
+                                        "prev" : null
+                                      },
+                                      "IsPlusList" : [ ]
+                                    },
+                                    "EqualityExpression" : {
+                                      "ExpressionName" : {
+                                        "identifier" : "positionMask",
+                                        "prev" : null
+                                      },
+                                      "IsPlusList" : [ ]
+                                    }
+                                  }
+                                },
+                                "DefaultArrayLfPrimaryList" : [ ]
+                              },
+                              "IsPlusList" : [ ]
+                            },
+                            "RelationalExpression" : {
+                              "ExpressionName" : {
+                                "identifier" : "positionMask",
+                                "prev" : null
+                              },
+                              "IsPlusList" : [ ]
+                            }
+                          },
+                          "Statement" : {
+                            "BlockStatements" : {
+                              "BlockStatementList" : [ {
+                                "StatementExpression" : {
+                                  "PostfixExpression" : {
+                                    "ExpressionName" : {
+                                      "identifier" : "skCnt",
+                                      "prev" : null
+                                    },
+                                    "IsPlusList" : [ ]
+                                  }
+                                }
+                              } ]
+                            }
+                          }
+                        }, {
+                          "StatementExpression" : {
+                            "LeftHandSide" : {
+                              "identifier" : "positionMask",
+                              "prev" : null
+                            },
+                            "AssignmentOperator" : "=",
+                            "Expression" : {
+                              "ShiftExpression" : {
+                                "ExpressionName" : {
+                                  "identifier" : "positionMask",
+                                  "prev" : null
+                                },
+                                "IsPlusList" : [ ]
+                              },
+                              "AdditiveExpression" : {
+                                "Primary" : {
+                                  "DefaultArrayLfnoPrimary" : {
+                                    "literal" : {
+                                      "str" : "1"
+                                    }
+                                  },
+                                  "DefaultArrayLfPrimaryList" : [ ]
+                                },
+                                "IsPlusList" : [ ]
+                              }
+                            }
+                          }
+                        } ]
+                      }
+                    }
+                  }, {
+                    "LocalVariableDeclaration" : {
+                      "AnnotationList" : [ ],
+                      "Modifiers" : 0,
+                      "UnannType" : {
+                        "Primitive" : "INT"
+                      },
+                      "VariableDeclaratorList" : [ {
+                        "VariableDeclaratorId" : {
+                          "Identifier" : "localMax",
+                          "Dims" : null
+                        },
+                        "VariableInitializer" : {
+                          "Expression" : {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "literal" : {
+                                  "str" : "0"
+                                }
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          }
+                        }
+                      } ]
+                    }
+                  }, {
+                    "Expression" : {
+                      "EqualityExpression" : {
+                        "ExpressionName" : {
+                          "identifier" : "skCnt",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      },
+                      "RelationalExpression" : {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "literal" : {
+                              "str" : "9"
+                            }
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    },
+                    "StatementNoShortIf" : {
+                      "BlockStatements" : {
+                        "BlockStatementList" : [ {
+                          "StatementExpression" : {
+                            "LeftHandSide" : {
+                              "identifier" : "localMax",
+                              "prev" : null
+                            },
+                            "AssignmentOperator" : "+=",
+                            "Expression" : {
+                              "Primary" : {
+                                "DefaultArrayLfnoPrimary" : {
+                                  "literal" : {
+                                    "str" : "36"
+                                  }
+                                },
+                                "DefaultArrayLfPrimaryList" : [ ]
+                              },
+                              "IsPlusList" : [ ]
+                            }
+                          }
+                        } ]
+                      }
+                    },
+                    "Statement" : {
+                      "Expression" : {
+                        "RelationalExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "skCnt",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "ShiftExpression" : {
+                          "Primary" : {
+                            "DefaultArrayLfnoPrimary" : {
+                              "literal" : {
+                                "str" : "7"
+                              }
+                            },
+                            "DefaultArrayLfPrimaryList" : [ ]
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      },
+                      "StatementNoShortIf" : {
+                        "BlockStatements" : {
+                          "BlockStatementList" : [ {
+                            "StatementExpression" : {
+                              "LeftHandSide" : {
+                                "identifier" : "localMax",
+                                "prev" : null
+                              },
+                              "AssignmentOperator" : "+=",
+                              "Expression" : {
+                                "MultiplicativeExpression" : {
+                                  "ExpressionName" : {
+                                    "identifier" : "skCnt",
+                                    "prev" : null
+                                  },
+                                  "IsPlusList" : [ ]
+                                },
+                                "UnaryExpression" : {
+                                  "Primary" : {
+                                    "DefaultArrayLfnoPrimary" : {
+                                      "literal" : {
+                                        "str" : "2"
+                                      }
+                                    },
+                                    "DefaultArrayLfPrimaryList" : [ ]
+                                  },
+                                  "IsPlusList" : [ ]
+                                }
+                              }
+                            }
+                          } ]
+                        }
+                      },
+                      "Statement" : {
+                        "Expression" : {
+                          "RelationalExpression" : {
+                            "ExpressionName" : {
+                              "identifier" : "skCnt",
+                              "prev" : null
+                            },
+                            "IsPlusList" : [ ]
+                          },
+                          "ShiftExpression" : {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "literal" : {
+                                  "str" : "5"
+                                }
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          }
+                        },
+                        "Statement" : {
+                          "BlockStatements" : {
+                            "BlockStatementList" : [ {
+                              "StatementExpression" : {
+                                "LeftHandSide" : {
+                                  "identifier" : "localMax",
+                                  "prev" : null
+                                },
+                                "AssignmentOperator" : "+=",
+                                "Expression" : {
+                                  "ExpressionName" : {
+                                    "identifier" : "skCnt",
+                                    "prev" : null
+                                  },
+                                  "IsPlusList" : [ ]
+                                }
+                              }
+                            } ]
+                          }
+                        }
+                      }
+                    }
+                  }, {
+                    "Expression" : {
+                      "EqualityExpression" : {
+                        "ExpressionName" : {
+                          "identifier" : "localBestPlayers",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      },
+                      "RelationalExpression" : {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "literal" : {
+                              "str" : "null"
+                            }
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    },
+                    "Statement" : {
+                      "BlockStatements" : {
+                        "BlockStatementList" : [ {
+                          "AnnotationList" : [ ],
+                          "Modifiers" : 0,
+                          "UnannType" : {
+                            "UnannUnitClassOrInterfaceType" : {
+                              "Identifier" : "Player",
+                              "TypeArgumentList" : [ ]
+                            },
+                            "UnannClassOrInterfaceType" : [ ],
+                            "isInterface" : false
+                          },
+                          "VariableDeclaratorId" : {
+                            "Identifier" : "player",
+                            "Dims" : null
+                          },
+                          "Expression" : {
+                            "ExpressionName" : {
+                              "identifier" : "localBestPlayers",
+                              "prev" : null
+                            },
+                            "IsPlusList" : [ ]
+                          },
+                          "Statement" : {
+                            "BlockStatements" : {
+                              "BlockStatementList" : [ {
+                                "Expression" : {
+                                  "EqualityExpression" : {
+                                    "ExpressionName" : {
+                                      "identifier" : "player",
+                                      "prev" : null
+                                    },
+                                    "IsPlusList" : [ ]
+                                  },
+                                  "RelationalExpression" : {
+                                    "Primary" : {
+                                      "DefaultArrayLfnoPrimary" : {
+                                        "literal" : {
+                                          "str" : "null"
+                                        }
+                                      },
+                                      "DefaultArrayLfPrimaryList" : [ ]
+                                    },
+                                    "IsPlusList" : [ ]
+                                  }
+                                },
+                                "Statement" : {
+                                  "BlockStatements" : {
+                                    "BlockStatementList" : [ {
+                                      "StatementExpression" : {
+                                        "LeftHandSide" : {
+                                          "identifier" : "localMax",
+                                          "prev" : null
+                                        },
+                                        "AssignmentOperator" : "+=",
+                                        "Expression" : {
+                                          "Primary" : {
+                                            "DefaultArrayLfnoPrimary" : {
+                                              "TypeName" : {
+                                                "identifier" : "player",
+                                                "prev" : null
+                                              },
+                                              "TypeArguments" : null,
+                                              "Identifier" : "getRating",
+                                              "ArgumentList" : [ ]
+                                            },
+                                            "DefaultArrayLfPrimaryList" : [ ]
+                                          },
+                                          "IsPlusList" : [ ]
+                                        }
+                                      }
+                                    } ]
+                                  }
+                                }
+                              } ]
+                            }
+                          }
+                        } ]
+                      }
+                    }
+                  }, {
+                    "Expression" : {
+                      "RelationalExpression" : {
+                        "ExpressionName" : {
+                          "identifier" : "globalMax",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      },
+                      "ShiftExpression" : {
+                        "ExpressionName" : {
+                          "identifier" : "localMax",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    },
+                    "Statement" : {
+                      "BlockStatements" : {
+                        "BlockStatementList" : [ {
+                          "StatementExpression" : {
+                            "LeftHandSide" : {
+                              "identifier" : "globalMax",
+                              "prev" : null
+                            },
+                            "AssignmentOperator" : "=",
+                            "Expression" : {
+                              "ExpressionName" : {
+                                "identifier" : "localMax",
+                                "prev" : null
+                              },
+                              "IsPlusList" : [ ]
+                            }
+                          }
+                        }, {
+                          "StatementExpression" : {
+                            "LeftHandSide" : {
+                              "identifier" : "globalBestPlayers",
+                              "prev" : null
+                            },
+                            "AssignmentOperator" : "=",
+                            "Expression" : {
+                              "ExpressionName" : {
+                                "identifier" : "localBestPlayers",
+                                "prev" : null
+                              },
+                              "IsPlusList" : [ ]
+                            }
+                          }
+                        }, {
+                          "StatementExpression" : {
+                            "LeftHandSide" : {
+                              "identifier" : "globalSkCnt",
+                              "prev" : null
+                            },
+                            "AssignmentOperator" : "=",
+                            "Expression" : {
+                              "ExpressionName" : {
+                                "identifier" : "skCnt",
+                                "prev" : null
+                              },
+                              "IsPlusList" : [ ]
+                            }
+                          }
+                        } ]
+                      }
+                    }
+                  } ]
+                }
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "UnannUnitClassOrInterfaceType" : {
+                    "Identifier" : "File",
+                    "TypeArgumentList" : [ ]
+                  },
+                  "UnannClassOrInterfaceType" : [ ],
+                  "isInterface" : false
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "file",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeArgumentList" : [ ],
+                          "AnnotationListList" : [ [ ] ],
+                          "IdentifierList" : [ "newFile(\".\\\\src\\\\main\\\\resources\\\\player.out.desc.txt\")" ],
+                          "TypeArgumentsOrDiamond" : null,
+                          "ArgumentList" : [ {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "literal" : {
+                                  "str" : "\".\\\\src\\\\main\\\\resources\\\\player.out.desc.txt\""
+                                }
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          } ],
+                          "ClassBody" : [ ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "UnannUnitClassOrInterfaceType" : {
+                    "Identifier" : "PrintWriter",
+                    "TypeArgumentList" : [ ]
+                  },
+                  "UnannClassOrInterfaceType" : [ ],
+                  "isInterface" : false
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "printWriter",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeArgumentList" : [ ],
+                          "AnnotationListList" : [ [ ] ],
+                          "IdentifierList" : [ "newPrintWriter(file)" ],
+                          "TypeArgumentsOrDiamond" : null,
+                          "ArgumentList" : [ {
+                            "ExpressionName" : {
+                              "identifier" : "file",
+                              "prev" : null
+                            },
+                            "IsPlusList" : [ ]
+                          } ],
+                          "ClassBody" : [ ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "StatementExpression" : {
+                "TypeName" : {
+                  "identifier" : "printWriter",
+                  "prev" : null
+                },
+                "TypeArguments" : null,
+                "Identifier" : "println",
+                "ArgumentList" : [ {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "\"======== OPTIMAL SOLUTION ========\""
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                } ]
+              }
+            }, {
+              "StatementExpression" : {
+                "TypeName" : {
+                  "identifier" : "printWriter",
+                  "prev" : null
+                },
+                "TypeArguments" : null,
+                "Identifier" : "println",
+                "ArgumentList" : [ {
+                  "AdditiveExpression" : {
+                    "Primary" : {
+                      "DefaultArrayLfnoPrimary" : {
+                        "literal" : {
+                          "str" : "\"The number of sk player : \""
+                        }
+                      },
+                      "DefaultArrayLfPrimaryList" : [ ]
+                    },
+                    "IsPlusList" : [ ]
+                  },
+                  "MultiplicativeExpression" : {
+                    "ExpressionName" : {
+                      "identifier" : "globalSkCnt",
+                      "prev" : null
+                    },
+                    "IsPlusList" : [ ]
+                  }
+                } ]
+              }
+            }, {
+              "StatementExpression" : {
+                "TypeName" : {
+                  "identifier" : "printWriter",
+                  "prev" : null
+                },
+                "TypeArguments" : null,
+                "Identifier" : "println",
+                "ArgumentList" : [ {
+                  "AdditiveExpression" : {
+                    "Primary" : {
+                      "DefaultArrayLfnoPrimary" : {
+                        "literal" : {
+                          "str" : "\"Total Rating : \""
+                        }
+                      },
+                      "DefaultArrayLfPrimaryList" : [ ]
+                    },
+                    "IsPlusList" : [ ]
+                  },
+                  "MultiplicativeExpression" : {
+                    "ExpressionName" : {
+                      "identifier" : "globalMax",
+                      "prev" : null
+                    },
+                    "IsPlusList" : [ ]
+                  }
+                } ]
+              }
+            }, {
+              "StatementExpression" : {
+                "TypeName" : {
+                  "identifier" : "printWriter",
+                  "prev" : null
+                },
+                "TypeArguments" : null,
+                "Identifier" : "println",
+                "ArgumentList" : [ {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "\"========== PLAYERS INFO ==========\""
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                } ]
+              }
+            }, {
+              "AnnotationList" : [ ],
+              "Modifiers" : 0,
+              "UnannType" : {
+                "UnannUnitClassOrInterfaceType" : {
+                  "Identifier" : "Player",
+                  "TypeArgumentList" : [ ]
+                },
+                "UnannClassOrInterfaceType" : [ ],
+                "isInterface" : false
+              },
+              "VariableDeclaratorId" : {
+                "Identifier" : "player",
+                "Dims" : null
+              },
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "globalBestPlayers",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "StatementExpression" : {
+                      "TypeName" : {
+                        "identifier" : "printWriter",
+                        "prev" : null
+                      },
+                      "TypeArguments" : null,
+                      "Identifier" : "printf",
+                      "ArgumentList" : [ {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "literal" : {
+                              "str" : "\"%3s \\t %3d \\t %9s %6d\\n\""
+                            }
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      }, {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "TypeName" : {
+                              "identifier" : "player",
+                              "prev" : null
+                            },
+                            "TypeArguments" : null,
+                            "Identifier" : "getName",
+                            "ArgumentList" : [ ]
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      }, {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "TypeName" : {
+                              "identifier" : "player",
+                              "prev" : null
+                            },
+                            "TypeArguments" : null,
+                            "Identifier" : "getRating",
+                            "ArgumentList" : [ ]
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      }, {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "TypeName" : {
+                              "identifier" : "String",
+                              "prev" : null
+                            },
+                            "TypeArguments" : null,
+                            "Identifier" : "format",
+                            "ArgumentList" : [ {
+                              "Primary" : {
+                                "DefaultArrayLfnoPrimary" : {
+                                  "literal" : {
+                                    "str" : "\"%8s\""
+                                  }
+                                },
+                                "DefaultArrayLfPrimaryList" : [ ]
+                              },
+                              "IsPlusList" : [ ]
+                            }, {
+                              "Primary" : {
+                                "DefaultArrayLfnoPrimary" : {
+                                  "TypeName" : {
+                                    "identifier" : "Integer",
+                                    "prev" : null
+                                  },
+                                  "TypeArguments" : null,
+                                  "Identifier" : "toBinaryString",
+                                  "ArgumentList" : [ {
+                                    "Primary" : {
+                                      "DefaultArrayLfnoPrimary" : {
+                                        "TypeName" : {
+                                          "identifier" : "player",
+                                          "prev" : null
+                                        },
+                                        "TypeArguments" : null,
+                                        "Identifier" : "getDefPositions",
+                                        "ArgumentList" : [ ]
+                                      },
+                                      "DefaultArrayLfPrimaryList" : [ ]
+                                    },
+                                    "IsPlusList" : [ ]
+                                  } ]
+                                },
+                                "DefaultArrayLfPrimaryList" : [ ]
+                              },
+                              "IsPlusList" : [ ]
+                            } ]
+                          },
+                          "DefaultArrayLfPrimaryList" : [ {
+                            "TypeArguments" : null,
+                            "Identifier" : "replace",
+                            "ArgumentList" : [ {
+                              "Primary" : {
+                                "DefaultArrayLfnoPrimary" : {
+                                  "literal" : {
+                                    "str" : "' '"
+                                  }
+                                },
+                                "DefaultArrayLfPrimaryList" : [ ]
+                              },
+                              "IsPlusList" : [ ]
+                            }, {
+                              "Primary" : {
+                                "DefaultArrayLfnoPrimary" : {
+                                  "literal" : {
+                                    "str" : "'0'"
+                                  }
+                                },
+                                "DefaultArrayLfPrimaryList" : [ ]
+                              },
+                              "IsPlusList" : [ ]
+                            } ]
+                          } ]
+                        },
+                        "IsPlusList" : [ ]
+                      }, {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "TypeName" : {
+                              "identifier" : "player",
+                              "prev" : null
+                            },
+                            "TypeArguments" : null,
+                            "Identifier" : "getDefPositions",
+                            "ArgumentList" : [ ]
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      } ]
+                    }
+                  } ]
+                }
+              }
+            }, {
+              "StatementExpression" : {
+                "TypeName" : {
+                  "identifier" : "printWriter",
+                  "prev" : null
+                },
+                "TypeArguments" : null,
+                "Identifier" : "println",
+                "ArgumentList" : [ {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "\"==================================\""
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                } ]
+              }
+            }, {
+              "StatementExpression" : {
+                "TypeName" : {
+                  "identifier" : "printWriter",
+                  "prev" : null
+                },
+                "TypeArguments" : null,
+                "Identifier" : "close",
+                "ArgumentList" : [ ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "UnannUnitClassOrInterfaceType" : {
+                    "Identifier" : "List",
+                    "TypeArgumentList" : [ {
+                      "Arguable" : {
+                        "UnitClassOrInterfaceType" : {
+                          "AnnotationList" : [ ],
+                          "Identifier" : "Fielder",
+                          "TypeArgumentList" : [ ]
+                        },
+                        "ClassOrInterfaceType" : [ ],
+                        "isInterface" : false
+                      }
+                    } ]
+                  },
+                  "UnannClassOrInterfaceType" : [ ],
+                  "isInterface" : false
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "fielderList",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeArgumentList" : [ ],
+                          "AnnotationListList" : [ [ ] ],
+                          "IdentifierList" : [ "newArrayList<>()" ],
+                          "TypeArgumentsOrDiamond" : { },
+                          "ArgumentList" : [ ],
+                          "ClassBody" : [ ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "INT"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "pos",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "0b000000001"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "ForInit" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "INT"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "i",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "0"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              },
+              "ForCondition" : {
+                "RelationalExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "i",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "ShiftExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "9"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "StatementExpressionList" : {
+                "StatementExpressionList" : [ ]
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "StatementExpression" : {
+                      "TypeName" : {
+                        "identifier" : "fielderList",
+                        "prev" : null
+                      },
+                      "TypeArguments" : null,
+                      "Identifier" : "add",
+                      "ArgumentList" : [ {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "TypeArgumentList" : [ ],
+                            "AnnotationListList" : [ [ ] ],
+                            "IdentifierList" : [ "newFielder(globalBestPlayers[i],i+1,pos)" ],
+                            "TypeArgumentsOrDiamond" : null,
+                            "ArgumentList" : [ {
+                              "Primary" : {
+                                "DefaultArrayLfnoPrimary" : {
+                                  "ExpressionName" : {
+                                    "identifier" : "globalBestPlayers",
+                                    "prev" : null
+                                  },
+                                  "Expression" : {
+                                    "ExpressionName" : {
+                                      "identifier" : "i",
+                                      "prev" : null
+                                    },
+                                    "IsPlusList" : [ ]
+                                  },
+                                  "ExpressionList" : [ ]
+                                },
+                                "DefaultArrayLfPrimaryList" : [ ]
+                              },
+                              "IsPlusList" : [ ]
+                            }, {
+                              "AdditiveExpression" : {
+                                "ExpressionName" : {
+                                  "identifier" : "i",
+                                  "prev" : null
+                                },
+                                "IsPlusList" : [ ]
+                              },
+                              "MultiplicativeExpression" : {
+                                "Primary" : {
+                                  "DefaultArrayLfnoPrimary" : {
+                                    "literal" : {
+                                      "str" : "1"
+                                    }
+                                  },
+                                  "DefaultArrayLfPrimaryList" : [ ]
+                                },
+                                "IsPlusList" : [ ]
+                              }
+                            }, {
+                              "ExpressionName" : {
+                                "identifier" : "pos",
+                                "prev" : null
+                              },
+                              "IsPlusList" : [ ]
+                            } ],
+                            "ClassBody" : [ ]
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      } ]
+                    }
+                  }, {
+                    "StatementExpression" : {
+                      "LeftHandSide" : {
+                        "identifier" : "pos",
+                        "prev" : null
+                      },
+                      "AssignmentOperator" : "<<=",
+                      "Expression" : {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "literal" : {
+                              "str" : "1"
+                            }
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    }
+                  } ]
+                }
+              }
+            }, {
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "fielderList",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              }
+            } ]
+          }
+        }
+      }
+    } ]
+  } ]
+}

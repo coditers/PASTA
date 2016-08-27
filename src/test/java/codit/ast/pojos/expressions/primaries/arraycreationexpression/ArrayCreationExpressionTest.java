@@ -8,6 +8,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runners.Parameterized;
 
@@ -23,6 +24,7 @@ import codit.gencode.JavaParser;
 /**
  * @author Jisung Lim <iejisung@gmail.com>
  */
+@Ignore
 public class ArrayCreationExpressionTest {
 
   private static final Range RANGE = new Range(0, 1, 0, 2);

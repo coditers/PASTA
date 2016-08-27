@@ -1,0 +1,474 @@
+{
+  "PackageDeclaration" : {
+    "AnnotationList" : [ ],
+    "IdentifierList" : [ "io", "jaylim", "test" ]
+  },
+  "ImportDeclarationList" : [ ],
+  "TypeDeclarationList" : [ {
+    "AnnotationList" : [ ],
+    "Modifiers" : 1,
+    "Identifier" : "Task",
+    "TypeParameterList" : [ ],
+    "SuperClass" : null,
+    "SuperInterfaceList" : [ ],
+    "ClassBodyDeclarationList" : [ {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 1,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "INT"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "task",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "A",
+                    "Dims" : {
+                      "AnnotationListList" : [ [ ], [ ] ]
+                    }
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "SHORT"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "s",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "3"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "INT"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "i",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "3"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "LONG"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "l",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "4L"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "CHAR"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "c",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "'c'"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "UnannUnitClassOrInterfaceType" : {
+                    "Identifier" : "String",
+                    "TypeArgumentList" : [ ]
+                  },
+                  "UnannClassOrInterfaceType" : [ ],
+                  "isInterface" : false
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "s",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "\"str\""
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "BOOLEAN"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "b",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "true"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "UnannUnitClassOrInterfaceType" : {
+                    "Identifier" : "String",
+                    "TypeArgumentList" : [ ]
+                  },
+                  "UnannClassOrInterfaceType" : [ ],
+                  "isInterface" : false
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "n",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "null"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "DOUBLE"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "d",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "3.3"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "FLOAT"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "f",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "3.2f"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "INT"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "iArray",
+                    "Dims" : {
+                      "AnnotationListList" : [ [ ], [ ] ]
+                    }
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "ArrayCreationExpression" : {
+                          "PrimitiveType" : {
+                            "AnnotationList" : [ ],
+                            "Type" : "INT"
+                          },
+                          "DimExprList" : [ {
+                            "AnnotationList" : [ ],
+                            "Expression" : {
+                              "Primary" : {
+                                "DefaultArrayLfnoPrimary" : {
+                                  "literal" : {
+                                    "str" : "10"
+                                  }
+                                },
+                                "DefaultArrayLfPrimaryList" : [ ]
+                              },
+                              "IsPlusList" : [ ]
+                            }
+                          } ],
+                          "Dims" : null
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "ForInit" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "INT"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "idx",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "0"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              },
+              "ForCondition" : {
+                "RelationalExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "idx",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "ShiftExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "10"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "StatementExpressionList" : {
+                "StatementExpressionList" : [ ]
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "StatementExpression" : {
+                      "LeftHandSide" : {
+                        "ExpressionName" : {
+                          "identifier" : "iArray",
+                          "prev" : null
+                        },
+                        "Expression" : {
+                          "ExpressionName" : {
+                            "identifier" : "idx",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "ExpressionList" : [ ]
+                      },
+                      "AssignmentOperator" : "=",
+                      "Expression" : {
+                        "ExpressionName" : {
+                          "identifier" : "idx",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    }
+                  } ]
+                }
+              }
+            }, {
+              "AnnotationList" : [ ],
+              "Modifiers" : 0,
+              "UnannType" : {
+                "Primitive" : "INT"
+              },
+              "VariableDeclaratorId" : {
+                "Identifier" : "iElement",
+                "Dims" : null
+              },
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "iArray",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "StatementExpression" : {
+                      "TypeName" : {
+                        "identifier" : "out",
+                        "prev" : {
+                          "identifier" : "System",
+                          "prev" : null
+                        }
+                      },
+                      "TypeArguments" : null,
+                      "Identifier" : "println",
+                      "ArgumentList" : [ {
+                        "ExpressionName" : {
+                          "identifier" : "iElement",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      } ]
+                    }
+                  } ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    } ]
+  } ]
+}
