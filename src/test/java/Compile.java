@@ -22,7 +22,7 @@ public class Compile {
   public static void main(String[] args) {
 
     String fileName = "testcode2";
-g
+    
     BufferedReader br = null;
 
     StringBuilder stringBuilder = new StringBuilder("");
