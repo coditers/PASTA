@@ -2587,7 +2587,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     MethodHeader methodHeader = (MethodHeader) visit(ctx.methodHeader());
 
     // get Method body (block)
-    Block block = (Block) visit(ctx.methodBody().block());
+    Block block = null;
+    if(ctx.methodBody() != null && ctx.methodBody().block() != null) {
+      block = (Block) visit(ctx.methodBody().block());
+    }
 
     return new InterfaceMethodDeclaration(range, null, annotationList, modifiers, methodHeader, block);
   }

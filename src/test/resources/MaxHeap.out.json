@@ -1,0 +1,2123 @@
+{
+  "PackageDeclaration" : {
+    "AnnotationList" : [ ],
+    "IdentifierList" : [ "io", "jaylim", "study", "dsa", "binarytree", "heap" ]
+  },
+  "ImportDeclarationList" : [ {
+    "TypeName" : {
+      "identifier" : "DSutil",
+      "prev" : {
+        "identifier" : "util",
+        "prev" : {
+          "identifier" : "dsa",
+          "prev" : {
+            "identifier" : "study",
+            "prev" : {
+              "identifier" : "jaylim",
+              "prev" : {
+                "identifier" : "io",
+                "prev" : null
+              }
+            }
+          }
+        }
+      }
+    }
+  } ],
+  "TypeDeclarationList" : [ {
+    "AnnotationList" : [ ],
+    "Modifiers" : 1,
+    "Identifier" : "MaxHeap",
+    "TypeParameterList" : [ {
+      "AnnotationList" : [ ],
+      "Identifier" : "E",
+      "TypeBound" : {
+        "ClassOrInterfaceType" : {
+          "UnitClassOrInterfaceType" : {
+            "AnnotationList" : [ ],
+            "Identifier" : "Comparable",
+            "TypeArgumentList" : [ {
+              "Arguable" : {
+                "AnnotationList" : [ ],
+                "WildcardBounds" : {
+                  "ReferenceType" : {
+                    "UnitClassOrInterfaceType" : {
+                      "AnnotationList" : [ ],
+                      "Identifier" : "E",
+                      "TypeArgumentList" : [ ]
+                    },
+                    "ClassOrInterfaceType" : [ ],
+                    "isInterface" : false
+                  },
+                  "isExtends" : false
+                }
+              }
+            } ]
+          },
+          "ClassOrInterfaceType" : [ ],
+          "isInterface" : false
+        },
+        "InterfaceTypeList" : [ ]
+      }
+    } ],
+    "SuperClass" : null,
+    "SuperInterfaceList" : [ ],
+    "ClassBodyDeclarationList" : [ {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 2,
+        "UnannType" : {
+          "UnannArrayable" : {
+            "UnannUnitClassOrInterfaceType" : {
+              "Identifier" : "E",
+              "TypeArgumentList" : [ ]
+            },
+            "UnannClassOrInterfaceType" : [ ],
+            "isInterface" : false
+          },
+          "Dims" : {
+            "AnnotationListList" : [ [ ], [ ] ]
+          }
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "heap",
+            "Dims" : null
+          },
+          "VariableInitializer" : null
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 2,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "maxSize",
+            "Dims" : null
+          },
+          "VariableInitializer" : null
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 2,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "currSize",
+            "Dims" : null
+          },
+          "VariableInitializer" : null
+        } ]
+      }
+    }, {
+      "AnnotationList" : [ ],
+      "Modifiers" : 1,
+      "ConstructorDeclarator" : {
+        "TypeParameterList" : [ ],
+        "Identifier" : "MaxHeap",
+        "FormalParameterList" : {
+          "ParameterList" : [ {
+            "AnnotationList" : [ ],
+            "Modifiers" : 0,
+            "UnannType" : {
+              "UnannArrayable" : {
+                "UnannUnitClassOrInterfaceType" : {
+                  "Identifier" : "E",
+                  "TypeArgumentList" : [ ]
+                },
+                "UnannClassOrInterfaceType" : [ ],
+                "isInterface" : false
+              },
+              "Dims" : {
+                "AnnotationListList" : [ [ ], [ ] ]
+              }
+            },
+            "VariableDeclaratorId" : {
+              "Identifier" : "h",
+              "Dims" : null
+            }
+          }, {
+            "AnnotationList" : [ ],
+            "Modifiers" : 0,
+            "UnannType" : {
+              "Primitive" : "INT"
+            },
+            "VariableDeclaratorId" : {
+              "Identifier" : "curr",
+              "Dims" : null
+            }
+          } ],
+          "LastFormalParameter" : {
+            "FormalParameter" : {
+              "AnnotationList" : [ ],
+              "Modifiers" : 0,
+              "UnannType" : {
+                "Primitive" : "INT"
+              },
+              "VariableDeclaratorId" : {
+                "Identifier" : "max",
+                "Dims" : null
+              }
+            }
+          }
+        }
+      },
+      "ExceptionTypeList" : [ ],
+      "ConstructorBody" : {
+        "ExplicitConstructorInvocation" : null,
+        "BlockStatements" : {
+          "BlockStatementList" : [ {
+            "StatementExpression" : {
+              "LeftHandSide" : {
+                "identifier" : "heap",
+                "prev" : null
+              },
+              "AssignmentOperator" : "=",
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "h",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              }
+            }
+          }, {
+            "StatementExpression" : {
+              "LeftHandSide" : {
+                "identifier" : "currSize",
+                "prev" : null
+              },
+              "AssignmentOperator" : "=",
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "curr",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              }
+            }
+          }, {
+            "StatementExpression" : {
+              "LeftHandSide" : {
+                "identifier" : "maxSize",
+                "prev" : null
+              },
+              "AssignmentOperator" : "=",
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "max",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              }
+            }
+          }, {
+            "StatementExpression" : {
+              "MethodName" : {
+                "identifier" : "buildheap"
+              },
+              "ArgumentList" : [ ]
+            }
+          } ]
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 1,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "INT"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "heapSize",
+            "FormalParameters" : null,
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "currSize",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 1,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "isLeaf",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "pos",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "ConditionalAndExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "RelationalExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "pos",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "ShiftExpression" : {
+                          "MultiplicativeExpression" : {
+                            "ExpressionName" : {
+                              "identifier" : "currSize",
+                              "prev" : null
+                            },
+                            "IsPlusList" : [ ]
+                          },
+                          "UnaryExpression" : {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "literal" : {
+                                  "str" : "2"
+                                }
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          }
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "InclusiveOrExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "RelationalExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "pos",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "ShiftExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "currSize",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 1,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "INT"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "leftchild",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "pos",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "ConditionExpression" : {
+                "RelationalExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "pos",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "ShiftExpression" : {
+                  "MultiplicativeExpression" : {
+                    "ExpressionName" : {
+                      "identifier" : "currSize",
+                      "prev" : null
+                    },
+                    "IsPlusList" : [ ]
+                  },
+                  "UnaryExpression" : {
+                    "Primary" : {
+                      "DefaultArrayLfnoPrimary" : {
+                        "literal" : {
+                          "str" : "2"
+                        }
+                      },
+                      "DefaultArrayLfPrimaryList" : [ ]
+                    },
+                    "IsPlusList" : [ ]
+                  }
+                }
+              },
+              "AftermathExpression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "literal" : {
+                      "str" : "\"Position has no left child\""
+                    }
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              }
+            }, {
+              "Expression" : {
+                "AdditiveExpression" : {
+                  "MultiplicativeExpression" : {
+                    "Primary" : {
+                      "DefaultArrayLfnoPrimary" : {
+                        "literal" : {
+                          "str" : "2"
+                        }
+                      },
+                      "DefaultArrayLfPrimaryList" : [ ]
+                    },
+                    "IsPlusList" : [ ]
+                  },
+                  "UnaryExpression" : {
+                    "ExpressionName" : {
+                      "identifier" : "pos",
+                      "prev" : null
+                    },
+                    "IsPlusList" : [ ]
+                  }
+                },
+                "MultiplicativeExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "1"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 1,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "INT"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "rightchild",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "pos",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "ConditionExpression" : {
+                "RelationalExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "pos",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "ShiftExpression" : {
+                  "MultiplicativeExpression" : {
+                    "Primary" : {
+                      "DefaultArrayLfnoPrimary" : {
+                        "Expression" : {
+                          "AdditiveExpression" : {
+                            "ExpressionName" : {
+                              "identifier" : "currSize",
+                              "prev" : null
+                            },
+                            "IsPlusList" : [ ]
+                          },
+                          "MultiplicativeExpression" : {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "literal" : {
+                                  "str" : "1"
+                                }
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          }
+                        }
+                      },
+                      "DefaultArrayLfPrimaryList" : [ ]
+                    },
+                    "IsPlusList" : [ ]
+                  },
+                  "UnaryExpression" : {
+                    "Primary" : {
+                      "DefaultArrayLfnoPrimary" : {
+                        "literal" : {
+                          "str" : "2"
+                        }
+                      },
+                      "DefaultArrayLfPrimaryList" : [ ]
+                    },
+                    "IsPlusList" : [ ]
+                  }
+                }
+              },
+              "AftermathExpression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "literal" : {
+                      "str" : "\"Position has no right child\""
+                    }
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              }
+            }, {
+              "Expression" : {
+                "AdditiveExpression" : {
+                  "MultiplicativeExpression" : {
+                    "Primary" : {
+                      "DefaultArrayLfnoPrimary" : {
+                        "literal" : {
+                          "str" : "2"
+                        }
+                      },
+                      "DefaultArrayLfPrimaryList" : [ ]
+                    },
+                    "IsPlusList" : [ ]
+                  },
+                  "UnaryExpression" : {
+                    "ExpressionName" : {
+                      "identifier" : "pos",
+                      "prev" : null
+                    },
+                    "IsPlusList" : [ ]
+                  }
+                },
+                "MultiplicativeExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "2"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 1,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "INT"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "parent",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "pos",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "ConditionExpression" : {
+                "RelationalExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "pos",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "ShiftExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "AftermathExpression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "literal" : {
+                      "str" : "\"Position has no parent\""
+                    }
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              }
+            }, {
+              "Expression" : {
+                "MultiplicativeExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "AdditiveExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "pos",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "MultiplicativeExpression" : {
+                          "Primary" : {
+                            "DefaultArrayLfnoPrimary" : {
+                              "literal" : {
+                                "str" : "1"
+                              }
+                            },
+                            "DefaultArrayLfPrimaryList" : [ ]
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "UnaryExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "2"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 1,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : null
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "insert",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "UnannUnitClassOrInterfaceType" : {
+                      "Identifier" : "E",
+                      "TypeArgumentList" : [ ]
+                    },
+                    "UnannClassOrInterfaceType" : [ ],
+                    "isInterface" : false
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "val",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "ConditionExpression" : {
+                "RelationalExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "currSize",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "ShiftExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "maxSize",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "AftermathExpression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "literal" : {
+                      "str" : "\"heap is full\""
+                    }
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "INT"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "curr",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "ExpressionName" : {
+                        "identifier" : "currSize",
+                        "prev" : null
+                      },
+                      "IsPlusList" : [ true ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "StatementExpression" : {
+                "LeftHandSide" : {
+                  "ExpressionName" : {
+                    "identifier" : "heap",
+                    "prev" : null
+                  },
+                  "Expression" : {
+                    "ExpressionName" : {
+                      "identifier" : "curr",
+                      "prev" : null
+                    },
+                    "IsPlusList" : [ ]
+                  },
+                  "ExpressionList" : [ ]
+                },
+                "AssignmentOperator" : "=",
+                "Expression" : {
+                  "ExpressionName" : {
+                    "identifier" : "val",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            }, {
+              "Expression" : {
+                "ConditionalAndExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "EqualityExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "curr",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "RelationalExpression" : {
+                          "Primary" : {
+                            "DefaultArrayLfnoPrimary" : {
+                              "literal" : {
+                                "str" : "0"
+                              }
+                            },
+                            "DefaultArrayLfPrimaryList" : [ ]
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "InclusiveOrExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "RelationalExpression" : {
+                          "Primary" : {
+                            "DefaultArrayLfnoPrimary" : {
+                              "ExpressionName" : {
+                                "identifier" : "heap",
+                                "prev" : null
+                              },
+                              "Expression" : {
+                                "ExpressionName" : {
+                                  "identifier" : "curr",
+                                  "prev" : null
+                                },
+                                "IsPlusList" : [ ]
+                              },
+                              "ExpressionList" : [ ]
+                            },
+                            "DefaultArrayLfPrimaryList" : [ {
+                              "TypeArguments" : null,
+                              "Identifier" : "compareTo",
+                              "ArgumentList" : [ {
+                                "Primary" : {
+                                  "DefaultArrayLfnoPrimary" : {
+                                    "ExpressionName" : {
+                                      "identifier" : "heap",
+                                      "prev" : null
+                                    },
+                                    "Expression" : {
+                                      "Primary" : {
+                                        "DefaultArrayLfnoPrimary" : {
+                                          "MethodName" : {
+                                            "identifier" : "parent"
+                                          },
+                                          "ArgumentList" : [ {
+                                            "ExpressionName" : {
+                                              "identifier" : "curr",
+                                              "prev" : null
+                                            },
+                                            "IsPlusList" : [ ]
+                                          } ]
+                                        },
+                                        "DefaultArrayLfPrimaryList" : [ ]
+                                      },
+                                      "IsPlusList" : [ ]
+                                    },
+                                    "ExpressionList" : [ ]
+                                  },
+                                  "DefaultArrayLfPrimaryList" : [ ]
+                                },
+                                "IsPlusList" : [ ]
+                              } ]
+                            } ]
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "ShiftExpression" : {
+                          "Primary" : {
+                            "DefaultArrayLfnoPrimary" : {
+                              "literal" : {
+                                "str" : "0"
+                              }
+                            },
+                            "DefaultArrayLfPrimaryList" : [ ]
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "StatementExpression" : {
+                      "TypeName" : {
+                        "identifier" : "DSutil",
+                        "prev" : null
+                      },
+                      "TypeArguments" : null,
+                      "Identifier" : "swap",
+                      "ArgumentList" : [ {
+                        "ExpressionName" : {
+                          "identifier" : "heap",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      }, {
+                        "ExpressionName" : {
+                          "identifier" : "curr",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      }, {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "MethodName" : {
+                              "identifier" : "parent"
+                            },
+                            "ArgumentList" : [ {
+                              "ExpressionName" : {
+                                "identifier" : "curr",
+                                "prev" : null
+                              },
+                              "IsPlusList" : [ ]
+                            } ]
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      } ]
+                    }
+                  }, {
+                    "StatementExpression" : {
+                      "LeftHandSide" : {
+                        "identifier" : "curr",
+                        "prev" : null
+                      },
+                      "AssignmentOperator" : "=",
+                      "Expression" : {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "MethodName" : {
+                              "identifier" : "parent"
+                            },
+                            "ArgumentList" : [ {
+                              "ExpressionName" : {
+                                "identifier" : "curr",
+                                "prev" : null
+                              },
+                              "IsPlusList" : [ ]
+                            } ]
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    }
+                  } ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 1,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : null
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "buildheap",
+            "FormalParameters" : null,
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "ForInit" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "Primitive" : "INT"
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "i",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "AdditiveExpression" : {
+                        "MultiplicativeExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "currSize",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "UnaryExpression" : {
+                          "Primary" : {
+                            "DefaultArrayLfnoPrimary" : {
+                              "literal" : {
+                                "str" : "2"
+                              }
+                            },
+                            "DefaultArrayLfPrimaryList" : [ ]
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      },
+                      "MultiplicativeExpression" : {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "literal" : {
+                              "str" : "1"
+                            }
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    }
+                  }
+                } ]
+              },
+              "ForCondition" : {
+                "RelationalExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "i",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "ShiftExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "StatementExpressionList" : {
+                "StatementExpressionList" : [ ]
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "StatementExpression" : {
+                      "MethodName" : {
+                        "identifier" : "siftdown"
+                      },
+                      "ArgumentList" : [ {
+                        "ExpressionName" : {
+                          "identifier" : "i",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      } ]
+                    }
+                  } ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 2,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : null
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "siftdown",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "pos",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "ConditionExpression" : {
+                "ConditionalAndExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "RelationalExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "pos",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "ShiftExpression" : {
+                          "Primary" : {
+                            "DefaultArrayLfnoPrimary" : {
+                              "literal" : {
+                                "str" : "0"
+                              }
+                            },
+                            "DefaultArrayLfPrimaryList" : [ ]
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "InclusiveOrExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "RelationalExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "pos",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "ShiftExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "currSize",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "AftermathExpression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "literal" : {
+                      "str" : "\"Illegal heap position\""
+                    }
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              }
+            }, {
+              "Expression" : {
+                "UnaryExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "MethodName" : {
+                        "identifier" : "isLeaf"
+                      },
+                      "ArgumentList" : [ {
+                        "ExpressionName" : {
+                          "identifier" : "pos",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      } ]
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "LocalVariableDeclaration" : {
+                      "AnnotationList" : [ ],
+                      "Modifiers" : 0,
+                      "UnannType" : {
+                        "Primitive" : "INT"
+                      },
+                      "VariableDeclaratorList" : [ {
+                        "VariableDeclaratorId" : {
+                          "Identifier" : "j",
+                          "Dims" : null
+                        },
+                        "VariableInitializer" : {
+                          "Expression" : {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "MethodName" : {
+                                  "identifier" : "leftchild"
+                                },
+                                "ArgumentList" : [ {
+                                  "ExpressionName" : {
+                                    "identifier" : "pos",
+                                    "prev" : null
+                                  },
+                                  "IsPlusList" : [ ]
+                                } ]
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          }
+                        }
+                      } ]
+                    }
+                  }, {
+                    "Expression" : {
+                      "ConditionalAndExpression" : {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "Expression" : {
+                              "RelationalExpression" : {
+                                "ExpressionName" : {
+                                  "identifier" : "j",
+                                  "prev" : null
+                                },
+                                "IsPlusList" : [ ]
+                              },
+                              "ShiftExpression" : {
+                                "Primary" : {
+                                  "DefaultArrayLfnoPrimary" : {
+                                    "Expression" : {
+                                      "AdditiveExpression" : {
+                                        "ExpressionName" : {
+                                          "identifier" : "currSize",
+                                          "prev" : null
+                                        },
+                                        "IsPlusList" : [ ]
+                                      },
+                                      "MultiplicativeExpression" : {
+                                        "Primary" : {
+                                          "DefaultArrayLfnoPrimary" : {
+                                            "literal" : {
+                                              "str" : "1"
+                                            }
+                                          },
+                                          "DefaultArrayLfPrimaryList" : [ ]
+                                        },
+                                        "IsPlusList" : [ ]
+                                      }
+                                    }
+                                  },
+                                  "DefaultArrayLfPrimaryList" : [ ]
+                                },
+                                "IsPlusList" : [ ]
+                              }
+                            }
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      },
+                      "InclusiveOrExpression" : {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "Expression" : {
+                              "RelationalExpression" : {
+                                "Primary" : {
+                                  "DefaultArrayLfnoPrimary" : {
+                                    "ExpressionName" : {
+                                      "identifier" : "heap",
+                                      "prev" : null
+                                    },
+                                    "Expression" : {
+                                      "ExpressionName" : {
+                                        "identifier" : "j",
+                                        "prev" : null
+                                      },
+                                      "IsPlusList" : [ ]
+                                    },
+                                    "ExpressionList" : [ ]
+                                  },
+                                  "DefaultArrayLfPrimaryList" : [ {
+                                    "TypeArguments" : null,
+                                    "Identifier" : "compareTo",
+                                    "ArgumentList" : [ {
+                                      "Primary" : {
+                                        "DefaultArrayLfnoPrimary" : {
+                                          "ExpressionName" : {
+                                            "identifier" : "heap",
+                                            "prev" : null
+                                          },
+                                          "Expression" : {
+                                            "AdditiveExpression" : {
+                                              "ExpressionName" : {
+                                                "identifier" : "j",
+                                                "prev" : null
+                                              },
+                                              "IsPlusList" : [ ]
+                                            },
+                                            "MultiplicativeExpression" : {
+                                              "Primary" : {
+                                                "DefaultArrayLfnoPrimary" : {
+                                                  "literal" : {
+                                                    "str" : "1"
+                                                  }
+                                                },
+                                                "DefaultArrayLfPrimaryList" : [ ]
+                                              },
+                                              "IsPlusList" : [ ]
+                                            }
+                                          },
+                                          "ExpressionList" : [ ]
+                                        },
+                                        "DefaultArrayLfPrimaryList" : [ ]
+                                      },
+                                      "IsPlusList" : [ ]
+                                    } ]
+                                  } ]
+                                },
+                                "IsPlusList" : [ ]
+                              },
+                              "ShiftExpression" : {
+                                "Primary" : {
+                                  "DefaultArrayLfnoPrimary" : {
+                                    "literal" : {
+                                      "str" : "0"
+                                    }
+                                  },
+                                  "DefaultArrayLfPrimaryList" : [ ]
+                                },
+                                "IsPlusList" : [ ]
+                              }
+                            }
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    },
+                    "Statement" : {
+                      "BlockStatements" : {
+                        "BlockStatementList" : [ {
+                          "StatementExpression" : {
+                            "PostfixExpression" : {
+                              "ExpressionName" : {
+                                "identifier" : "j",
+                                "prev" : null
+                              },
+                              "IsPlusList" : [ ]
+                            }
+                          }
+                        } ]
+                      }
+                    }
+                  }, {
+                    "Expression" : {
+                      "RelationalExpression" : {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "ExpressionName" : {
+                              "identifier" : "heap",
+                              "prev" : null
+                            },
+                            "Expression" : {
+                              "ExpressionName" : {
+                                "identifier" : "pos",
+                                "prev" : null
+                              },
+                              "IsPlusList" : [ ]
+                            },
+                            "ExpressionList" : [ ]
+                          },
+                          "DefaultArrayLfPrimaryList" : [ {
+                            "TypeArguments" : null,
+                            "Identifier" : "compareTo",
+                            "ArgumentList" : [ {
+                              "Primary" : {
+                                "DefaultArrayLfnoPrimary" : {
+                                  "ExpressionName" : {
+                                    "identifier" : "heap",
+                                    "prev" : null
+                                  },
+                                  "Expression" : {
+                                    "ExpressionName" : {
+                                      "identifier" : "j",
+                                      "prev" : null
+                                    },
+                                    "IsPlusList" : [ ]
+                                  },
+                                  "ExpressionList" : [ ]
+                                },
+                                "DefaultArrayLfPrimaryList" : [ ]
+                              },
+                              "IsPlusList" : [ ]
+                            } ]
+                          } ]
+                        },
+                        "IsPlusList" : [ ]
+                      },
+                      "ShiftExpression" : {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "literal" : {
+                              "str" : "0"
+                            }
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    },
+                    "Statement" : {
+                      "BlockStatements" : {
+                        "BlockStatementList" : [ {
+                          "Expression" : null
+                        } ]
+                      }
+                    }
+                  }, {
+                    "StatementExpression" : {
+                      "TypeName" : {
+                        "identifier" : "DSutil",
+                        "prev" : null
+                      },
+                      "TypeArguments" : null,
+                      "Identifier" : "swap",
+                      "ArgumentList" : [ {
+                        "ExpressionName" : {
+                          "identifier" : "heap",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      }, {
+                        "ExpressionName" : {
+                          "identifier" : "pos",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      }, {
+                        "ExpressionName" : {
+                          "identifier" : "j",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      } ]
+                    }
+                  }, {
+                    "StatementExpression" : {
+                      "LeftHandSide" : {
+                        "identifier" : "pos",
+                        "prev" : null
+                      },
+                      "AssignmentOperator" : "=",
+                      "Expression" : {
+                        "ExpressionName" : {
+                          "identifier" : "j",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    }
+                  } ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 1,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "UnannUnitClassOrInterfaceType" : {
+                "Identifier" : "E",
+                "TypeArgumentList" : [ ]
+              },
+              "UnannClassOrInterfaceType" : [ ],
+              "isInterface" : false
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "removemax",
+            "FormalParameters" : null,
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "ConditionExpression" : {
+                "RelationalExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "currSize",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "ShiftExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "AftermathExpression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "literal" : {
+                      "str" : "\"Removing from empty heap\""
+                    }
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              }
+            }, {
+              "StatementExpression" : {
+                "TypeName" : {
+                  "identifier" : "DSutil",
+                  "prev" : null
+                },
+                "TypeArguments" : null,
+                "Identifier" : "swap",
+                "ArgumentList" : [ {
+                  "ExpressionName" : {
+                    "identifier" : "heap",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                }, {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }, {
+                  "UnaryExpression" : {
+                    "ExpressionName" : {
+                      "identifier" : "currSize",
+                      "prev" : null
+                    },
+                    "IsPlusList" : [ ]
+                  }
+                } ]
+              }
+            }, {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "currSize",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "StatementExpression" : {
+                      "MethodName" : {
+                        "identifier" : "siftdown"
+                      },
+                      "ArgumentList" : [ {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "literal" : {
+                              "str" : "0"
+                            }
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      } ]
+                    }
+                  } ]
+                }
+              }
+            }, {
+              "Expression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "ExpressionName" : {
+                      "identifier" : "heap",
+                      "prev" : null
+                    },
+                    "Expression" : {
+                      "ExpressionName" : {
+                        "identifier" : "currSize",
+                        "prev" : null
+                      },
+                      "IsPlusList" : [ ]
+                    },
+                    "ExpressionList" : [ ]
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 1,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "UnannUnitClassOrInterfaceType" : {
+                "Identifier" : "E",
+                "TypeArgumentList" : [ ]
+              },
+              "UnannClassOrInterfaceType" : [ ],
+              "isInterface" : false
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "remove",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "pos",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "ConditionExpression" : {
+                "ConditionalAndExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "RelationalExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "pos",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "ShiftExpression" : {
+                          "Primary" : {
+                            "DefaultArrayLfnoPrimary" : {
+                              "literal" : {
+                                "str" : "0"
+                              }
+                            },
+                            "DefaultArrayLfPrimaryList" : [ ]
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "InclusiveOrExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "RelationalExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "pos",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "ShiftExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "currSize",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "AftermathExpression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "literal" : {
+                      "str" : "\"Illegal heap position\""
+                    }
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              }
+            }, {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "pos",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "AdditiveExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "currSize",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "MultiplicativeExpression" : {
+                          "Primary" : {
+                            "DefaultArrayLfnoPrimary" : {
+                              "literal" : {
+                                "str" : "1"
+                              }
+                            },
+                            "DefaultArrayLfPrimaryList" : [ ]
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "StatementNoShortIf" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "StatementExpression" : {
+                      "PostfixExpression" : {
+                        "ExpressionName" : {
+                          "identifier" : "currSize",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    }
+                  } ]
+                }
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "StatementExpression" : {
+                      "TypeName" : {
+                        "identifier" : "DSutil",
+                        "prev" : null
+                      },
+                      "TypeArguments" : null,
+                      "Identifier" : "swap",
+                      "ArgumentList" : [ {
+                        "ExpressionName" : {
+                          "identifier" : "heap",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      }, {
+                        "ExpressionName" : {
+                          "identifier" : "pos",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      }, {
+                        "UnaryExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "currSize",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      } ]
+                    }
+                  }, {
+                    "Expression" : {
+                      "ConditionalAndExpression" : {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "Expression" : {
+                              "RelationalExpression" : {
+                                "ExpressionName" : {
+                                  "identifier" : "pos",
+                                  "prev" : null
+                                },
+                                "IsPlusList" : [ ]
+                              },
+                              "ShiftExpression" : {
+                                "Primary" : {
+                                  "DefaultArrayLfnoPrimary" : {
+                                    "literal" : {
+                                      "str" : "0"
+                                    }
+                                  },
+                                  "DefaultArrayLfPrimaryList" : [ ]
+                                },
+                                "IsPlusList" : [ ]
+                              }
+                            }
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      },
+                      "InclusiveOrExpression" : {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "Expression" : {
+                              "RelationalExpression" : {
+                                "Primary" : {
+                                  "DefaultArrayLfnoPrimary" : {
+                                    "ExpressionName" : {
+                                      "identifier" : "heap",
+                                      "prev" : null
+                                    },
+                                    "Expression" : {
+                                      "ExpressionName" : {
+                                        "identifier" : "pos",
+                                        "prev" : null
+                                      },
+                                      "IsPlusList" : [ ]
+                                    },
+                                    "ExpressionList" : [ ]
+                                  },
+                                  "DefaultArrayLfPrimaryList" : [ {
+                                    "TypeArguments" : null,
+                                    "Identifier" : "compareTo",
+                                    "ArgumentList" : [ {
+                                      "Primary" : {
+                                        "DefaultArrayLfnoPrimary" : {
+                                          "ExpressionName" : {
+                                            "identifier" : "heap",
+                                            "prev" : null
+                                          },
+                                          "Expression" : {
+                                            "Primary" : {
+                                              "DefaultArrayLfnoPrimary" : {
+                                                "MethodName" : {
+                                                  "identifier" : "parent"
+                                                },
+                                                "ArgumentList" : [ {
+                                                  "ExpressionName" : {
+                                                    "identifier" : "pos",
+                                                    "prev" : null
+                                                  },
+                                                  "IsPlusList" : [ ]
+                                                } ]
+                                              },
+                                              "DefaultArrayLfPrimaryList" : [ ]
+                                            },
+                                            "IsPlusList" : [ ]
+                                          },
+                                          "ExpressionList" : [ ]
+                                        },
+                                        "DefaultArrayLfPrimaryList" : [ ]
+                                      },
+                                      "IsPlusList" : [ ]
+                                    } ]
+                                  } ]
+                                },
+                                "IsPlusList" : [ ]
+                              },
+                              "ShiftExpression" : {
+                                "Primary" : {
+                                  "DefaultArrayLfnoPrimary" : {
+                                    "literal" : {
+                                      "str" : "0"
+                                    }
+                                  },
+                                  "DefaultArrayLfPrimaryList" : [ ]
+                                },
+                                "IsPlusList" : [ ]
+                              }
+                            }
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    },
+                    "Statement" : {
+                      "BlockStatements" : {
+                        "BlockStatementList" : [ {
+                          "StatementExpression" : {
+                            "TypeName" : {
+                              "identifier" : "DSutil",
+                              "prev" : null
+                            },
+                            "TypeArguments" : null,
+                            "Identifier" : "swap",
+                            "ArgumentList" : [ {
+                              "ExpressionName" : {
+                                "identifier" : "heap",
+                                "prev" : null
+                              },
+                              "IsPlusList" : [ ]
+                            }, {
+                              "ExpressionName" : {
+                                "identifier" : "pos",
+                                "prev" : null
+                              },
+                              "IsPlusList" : [ ]
+                            }, {
+                              "Primary" : {
+                                "DefaultArrayLfnoPrimary" : {
+                                  "MethodName" : {
+                                    "identifier" : "parent"
+                                  },
+                                  "ArgumentList" : [ {
+                                    "ExpressionName" : {
+                                      "identifier" : "pos",
+                                      "prev" : null
+                                    },
+                                    "IsPlusList" : [ ]
+                                  } ]
+                                },
+                                "DefaultArrayLfPrimaryList" : [ ]
+                              },
+                              "IsPlusList" : [ ]
+                            } ]
+                          }
+                        }, {
+                          "StatementExpression" : {
+                            "LeftHandSide" : {
+                              "identifier" : "pos",
+                              "prev" : null
+                            },
+                            "AssignmentOperator" : "=",
+                            "Expression" : {
+                              "Primary" : {
+                                "DefaultArrayLfnoPrimary" : {
+                                  "MethodName" : {
+                                    "identifier" : "parent"
+                                  },
+                                  "ArgumentList" : [ {
+                                    "ExpressionName" : {
+                                      "identifier" : "pos",
+                                      "prev" : null
+                                    },
+                                    "IsPlusList" : [ ]
+                                  } ]
+                                },
+                                "DefaultArrayLfPrimaryList" : [ ]
+                              },
+                              "IsPlusList" : [ ]
+                            }
+                          }
+                        } ]
+                      }
+                    }
+                  }, {
+                    "Expression" : {
+                      "EqualityExpression" : {
+                        "ExpressionName" : {
+                          "identifier" : "currSize",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      },
+                      "RelationalExpression" : {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "literal" : {
+                              "str" : "0"
+                            }
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    },
+                    "Statement" : {
+                      "BlockStatements" : {
+                        "BlockStatementList" : [ {
+                          "StatementExpression" : {
+                            "MethodName" : {
+                              "identifier" : "siftdown"
+                            },
+                            "ArgumentList" : [ {
+                              "ExpressionName" : {
+                                "identifier" : "pos",
+                                "prev" : null
+                              },
+                              "IsPlusList" : [ ]
+                            } ]
+                          }
+                        } ]
+                      }
+                    }
+                  } ]
+                }
+              }
+            }, {
+              "Expression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "ExpressionName" : {
+                      "identifier" : "heap",
+                      "prev" : null
+                    },
+                    "Expression" : {
+                      "ExpressionName" : {
+                        "identifier" : "currSize",
+                        "prev" : null
+                      },
+                      "IsPlusList" : [ ]
+                    },
+                    "ExpressionList" : [ ]
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              }
+            } ]
+          }
+        }
+      }
+    } ]
+  } ]
+}

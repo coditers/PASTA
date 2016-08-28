@@ -1,0 +1,99 @@
+{
+  "PackageDeclaration" : {
+    "AnnotationList" : [ ],
+    "IdentifierList" : [ "com", "estsoft", "codit", "web", "annotation" ]
+  },
+  "ImportDeclarationList" : [ {
+    "TypeName" : {
+      "identifier" : "ElementType",
+      "prev" : {
+        "identifier" : "annotation",
+        "prev" : {
+          "identifier" : "lang",
+          "prev" : {
+            "identifier" : "java",
+            "prev" : null
+          }
+        }
+      }
+    }
+  }, {
+    "TypeName" : {
+      "identifier" : "Retention",
+      "prev" : {
+        "identifier" : "annotation",
+        "prev" : {
+          "identifier" : "lang",
+          "prev" : {
+            "identifier" : "java",
+            "prev" : null
+          }
+        }
+      }
+    }
+  }, {
+    "TypeName" : {
+      "identifier" : "RetentionPolicy",
+      "prev" : {
+        "identifier" : "annotation",
+        "prev" : {
+          "identifier" : "lang",
+          "prev" : {
+            "identifier" : "java",
+            "prev" : null
+          }
+        }
+      }
+    }
+  }, {
+    "TypeName" : {
+      "identifier" : "Target",
+      "prev" : {
+        "identifier" : "annotation",
+        "prev" : {
+          "identifier" : "lang",
+          "prev" : {
+            "identifier" : "java",
+            "prev" : null
+          }
+        }
+      }
+    }
+  } ],
+  "TypeDeclarationList" : [ {
+    "AnnotationList" : [ {
+      "TypeName" : {
+        "identifier" : "Target",
+        "prev" : null
+      },
+      "ElementValue" : {
+        "ExpressionName" : {
+          "identifier" : "PARAMETER",
+          "prev" : {
+            "identifier" : "ElementType",
+            "prev" : null
+          }
+        },
+        "IsPlusList" : [ ]
+      }
+    }, {
+      "TypeName" : {
+        "identifier" : "Retention",
+        "prev" : null
+      },
+      "ElementValue" : {
+        "ExpressionName" : {
+          "identifier" : "RUNTIME",
+          "prev" : {
+            "identifier" : "RetentionPolicy",
+            "prev" : null
+          }
+        },
+        "IsPlusList" : [ ]
+      }
+    } ],
+    "Modifiers" : 1,
+    "Identifier" : "AuthClient",
+    "AnnotationTypeBody" : [ ]
+  } ]
+}

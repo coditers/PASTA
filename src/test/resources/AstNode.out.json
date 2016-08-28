@@ -1,0 +1,944 @@
+{
+  "PackageDeclaration" : {
+    "AnnotationList" : [ ],
+    "IdentifierList" : [ "codit", "ast", "pojos" ]
+  },
+  "ImportDeclarationList" : [ {
+    "TypeName" : {
+      "identifier" : "JsonIgnore",
+      "prev" : {
+        "identifier" : "annotation",
+        "prev" : {
+          "identifier" : "jackson",
+          "prev" : {
+            "identifier" : "fasterxml",
+            "prev" : {
+              "identifier" : "com",
+              "prev" : null
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "TypeName" : {
+      "identifier" : "AstBaseVisitor",
+      "prev" : {
+        "identifier" : "visitor",
+        "prev" : {
+          "identifier" : "ast",
+          "prev" : {
+            "identifier" : "codit",
+            "prev" : null
+          }
+        }
+      }
+    }
+  } ],
+  "TypeDeclarationList" : [ {
+    "AnnotationList" : [ ],
+    "Modifiers" : 1025,
+    "Identifier" : "AstNode",
+    "TypeParameterList" : [ ],
+    "SuperClass" : null,
+    "SuperInterfaceList" : [ {
+      "ClassType" : {
+        "ClassOrInterfaceType" : null,
+        "AnnotaitonList" : [ ],
+        "Identifier" : "ParseTree",
+        "TypeArgumentList" : [ ]
+      }
+    } ],
+    "ClassBodyDeclarationList" : [ {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ {
+          "TypeName" : {
+            "identifier" : "JsonIgnore",
+            "prev" : null
+          }
+        } ],
+        "Modifiers" : 18,
+        "UnannType" : {
+          "UnannUnitClassOrInterfaceType" : {
+            "Identifier" : "Range",
+            "TypeArgumentList" : [ ]
+          },
+          "UnannClassOrInterfaceType" : [ ],
+          "isInterface" : false
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "range",
+            "Dims" : null
+          },
+          "VariableInitializer" : null
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ {
+          "TypeName" : {
+            "identifier" : "JsonIgnore",
+            "prev" : null
+          }
+        } ],
+        "Modifiers" : 2,
+        "UnannType" : {
+          "UnannUnitClassOrInterfaceType" : {
+            "Identifier" : "AstNode",
+            "TypeArgumentList" : [ ]
+          },
+          "UnannClassOrInterfaceType" : [ ],
+          "isInterface" : false
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "parent",
+            "Dims" : null
+          },
+          "VariableInitializer" : null
+        } ]
+      }
+    }, {
+      "AnnotationList" : [ ],
+      "Modifiers" : 1,
+      "ConstructorDeclarator" : {
+        "TypeParameterList" : [ ],
+        "Identifier" : "AstNode",
+        "FormalParameterList" : {
+          "ParameterList" : [ {
+            "AnnotationList" : [ ],
+            "Modifiers" : 0,
+            "UnannType" : {
+              "UnannUnitClassOrInterfaceType" : {
+                "Identifier" : "Range",
+                "TypeArgumentList" : [ ]
+              },
+              "UnannClassOrInterfaceType" : [ ],
+              "isInterface" : false
+            },
+            "VariableDeclaratorId" : {
+              "Identifier" : "range",
+              "Dims" : null
+            }
+          } ],
+          "LastFormalParameter" : {
+            "FormalParameter" : {
+              "AnnotationList" : [ ],
+              "Modifiers" : 0,
+              "UnannType" : {
+                "UnannUnitClassOrInterfaceType" : {
+                  "Identifier" : "AstNode",
+                  "TypeArgumentList" : [ ]
+                },
+                "UnannClassOrInterfaceType" : [ ],
+                "isInterface" : false
+              },
+              "VariableDeclaratorId" : {
+                "Identifier" : "parent",
+                "Dims" : null
+              }
+            }
+          }
+        }
+      },
+      "ExceptionTypeList" : [ ],
+      "ConstructorBody" : {
+        "ExplicitConstructorInvocation" : null,
+        "BlockStatements" : {
+          "BlockStatementList" : [ {
+            "StatementExpression" : {
+              "LeftHandSide" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : { },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "Identifier" : "range"
+              },
+              "AssignmentOperator" : "=",
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "range",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              }
+            }
+          }, {
+            "StatementExpression" : {
+              "LeftHandSide" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : { },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "Identifier" : "parent"
+              },
+              "AssignmentOperator" : "=",
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "parent",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              }
+            }
+          } ]
+        }
+      }
+    }, {
+      "AnnotationList" : [ ],
+      "Modifiers" : 1,
+      "ConstructorDeclarator" : {
+        "TypeParameterList" : [ ],
+        "Identifier" : "AstNode",
+        "FormalParameterList" : {
+          "ParameterList" : [ {
+            "AnnotationList" : [ ],
+            "Modifiers" : 0,
+            "UnannType" : {
+              "UnannUnitClassOrInterfaceType" : {
+                "Identifier" : "Position",
+                "TypeArgumentList" : [ ]
+              },
+              "UnannClassOrInterfaceType" : [ ],
+              "isInterface" : false
+            },
+            "VariableDeclaratorId" : {
+              "Identifier" : "start",
+              "Dims" : null
+            }
+          }, {
+            "AnnotationList" : [ ],
+            "Modifiers" : 0,
+            "UnannType" : {
+              "UnannUnitClassOrInterfaceType" : {
+                "Identifier" : "Position",
+                "TypeArgumentList" : [ ]
+              },
+              "UnannClassOrInterfaceType" : [ ],
+              "isInterface" : false
+            },
+            "VariableDeclaratorId" : {
+              "Identifier" : "end",
+              "Dims" : null
+            }
+          } ],
+          "LastFormalParameter" : {
+            "FormalParameter" : {
+              "AnnotationList" : [ ],
+              "Modifiers" : 0,
+              "UnannType" : {
+                "UnannUnitClassOrInterfaceType" : {
+                  "Identifier" : "AstNode",
+                  "TypeArgumentList" : [ ]
+                },
+                "UnannClassOrInterfaceType" : [ ],
+                "isInterface" : false
+              },
+              "VariableDeclaratorId" : {
+                "Identifier" : "parent",
+                "Dims" : null
+              }
+            }
+          }
+        }
+      },
+      "ExceptionTypeList" : [ ],
+      "ConstructorBody" : {
+        "ExplicitConstructorInvocation" : null,
+        "BlockStatements" : {
+          "BlockStatementList" : [ {
+            "StatementExpression" : {
+              "LeftHandSide" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : { },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "Identifier" : "range"
+              },
+              "AssignmentOperator" : "=",
+              "Expression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "TypeArgumentList" : [ ],
+                    "AnnotationListList" : [ [ ] ],
+                    "IdentifierList" : [ "newRange(start,end)" ],
+                    "TypeArgumentsOrDiamond" : null,
+                    "ArgumentList" : [ {
+                      "ExpressionName" : {
+                        "identifier" : "start",
+                        "prev" : null
+                      },
+                      "IsPlusList" : [ ]
+                    }, {
+                      "ExpressionName" : {
+                        "identifier" : "end",
+                        "prev" : null
+                      },
+                      "IsPlusList" : [ ]
+                    } ],
+                    "ClassBody" : [ ]
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              }
+            }
+          }, {
+            "StatementExpression" : {
+              "LeftHandSide" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : { },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "Identifier" : "parent"
+              },
+              "AssignmentOperator" : "=",
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "parent",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              }
+            }
+          } ]
+        }
+      }
+    }, {
+      "AnnotationList" : [ ],
+      "Modifiers" : 1,
+      "ConstructorDeclarator" : {
+        "TypeParameterList" : [ ],
+        "Identifier" : "AstNode",
+        "FormalParameterList" : {
+          "ParameterList" : [ {
+            "AnnotationList" : [ ],
+            "Modifiers" : 0,
+            "UnannType" : {
+              "Primitive" : "INT"
+            },
+            "VariableDeclaratorId" : {
+              "Identifier" : "startLine",
+              "Dims" : null
+            }
+          }, {
+            "AnnotationList" : [ ],
+            "Modifiers" : 0,
+            "UnannType" : {
+              "Primitive" : "INT"
+            },
+            "VariableDeclaratorId" : {
+              "Identifier" : "startCol",
+              "Dims" : null
+            }
+          }, {
+            "AnnotationList" : [ ],
+            "Modifiers" : 0,
+            "UnannType" : {
+              "Primitive" : "INT"
+            },
+            "VariableDeclaratorId" : {
+              "Identifier" : "endLine",
+              "Dims" : null
+            }
+          }, {
+            "AnnotationList" : [ ],
+            "Modifiers" : 0,
+            "UnannType" : {
+              "Primitive" : "INT"
+            },
+            "VariableDeclaratorId" : {
+              "Identifier" : "endCol",
+              "Dims" : null
+            }
+          } ],
+          "LastFormalParameter" : {
+            "FormalParameter" : {
+              "AnnotationList" : [ ],
+              "Modifiers" : 0,
+              "UnannType" : {
+                "UnannUnitClassOrInterfaceType" : {
+                  "Identifier" : "AstNode",
+                  "TypeArgumentList" : [ ]
+                },
+                "UnannClassOrInterfaceType" : [ ],
+                "isInterface" : false
+              },
+              "VariableDeclaratorId" : {
+                "Identifier" : "parent",
+                "Dims" : null
+              }
+            }
+          }
+        }
+      },
+      "ExceptionTypeList" : [ ],
+      "ConstructorBody" : {
+        "ExplicitConstructorInvocation" : null,
+        "BlockStatements" : {
+          "BlockStatementList" : [ {
+            "StatementExpression" : {
+              "LeftHandSide" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : { },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "Identifier" : "range"
+              },
+              "AssignmentOperator" : "=",
+              "Expression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "TypeArgumentList" : [ ],
+                    "AnnotationListList" : [ [ ] ],
+                    "IdentifierList" : [ "newRange(startLine,startCol,endLine,endCol)" ],
+                    "TypeArgumentsOrDiamond" : null,
+                    "ArgumentList" : [ {
+                      "ExpressionName" : {
+                        "identifier" : "startLine",
+                        "prev" : null
+                      },
+                      "IsPlusList" : [ ]
+                    }, {
+                      "ExpressionName" : {
+                        "identifier" : "startCol",
+                        "prev" : null
+                      },
+                      "IsPlusList" : [ ]
+                    }, {
+                      "ExpressionName" : {
+                        "identifier" : "endLine",
+                        "prev" : null
+                      },
+                      "IsPlusList" : [ ]
+                    }, {
+                      "ExpressionName" : {
+                        "identifier" : "endCol",
+                        "prev" : null
+                      },
+                      "IsPlusList" : [ ]
+                    } ],
+                    "ClassBody" : [ ]
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              }
+            }
+          }, {
+            "StatementExpression" : {
+              "LeftHandSide" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : { },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "Identifier" : "parent"
+              },
+              "AssignmentOperator" : "=",
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "parent",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              }
+            }
+          } ]
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 1,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "UnannUnitClassOrInterfaceType" : {
+                "Identifier" : "Range",
+                "TypeArgumentList" : [ ]
+              },
+              "UnannClassOrInterfaceType" : [ ],
+              "isInterface" : false
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "getRange",
+            "FormalParameters" : null,
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "range",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 1,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "UnannUnitClassOrInterfaceType" : {
+                "Identifier" : "AstNode",
+                "TypeArgumentList" : [ ]
+              },
+              "UnannClassOrInterfaceType" : [ ],
+              "isInterface" : false
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "getParent",
+            "FormalParameters" : null,
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "parent",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 1,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : null
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "setParent",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "UnannUnitClassOrInterfaceType" : {
+                      "Identifier" : "AstNode",
+                      "TypeArgumentList" : [ ]
+                    },
+                    "UnannClassOrInterfaceType" : [ ],
+                    "isInterface" : false
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "parent",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "StatementExpression" : {
+                "LeftHandSide" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : { },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "Identifier" : "parent"
+                },
+                "AssignmentOperator" : "=",
+                "Expression" : {
+                  "ExpressionName" : {
+                    "identifier" : "parent",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 1,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : null
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "accept",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "UnannUnitClassOrInterfaceType" : {
+                      "Identifier" : "AstBaseVisitor",
+                      "TypeArgumentList" : [ ]
+                    },
+                    "UnannClassOrInterfaceType" : [ ],
+                    "isInterface" : false
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "visitor",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "StatementExpression" : {
+                "TypeName" : {
+                  "identifier" : "visitor",
+                  "prev" : null
+                },
+                "TypeArguments" : null,
+                "Identifier" : "visit",
+                "ArgumentList" : [ {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : { },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                } ]
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ {
+          "TypeName" : {
+            "identifier" : "Override",
+            "prev" : null
+          }
+        } ],
+        "Modifiers" : 1,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "equals",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "UnannUnitClassOrInterfaceType" : {
+                      "Identifier" : "Object",
+                      "TypeArgumentList" : [ ]
+                    },
+                    "UnannClassOrInterfaceType" : [ ],
+                    "isInterface" : false
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "o",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : { },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "o",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "Statement" : {
+                "Expression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "true"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            }, {
+              "Expression" : {
+                "UnaryExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "RelationalExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "o",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "ReferenceType" : {
+                          "UnitClassOrInterfaceType" : {
+                            "AnnotationList" : [ ],
+                            "Identifier" : "AstNode",
+                            "TypeArgumentList" : [ ]
+                          },
+                          "ClassOrInterfaceType" : [ ],
+                          "isInterface" : false
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "Statement" : {
+                "Expression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "false"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "UnannUnitClassOrInterfaceType" : {
+                    "Identifier" : "AstNode",
+                    "TypeArgumentList" : [ ]
+                  },
+                  "UnannClassOrInterfaceType" : [ ],
+                  "isInterface" : false
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "astNode",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "ReferenceType" : {
+                        "UnitClassOrInterfaceType" : {
+                          "AnnotationList" : [ ],
+                          "Identifier" : "AstNode",
+                          "TypeArgumentList" : [ ]
+                        },
+                        "ClassOrInterfaceType" : [ ],
+                        "isInterface" : false
+                      },
+                      "InterfaceTypeList" : [ ],
+                      "UnaryExpressionNotPlusMinus" : {
+                        "ExpressionName" : {
+                          "identifier" : "o",
+                          "prev" : null
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "Expression" : {
+                "ConditionalOrExpression" : {
+                  "EqualityExpression" : {
+                    "ExpressionName" : {
+                      "identifier" : "parent",
+                      "prev" : null
+                    },
+                    "IsPlusList" : [ ]
+                  },
+                  "RelationalExpression" : {
+                    "Primary" : {
+                      "DefaultArrayLfnoPrimary" : {
+                        "literal" : {
+                          "str" : "null"
+                        }
+                      },
+                      "DefaultArrayLfPrimaryList" : [ ]
+                    },
+                    "IsPlusList" : [ ]
+                  }
+                },
+                "Expression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "TypeName" : {
+                        "identifier" : "parent",
+                        "prev" : null
+                      },
+                      "TypeArguments" : null,
+                      "Identifier" : "equals",
+                      "ArgumentList" : [ {
+                        "ExpressionName" : {
+                          "identifier" : "parent",
+                          "prev" : {
+                            "identifier" : "astNode",
+                            "prev" : null
+                          }
+                        },
+                        "IsPlusList" : [ ]
+                      } ]
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "ConditionalExpression" : {
+                  "EqualityExpression" : {
+                    "ExpressionName" : {
+                      "identifier" : "parent",
+                      "prev" : {
+                        "identifier" : "astNode",
+                        "prev" : null
+                      }
+                    },
+                    "IsPlusList" : [ ]
+                  },
+                  "RelationalExpression" : {
+                    "Primary" : {
+                      "DefaultArrayLfnoPrimary" : {
+                        "literal" : {
+                          "str" : "null"
+                        }
+                      },
+                      "DefaultArrayLfPrimaryList" : [ ]
+                    },
+                    "IsPlusList" : [ ]
+                  }
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ {
+          "TypeName" : {
+            "identifier" : "Override",
+            "prev" : null
+          }
+        } ],
+        "Modifiers" : 1,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "INT"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "hashCode",
+            "FormalParameters" : null,
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "ConditionalOrExpression" : {
+                  "EqualityExpression" : {
+                    "ExpressionName" : {
+                      "identifier" : "parent",
+                      "prev" : null
+                    },
+                    "IsPlusList" : [ ]
+                  },
+                  "RelationalExpression" : {
+                    "Primary" : {
+                      "DefaultArrayLfnoPrimary" : {
+                        "literal" : {
+                          "str" : "null"
+                        }
+                      },
+                      "DefaultArrayLfPrimaryList" : [ ]
+                    },
+                    "IsPlusList" : [ ]
+                  }
+                },
+                "Expression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "TypeName" : {
+                        "identifier" : "parent",
+                        "prev" : null
+                      },
+                      "TypeArguments" : null,
+                      "Identifier" : "hashCode",
+                      "ArgumentList" : [ ]
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "ConditionalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    } ]
+  } ]
+}

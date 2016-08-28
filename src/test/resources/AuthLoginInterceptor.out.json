@@ -1,0 +1,617 @@
+{
+  "PackageDeclaration" : {
+    "AnnotationList" : [ ],
+    "IdentifierList" : [ "com", "estsoft", "codit", "web", "interceptor" ]
+  },
+  "ImportDeclarationList" : [ {
+    "TypeName" : {
+      "identifier" : "ClientVo",
+      "prev" : {
+        "identifier" : "vo",
+        "prev" : {
+          "identifier" : "db",
+          "prev" : {
+            "identifier" : "codit",
+            "prev" : {
+              "identifier" : "estsoft",
+              "prev" : {
+                "identifier" : "com",
+                "prev" : null
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "TypeName" : {
+      "identifier" : "ClientService",
+      "prev" : {
+        "identifier" : "service",
+        "prev" : {
+          "identifier" : "web",
+          "prev" : {
+            "identifier" : "codit",
+            "prev" : {
+              "identifier" : "estsoft",
+              "prev" : {
+                "identifier" : "com",
+                "prev" : null
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "TypeName" : {
+      "identifier" : "Autowired",
+      "prev" : {
+        "identifier" : "annotation",
+        "prev" : {
+          "identifier" : "factory",
+          "prev" : {
+            "identifier" : "beans",
+            "prev" : {
+              "identifier" : "springframework",
+              "prev" : {
+                "identifier" : "org",
+                "prev" : null
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "TypeName" : {
+      "identifier" : "HandlerInterceptorAdapter",
+      "prev" : {
+        "identifier" : "handler",
+        "prev" : {
+          "identifier" : "servlet",
+          "prev" : {
+            "identifier" : "web",
+            "prev" : {
+              "identifier" : "springframework",
+              "prev" : {
+                "identifier" : "org",
+                "prev" : null
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "TypeName" : {
+      "identifier" : "HttpServletRequest",
+      "prev" : {
+        "identifier" : "http",
+        "prev" : {
+          "identifier" : "servlet",
+          "prev" : {
+            "identifier" : "javax",
+            "prev" : null
+          }
+        }
+      }
+    }
+  }, {
+    "TypeName" : {
+      "identifier" : "HttpServletResponse",
+      "prev" : {
+        "identifier" : "http",
+        "prev" : {
+          "identifier" : "servlet",
+          "prev" : {
+            "identifier" : "javax",
+            "prev" : null
+          }
+        }
+      }
+    }
+  }, {
+    "TypeName" : {
+      "identifier" : "HttpSession",
+      "prev" : {
+        "identifier" : "http",
+        "prev" : {
+          "identifier" : "servlet",
+          "prev" : {
+            "identifier" : "javax",
+            "prev" : null
+          }
+        }
+      }
+    }
+  } ],
+  "TypeDeclarationList" : [ {
+    "AnnotationList" : [ ],
+    "Modifiers" : 1,
+    "Identifier" : "AuthLoginInterceptor",
+    "TypeParameterList" : [ ],
+    "SuperClass" : {
+      "ClassOrInterfaceType" : null,
+      "AnnotaitonList" : [ ],
+      "Identifier" : "HandlerInterceptorAdapter",
+      "TypeArgumentList" : [ ]
+    },
+    "SuperInterfaceList" : [ ],
+    "ClassBodyDeclarationList" : [ {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ {
+          "TypeName" : {
+            "identifier" : "Autowired",
+            "prev" : null
+          },
+          "ElementValuePairList" : [ ]
+        } ],
+        "Modifiers" : 2,
+        "UnannType" : {
+          "UnannUnitClassOrInterfaceType" : {
+            "Identifier" : "ClientService",
+            "TypeArgumentList" : [ ]
+          },
+          "UnannClassOrInterfaceType" : [ ],
+          "isInterface" : false
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "clientService",
+            "Dims" : null
+          },
+          "VariableInitializer" : null
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ {
+          "TypeName" : {
+            "identifier" : "Override",
+            "prev" : null
+          }
+        } ],
+        "Modifiers" : 1,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "preHandle",
+            "FormalParameters" : {
+              "ParameterList" : [ {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "UnannUnitClassOrInterfaceType" : {
+                    "Identifier" : "HttpServletRequest",
+                    "TypeArgumentList" : [ ]
+                  },
+                  "UnannClassOrInterfaceType" : [ ],
+                  "isInterface" : false
+                },
+                "VariableDeclaratorId" : {
+                  "Identifier" : "request",
+                  "Dims" : null
+                }
+              }, {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "UnannUnitClassOrInterfaceType" : {
+                    "Identifier" : "HttpServletResponse",
+                    "TypeArgumentList" : [ ]
+                  },
+                  "UnannClassOrInterfaceType" : [ ],
+                  "isInterface" : false
+                },
+                "VariableDeclaratorId" : {
+                  "Identifier" : "response",
+                  "Dims" : null
+                }
+              } ],
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "UnannUnitClassOrInterfaceType" : {
+                      "Identifier" : "Object",
+                      "TypeArgumentList" : [ ]
+                    },
+                    "UnannClassOrInterfaceType" : [ ],
+                    "isInterface" : false
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "handler",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ {
+            "Exceptionable" : {
+              "ClassOrInterfaceType" : null,
+              "AnnotaitonList" : [ ],
+              "Identifier" : "Exception",
+              "TypeArgumentList" : [ ]
+            }
+          } ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "UnannUnitClassOrInterfaceType" : {
+                    "Identifier" : "String",
+                    "TypeArgumentList" : [ ]
+                  },
+                  "UnannClassOrInterfaceType" : [ ],
+                  "isInterface" : false
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "email",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeName" : {
+                            "identifier" : "request",
+                            "prev" : null
+                          },
+                          "TypeArguments" : null,
+                          "Identifier" : "getParameter",
+                          "ArgumentList" : [ {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "literal" : {
+                                  "str" : "\"email\""
+                                }
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          } ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "UnannUnitClassOrInterfaceType" : {
+                    "Identifier" : "String",
+                    "TypeArgumentList" : [ ]
+                  },
+                  "UnannClassOrInterfaceType" : [ ],
+                  "isInterface" : false
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "password",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeName" : {
+                            "identifier" : "request",
+                            "prev" : null
+                          },
+                          "TypeArguments" : null,
+                          "Identifier" : "getParameter",
+                          "ArgumentList" : [ {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "literal" : {
+                                  "str" : "\"password\""
+                                }
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          } ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "UnannUnitClassOrInterfaceType" : {
+                    "Identifier" : "ClientVo",
+                    "TypeArgumentList" : [ ]
+                  },
+                  "UnannClassOrInterfaceType" : [ ],
+                  "isInterface" : false
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "clientVo",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeArgumentList" : [ ],
+                          "AnnotationListList" : [ [ ] ],
+                          "IdentifierList" : [ "newClientVo()" ],
+                          "TypeArgumentsOrDiamond" : null,
+                          "ArgumentList" : [ ],
+                          "ClassBody" : [ ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "StatementExpression" : {
+                "TypeName" : {
+                  "identifier" : "clientVo",
+                  "prev" : null
+                },
+                "TypeArguments" : null,
+                "Identifier" : "setEmail",
+                "ArgumentList" : [ {
+                  "ExpressionName" : {
+                    "identifier" : "email",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                } ]
+              }
+            }, {
+              "StatementExpression" : {
+                "TypeName" : {
+                  "identifier" : "clientVo",
+                  "prev" : null
+                },
+                "TypeArguments" : null,
+                "Identifier" : "setPassword",
+                "ArgumentList" : [ {
+                  "ExpressionName" : {
+                    "identifier" : "password",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "UnannUnitClassOrInterfaceType" : {
+                    "Identifier" : "ClientVo",
+                    "TypeArgumentList" : [ ]
+                  },
+                  "UnannClassOrInterfaceType" : [ ],
+                  "isInterface" : false
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "authClient",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeName" : {
+                            "identifier" : "clientService",
+                            "prev" : null
+                          },
+                          "TypeArguments" : null,
+                          "Identifier" : "getClientVoByEmailPassword",
+                          "ArgumentList" : [ {
+                            "ExpressionName" : {
+                              "identifier" : "clientVo",
+                              "prev" : null
+                            },
+                            "IsPlusList" : [ ]
+                          } ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "LocalVariableDeclaration" : {
+                "AnnotationList" : [ ],
+                "Modifiers" : 0,
+                "UnannType" : {
+                  "UnannUnitClassOrInterfaceType" : {
+                    "Identifier" : "HttpSession",
+                    "TypeArgumentList" : [ ]
+                  },
+                  "UnannClassOrInterfaceType" : [ ],
+                  "isInterface" : false
+                },
+                "VariableDeclaratorList" : [ {
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "session",
+                    "Dims" : null
+                  },
+                  "VariableInitializer" : {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "TypeName" : {
+                            "identifier" : "request",
+                            "prev" : null
+                          },
+                          "TypeArguments" : null,
+                          "Identifier" : "getSession",
+                          "ArgumentList" : [ {
+                            "Primary" : {
+                              "DefaultArrayLfnoPrimary" : {
+                                "literal" : {
+                                  "str" : "true"
+                                }
+                              },
+                              "DefaultArrayLfPrimaryList" : [ ]
+                            },
+                            "IsPlusList" : [ ]
+                          } ]
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  }
+                } ]
+              }
+            }, {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "authClient",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "null"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "Statement" : {
+                "BlockStatements" : {
+                  "BlockStatementList" : [ {
+                    "StatementExpression" : {
+                      "TypeName" : {
+                        "identifier" : "response",
+                        "prev" : null
+                      },
+                      "TypeArguments" : null,
+                      "Identifier" : "sendRedirect",
+                      "ArgumentList" : [ {
+                        "Primary" : {
+                          "DefaultArrayLfnoPrimary" : {
+                            "literal" : {
+                              "str" : "\"/client/signinform\""
+                            }
+                          },
+                          "DefaultArrayLfPrimaryList" : [ ]
+                        },
+                        "IsPlusList" : [ ]
+                      } ]
+                    }
+                  }, {
+                    "Expression" : {
+                      "Primary" : {
+                        "DefaultArrayLfnoPrimary" : {
+                          "literal" : {
+                            "str" : "false"
+                          }
+                        },
+                        "DefaultArrayLfPrimaryList" : [ ]
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  } ]
+                }
+              }
+            }, {
+              "StatementExpression" : {
+                "TypeName" : {
+                  "identifier" : "session",
+                  "prev" : null
+                },
+                "TypeArguments" : null,
+                "Identifier" : "setAttribute",
+                "ArgumentList" : [ {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "\"authClient\""
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }, {
+                  "ExpressionName" : {
+                    "identifier" : "authClient",
+                    "prev" : null
+                  },
+                  "IsPlusList" : [ ]
+                } ]
+              }
+            }, {
+              "StatementExpression" : {
+                "TypeName" : {
+                  "identifier" : "response",
+                  "prev" : null
+                },
+                "TypeArguments" : null,
+                "Identifier" : "sendRedirect",
+                "ArgumentList" : [ {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "\"/\""
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                } ]
+              }
+            }, {
+              "Expression" : {
+                "Primary" : {
+                  "DefaultArrayLfnoPrimary" : {
+                    "literal" : {
+                      "str" : "false"
+                    }
+                  },
+                  "DefaultArrayLfPrimaryList" : [ ]
+                },
+                "IsPlusList" : [ ]
+              }
+            } ]
+          }
+        }
+      }
+    } ]
+  } ]
+}

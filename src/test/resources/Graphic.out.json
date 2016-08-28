@@ -1,0 +1,30 @@
+{
+  "PackageDeclaration" : {
+    "AnnotationList" : [ ],
+    "IdentifierList" : [ "io", "jaylim", "study", "dsa", "designpattern", "composite" ]
+  },
+  "ImportDeclarationList" : [ ],
+  "TypeDeclarationList" : [ {
+    "AnnotationList" : [ ],
+    "Modifiers" : 1,
+    "Identifier" : "Graphic",
+    "TypeParameterList" : [ ],
+    "InterfaceTypeList" : [ ],
+    "InterfaceBody" : [ {
+      "AnnotationList" : [ ],
+      "Modifiers" : 1,
+      "MethodHeader" : {
+        "Result" : {
+          "UnannType" : null
+        },
+        "MethodDeclarator" : {
+          "Identifier" : "print",
+          "FormalParameters" : null,
+          "Dims" : null
+        },
+        "ExceptionTypeList" : [ ]
+      },
+      "Block" : null
+    } ]
+  } ]
+}

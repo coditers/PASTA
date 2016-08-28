@@ -1,0 +1,2872 @@
+{
+  "PackageDeclaration" : {
+    "AnnotationList" : [ ],
+    "IdentifierList" : [ "codit", "ast", "pojos" ]
+  },
+  "ImportDeclarationList" : [ ],
+  "TypeDeclarationList" : [ {
+    "AnnotationList" : [ ],
+    "Modifiers" : 1,
+    "Identifier" : "Modifiers",
+    "TypeParameterList" : [ ],
+    "SuperClass" : null,
+    "SuperInterfaceList" : [ ],
+    "ClassBodyDeclarationList" : [ {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 25,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "NONE",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "Primary" : {
+                "DefaultArrayLfnoPrimary" : {
+                  "literal" : {
+                    "str" : "0x00000000"
+                  }
+                },
+                "DefaultArrayLfPrimaryList" : [ ]
+              },
+              "IsPlusList" : [ ]
+            }
+          }
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 25,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "PUBLIC",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "Primary" : {
+                "DefaultArrayLfnoPrimary" : {
+                  "literal" : {
+                    "str" : "0x00000001"
+                  }
+                },
+                "DefaultArrayLfPrimaryList" : [ ]
+              },
+              "IsPlusList" : [ ]
+            }
+          }
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 25,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "PRIVATE",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "Primary" : {
+                "DefaultArrayLfnoPrimary" : {
+                  "literal" : {
+                    "str" : "0x00000002"
+                  }
+                },
+                "DefaultArrayLfPrimaryList" : [ ]
+              },
+              "IsPlusList" : [ ]
+            }
+          }
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 25,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "PROTECTED",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "Primary" : {
+                "DefaultArrayLfnoPrimary" : {
+                  "literal" : {
+                    "str" : "0x00000004"
+                  }
+                },
+                "DefaultArrayLfPrimaryList" : [ ]
+              },
+              "IsPlusList" : [ ]
+            }
+          }
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 25,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "STATIC",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "Primary" : {
+                "DefaultArrayLfnoPrimary" : {
+                  "literal" : {
+                    "str" : "0x00000008"
+                  }
+                },
+                "DefaultArrayLfPrimaryList" : [ ]
+              },
+              "IsPlusList" : [ ]
+            }
+          }
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 25,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "FINAL",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "Primary" : {
+                "DefaultArrayLfnoPrimary" : {
+                  "literal" : {
+                    "str" : "0x00000010"
+                  }
+                },
+                "DefaultArrayLfPrimaryList" : [ ]
+              },
+              "IsPlusList" : [ ]
+            }
+          }
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 25,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "SYNCHRONIZED",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "Primary" : {
+                "DefaultArrayLfnoPrimary" : {
+                  "literal" : {
+                    "str" : "0x00000020"
+                  }
+                },
+                "DefaultArrayLfPrimaryList" : [ ]
+              },
+              "IsPlusList" : [ ]
+            }
+          }
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 25,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "VOLATILE",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "Primary" : {
+                "DefaultArrayLfnoPrimary" : {
+                  "literal" : {
+                    "str" : "0x00000040"
+                  }
+                },
+                "DefaultArrayLfPrimaryList" : [ ]
+              },
+              "IsPlusList" : [ ]
+            }
+          }
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 25,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "TRANSIENT",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "Primary" : {
+                "DefaultArrayLfnoPrimary" : {
+                  "literal" : {
+                    "str" : "0x00000080"
+                  }
+                },
+                "DefaultArrayLfPrimaryList" : [ ]
+              },
+              "IsPlusList" : [ ]
+            }
+          }
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 25,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "NATIVE",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "Primary" : {
+                "DefaultArrayLfnoPrimary" : {
+                  "literal" : {
+                    "str" : "0x00000100"
+                  }
+                },
+                "DefaultArrayLfPrimaryList" : [ ]
+              },
+              "IsPlusList" : [ ]
+            }
+          }
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 25,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "ABSTRACT",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "Primary" : {
+                "DefaultArrayLfnoPrimary" : {
+                  "literal" : {
+                    "str" : "0x00000400"
+                  }
+                },
+                "DefaultArrayLfPrimaryList" : [ ]
+              },
+              "IsPlusList" : [ ]
+            }
+          }
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 25,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "STRICTFP",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "Primary" : {
+                "DefaultArrayLfnoPrimary" : {
+                  "literal" : {
+                    "str" : "0x00000800"
+                  }
+                },
+                "DefaultArrayLfPrimaryList" : [ ]
+              },
+              "IsPlusList" : [ ]
+            }
+          }
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 25,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "DEFAULT",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "Primary" : {
+                "DefaultArrayLfnoPrimary" : {
+                  "literal" : {
+                    "str" : "0x00010000"
+                  }
+                },
+                "DefaultArrayLfPrimaryList" : [ ]
+              },
+              "IsPlusList" : [ ]
+            }
+          }
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "isNone",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "mask",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "AndExpression" : {
+                          "Primary" : {
+                            "DefaultArrayLfnoPrimary" : {
+                              "literal" : {
+                                "str" : "0x00000007"
+                              }
+                            },
+                            "DefaultArrayLfPrimaryList" : [ ]
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "EqualityExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "mask",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "isPublic",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "mask",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "AndExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "PUBLIC",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "EqualityExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "mask",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "isPrivate",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "mask",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "AndExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "PRIVATE",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "EqualityExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "mask",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "isProtected",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "mask",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "AndExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "PROTECTED",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "EqualityExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "mask",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "isStatic",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "mask",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "AndExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "STATIC",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "EqualityExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "mask",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "isFinal",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "mask",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "AndExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "FINAL",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "EqualityExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "mask",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "isSynchronized",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "mask",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "AndExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "SYNCHRONIZED",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "EqualityExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "mask",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "isVolatile",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "mask",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "AndExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "VOLATILE",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "EqualityExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "mask",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "isTransient",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "mask",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "AndExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "TRANSIENT",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "EqualityExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "mask",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "isNative",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "mask",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "AndExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "NATIVE",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "EqualityExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "mask",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "isAbstract",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "mask",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "AndExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "ABSTRACT",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "EqualityExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "mask",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "isStrictfp",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "mask",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "AndExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "STRICTFP",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "EqualityExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "mask",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 26,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "CLASS_MODIFIERS",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "InclusiveOrExpression" : {
+                "InclusiveOrExpression" : {
+                  "InclusiveOrExpression" : {
+                    "InclusiveOrExpression" : {
+                      "InclusiveOrExpression" : {
+                        "InclusiveOrExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "PUBLIC",
+                            "prev" : {
+                              "identifier" : "Modifiers",
+                              "prev" : null
+                            }
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "ExclusiveOrExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "PROTECTED",
+                            "prev" : {
+                              "identifier" : "Modifiers",
+                              "prev" : null
+                            }
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      },
+                      "ExclusiveOrExpression" : {
+                        "ExpressionName" : {
+                          "identifier" : "PRIVATE",
+                          "prev" : {
+                            "identifier" : "Modifiers",
+                            "prev" : null
+                          }
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    },
+                    "ExclusiveOrExpression" : {
+                      "ExpressionName" : {
+                        "identifier" : "ABSTRACT",
+                        "prev" : {
+                          "identifier" : "Modifiers",
+                          "prev" : null
+                        }
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  },
+                  "ExclusiveOrExpression" : {
+                    "ExpressionName" : {
+                      "identifier" : "STATIC",
+                      "prev" : {
+                        "identifier" : "Modifiers",
+                        "prev" : null
+                      }
+                    },
+                    "IsPlusList" : [ ]
+                  }
+                },
+                "ExclusiveOrExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "FINAL",
+                    "prev" : {
+                      "identifier" : "Modifiers",
+                      "prev" : null
+                    }
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "ExclusiveOrExpression" : {
+                "ExpressionName" : {
+                  "identifier" : "STRICTFP",
+                  "prev" : {
+                    "identifier" : "Modifiers",
+                    "prev" : null
+                  }
+                },
+                "IsPlusList" : [ ]
+              }
+            }
+          }
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 26,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "CONSTRUCTOR_MODIFIERS",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "InclusiveOrExpression" : {
+                "InclusiveOrExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "PUBLIC",
+                    "prev" : {
+                      "identifier" : "Modifiers",
+                      "prev" : null
+                    }
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "ExclusiveOrExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "PROTECTED",
+                    "prev" : {
+                      "identifier" : "Modifiers",
+                      "prev" : null
+                    }
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "ExclusiveOrExpression" : {
+                "ExpressionName" : {
+                  "identifier" : "PRIVATE",
+                  "prev" : {
+                    "identifier" : "Modifiers",
+                    "prev" : null
+                  }
+                },
+                "IsPlusList" : [ ]
+              }
+            }
+          }
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 26,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "METHOD_MODIFIERS",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "InclusiveOrExpression" : {
+                "InclusiveOrExpression" : {
+                  "InclusiveOrExpression" : {
+                    "InclusiveOrExpression" : {
+                      "InclusiveOrExpression" : {
+                        "InclusiveOrExpression" : {
+                          "InclusiveOrExpression" : {
+                            "InclusiveOrExpression" : {
+                              "ExpressionName" : {
+                                "identifier" : "PUBLIC",
+                                "prev" : {
+                                  "identifier" : "Modifiers",
+                                  "prev" : null
+                                }
+                              },
+                              "IsPlusList" : [ ]
+                            },
+                            "ExclusiveOrExpression" : {
+                              "ExpressionName" : {
+                                "identifier" : "PROTECTED",
+                                "prev" : {
+                                  "identifier" : "Modifiers",
+                                  "prev" : null
+                                }
+                              },
+                              "IsPlusList" : [ ]
+                            }
+                          },
+                          "ExclusiveOrExpression" : {
+                            "ExpressionName" : {
+                              "identifier" : "PRIVATE",
+                              "prev" : {
+                                "identifier" : "Modifiers",
+                                "prev" : null
+                              }
+                            },
+                            "IsPlusList" : [ ]
+                          }
+                        },
+                        "ExclusiveOrExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "ABSTRACT",
+                            "prev" : {
+                              "identifier" : "Modifiers",
+                              "prev" : null
+                            }
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      },
+                      "ExclusiveOrExpression" : {
+                        "ExpressionName" : {
+                          "identifier" : "STATIC",
+                          "prev" : {
+                            "identifier" : "Modifiers",
+                            "prev" : null
+                          }
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    },
+                    "ExclusiveOrExpression" : {
+                      "ExpressionName" : {
+                        "identifier" : "FINAL",
+                        "prev" : {
+                          "identifier" : "Modifiers",
+                          "prev" : null
+                        }
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  },
+                  "ExclusiveOrExpression" : {
+                    "ExpressionName" : {
+                      "identifier" : "SYNCHRONIZED",
+                      "prev" : {
+                        "identifier" : "Modifiers",
+                        "prev" : null
+                      }
+                    },
+                    "IsPlusList" : [ ]
+                  }
+                },
+                "ExclusiveOrExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "NATIVE",
+                    "prev" : {
+                      "identifier" : "Modifiers",
+                      "prev" : null
+                    }
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "ExclusiveOrExpression" : {
+                "ExpressionName" : {
+                  "identifier" : "STRICTFP",
+                  "prev" : {
+                    "identifier" : "Modifiers",
+                    "prev" : null
+                  }
+                },
+                "IsPlusList" : [ ]
+              }
+            }
+          }
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 26,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "FIELD_MODIFIERS",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "InclusiveOrExpression" : {
+                "InclusiveOrExpression" : {
+                  "InclusiveOrExpression" : {
+                    "InclusiveOrExpression" : {
+                      "InclusiveOrExpression" : {
+                        "InclusiveOrExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "PUBLIC",
+                            "prev" : {
+                              "identifier" : "Modifiers",
+                              "prev" : null
+                            }
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "ExclusiveOrExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "PROTECTED",
+                            "prev" : {
+                              "identifier" : "Modifiers",
+                              "prev" : null
+                            }
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      },
+                      "ExclusiveOrExpression" : {
+                        "ExpressionName" : {
+                          "identifier" : "PRIVATE",
+                          "prev" : {
+                            "identifier" : "Modifiers",
+                            "prev" : null
+                          }
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    },
+                    "ExclusiveOrExpression" : {
+                      "ExpressionName" : {
+                        "identifier" : "STATIC",
+                        "prev" : {
+                          "identifier" : "Modifiers",
+                          "prev" : null
+                        }
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  },
+                  "ExclusiveOrExpression" : {
+                    "ExpressionName" : {
+                      "identifier" : "FINAL",
+                      "prev" : {
+                        "identifier" : "Modifiers",
+                        "prev" : null
+                      }
+                    },
+                    "IsPlusList" : [ ]
+                  }
+                },
+                "ExclusiveOrExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "TRANSIENT",
+                    "prev" : {
+                      "identifier" : "Modifiers",
+                      "prev" : null
+                    }
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "ExclusiveOrExpression" : {
+                "ExpressionName" : {
+                  "identifier" : "VOLATILE",
+                  "prev" : {
+                    "identifier" : "Modifiers",
+                    "prev" : null
+                  }
+                },
+                "IsPlusList" : [ ]
+              }
+            }
+          }
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 26,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "INTERFACE_MODIFIERS",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "InclusiveOrExpression" : {
+                "InclusiveOrExpression" : {
+                  "InclusiveOrExpression" : {
+                    "InclusiveOrExpression" : {
+                      "InclusiveOrExpression" : {
+                        "ExpressionName" : {
+                          "identifier" : "PUBLIC",
+                          "prev" : {
+                            "identifier" : "Modifiers",
+                            "prev" : null
+                          }
+                        },
+                        "IsPlusList" : [ ]
+                      },
+                      "ExclusiveOrExpression" : {
+                        "ExpressionName" : {
+                          "identifier" : "PROTECTED",
+                          "prev" : {
+                            "identifier" : "Modifiers",
+                            "prev" : null
+                          }
+                        },
+                        "IsPlusList" : [ ]
+                      }
+                    },
+                    "ExclusiveOrExpression" : {
+                      "ExpressionName" : {
+                        "identifier" : "PRIVATE",
+                        "prev" : {
+                          "identifier" : "Modifiers",
+                          "prev" : null
+                        }
+                      },
+                      "IsPlusList" : [ ]
+                    }
+                  },
+                  "ExclusiveOrExpression" : {
+                    "ExpressionName" : {
+                      "identifier" : "ABSTRACT",
+                      "prev" : {
+                        "identifier" : "Modifiers",
+                        "prev" : null
+                      }
+                    },
+                    "IsPlusList" : [ ]
+                  }
+                },
+                "ExclusiveOrExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "STATIC",
+                    "prev" : {
+                      "identifier" : "Modifiers",
+                      "prev" : null
+                    }
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "ExclusiveOrExpression" : {
+                "ExpressionName" : {
+                  "identifier" : "STRICTFP",
+                  "prev" : {
+                    "identifier" : "Modifiers",
+                    "prev" : null
+                  }
+                },
+                "IsPlusList" : [ ]
+              }
+            }
+          }
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 26,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "INTERFACE_METHOD_MODIFIERS",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "InclusiveOrExpression" : {
+                "InclusiveOrExpression" : {
+                  "InclusiveOrExpression" : {
+                    "ExpressionName" : {
+                      "identifier" : "PUBLIC",
+                      "prev" : {
+                        "identifier" : "Modifiers",
+                        "prev" : null
+                      }
+                    },
+                    "IsPlusList" : [ ]
+                  },
+                  "ExclusiveOrExpression" : {
+                    "ExpressionName" : {
+                      "identifier" : "ABSTRACT",
+                      "prev" : {
+                        "identifier" : "Modifiers",
+                        "prev" : null
+                      }
+                    },
+                    "IsPlusList" : [ ]
+                  }
+                },
+                "ExclusiveOrExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "STATIC",
+                    "prev" : {
+                      "identifier" : "Modifiers",
+                      "prev" : null
+                    }
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "ExclusiveOrExpression" : {
+                "ExpressionName" : {
+                  "identifier" : "STRICTFP",
+                  "prev" : {
+                    "identifier" : "Modifiers",
+                    "prev" : null
+                  }
+                },
+                "IsPlusList" : [ ]
+              }
+            }
+          }
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 26,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "INTERFACE_CONSTANT_MODIFIERS",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "InclusiveOrExpression" : {
+                "InclusiveOrExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "PUBLIC",
+                    "prev" : {
+                      "identifier" : "Modifiers",
+                      "prev" : null
+                    }
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "ExclusiveOrExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "STATIC",
+                    "prev" : {
+                      "identifier" : "Modifiers",
+                      "prev" : null
+                    }
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "ExclusiveOrExpression" : {
+                "ExpressionName" : {
+                  "identifier" : "FINAL",
+                  "prev" : {
+                    "identifier" : "Modifiers",
+                    "prev" : null
+                  }
+                },
+                "IsPlusList" : [ ]
+              }
+            }
+          }
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 26,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "PARAMETER_MODIFIERS",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "ExpressionName" : {
+                "identifier" : "FINAL",
+                "prev" : {
+                  "identifier" : "Modifiers",
+                  "prev" : null
+                }
+              },
+              "IsPlusList" : [ ]
+            }
+          }
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 24,
+        "UnannType" : {
+          "Primitive" : "INT"
+        },
+        "VariableDeclaratorList" : [ {
+          "VariableDeclaratorId" : {
+            "Identifier" : "ACCESS_MODIFIERS",
+            "Dims" : null
+          },
+          "VariableInitializer" : {
+            "Expression" : {
+              "InclusiveOrExpression" : {
+                "InclusiveOrExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "PUBLIC",
+                    "prev" : {
+                      "identifier" : "Modifiers",
+                      "prev" : null
+                    }
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "ExclusiveOrExpression" : {
+                  "ExpressionName" : {
+                    "identifier" : "PROTECTED",
+                    "prev" : {
+                      "identifier" : "Modifiers",
+                      "prev" : null
+                    }
+                  },
+                  "IsPlusList" : [ ]
+                }
+              },
+              "ExclusiveOrExpression" : {
+                "ExpressionName" : {
+                  "identifier" : "PRIVATE",
+                  "prev" : {
+                    "identifier" : "Modifiers",
+                    "prev" : null
+                  }
+                },
+                "IsPlusList" : [ ]
+              }
+            }
+          }
+        } ]
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "INT"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "classModifiers",
+            "FormalParameters" : null,
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "CLASS_MODIFIERS",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "INT"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "constructorModifiers",
+            "FormalParameters" : null,
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "CONSTRUCTOR_MODIFIERS",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "INT"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "methodModifiers",
+            "FormalParameters" : null,
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "METHOD_MODIFIERS",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "INT"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "fieldModifiers",
+            "FormalParameters" : null,
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "FIELD_MODIFIERS",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "INT"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "interfaceModifiers",
+            "FormalParameters" : null,
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "INTERFACE_MODIFIERS",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "INT"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "interfaceMethodModifers",
+            "FormalParameters" : null,
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "INTERFACE_METHOD_MODIFIERS",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "INT"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "interfaceConstantModifiers",
+            "FormalParameters" : null,
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "INTERFACE_CONSTANT_MODIFIERS",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "INT"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "parameterModifiers",
+            "FormalParameters" : null,
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "PARAMETER_MODIFIERS",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "INT"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "accessModifiers",
+            "FormalParameters" : null,
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "ExpressionName" : {
+                  "identifier" : "ACCESS_MODIFIERS",
+                  "prev" : null
+                },
+                "IsPlusList" : [ ]
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "isClassModifiers",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "mask",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "AndExpression" : {
+                          "Primary" : {
+                            "DefaultArrayLfnoPrimary" : {
+                              "Expression" : {
+                                "UnaryExpression" : {
+                                  "ExpressionName" : {
+                                    "identifier" : "CLASS_MODIFIERS",
+                                    "prev" : null
+                                  },
+                                  "IsPlusList" : [ ]
+                                }
+                              }
+                            },
+                            "DefaultArrayLfPrimaryList" : [ ]
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "EqualityExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "mask",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "isConstructorModifiers",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "mask",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "AndExpression" : {
+                          "Primary" : {
+                            "DefaultArrayLfnoPrimary" : {
+                              "Expression" : {
+                                "UnaryExpression" : {
+                                  "ExpressionName" : {
+                                    "identifier" : "CONSTRUCTOR_MODIFIERS",
+                                    "prev" : null
+                                  },
+                                  "IsPlusList" : [ ]
+                                }
+                              }
+                            },
+                            "DefaultArrayLfPrimaryList" : [ ]
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "EqualityExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "mask",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "isMethodModifiers",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "mask",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "AndExpression" : {
+                          "Primary" : {
+                            "DefaultArrayLfnoPrimary" : {
+                              "Expression" : {
+                                "UnaryExpression" : {
+                                  "ExpressionName" : {
+                                    "identifier" : "METHOD_MODIFIERS",
+                                    "prev" : null
+                                  },
+                                  "IsPlusList" : [ ]
+                                }
+                              }
+                            },
+                            "DefaultArrayLfPrimaryList" : [ ]
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "EqualityExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "mask",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "isFieldModifiers",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "mask",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "AndExpression" : {
+                          "Primary" : {
+                            "DefaultArrayLfnoPrimary" : {
+                              "Expression" : {
+                                "UnaryExpression" : {
+                                  "ExpressionName" : {
+                                    "identifier" : "FIELD_MODIFIERS",
+                                    "prev" : null
+                                  },
+                                  "IsPlusList" : [ ]
+                                }
+                              }
+                            },
+                            "DefaultArrayLfPrimaryList" : [ ]
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "EqualityExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "mask",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "isInterfaceModifiers",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "mask",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "AndExpression" : {
+                          "Primary" : {
+                            "DefaultArrayLfnoPrimary" : {
+                              "Expression" : {
+                                "UnaryExpression" : {
+                                  "ExpressionName" : {
+                                    "identifier" : "INTERFACE_MODIFIERS",
+                                    "prev" : null
+                                  },
+                                  "IsPlusList" : [ ]
+                                }
+                              }
+                            },
+                            "DefaultArrayLfPrimaryList" : [ ]
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "EqualityExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "mask",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "isInterfaceMethodModifiers",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "mask",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "AndExpression" : {
+                          "Primary" : {
+                            "DefaultArrayLfnoPrimary" : {
+                              "Expression" : {
+                                "UnaryExpression" : {
+                                  "ExpressionName" : {
+                                    "identifier" : "INTERFACE_METHOD_MODIFIERS",
+                                    "prev" : null
+                                  },
+                                  "IsPlusList" : [ ]
+                                }
+                              }
+                            },
+                            "DefaultArrayLfPrimaryList" : [ ]
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "EqualityExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "mask",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "isInterfaceConstantModifiers",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "mask",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "AndExpression" : {
+                          "Primary" : {
+                            "DefaultArrayLfnoPrimary" : {
+                              "Expression" : {
+                                "UnaryExpression" : {
+                                  "ExpressionName" : {
+                                    "identifier" : "INTERFACE_CONSTANT_MODIFIERS",
+                                    "prev" : null
+                                  },
+                                  "IsPlusList" : [ ]
+                                }
+                              }
+                            },
+                            "DefaultArrayLfPrimaryList" : [ ]
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "EqualityExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "mask",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    }, {
+      "ClassMemberDeclaration" : {
+        "AnnotationList" : [ ],
+        "Modifiers" : 9,
+        "MethodHeader" : {
+          "Result" : {
+            "UnannType" : {
+              "Primitive" : "BOOLEAN"
+            }
+          },
+          "MethodDeclarator" : {
+            "Identifier" : "isParameterModifiers",
+            "FormalParameters" : {
+              "LastFormalParameter" : {
+                "FormalParameter" : {
+                  "AnnotationList" : [ ],
+                  "Modifiers" : 0,
+                  "UnannType" : {
+                    "Primitive" : "INT"
+                  },
+                  "VariableDeclaratorId" : {
+                    "Identifier" : "mask",
+                    "Dims" : null
+                  }
+                }
+              }
+            },
+            "Dims" : null
+          },
+          "ExceptionTypeList" : [ ]
+        },
+        "Block" : {
+          "BlockStatements" : {
+            "BlockStatementList" : [ {
+              "Expression" : {
+                "EqualityExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "Expression" : {
+                        "AndExpression" : {
+                          "Primary" : {
+                            "DefaultArrayLfnoPrimary" : {
+                              "Expression" : {
+                                "UnaryExpression" : {
+                                  "ExpressionName" : {
+                                    "identifier" : "PARAMETER_MODIFIERS",
+                                    "prev" : null
+                                  },
+                                  "IsPlusList" : [ ]
+                                }
+                              }
+                            },
+                            "DefaultArrayLfPrimaryList" : [ ]
+                          },
+                          "IsPlusList" : [ ]
+                        },
+                        "EqualityExpression" : {
+                          "ExpressionName" : {
+                            "identifier" : "mask",
+                            "prev" : null
+                          },
+                          "IsPlusList" : [ ]
+                        }
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                },
+                "RelationalExpression" : {
+                  "Primary" : {
+                    "DefaultArrayLfnoPrimary" : {
+                      "literal" : {
+                        "str" : "0"
+                      }
+                    },
+                    "DefaultArrayLfPrimaryList" : [ ]
+                  },
+                  "IsPlusList" : [ ]
+                }
+              }
+            } ]
+          }
+        }
+      }
+    } ]
+  } ]
+}
