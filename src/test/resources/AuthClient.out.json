@@ -1,6 +1,5 @@
 {
   "PackageDeclaration" : {
-    "AnnotationList" : [ ],
     "IdentifierList" : [ "com", "estsoft", "codit", "web", "annotation" ]
   },
   "ImportDeclarationList" : [ {
@@ -11,8 +10,7 @@
         "prev" : {
           "identifier" : "lang",
           "prev" : {
-            "identifier" : "java",
-            "prev" : null
+            "identifier" : "java"
           }
         }
       }
@@ -25,8 +23,7 @@
         "prev" : {
           "identifier" : "lang",
           "prev" : {
-            "identifier" : "java",
-            "prev" : null
+            "identifier" : "java"
           }
         }
       }
@@ -39,8 +36,7 @@
         "prev" : {
           "identifier" : "lang",
           "prev" : {
-            "identifier" : "java",
-            "prev" : null
+            "identifier" : "java"
           }
         }
       }
@@ -53,8 +49,7 @@
         "prev" : {
           "identifier" : "lang",
           "prev" : {
-            "identifier" : "java",
-            "prev" : null
+            "identifier" : "java"
           }
         }
       }
@@ -63,37 +58,30 @@
   "TypeDeclarationList" : [ {
     "AnnotationList" : [ {
       "TypeName" : {
-        "identifier" : "Target",
-        "prev" : null
+        "identifier" : "Target"
       },
       "ElementValue" : {
         "ExpressionName" : {
           "identifier" : "PARAMETER",
           "prev" : {
-            "identifier" : "ElementType",
-            "prev" : null
+            "identifier" : "ElementType"
           }
-        },
-        "IsPlusList" : [ ]
+        }
       }
     }, {
       "TypeName" : {
-        "identifier" : "Retention",
-        "prev" : null
+        "identifier" : "Retention"
       },
       "ElementValue" : {
         "ExpressionName" : {
           "identifier" : "RUNTIME",
           "prev" : {
-            "identifier" : "RetentionPolicy",
-            "prev" : null
+            "identifier" : "RetentionPolicy"
           }
-        },
-        "IsPlusList" : [ ]
+        }
       }
     } ],
     "Modifiers" : 1,
-    "Identifier" : "AuthClient",
-    "AnnotationTypeBody" : [ ]
+    "Identifier" : "AuthClient"
   } ]
 }

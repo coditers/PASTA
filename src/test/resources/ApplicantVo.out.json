@@ -1,149 +1,111 @@
 {
   "PackageDeclaration" : {
-    "AnnotationList" : [ ],
     "IdentifierList" : [ "com", "estsoft", "codit", "db", "vo" ]
   },
-  "ImportDeclarationList" : [ ],
   "TypeDeclarationList" : [ {
-    "AnnotationList" : [ ],
     "Modifiers" : 1,
     "Identifier" : "ApplicantVo",
-    "TypeParameterList" : [ ],
-    "SuperClass" : null,
-    "SuperInterfaceList" : [ ],
     "ClassBodyDeclarationList" : [ {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 2,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "id",
-            "Dims" : null
-          },
-          "VariableInitializer" : null
+            "Identifier" : "id"
+          }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 2,
         "UnannType" : {
           "UnannUnitClassOrInterfaceType" : {
-            "Identifier" : "String",
-            "TypeArgumentList" : [ ]
+            "Identifier" : "String"
           },
-          "UnannClassOrInterfaceType" : [ ],
           "isInterface" : false
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "name",
-            "Dims" : null
-          },
-          "VariableInitializer" : null
+            "Identifier" : "name"
+          }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 2,
         "UnannType" : {
           "UnannUnitClassOrInterfaceType" : {
-            "Identifier" : "String",
-            "TypeArgumentList" : [ ]
+            "Identifier" : "String"
           },
-          "UnannClassOrInterfaceType" : [ ],
           "isInterface" : false
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "email",
-            "Dims" : null
-          },
-          "VariableInitializer" : null
+            "Identifier" : "email"
+          }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 2,
         "UnannType" : {
           "UnannUnitClassOrInterfaceType" : {
-            "Identifier" : "String",
-            "TypeArgumentList" : [ ]
+            "Identifier" : "String"
           },
-          "UnannClassOrInterfaceType" : [ ],
           "isInterface" : false
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "ticket",
-            "Dims" : null
-          },
-          "VariableInitializer" : null
+            "Identifier" : "ticket"
+          }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 2,
         "UnannType" : {
           "UnannUnitClassOrInterfaceType" : {
-            "Identifier" : "String",
-            "TypeArgumentList" : [ ]
+            "Identifier" : "String"
           },
-          "UnannClassOrInterfaceType" : [ ],
           "isInterface" : false
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "startTime",
-            "Dims" : null
-          },
-          "VariableInitializer" : null
+            "Identifier" : "startTime"
+          }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 2,
         "UnannType" : {
           "UnannUnitClassOrInterfaceType" : {
-            "Identifier" : "String",
-            "TypeArgumentList" : [ ]
+            "Identifier" : "String"
           },
-          "UnannClassOrInterfaceType" : [ ],
           "isInterface" : false
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "submitTime",
-            "Dims" : null
-          },
-          "VariableInitializer" : null
+            "Identifier" : "submitTime"
+          }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 2,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "recruitId",
-            "Dims" : null
-          },
-          "VariableInitializer" : null
+            "Identifier" : "recruitId"
+          }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 1,
         "MethodHeader" : {
           "Result" : {
@@ -152,21 +114,16 @@
             }
           },
           "MethodDeclarator" : {
-            "Identifier" : "getId",
-            "FormalParameters" : null,
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            "Identifier" : "getId"
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "Expression" : {
                 "ExpressionName" : {
-                  "identifier" : "id",
-                  "prev" : null
-                },
-                "IsPlusList" : [ ]
+                  "identifier" : "id"
+                }
               }
             } ]
           }
@@ -174,32 +131,25 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 1,
         "MethodHeader" : {
-          "Result" : {
-            "UnannType" : null
-          },
+          "Result" : { },
           "MethodDeclarator" : {
             "Identifier" : "setId",
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "id",
-                    "Dims" : null
+                    "Identifier" : "id"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -207,18 +157,15 @@
               "StatementExpression" : {
                 "LeftHandSide" : {
                   "Primary" : {
-                    "DefaultArrayLfnoPrimary" : { },
-                    "DefaultArrayLfPrimaryList" : [ ]
+                    "DefaultArrayLfnoPrimary" : { }
                   },
                   "Identifier" : "id"
                 },
                 "AssignmentOperator" : "=",
                 "Expression" : {
                   "ExpressionName" : {
-                    "identifier" : "id",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "id"
+                  }
                 }
               }
             } ]
@@ -227,35 +174,27 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 1,
         "MethodHeader" : {
           "Result" : {
             "UnannType" : {
               "UnannUnitClassOrInterfaceType" : {
-                "Identifier" : "String",
-                "TypeArgumentList" : [ ]
+                "Identifier" : "String"
               },
-              "UnannClassOrInterfaceType" : [ ],
               "isInterface" : false
             }
           },
           "MethodDeclarator" : {
-            "Identifier" : "getName",
-            "FormalParameters" : null,
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            "Identifier" : "getName"
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "Expression" : {
                 "ExpressionName" : {
-                  "identifier" : "name",
-                  "prev" : null
-                },
-                "IsPlusList" : [ ]
+                  "identifier" : "name"
+                }
               }
             } ]
           }
@@ -263,37 +202,28 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 1,
         "MethodHeader" : {
-          "Result" : {
-            "UnannType" : null
-          },
+          "Result" : { },
           "MethodDeclarator" : {
             "Identifier" : "setName",
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "UnannUnitClassOrInterfaceType" : {
-                      "Identifier" : "String",
-                      "TypeArgumentList" : [ ]
+                      "Identifier" : "String"
                     },
-                    "UnannClassOrInterfaceType" : [ ],
                     "isInterface" : false
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "name",
-                    "Dims" : null
+                    "Identifier" : "name"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -301,18 +231,15 @@
               "StatementExpression" : {
                 "LeftHandSide" : {
                   "Primary" : {
-                    "DefaultArrayLfnoPrimary" : { },
-                    "DefaultArrayLfPrimaryList" : [ ]
+                    "DefaultArrayLfnoPrimary" : { }
                   },
                   "Identifier" : "name"
                 },
                 "AssignmentOperator" : "=",
                 "Expression" : {
                   "ExpressionName" : {
-                    "identifier" : "name",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "name"
+                  }
                 }
               }
             } ]
@@ -321,35 +248,27 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 1,
         "MethodHeader" : {
           "Result" : {
             "UnannType" : {
               "UnannUnitClassOrInterfaceType" : {
-                "Identifier" : "String",
-                "TypeArgumentList" : [ ]
+                "Identifier" : "String"
               },
-              "UnannClassOrInterfaceType" : [ ],
               "isInterface" : false
             }
           },
           "MethodDeclarator" : {
-            "Identifier" : "getEmail",
-            "FormalParameters" : null,
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            "Identifier" : "getEmail"
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "Expression" : {
                 "ExpressionName" : {
-                  "identifier" : "email",
-                  "prev" : null
-                },
-                "IsPlusList" : [ ]
+                  "identifier" : "email"
+                }
               }
             } ]
           }
@@ -357,37 +276,28 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 1,
         "MethodHeader" : {
-          "Result" : {
-            "UnannType" : null
-          },
+          "Result" : { },
           "MethodDeclarator" : {
             "Identifier" : "setEmail",
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "UnannUnitClassOrInterfaceType" : {
-                      "Identifier" : "String",
-                      "TypeArgumentList" : [ ]
+                      "Identifier" : "String"
                     },
-                    "UnannClassOrInterfaceType" : [ ],
                     "isInterface" : false
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "email",
-                    "Dims" : null
+                    "Identifier" : "email"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -395,18 +305,15 @@
               "StatementExpression" : {
                 "LeftHandSide" : {
                   "Primary" : {
-                    "DefaultArrayLfnoPrimary" : { },
-                    "DefaultArrayLfPrimaryList" : [ ]
+                    "DefaultArrayLfnoPrimary" : { }
                   },
                   "Identifier" : "email"
                 },
                 "AssignmentOperator" : "=",
                 "Expression" : {
                   "ExpressionName" : {
-                    "identifier" : "email",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "email"
+                  }
                 }
               }
             } ]
@@ -415,35 +322,27 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 1,
         "MethodHeader" : {
           "Result" : {
             "UnannType" : {
               "UnannUnitClassOrInterfaceType" : {
-                "Identifier" : "String",
-                "TypeArgumentList" : [ ]
+                "Identifier" : "String"
               },
-              "UnannClassOrInterfaceType" : [ ],
               "isInterface" : false
             }
           },
           "MethodDeclarator" : {
-            "Identifier" : "getTicket",
-            "FormalParameters" : null,
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            "Identifier" : "getTicket"
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "Expression" : {
                 "ExpressionName" : {
-                  "identifier" : "ticket",
-                  "prev" : null
-                },
-                "IsPlusList" : [ ]
+                  "identifier" : "ticket"
+                }
               }
             } ]
           }
@@ -451,37 +350,28 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 1,
         "MethodHeader" : {
-          "Result" : {
-            "UnannType" : null
-          },
+          "Result" : { },
           "MethodDeclarator" : {
             "Identifier" : "setTicket",
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "UnannUnitClassOrInterfaceType" : {
-                      "Identifier" : "String",
-                      "TypeArgumentList" : [ ]
+                      "Identifier" : "String"
                     },
-                    "UnannClassOrInterfaceType" : [ ],
                     "isInterface" : false
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "ticket",
-                    "Dims" : null
+                    "Identifier" : "ticket"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -489,18 +379,15 @@
               "StatementExpression" : {
                 "LeftHandSide" : {
                   "Primary" : {
-                    "DefaultArrayLfnoPrimary" : { },
-                    "DefaultArrayLfPrimaryList" : [ ]
+                    "DefaultArrayLfnoPrimary" : { }
                   },
                   "Identifier" : "ticket"
                 },
                 "AssignmentOperator" : "=",
                 "Expression" : {
                   "ExpressionName" : {
-                    "identifier" : "ticket",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "ticket"
+                  }
                 }
               }
             } ]
@@ -509,35 +396,27 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 1,
         "MethodHeader" : {
           "Result" : {
             "UnannType" : {
               "UnannUnitClassOrInterfaceType" : {
-                "Identifier" : "String",
-                "TypeArgumentList" : [ ]
+                "Identifier" : "String"
               },
-              "UnannClassOrInterfaceType" : [ ],
               "isInterface" : false
             }
           },
           "MethodDeclarator" : {
-            "Identifier" : "getStartTime",
-            "FormalParameters" : null,
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            "Identifier" : "getStartTime"
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "Expression" : {
                 "ExpressionName" : {
-                  "identifier" : "startTime",
-                  "prev" : null
-                },
-                "IsPlusList" : [ ]
+                  "identifier" : "startTime"
+                }
               }
             } ]
           }
@@ -545,37 +424,28 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 1,
         "MethodHeader" : {
-          "Result" : {
-            "UnannType" : null
-          },
+          "Result" : { },
           "MethodDeclarator" : {
             "Identifier" : "setStartTime",
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "UnannUnitClassOrInterfaceType" : {
-                      "Identifier" : "String",
-                      "TypeArgumentList" : [ ]
+                      "Identifier" : "String"
                     },
-                    "UnannClassOrInterfaceType" : [ ],
                     "isInterface" : false
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "startTime",
-                    "Dims" : null
+                    "Identifier" : "startTime"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -583,18 +453,15 @@
               "StatementExpression" : {
                 "LeftHandSide" : {
                   "Primary" : {
-                    "DefaultArrayLfnoPrimary" : { },
-                    "DefaultArrayLfPrimaryList" : [ ]
+                    "DefaultArrayLfnoPrimary" : { }
                   },
                   "Identifier" : "startTime"
                 },
                 "AssignmentOperator" : "=",
                 "Expression" : {
                   "ExpressionName" : {
-                    "identifier" : "startTime",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "startTime"
+                  }
                 }
               }
             } ]
@@ -603,35 +470,27 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 1,
         "MethodHeader" : {
           "Result" : {
             "UnannType" : {
               "UnannUnitClassOrInterfaceType" : {
-                "Identifier" : "String",
-                "TypeArgumentList" : [ ]
+                "Identifier" : "String"
               },
-              "UnannClassOrInterfaceType" : [ ],
               "isInterface" : false
             }
           },
           "MethodDeclarator" : {
-            "Identifier" : "getSubmitTime",
-            "FormalParameters" : null,
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            "Identifier" : "getSubmitTime"
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "Expression" : {
                 "ExpressionName" : {
-                  "identifier" : "submitTime",
-                  "prev" : null
-                },
-                "IsPlusList" : [ ]
+                  "identifier" : "submitTime"
+                }
               }
             } ]
           }
@@ -639,37 +498,28 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 1,
         "MethodHeader" : {
-          "Result" : {
-            "UnannType" : null
-          },
+          "Result" : { },
           "MethodDeclarator" : {
             "Identifier" : "setSubmitTime",
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "UnannUnitClassOrInterfaceType" : {
-                      "Identifier" : "String",
-                      "TypeArgumentList" : [ ]
+                      "Identifier" : "String"
                     },
-                    "UnannClassOrInterfaceType" : [ ],
                     "isInterface" : false
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "submitTime",
-                    "Dims" : null
+                    "Identifier" : "submitTime"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -677,18 +527,15 @@
               "StatementExpression" : {
                 "LeftHandSide" : {
                   "Primary" : {
-                    "DefaultArrayLfnoPrimary" : { },
-                    "DefaultArrayLfPrimaryList" : [ ]
+                    "DefaultArrayLfnoPrimary" : { }
                   },
                   "Identifier" : "submitTime"
                 },
                 "AssignmentOperator" : "=",
                 "Expression" : {
                   "ExpressionName" : {
-                    "identifier" : "submitTime",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "submitTime"
+                  }
                 }
               }
             } ]
@@ -697,7 +544,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 1,
         "MethodHeader" : {
           "Result" : {
@@ -706,21 +552,16 @@
             }
           },
           "MethodDeclarator" : {
-            "Identifier" : "getRecruitId",
-            "FormalParameters" : null,
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            "Identifier" : "getRecruitId"
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "Expression" : {
                 "ExpressionName" : {
-                  "identifier" : "recruitId",
-                  "prev" : null
-                },
-                "IsPlusList" : [ ]
+                  "identifier" : "recruitId"
+                }
               }
             } ]
           }
@@ -728,32 +569,25 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 1,
         "MethodHeader" : {
-          "Result" : {
-            "UnannType" : null
-          },
+          "Result" : { },
           "MethodDeclarator" : {
             "Identifier" : "setRecruitId",
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "recruitId",
-                    "Dims" : null
+                    "Identifier" : "recruitId"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -761,18 +595,15 @@
               "StatementExpression" : {
                 "LeftHandSide" : {
                   "Primary" : {
-                    "DefaultArrayLfnoPrimary" : { },
-                    "DefaultArrayLfPrimaryList" : [ ]
+                    "DefaultArrayLfnoPrimary" : { }
                   },
                   "Identifier" : "recruitId"
                 },
                 "AssignmentOperator" : "=",
                 "Expression" : {
                   "ExpressionName" : {
-                    "identifier" : "recruitId",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "recruitId"
+                  }
                 }
               }
             } ]
@@ -783,8 +614,7 @@
       "ClassMemberDeclaration" : {
         "AnnotationList" : [ {
           "TypeName" : {
-            "identifier" : "Override",
-            "prev" : null
+            "identifier" : "Override"
           }
         } ],
         "Modifiers" : 1,
@@ -792,19 +622,14 @@
           "Result" : {
             "UnannType" : {
               "UnannUnitClassOrInterfaceType" : {
-                "Identifier" : "String",
-                "TypeArgumentList" : [ ]
+                "Identifier" : "String"
               },
-              "UnannClassOrInterfaceType" : [ ],
               "isInterface" : false
             }
           },
           "MethodDeclarator" : {
-            "Identifier" : "toString",
-            "FormalParameters" : null,
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            "Identifier" : "toString"
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -835,10 +660,8 @@
                                                             "literal" : {
                                                               "str" : "\"ApplicantVo{\""
                                                             }
-                                                          },
-                                                          "DefaultArrayLfPrimaryList" : [ ]
-                                                        },
-                                                        "IsPlusList" : [ ]
+                                                          }
+                                                        }
                                                       },
                                                       "MultiplicativeExpression" : {
                                                         "Primary" : {
@@ -846,18 +669,14 @@
                                                             "literal" : {
                                                               "str" : "\"id=\""
                                                             }
-                                                          },
-                                                          "DefaultArrayLfPrimaryList" : [ ]
-                                                        },
-                                                        "IsPlusList" : [ ]
+                                                          }
+                                                        }
                                                       }
                                                     },
                                                     "MultiplicativeExpression" : {
                                                       "ExpressionName" : {
-                                                        "identifier" : "id",
-                                                        "prev" : null
-                                                      },
-                                                      "IsPlusList" : [ ]
+                                                        "identifier" : "id"
+                                                      }
                                                     }
                                                   },
                                                   "MultiplicativeExpression" : {
@@ -866,18 +685,14 @@
                                                         "literal" : {
                                                           "str" : "\", name='\""
                                                         }
-                                                      },
-                                                      "DefaultArrayLfPrimaryList" : [ ]
-                                                    },
-                                                    "IsPlusList" : [ ]
+                                                      }
+                                                    }
                                                   }
                                                 },
                                                 "MultiplicativeExpression" : {
                                                   "ExpressionName" : {
-                                                    "identifier" : "name",
-                                                    "prev" : null
-                                                  },
-                                                  "IsPlusList" : [ ]
+                                                    "identifier" : "name"
+                                                  }
                                                 }
                                               },
                                               "MultiplicativeExpression" : {
@@ -886,10 +701,8 @@
                                                     "literal" : {
                                                       "str" : "'\\''"
                                                     }
-                                                  },
-                                                  "DefaultArrayLfPrimaryList" : [ ]
-                                                },
-                                                "IsPlusList" : [ ]
+                                                  }
+                                                }
                                               }
                                             },
                                             "MultiplicativeExpression" : {
@@ -898,18 +711,14 @@
                                                   "literal" : {
                                                     "str" : "\", email='\""
                                                   }
-                                                },
-                                                "DefaultArrayLfPrimaryList" : [ ]
-                                              },
-                                              "IsPlusList" : [ ]
+                                                }
+                                              }
                                             }
                                           },
                                           "MultiplicativeExpression" : {
                                             "ExpressionName" : {
-                                              "identifier" : "email",
-                                              "prev" : null
-                                            },
-                                            "IsPlusList" : [ ]
+                                              "identifier" : "email"
+                                            }
                                           }
                                         },
                                         "MultiplicativeExpression" : {
@@ -918,10 +727,8 @@
                                               "literal" : {
                                                 "str" : "'\\''"
                                               }
-                                            },
-                                            "DefaultArrayLfPrimaryList" : [ ]
-                                          },
-                                          "IsPlusList" : [ ]
+                                            }
+                                          }
                                         }
                                       },
                                       "MultiplicativeExpression" : {
@@ -930,18 +737,14 @@
                                             "literal" : {
                                               "str" : "\", ticket='\""
                                             }
-                                          },
-                                          "DefaultArrayLfPrimaryList" : [ ]
-                                        },
-                                        "IsPlusList" : [ ]
+                                          }
+                                        }
                                       }
                                     },
                                     "MultiplicativeExpression" : {
                                       "ExpressionName" : {
-                                        "identifier" : "ticket",
-                                        "prev" : null
-                                      },
-                                      "IsPlusList" : [ ]
+                                        "identifier" : "ticket"
+                                      }
                                     }
                                   },
                                   "MultiplicativeExpression" : {
@@ -950,10 +753,8 @@
                                         "literal" : {
                                           "str" : "'\\''"
                                         }
-                                      },
-                                      "DefaultArrayLfPrimaryList" : [ ]
-                                    },
-                                    "IsPlusList" : [ ]
+                                      }
+                                    }
                                   }
                                 },
                                 "MultiplicativeExpression" : {
@@ -962,18 +763,14 @@
                                       "literal" : {
                                         "str" : "\", startTime='\""
                                       }
-                                    },
-                                    "DefaultArrayLfPrimaryList" : [ ]
-                                  },
-                                  "IsPlusList" : [ ]
+                                    }
+                                  }
                                 }
                               },
                               "MultiplicativeExpression" : {
                                 "ExpressionName" : {
-                                  "identifier" : "startTime",
-                                  "prev" : null
-                                },
-                                "IsPlusList" : [ ]
+                                  "identifier" : "startTime"
+                                }
                               }
                             },
                             "MultiplicativeExpression" : {
@@ -982,10 +779,8 @@
                                   "literal" : {
                                     "str" : "'\\''"
                                   }
-                                },
-                                "DefaultArrayLfPrimaryList" : [ ]
-                              },
-                              "IsPlusList" : [ ]
+                                }
+                              }
                             }
                           },
                           "MultiplicativeExpression" : {
@@ -994,18 +789,14 @@
                                 "literal" : {
                                   "str" : "\", submitTime='\""
                                 }
-                              },
-                              "DefaultArrayLfPrimaryList" : [ ]
-                            },
-                            "IsPlusList" : [ ]
+                              }
+                            }
                           }
                         },
                         "MultiplicativeExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "submitTime",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "submitTime"
+                          }
                         }
                       },
                       "MultiplicativeExpression" : {
@@ -1014,10 +805,8 @@
                             "literal" : {
                               "str" : "'\\''"
                             }
-                          },
-                          "DefaultArrayLfPrimaryList" : [ ]
-                        },
-                        "IsPlusList" : [ ]
+                          }
+                        }
                       }
                     },
                     "MultiplicativeExpression" : {
@@ -1026,18 +815,14 @@
                           "literal" : {
                             "str" : "\", recruitId=\""
                           }
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   },
                   "MultiplicativeExpression" : {
                     "ExpressionName" : {
-                      "identifier" : "recruitId",
-                      "prev" : null
-                    },
-                    "IsPlusList" : [ ]
+                      "identifier" : "recruitId"
+                    }
                   }
                 },
                 "MultiplicativeExpression" : {
@@ -1046,10 +831,8 @@
                       "literal" : {
                         "str" : "'}'"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]

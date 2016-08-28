@@ -12,7 +12,6 @@ public abstract class AstNode implements ParseTree{
   @JsonIgnore
   private final Range range;
 
-
   @JsonIgnore
   private AstNode parent;
 

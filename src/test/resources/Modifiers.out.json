@@ -1,27 +1,19 @@
 {
   "PackageDeclaration" : {
-    "AnnotationList" : [ ],
     "IdentifierList" : [ "codit", "ast", "pojos" ]
   },
-  "ImportDeclarationList" : [ ],
   "TypeDeclarationList" : [ {
-    "AnnotationList" : [ ],
     "Modifiers" : 1,
     "Identifier" : "Modifiers",
-    "TypeParameterList" : [ ],
-    "SuperClass" : null,
-    "SuperInterfaceList" : [ ],
     "ClassBodyDeclarationList" : [ {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 25,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "NONE",
-            "Dims" : null
+            "Identifier" : "NONE"
           },
           "VariableInitializer" : {
             "Expression" : {
@@ -30,25 +22,21 @@
                   "literal" : {
                     "str" : "0x00000000"
                   }
-                },
-                "DefaultArrayLfPrimaryList" : [ ]
-              },
-              "IsPlusList" : [ ]
+                }
+              }
             }
           }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 25,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "PUBLIC",
-            "Dims" : null
+            "Identifier" : "PUBLIC"
           },
           "VariableInitializer" : {
             "Expression" : {
@@ -57,25 +45,21 @@
                   "literal" : {
                     "str" : "0x00000001"
                   }
-                },
-                "DefaultArrayLfPrimaryList" : [ ]
-              },
-              "IsPlusList" : [ ]
+                }
+              }
             }
           }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 25,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "PRIVATE",
-            "Dims" : null
+            "Identifier" : "PRIVATE"
           },
           "VariableInitializer" : {
             "Expression" : {
@@ -84,25 +68,21 @@
                   "literal" : {
                     "str" : "0x00000002"
                   }
-                },
-                "DefaultArrayLfPrimaryList" : [ ]
-              },
-              "IsPlusList" : [ ]
+                }
+              }
             }
           }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 25,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "PROTECTED",
-            "Dims" : null
+            "Identifier" : "PROTECTED"
           },
           "VariableInitializer" : {
             "Expression" : {
@@ -111,25 +91,21 @@
                   "literal" : {
                     "str" : "0x00000004"
                   }
-                },
-                "DefaultArrayLfPrimaryList" : [ ]
-              },
-              "IsPlusList" : [ ]
+                }
+              }
             }
           }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 25,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "STATIC",
-            "Dims" : null
+            "Identifier" : "STATIC"
           },
           "VariableInitializer" : {
             "Expression" : {
@@ -138,25 +114,21 @@
                   "literal" : {
                     "str" : "0x00000008"
                   }
-                },
-                "DefaultArrayLfPrimaryList" : [ ]
-              },
-              "IsPlusList" : [ ]
+                }
+              }
             }
           }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 25,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "FINAL",
-            "Dims" : null
+            "Identifier" : "FINAL"
           },
           "VariableInitializer" : {
             "Expression" : {
@@ -165,25 +137,21 @@
                   "literal" : {
                     "str" : "0x00000010"
                   }
-                },
-                "DefaultArrayLfPrimaryList" : [ ]
-              },
-              "IsPlusList" : [ ]
+                }
+              }
             }
           }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 25,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "SYNCHRONIZED",
-            "Dims" : null
+            "Identifier" : "SYNCHRONIZED"
           },
           "VariableInitializer" : {
             "Expression" : {
@@ -192,25 +160,21 @@
                   "literal" : {
                     "str" : "0x00000020"
                   }
-                },
-                "DefaultArrayLfPrimaryList" : [ ]
-              },
-              "IsPlusList" : [ ]
+                }
+              }
             }
           }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 25,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "VOLATILE",
-            "Dims" : null
+            "Identifier" : "VOLATILE"
           },
           "VariableInitializer" : {
             "Expression" : {
@@ -219,25 +183,21 @@
                   "literal" : {
                     "str" : "0x00000040"
                   }
-                },
-                "DefaultArrayLfPrimaryList" : [ ]
-              },
-              "IsPlusList" : [ ]
+                }
+              }
             }
           }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 25,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "TRANSIENT",
-            "Dims" : null
+            "Identifier" : "TRANSIENT"
           },
           "VariableInitializer" : {
             "Expression" : {
@@ -246,25 +206,21 @@
                   "literal" : {
                     "str" : "0x00000080"
                   }
-                },
-                "DefaultArrayLfPrimaryList" : [ ]
-              },
-              "IsPlusList" : [ ]
+                }
+              }
             }
           }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 25,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "NATIVE",
-            "Dims" : null
+            "Identifier" : "NATIVE"
           },
           "VariableInitializer" : {
             "Expression" : {
@@ -273,25 +229,21 @@
                   "literal" : {
                     "str" : "0x00000100"
                   }
-                },
-                "DefaultArrayLfPrimaryList" : [ ]
-              },
-              "IsPlusList" : [ ]
+                }
+              }
             }
           }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 25,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "ABSTRACT",
-            "Dims" : null
+            "Identifier" : "ABSTRACT"
           },
           "VariableInitializer" : {
             "Expression" : {
@@ -300,25 +252,21 @@
                   "literal" : {
                     "str" : "0x00000400"
                   }
-                },
-                "DefaultArrayLfPrimaryList" : [ ]
-              },
-              "IsPlusList" : [ ]
+                }
+              }
             }
           }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 25,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "STRICTFP",
-            "Dims" : null
+            "Identifier" : "STRICTFP"
           },
           "VariableInitializer" : {
             "Expression" : {
@@ -327,25 +275,21 @@
                   "literal" : {
                     "str" : "0x00000800"
                   }
-                },
-                "DefaultArrayLfPrimaryList" : [ ]
-              },
-              "IsPlusList" : [ ]
+                }
+              }
             }
           }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 25,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "DEFAULT",
-            "Dims" : null
+            "Identifier" : "DEFAULT"
           },
           "VariableInitializer" : {
             "Expression" : {
@@ -354,17 +298,14 @@
                   "literal" : {
                     "str" : "0x00010000"
                   }
-                },
-                "DefaultArrayLfPrimaryList" : [ ]
-              },
-              "IsPlusList" : [ ]
+                }
+              }
             }
           }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -377,21 +318,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "mask",
-                    "Dims" : null
+                    "Identifier" : "mask"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -407,23 +344,17 @@
                               "literal" : {
                                 "str" : "0x00000007"
                               }
-                            },
-                            "DefaultArrayLfPrimaryList" : [ ]
-                          },
-                          "IsPlusList" : [ ]
+                            }
+                          }
                         },
                         "EqualityExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "mask",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "mask"
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -431,10 +362,8 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]
@@ -443,7 +372,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -456,21 +384,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "mask",
-                    "Dims" : null
+                    "Identifier" : "mask"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -482,23 +406,17 @@
                       "Expression" : {
                         "AndExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "PUBLIC",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "PUBLIC"
+                          }
                         },
                         "EqualityExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "mask",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "mask"
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -506,10 +424,8 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]
@@ -518,7 +434,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -531,21 +446,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "mask",
-                    "Dims" : null
+                    "Identifier" : "mask"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -557,23 +468,17 @@
                       "Expression" : {
                         "AndExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "PRIVATE",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "PRIVATE"
+                          }
                         },
                         "EqualityExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "mask",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "mask"
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -581,10 +486,8 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]
@@ -593,7 +496,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -606,21 +508,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "mask",
-                    "Dims" : null
+                    "Identifier" : "mask"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -632,23 +530,17 @@
                       "Expression" : {
                         "AndExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "PROTECTED",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "PROTECTED"
+                          }
                         },
                         "EqualityExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "mask",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "mask"
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -656,10 +548,8 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]
@@ -668,7 +558,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -681,21 +570,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "mask",
-                    "Dims" : null
+                    "Identifier" : "mask"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -707,23 +592,17 @@
                       "Expression" : {
                         "AndExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "STATIC",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "STATIC"
+                          }
                         },
                         "EqualityExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "mask",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "mask"
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -731,10 +610,8 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]
@@ -743,7 +620,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -756,21 +632,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "mask",
-                    "Dims" : null
+                    "Identifier" : "mask"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -782,23 +654,17 @@
                       "Expression" : {
                         "AndExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "FINAL",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "FINAL"
+                          }
                         },
                         "EqualityExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "mask",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "mask"
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -806,10 +672,8 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]
@@ -818,7 +682,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -831,21 +694,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "mask",
-                    "Dims" : null
+                    "Identifier" : "mask"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -857,23 +716,17 @@
                       "Expression" : {
                         "AndExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "SYNCHRONIZED",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "SYNCHRONIZED"
+                          }
                         },
                         "EqualityExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "mask",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "mask"
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -881,10 +734,8 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]
@@ -893,7 +744,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -906,21 +756,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "mask",
-                    "Dims" : null
+                    "Identifier" : "mask"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -932,23 +778,17 @@
                       "Expression" : {
                         "AndExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "VOLATILE",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "VOLATILE"
+                          }
                         },
                         "EqualityExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "mask",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "mask"
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -956,10 +796,8 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]
@@ -968,7 +806,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -981,21 +818,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "mask",
-                    "Dims" : null
+                    "Identifier" : "mask"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -1007,23 +840,17 @@
                       "Expression" : {
                         "AndExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "TRANSIENT",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "TRANSIENT"
+                          }
                         },
                         "EqualityExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "mask",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "mask"
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -1031,10 +858,8 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]
@@ -1043,7 +868,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -1056,21 +880,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "mask",
-                    "Dims" : null
+                    "Identifier" : "mask"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -1082,23 +902,17 @@
                       "Expression" : {
                         "AndExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "NATIVE",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "NATIVE"
+                          }
                         },
                         "EqualityExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "mask",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "mask"
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -1106,10 +920,8 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]
@@ -1118,7 +930,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -1131,21 +942,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "mask",
-                    "Dims" : null
+                    "Identifier" : "mask"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -1157,23 +964,17 @@
                       "Expression" : {
                         "AndExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "ABSTRACT",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "ABSTRACT"
+                          }
                         },
                         "EqualityExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "mask",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "mask"
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -1181,10 +982,8 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]
@@ -1193,7 +992,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -1206,21 +1004,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "mask",
-                    "Dims" : null
+                    "Identifier" : "mask"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -1232,23 +1026,17 @@
                       "Expression" : {
                         "AndExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "STRICTFP",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "STRICTFP"
+                          }
                         },
                         "EqualityExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "mask",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "mask"
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -1256,10 +1044,8 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]
@@ -1268,15 +1054,13 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 26,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "CLASS_MODIFIERS",
-            "Dims" : null
+            "Identifier" : "CLASS_MODIFIERS"
           },
           "VariableInitializer" : {
             "Expression" : {
@@ -1289,76 +1073,62 @@
                           "ExpressionName" : {
                             "identifier" : "PUBLIC",
                             "prev" : {
-                              "identifier" : "Modifiers",
-                              "prev" : null
+                              "identifier" : "Modifiers"
                             }
-                          },
-                          "IsPlusList" : [ ]
+                          }
                         },
                         "ExclusiveOrExpression" : {
                           "ExpressionName" : {
                             "identifier" : "PROTECTED",
                             "prev" : {
-                              "identifier" : "Modifiers",
-                              "prev" : null
+                              "identifier" : "Modifiers"
                             }
-                          },
-                          "IsPlusList" : [ ]
+                          }
                         }
                       },
                       "ExclusiveOrExpression" : {
                         "ExpressionName" : {
                           "identifier" : "PRIVATE",
                           "prev" : {
-                            "identifier" : "Modifiers",
-                            "prev" : null
+                            "identifier" : "Modifiers"
                           }
-                        },
-                        "IsPlusList" : [ ]
+                        }
                       }
                     },
                     "ExclusiveOrExpression" : {
                       "ExpressionName" : {
                         "identifier" : "ABSTRACT",
                         "prev" : {
-                          "identifier" : "Modifiers",
-                          "prev" : null
+                          "identifier" : "Modifiers"
                         }
-                      },
-                      "IsPlusList" : [ ]
+                      }
                     }
                   },
                   "ExclusiveOrExpression" : {
                     "ExpressionName" : {
                       "identifier" : "STATIC",
                       "prev" : {
-                        "identifier" : "Modifiers",
-                        "prev" : null
+                        "identifier" : "Modifiers"
                       }
-                    },
-                    "IsPlusList" : [ ]
+                    }
                   }
                 },
                 "ExclusiveOrExpression" : {
                   "ExpressionName" : {
                     "identifier" : "FINAL",
                     "prev" : {
-                      "identifier" : "Modifiers",
-                      "prev" : null
+                      "identifier" : "Modifiers"
                     }
-                  },
-                  "IsPlusList" : [ ]
+                  }
                 }
               },
               "ExclusiveOrExpression" : {
                 "ExpressionName" : {
                   "identifier" : "STRICTFP",
                   "prev" : {
-                    "identifier" : "Modifiers",
-                    "prev" : null
+                    "identifier" : "Modifiers"
                   }
-                },
-                "IsPlusList" : [ ]
+                }
               }
             }
           }
@@ -1366,15 +1136,13 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 26,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "CONSTRUCTOR_MODIFIERS",
-            "Dims" : null
+            "Identifier" : "CONSTRUCTOR_MODIFIERS"
           },
           "VariableInitializer" : {
             "Expression" : {
@@ -1383,32 +1151,26 @@
                   "ExpressionName" : {
                     "identifier" : "PUBLIC",
                     "prev" : {
-                      "identifier" : "Modifiers",
-                      "prev" : null
+                      "identifier" : "Modifiers"
                     }
-                  },
-                  "IsPlusList" : [ ]
+                  }
                 },
                 "ExclusiveOrExpression" : {
                   "ExpressionName" : {
                     "identifier" : "PROTECTED",
                     "prev" : {
-                      "identifier" : "Modifiers",
-                      "prev" : null
+                      "identifier" : "Modifiers"
                     }
-                  },
-                  "IsPlusList" : [ ]
+                  }
                 }
               },
               "ExclusiveOrExpression" : {
                 "ExpressionName" : {
                   "identifier" : "PRIVATE",
                   "prev" : {
-                    "identifier" : "Modifiers",
-                    "prev" : null
+                    "identifier" : "Modifiers"
                   }
-                },
-                "IsPlusList" : [ ]
+                }
               }
             }
           }
@@ -1416,15 +1178,13 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 26,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "METHOD_MODIFIERS",
-            "Dims" : null
+            "Identifier" : "METHOD_MODIFIERS"
           },
           "VariableInitializer" : {
             "Expression" : {
@@ -1439,98 +1199,80 @@
                               "ExpressionName" : {
                                 "identifier" : "PUBLIC",
                                 "prev" : {
-                                  "identifier" : "Modifiers",
-                                  "prev" : null
+                                  "identifier" : "Modifiers"
                                 }
-                              },
-                              "IsPlusList" : [ ]
+                              }
                             },
                             "ExclusiveOrExpression" : {
                               "ExpressionName" : {
                                 "identifier" : "PROTECTED",
                                 "prev" : {
-                                  "identifier" : "Modifiers",
-                                  "prev" : null
+                                  "identifier" : "Modifiers"
                                 }
-                              },
-                              "IsPlusList" : [ ]
+                              }
                             }
                           },
                           "ExclusiveOrExpression" : {
                             "ExpressionName" : {
                               "identifier" : "PRIVATE",
                               "prev" : {
-                                "identifier" : "Modifiers",
-                                "prev" : null
+                                "identifier" : "Modifiers"
                               }
-                            },
-                            "IsPlusList" : [ ]
+                            }
                           }
                         },
                         "ExclusiveOrExpression" : {
                           "ExpressionName" : {
                             "identifier" : "ABSTRACT",
                             "prev" : {
-                              "identifier" : "Modifiers",
-                              "prev" : null
+                              "identifier" : "Modifiers"
                             }
-                          },
-                          "IsPlusList" : [ ]
+                          }
                         }
                       },
                       "ExclusiveOrExpression" : {
                         "ExpressionName" : {
                           "identifier" : "STATIC",
                           "prev" : {
-                            "identifier" : "Modifiers",
-                            "prev" : null
+                            "identifier" : "Modifiers"
                           }
-                        },
-                        "IsPlusList" : [ ]
+                        }
                       }
                     },
                     "ExclusiveOrExpression" : {
                       "ExpressionName" : {
                         "identifier" : "FINAL",
                         "prev" : {
-                          "identifier" : "Modifiers",
-                          "prev" : null
+                          "identifier" : "Modifiers"
                         }
-                      },
-                      "IsPlusList" : [ ]
+                      }
                     }
                   },
                   "ExclusiveOrExpression" : {
                     "ExpressionName" : {
                       "identifier" : "SYNCHRONIZED",
                       "prev" : {
-                        "identifier" : "Modifiers",
-                        "prev" : null
+                        "identifier" : "Modifiers"
                       }
-                    },
-                    "IsPlusList" : [ ]
+                    }
                   }
                 },
                 "ExclusiveOrExpression" : {
                   "ExpressionName" : {
                     "identifier" : "NATIVE",
                     "prev" : {
-                      "identifier" : "Modifiers",
-                      "prev" : null
+                      "identifier" : "Modifiers"
                     }
-                  },
-                  "IsPlusList" : [ ]
+                  }
                 }
               },
               "ExclusiveOrExpression" : {
                 "ExpressionName" : {
                   "identifier" : "STRICTFP",
                   "prev" : {
-                    "identifier" : "Modifiers",
-                    "prev" : null
+                    "identifier" : "Modifiers"
                   }
-                },
-                "IsPlusList" : [ ]
+                }
               }
             }
           }
@@ -1538,15 +1280,13 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 26,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "FIELD_MODIFIERS",
-            "Dims" : null
+            "Identifier" : "FIELD_MODIFIERS"
           },
           "VariableInitializer" : {
             "Expression" : {
@@ -1559,76 +1299,62 @@
                           "ExpressionName" : {
                             "identifier" : "PUBLIC",
                             "prev" : {
-                              "identifier" : "Modifiers",
-                              "prev" : null
+                              "identifier" : "Modifiers"
                             }
-                          },
-                          "IsPlusList" : [ ]
+                          }
                         },
                         "ExclusiveOrExpression" : {
                           "ExpressionName" : {
                             "identifier" : "PROTECTED",
                             "prev" : {
-                              "identifier" : "Modifiers",
-                              "prev" : null
+                              "identifier" : "Modifiers"
                             }
-                          },
-                          "IsPlusList" : [ ]
+                          }
                         }
                       },
                       "ExclusiveOrExpression" : {
                         "ExpressionName" : {
                           "identifier" : "PRIVATE",
                           "prev" : {
-                            "identifier" : "Modifiers",
-                            "prev" : null
+                            "identifier" : "Modifiers"
                           }
-                        },
-                        "IsPlusList" : [ ]
+                        }
                       }
                     },
                     "ExclusiveOrExpression" : {
                       "ExpressionName" : {
                         "identifier" : "STATIC",
                         "prev" : {
-                          "identifier" : "Modifiers",
-                          "prev" : null
+                          "identifier" : "Modifiers"
                         }
-                      },
-                      "IsPlusList" : [ ]
+                      }
                     }
                   },
                   "ExclusiveOrExpression" : {
                     "ExpressionName" : {
                       "identifier" : "FINAL",
                       "prev" : {
-                        "identifier" : "Modifiers",
-                        "prev" : null
+                        "identifier" : "Modifiers"
                       }
-                    },
-                    "IsPlusList" : [ ]
+                    }
                   }
                 },
                 "ExclusiveOrExpression" : {
                   "ExpressionName" : {
                     "identifier" : "TRANSIENT",
                     "prev" : {
-                      "identifier" : "Modifiers",
-                      "prev" : null
+                      "identifier" : "Modifiers"
                     }
-                  },
-                  "IsPlusList" : [ ]
+                  }
                 }
               },
               "ExclusiveOrExpression" : {
                 "ExpressionName" : {
                   "identifier" : "VOLATILE",
                   "prev" : {
-                    "identifier" : "Modifiers",
-                    "prev" : null
+                    "identifier" : "Modifiers"
                   }
-                },
-                "IsPlusList" : [ ]
+                }
               }
             }
           }
@@ -1636,15 +1362,13 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 26,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "INTERFACE_MODIFIERS",
-            "Dims" : null
+            "Identifier" : "INTERFACE_MODIFIERS"
           },
           "VariableInitializer" : {
             "Expression" : {
@@ -1656,65 +1380,53 @@
                         "ExpressionName" : {
                           "identifier" : "PUBLIC",
                           "prev" : {
-                            "identifier" : "Modifiers",
-                            "prev" : null
+                            "identifier" : "Modifiers"
                           }
-                        },
-                        "IsPlusList" : [ ]
+                        }
                       },
                       "ExclusiveOrExpression" : {
                         "ExpressionName" : {
                           "identifier" : "PROTECTED",
                           "prev" : {
-                            "identifier" : "Modifiers",
-                            "prev" : null
+                            "identifier" : "Modifiers"
                           }
-                        },
-                        "IsPlusList" : [ ]
+                        }
                       }
                     },
                     "ExclusiveOrExpression" : {
                       "ExpressionName" : {
                         "identifier" : "PRIVATE",
                         "prev" : {
-                          "identifier" : "Modifiers",
-                          "prev" : null
+                          "identifier" : "Modifiers"
                         }
-                      },
-                      "IsPlusList" : [ ]
+                      }
                     }
                   },
                   "ExclusiveOrExpression" : {
                     "ExpressionName" : {
                       "identifier" : "ABSTRACT",
                       "prev" : {
-                        "identifier" : "Modifiers",
-                        "prev" : null
+                        "identifier" : "Modifiers"
                       }
-                    },
-                    "IsPlusList" : [ ]
+                    }
                   }
                 },
                 "ExclusiveOrExpression" : {
                   "ExpressionName" : {
                     "identifier" : "STATIC",
                     "prev" : {
-                      "identifier" : "Modifiers",
-                      "prev" : null
+                      "identifier" : "Modifiers"
                     }
-                  },
-                  "IsPlusList" : [ ]
+                  }
                 }
               },
               "ExclusiveOrExpression" : {
                 "ExpressionName" : {
                   "identifier" : "STRICTFP",
                   "prev" : {
-                    "identifier" : "Modifiers",
-                    "prev" : null
+                    "identifier" : "Modifiers"
                   }
-                },
-                "IsPlusList" : [ ]
+                }
               }
             }
           }
@@ -1722,15 +1434,13 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 26,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "INTERFACE_METHOD_MODIFIERS",
-            "Dims" : null
+            "Identifier" : "INTERFACE_METHOD_MODIFIERS"
           },
           "VariableInitializer" : {
             "Expression" : {
@@ -1740,43 +1450,35 @@
                     "ExpressionName" : {
                       "identifier" : "PUBLIC",
                       "prev" : {
-                        "identifier" : "Modifiers",
-                        "prev" : null
+                        "identifier" : "Modifiers"
                       }
-                    },
-                    "IsPlusList" : [ ]
+                    }
                   },
                   "ExclusiveOrExpression" : {
                     "ExpressionName" : {
                       "identifier" : "ABSTRACT",
                       "prev" : {
-                        "identifier" : "Modifiers",
-                        "prev" : null
+                        "identifier" : "Modifiers"
                       }
-                    },
-                    "IsPlusList" : [ ]
+                    }
                   }
                 },
                 "ExclusiveOrExpression" : {
                   "ExpressionName" : {
                     "identifier" : "STATIC",
                     "prev" : {
-                      "identifier" : "Modifiers",
-                      "prev" : null
+                      "identifier" : "Modifiers"
                     }
-                  },
-                  "IsPlusList" : [ ]
+                  }
                 }
               },
               "ExclusiveOrExpression" : {
                 "ExpressionName" : {
                   "identifier" : "STRICTFP",
                   "prev" : {
-                    "identifier" : "Modifiers",
-                    "prev" : null
+                    "identifier" : "Modifiers"
                   }
-                },
-                "IsPlusList" : [ ]
+                }
               }
             }
           }
@@ -1784,15 +1486,13 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 26,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "INTERFACE_CONSTANT_MODIFIERS",
-            "Dims" : null
+            "Identifier" : "INTERFACE_CONSTANT_MODIFIERS"
           },
           "VariableInitializer" : {
             "Expression" : {
@@ -1801,32 +1501,26 @@
                   "ExpressionName" : {
                     "identifier" : "PUBLIC",
                     "prev" : {
-                      "identifier" : "Modifiers",
-                      "prev" : null
+                      "identifier" : "Modifiers"
                     }
-                  },
-                  "IsPlusList" : [ ]
+                  }
                 },
                 "ExclusiveOrExpression" : {
                   "ExpressionName" : {
                     "identifier" : "STATIC",
                     "prev" : {
-                      "identifier" : "Modifiers",
-                      "prev" : null
+                      "identifier" : "Modifiers"
                     }
-                  },
-                  "IsPlusList" : [ ]
+                  }
                 }
               },
               "ExclusiveOrExpression" : {
                 "ExpressionName" : {
                   "identifier" : "FINAL",
                   "prev" : {
-                    "identifier" : "Modifiers",
-                    "prev" : null
+                    "identifier" : "Modifiers"
                   }
-                },
-                "IsPlusList" : [ ]
+                }
               }
             }
           }
@@ -1834,41 +1528,35 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 26,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "PARAMETER_MODIFIERS",
-            "Dims" : null
+            "Identifier" : "PARAMETER_MODIFIERS"
           },
           "VariableInitializer" : {
             "Expression" : {
               "ExpressionName" : {
                 "identifier" : "FINAL",
                 "prev" : {
-                  "identifier" : "Modifiers",
-                  "prev" : null
+                  "identifier" : "Modifiers"
                 }
-              },
-              "IsPlusList" : [ ]
+              }
             }
           }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 24,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "ACCESS_MODIFIERS",
-            "Dims" : null
+            "Identifier" : "ACCESS_MODIFIERS"
           },
           "VariableInitializer" : {
             "Expression" : {
@@ -1877,32 +1565,26 @@
                   "ExpressionName" : {
                     "identifier" : "PUBLIC",
                     "prev" : {
-                      "identifier" : "Modifiers",
-                      "prev" : null
+                      "identifier" : "Modifiers"
                     }
-                  },
-                  "IsPlusList" : [ ]
+                  }
                 },
                 "ExclusiveOrExpression" : {
                   "ExpressionName" : {
                     "identifier" : "PROTECTED",
                     "prev" : {
-                      "identifier" : "Modifiers",
-                      "prev" : null
+                      "identifier" : "Modifiers"
                     }
-                  },
-                  "IsPlusList" : [ ]
+                  }
                 }
               },
               "ExclusiveOrExpression" : {
                 "ExpressionName" : {
                   "identifier" : "PRIVATE",
                   "prev" : {
-                    "identifier" : "Modifiers",
-                    "prev" : null
+                    "identifier" : "Modifiers"
                   }
-                },
-                "IsPlusList" : [ ]
+                }
               }
             }
           }
@@ -1910,7 +1592,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -1919,21 +1600,16 @@
             }
           },
           "MethodDeclarator" : {
-            "Identifier" : "classModifiers",
-            "FormalParameters" : null,
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            "Identifier" : "classModifiers"
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "Expression" : {
                 "ExpressionName" : {
-                  "identifier" : "CLASS_MODIFIERS",
-                  "prev" : null
-                },
-                "IsPlusList" : [ ]
+                  "identifier" : "CLASS_MODIFIERS"
+                }
               }
             } ]
           }
@@ -1941,7 +1617,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -1950,21 +1625,16 @@
             }
           },
           "MethodDeclarator" : {
-            "Identifier" : "constructorModifiers",
-            "FormalParameters" : null,
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            "Identifier" : "constructorModifiers"
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "Expression" : {
                 "ExpressionName" : {
-                  "identifier" : "CONSTRUCTOR_MODIFIERS",
-                  "prev" : null
-                },
-                "IsPlusList" : [ ]
+                  "identifier" : "CONSTRUCTOR_MODIFIERS"
+                }
               }
             } ]
           }
@@ -1972,7 +1642,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -1981,21 +1650,16 @@
             }
           },
           "MethodDeclarator" : {
-            "Identifier" : "methodModifiers",
-            "FormalParameters" : null,
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            "Identifier" : "methodModifiers"
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "Expression" : {
                 "ExpressionName" : {
-                  "identifier" : "METHOD_MODIFIERS",
-                  "prev" : null
-                },
-                "IsPlusList" : [ ]
+                  "identifier" : "METHOD_MODIFIERS"
+                }
               }
             } ]
           }
@@ -2003,7 +1667,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -2012,21 +1675,16 @@
             }
           },
           "MethodDeclarator" : {
-            "Identifier" : "fieldModifiers",
-            "FormalParameters" : null,
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            "Identifier" : "fieldModifiers"
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "Expression" : {
                 "ExpressionName" : {
-                  "identifier" : "FIELD_MODIFIERS",
-                  "prev" : null
-                },
-                "IsPlusList" : [ ]
+                  "identifier" : "FIELD_MODIFIERS"
+                }
               }
             } ]
           }
@@ -2034,7 +1692,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -2043,21 +1700,16 @@
             }
           },
           "MethodDeclarator" : {
-            "Identifier" : "interfaceModifiers",
-            "FormalParameters" : null,
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            "Identifier" : "interfaceModifiers"
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "Expression" : {
                 "ExpressionName" : {
-                  "identifier" : "INTERFACE_MODIFIERS",
-                  "prev" : null
-                },
-                "IsPlusList" : [ ]
+                  "identifier" : "INTERFACE_MODIFIERS"
+                }
               }
             } ]
           }
@@ -2065,7 +1717,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -2074,21 +1725,16 @@
             }
           },
           "MethodDeclarator" : {
-            "Identifier" : "interfaceMethodModifers",
-            "FormalParameters" : null,
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            "Identifier" : "interfaceMethodModifers"
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "Expression" : {
                 "ExpressionName" : {
-                  "identifier" : "INTERFACE_METHOD_MODIFIERS",
-                  "prev" : null
-                },
-                "IsPlusList" : [ ]
+                  "identifier" : "INTERFACE_METHOD_MODIFIERS"
+                }
               }
             } ]
           }
@@ -2096,7 +1742,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -2105,21 +1750,16 @@
             }
           },
           "MethodDeclarator" : {
-            "Identifier" : "interfaceConstantModifiers",
-            "FormalParameters" : null,
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            "Identifier" : "interfaceConstantModifiers"
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "Expression" : {
                 "ExpressionName" : {
-                  "identifier" : "INTERFACE_CONSTANT_MODIFIERS",
-                  "prev" : null
-                },
-                "IsPlusList" : [ ]
+                  "identifier" : "INTERFACE_CONSTANT_MODIFIERS"
+                }
               }
             } ]
           }
@@ -2127,7 +1767,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -2136,21 +1775,16 @@
             }
           },
           "MethodDeclarator" : {
-            "Identifier" : "parameterModifiers",
-            "FormalParameters" : null,
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            "Identifier" : "parameterModifiers"
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "Expression" : {
                 "ExpressionName" : {
-                  "identifier" : "PARAMETER_MODIFIERS",
-                  "prev" : null
-                },
-                "IsPlusList" : [ ]
+                  "identifier" : "PARAMETER_MODIFIERS"
+                }
               }
             } ]
           }
@@ -2158,7 +1792,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -2167,21 +1800,16 @@
             }
           },
           "MethodDeclarator" : {
-            "Identifier" : "accessModifiers",
-            "FormalParameters" : null,
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            "Identifier" : "accessModifiers"
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "Expression" : {
                 "ExpressionName" : {
-                  "identifier" : "ACCESS_MODIFIERS",
-                  "prev" : null
-                },
-                "IsPlusList" : [ ]
+                  "identifier" : "ACCESS_MODIFIERS"
+                }
               }
             } ]
           }
@@ -2189,7 +1817,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -2202,21 +1829,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "mask",
-                    "Dims" : null
+                    "Identifier" : "mask"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -2232,29 +1855,21 @@
                               "Expression" : {
                                 "UnaryExpression" : {
                                   "ExpressionName" : {
-                                    "identifier" : "CLASS_MODIFIERS",
-                                    "prev" : null
-                                  },
-                                  "IsPlusList" : [ ]
+                                    "identifier" : "CLASS_MODIFIERS"
+                                  }
                                 }
                               }
-                            },
-                            "DefaultArrayLfPrimaryList" : [ ]
-                          },
-                          "IsPlusList" : [ ]
+                            }
+                          }
                         },
                         "EqualityExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "mask",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "mask"
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -2262,10 +1877,8 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]
@@ -2274,7 +1887,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -2287,21 +1899,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "mask",
-                    "Dims" : null
+                    "Identifier" : "mask"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -2317,29 +1925,21 @@
                               "Expression" : {
                                 "UnaryExpression" : {
                                   "ExpressionName" : {
-                                    "identifier" : "CONSTRUCTOR_MODIFIERS",
-                                    "prev" : null
-                                  },
-                                  "IsPlusList" : [ ]
+                                    "identifier" : "CONSTRUCTOR_MODIFIERS"
+                                  }
                                 }
                               }
-                            },
-                            "DefaultArrayLfPrimaryList" : [ ]
-                          },
-                          "IsPlusList" : [ ]
+                            }
+                          }
                         },
                         "EqualityExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "mask",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "mask"
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -2347,10 +1947,8 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]
@@ -2359,7 +1957,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -2372,21 +1969,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "mask",
-                    "Dims" : null
+                    "Identifier" : "mask"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -2402,29 +1995,21 @@
                               "Expression" : {
                                 "UnaryExpression" : {
                                   "ExpressionName" : {
-                                    "identifier" : "METHOD_MODIFIERS",
-                                    "prev" : null
-                                  },
-                                  "IsPlusList" : [ ]
+                                    "identifier" : "METHOD_MODIFIERS"
+                                  }
                                 }
                               }
-                            },
-                            "DefaultArrayLfPrimaryList" : [ ]
-                          },
-                          "IsPlusList" : [ ]
+                            }
+                          }
                         },
                         "EqualityExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "mask",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "mask"
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -2432,10 +2017,8 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]
@@ -2444,7 +2027,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -2457,21 +2039,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "mask",
-                    "Dims" : null
+                    "Identifier" : "mask"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -2487,29 +2065,21 @@
                               "Expression" : {
                                 "UnaryExpression" : {
                                   "ExpressionName" : {
-                                    "identifier" : "FIELD_MODIFIERS",
-                                    "prev" : null
-                                  },
-                                  "IsPlusList" : [ ]
+                                    "identifier" : "FIELD_MODIFIERS"
+                                  }
                                 }
                               }
-                            },
-                            "DefaultArrayLfPrimaryList" : [ ]
-                          },
-                          "IsPlusList" : [ ]
+                            }
+                          }
                         },
                         "EqualityExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "mask",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "mask"
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -2517,10 +2087,8 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]
@@ -2529,7 +2097,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -2542,21 +2109,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "mask",
-                    "Dims" : null
+                    "Identifier" : "mask"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -2572,29 +2135,21 @@
                               "Expression" : {
                                 "UnaryExpression" : {
                                   "ExpressionName" : {
-                                    "identifier" : "INTERFACE_MODIFIERS",
-                                    "prev" : null
-                                  },
-                                  "IsPlusList" : [ ]
+                                    "identifier" : "INTERFACE_MODIFIERS"
+                                  }
                                 }
                               }
-                            },
-                            "DefaultArrayLfPrimaryList" : [ ]
-                          },
-                          "IsPlusList" : [ ]
+                            }
+                          }
                         },
                         "EqualityExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "mask",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "mask"
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -2602,10 +2157,8 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]
@@ -2614,7 +2167,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -2627,21 +2179,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "mask",
-                    "Dims" : null
+                    "Identifier" : "mask"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -2657,29 +2205,21 @@
                               "Expression" : {
                                 "UnaryExpression" : {
                                   "ExpressionName" : {
-                                    "identifier" : "INTERFACE_METHOD_MODIFIERS",
-                                    "prev" : null
-                                  },
-                                  "IsPlusList" : [ ]
+                                    "identifier" : "INTERFACE_METHOD_MODIFIERS"
+                                  }
                                 }
                               }
-                            },
-                            "DefaultArrayLfPrimaryList" : [ ]
-                          },
-                          "IsPlusList" : [ ]
+                            }
+                          }
                         },
                         "EqualityExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "mask",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "mask"
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -2687,10 +2227,8 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]
@@ -2699,7 +2237,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -2712,21 +2249,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "mask",
-                    "Dims" : null
+                    "Identifier" : "mask"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -2742,29 +2275,21 @@
                               "Expression" : {
                                 "UnaryExpression" : {
                                   "ExpressionName" : {
-                                    "identifier" : "INTERFACE_CONSTANT_MODIFIERS",
-                                    "prev" : null
-                                  },
-                                  "IsPlusList" : [ ]
+                                    "identifier" : "INTERFACE_CONSTANT_MODIFIERS"
+                                  }
                                 }
                               }
-                            },
-                            "DefaultArrayLfPrimaryList" : [ ]
-                          },
-                          "IsPlusList" : [ ]
+                            }
+                          }
                         },
                         "EqualityExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "mask",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "mask"
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -2772,10 +2297,8 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]
@@ -2784,7 +2307,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 9,
         "MethodHeader" : {
           "Result" : {
@@ -2797,21 +2319,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "mask",
-                    "Dims" : null
+                    "Identifier" : "mask"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -2827,29 +2345,21 @@
                               "Expression" : {
                                 "UnaryExpression" : {
                                   "ExpressionName" : {
-                                    "identifier" : "PARAMETER_MODIFIERS",
-                                    "prev" : null
-                                  },
-                                  "IsPlusList" : [ ]
+                                    "identifier" : "PARAMETER_MODIFIERS"
+                                  }
                                 }
                               }
-                            },
-                            "DefaultArrayLfPrimaryList" : [ ]
-                          },
-                          "IsPlusList" : [ ]
+                            }
+                          }
                         },
                         "EqualityExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "mask",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "mask"
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -2857,10 +2367,8 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]

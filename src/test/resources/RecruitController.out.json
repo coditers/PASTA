@@ -1,6 +1,5 @@
 {
   "PackageDeclaration" : {
-    "AnnotationList" : [ ],
     "IdentifierList" : [ "com", "estsoft", "codit", "web", "controller" ]
   },
   "ImportDeclarationList" : [ {
@@ -13,8 +12,7 @@
           "prev" : {
             "identifier" : "estsoft",
             "prev" : {
-              "identifier" : "com",
-              "prev" : null
+              "identifier" : "com"
             }
           }
         }
@@ -32,8 +30,7 @@
             "prev" : {
               "identifier" : "estsoft",
               "prev" : {
-                "identifier" : "com",
-                "prev" : null
+                "identifier" : "com"
               }
             }
           }
@@ -52,8 +49,7 @@
             "prev" : {
               "identifier" : "estsoft",
               "prev" : {
-                "identifier" : "com",
-                "prev" : null
+                "identifier" : "com"
               }
             }
           }
@@ -72,8 +68,7 @@
             "prev" : {
               "identifier" : "estsoft",
               "prev" : {
-                "identifier" : "com",
-                "prev" : null
+                "identifier" : "com"
               }
             }
           }
@@ -92,8 +87,7 @@
             "prev" : {
               "identifier" : "estsoft",
               "prev" : {
-                "identifier" : "com",
-                "prev" : null
+                "identifier" : "com"
               }
             }
           }
@@ -112,8 +106,7 @@
             "prev" : {
               "identifier" : "estsoft",
               "prev" : {
-                "identifier" : "com",
-                "prev" : null
+                "identifier" : "com"
               }
             }
           }
@@ -130,8 +123,7 @@
           "prev" : {
             "identifier" : "sf",
             "prev" : {
-              "identifier" : "net",
-              "prev" : null
+              "identifier" : "net"
             }
           }
         }
@@ -147,8 +139,7 @@
           "prev" : {
             "identifier" : "apache",
             "prev" : {
-              "identifier" : "org",
-              "prev" : null
+              "identifier" : "org"
             }
           }
         }
@@ -166,8 +157,7 @@
             "prev" : {
               "identifier" : "springframework",
               "prev" : {
-                "identifier" : "org",
-                "prev" : null
+                "identifier" : "org"
               }
             }
           }
@@ -182,8 +172,7 @@
         "prev" : {
           "identifier" : "springframework",
           "prev" : {
-            "identifier" : "org",
-            "prev" : null
+            "identifier" : "org"
           }
         }
       }
@@ -196,8 +185,7 @@
         "prev" : {
           "identifier" : "springframework",
           "prev" : {
-            "identifier" : "org",
-            "prev" : null
+            "identifier" : "org"
           }
         }
       }
@@ -212,8 +200,7 @@
           "prev" : {
             "identifier" : "springframework",
             "prev" : {
-              "identifier" : "org",
-              "prev" : null
+              "identifier" : "org"
             }
           }
         }
@@ -231,8 +218,7 @@
             "prev" : {
               "identifier" : "springframework",
               "prev" : {
-                "identifier" : "org",
-                "prev" : null
+                "identifier" : "org"
               }
             }
           }
@@ -251,8 +237,7 @@
             "prev" : {
               "identifier" : "springframework",
               "prev" : {
-                "identifier" : "org",
-                "prev" : null
+                "identifier" : "org"
               }
             }
           }
@@ -271,8 +256,7 @@
             "prev" : {
               "identifier" : "springframework",
               "prev" : {
-                "identifier" : "org",
-                "prev" : null
+                "identifier" : "org"
               }
             }
           }
@@ -291,8 +275,7 @@
             "prev" : {
               "identifier" : "springframework",
               "prev" : {
-                "identifier" : "org",
-                "prev" : null
+                "identifier" : "org"
               }
             }
           }
@@ -309,8 +292,7 @@
           "prev" : {
             "identifier" : "springframework",
             "prev" : {
-              "identifier" : "org",
-              "prev" : null
+              "identifier" : "org"
             }
           }
         }
@@ -326,8 +308,7 @@
           "prev" : {
             "identifier" : "springframework",
             "prev" : {
-              "identifier" : "org",
-              "prev" : null
+              "identifier" : "org"
             }
           }
         }
@@ -343,8 +324,7 @@
           "prev" : {
             "identifier" : "springframework",
             "prev" : {
-              "identifier" : "org",
-              "prev" : null
+              "identifier" : "org"
             }
           }
         }
@@ -356,8 +336,7 @@
       "prev" : {
         "identifier" : "text",
         "prev" : {
-          "identifier" : "java",
-          "prev" : null
+          "identifier" : "java"
         }
       }
     }
@@ -367,8 +346,7 @@
       "prev" : {
         "identifier" : "util",
         "prev" : {
-          "identifier" : "java",
-          "prev" : null
+          "identifier" : "java"
         }
       }
     }
@@ -378,8 +356,7 @@
       "prev" : {
         "identifier" : "util",
         "prev" : {
-          "identifier" : "java",
-          "prev" : null
+          "identifier" : "java"
         }
       }
     }
@@ -389,8 +366,7 @@
       "prev" : {
         "identifier" : "util",
         "prev" : {
-          "identifier" : "java",
-          "prev" : null
+          "identifier" : "java"
         }
       }
     }
@@ -400,8 +376,7 @@
       "prev" : {
         "identifier" : "util",
         "prev" : {
-          "identifier" : "java",
-          "prev" : null
+          "identifier" : "java"
         }
       }
     }
@@ -411,8 +386,7 @@
       "prev" : {
         "identifier" : "util",
         "prev" : {
-          "identifier" : "java",
-          "prev" : null
+          "identifier" : "java"
         }
       }
     }
@@ -420,13 +394,11 @@
   "TypeDeclarationList" : [ {
     "AnnotationList" : [ {
       "TypeName" : {
-        "identifier" : "Controller",
-        "prev" : null
+        "identifier" : "Controller"
       }
     }, {
       "TypeName" : {
-        "identifier" : "RequestMapping",
-        "prev" : null
+        "identifier" : "RequestMapping"
       },
       "ElementValue" : {
         "Primary" : {
@@ -434,73 +406,57 @@
             "literal" : {
               "str" : "\"/recruit/{recruitId}\""
             }
-          },
-          "DefaultArrayLfPrimaryList" : [ ]
-        },
-        "IsPlusList" : [ ]
+          }
+        }
       }
     } ],
     "Modifiers" : 1,
     "Identifier" : "RecruitController",
-    "TypeParameterList" : [ ],
-    "SuperClass" : null,
-    "SuperInterfaceList" : [ ],
     "ClassBodyDeclarationList" : [ {
       "ClassMemberDeclaration" : {
         "AnnotationList" : [ {
           "TypeName" : {
-            "identifier" : "Autowired",
-            "prev" : null
+            "identifier" : "Autowired"
           }
         } ],
         "Modifiers" : 0,
         "UnannType" : {
           "UnannUnitClassOrInterfaceType" : {
-            "Identifier" : "RecruitService",
-            "TypeArgumentList" : [ ]
+            "Identifier" : "RecruitService"
           },
-          "UnannClassOrInterfaceType" : [ ],
           "isInterface" : false
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "recruitService",
-            "Dims" : null
-          },
-          "VariableInitializer" : null
+            "Identifier" : "recruitService"
+          }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
         "AnnotationList" : [ {
           "TypeName" : {
-            "identifier" : "Autowired",
-            "prev" : null
+            "identifier" : "Autowired"
           }
         } ],
         "Modifiers" : 0,
         "UnannType" : {
           "UnannUnitClassOrInterfaceType" : {
-            "Identifier" : "BasicDataSource",
-            "TypeArgumentList" : [ ]
+            "Identifier" : "BasicDataSource"
           },
-          "UnannClassOrInterfaceType" : [ ],
           "isInterface" : false
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "dataSource",
-            "Dims" : null
-          },
-          "VariableInitializer" : null
+            "Identifier" : "dataSource"
+          }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
         "AnnotationList" : [ {
           "TypeName" : {
-            "identifier" : "RequestMapping",
-            "prev" : null
+            "identifier" : "RequestMapping"
           },
           "ElementValue" : {
             "Primary" : {
@@ -508,10 +464,8 @@
                 "literal" : {
                   "str" : "\"\""
                 }
-              },
-              "DefaultArrayLfPrimaryList" : [ ]
-            },
-            "IsPlusList" : [ ]
+              }
+            }
           }
         } ],
         "Modifiers" : 1,
@@ -519,10 +473,8 @@
           "Result" : {
             "UnannType" : {
               "UnannUnitClassOrInterfaceType" : {
-                "Identifier" : "String",
-                "TypeArgumentList" : [ ]
+                "Identifier" : "String"
               },
-              "UnannClassOrInterfaceType" : [ ],
               "isInterface" : false
             }
           },
@@ -532,8 +484,7 @@
               "ParameterList" : [ {
                 "AnnotationList" : [ {
                   "TypeName" : {
-                    "identifier" : "PathVariable",
-                    "prev" : null
+                    "identifier" : "PathVariable"
                   },
                   "ElementValue" : {
                     "Primary" : {
@@ -541,10 +492,8 @@
                         "literal" : {
                           "str" : "\"recruitId\""
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 } ],
                 "Modifiers" : 0,
@@ -552,73 +501,56 @@
                   "Primitive" : "INT"
                 },
                 "VariableDeclaratorId" : {
-                  "Identifier" : "recruitId",
-                  "Dims" : null
+                  "Identifier" : "recruitId"
                 }
               } ],
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "UnannUnitClassOrInterfaceType" : {
-                      "Identifier" : "Model",
-                      "TypeArgumentList" : [ ]
+                      "Identifier" : "Model"
                     },
-                    "UnannClassOrInterfaceType" : [ ],
                     "isInterface" : false
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "model",
-                    "Dims" : null
+                    "Identifier" : "model"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
-                    "Identifier" : "RecruitVo",
-                    "TypeArgumentList" : [ ]
+                    "Identifier" : "RecruitVo"
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "recruitVo",
-                    "Dims" : null
+                    "Identifier" : "recruitVo"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
                           "TypeName" : {
-                            "identifier" : "recruitService",
-                            "prev" : null
+                            "identifier" : "recruitService"
                           },
-                          "TypeArguments" : null,
                           "Identifier" : "getRecruitVo",
                           "ArgumentList" : [ {
                             "ExpressionName" : {
-                              "identifier" : "recruitId",
-                              "prev" : null
-                            },
-                            "IsPlusList" : [ ]
+                              "identifier" : "recruitId"
+                            }
                           } ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   }
                 } ]
@@ -627,10 +559,8 @@
               "Expression" : {
                 "EqualityExpression" : {
                   "ExpressionName" : {
-                    "identifier" : "recruitVo",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "recruitVo"
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -638,10 +568,8 @@
                       "literal" : {
                         "str" : "null"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               },
               "Statement" : {
@@ -651,139 +579,104 @@
                       "literal" : {
                         "str" : "\"redirect:/\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             }, {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "Primitive" : "LONG"
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "time",
-                    "Dims" : null
+                    "Identifier" : "time"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
                           "TypeName" : {
-                            "identifier" : "System",
-                            "prev" : null
+                            "identifier" : "System"
                           },
-                          "TypeArguments" : null,
-                          "Identifier" : "currentTimeMillis",
-                          "ArgumentList" : [ ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                          "Identifier" : "currentTimeMillis"
+                        }
+                      }
                     }
                   }
                 } ]
               }
             }, {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
-                    "Identifier" : "SimpleDateFormat",
-                    "TypeArgumentList" : [ ]
+                    "Identifier" : "SimpleDateFormat"
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "dayTime",
-                    "Dims" : null
+                    "Identifier" : "dayTime"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
-                          "TypeArgumentList" : [ ],
                           "AnnotationListList" : [ [ ] ],
                           "IdentifierList" : [ "newSimpleDateFormat(\"yyyy-MM-dd HH:mm:ss\")" ],
-                          "TypeArgumentsOrDiamond" : null,
                           "ArgumentList" : [ {
                             "Primary" : {
                               "DefaultArrayLfnoPrimary" : {
                                 "literal" : {
                                   "str" : "\"yyyy-MM-dd HH:mm:ss\""
                                 }
-                              },
-                              "DefaultArrayLfPrimaryList" : [ ]
-                            },
-                            "IsPlusList" : [ ]
-                          } ],
-                          "ClassBody" : [ ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                              }
+                            }
+                          } ]
+                        }
+                      }
                     }
                   }
                 } ]
               }
             }, {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
-                    "Identifier" : "String",
-                    "TypeArgumentList" : [ ]
+                    "Identifier" : "String"
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "current_date",
-                    "Dims" : null
+                    "Identifier" : "current_date"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
                           "TypeName" : {
-                            "identifier" : "dayTime",
-                            "prev" : null
+                            "identifier" : "dayTime"
                           },
-                          "TypeArguments" : null,
                           "Identifier" : "format",
                           "ArgumentList" : [ {
                             "Primary" : {
                               "DefaultArrayLfnoPrimary" : {
-                                "TypeArgumentList" : [ ],
                                 "AnnotationListList" : [ [ ] ],
                                 "IdentifierList" : [ "newDate(time)" ],
-                                "TypeArgumentsOrDiamond" : null,
                                 "ArgumentList" : [ {
                                   "ExpressionName" : {
-                                    "identifier" : "time",
-                                    "prev" : null
-                                  },
-                                  "IsPlusList" : [ ]
-                                } ],
-                                "ClassBody" : [ ]
-                              },
-                              "DefaultArrayLfPrimaryList" : [ ]
-                            },
-                            "IsPlusList" : [ ]
+                                    "identifier" : "time"
+                                  }
+                                } ]
+                              }
+                            }
                           } ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   }
                 } ]
@@ -791,10 +684,8 @@
             }, {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "model",
-                  "prev" : null
+                  "identifier" : "model"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "addAttribute",
                 "ArgumentList" : [ {
                   "Primary" : {
@@ -802,25 +693,19 @@
                       "literal" : {
                         "str" : "\"recruitVo\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }, {
                   "ExpressionName" : {
-                    "identifier" : "recruitVo",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "recruitVo"
+                  }
                 } ]
               }
             }, {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "model",
-                  "prev" : null
+                  "identifier" : "model"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "addAttribute",
                 "ArgumentList" : [ {
                   "Primary" : {
@@ -828,39 +713,29 @@
                       "literal" : {
                         "str" : "\"applicantCount\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }, {
                   "Primary" : {
                     "DefaultArrayLfnoPrimary" : {
                       "TypeName" : {
-                        "identifier" : "recruitService",
-                        "prev" : null
+                        "identifier" : "recruitService"
                       },
-                      "TypeArguments" : null,
                       "Identifier" : "getApplicantCountByRecruitId",
                       "ArgumentList" : [ {
                         "ExpressionName" : {
-                          "identifier" : "recruitId",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "recruitId"
+                        }
                       } ]
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 } ]
               }
             }, {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "model",
-                  "prev" : null
+                  "identifier" : "model"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "addAttribute",
                 "ArgumentList" : [ {
                   "Primary" : {
@@ -868,30 +743,22 @@
                       "literal" : {
                         "str" : "\"problemCount\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }, {
                   "Primary" : {
                     "DefaultArrayLfnoPrimary" : {
                       "TypeName" : {
-                        "identifier" : "recruitService",
-                        "prev" : null
+                        "identifier" : "recruitService"
                       },
-                      "TypeArguments" : null,
                       "Identifier" : "getProblemCountByRecruitId",
                       "ArgumentList" : [ {
                         "ExpressionName" : {
-                          "identifier" : "recruitId",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "recruitId"
+                        }
                       } ]
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 } ]
               }
             }, {
@@ -901,16 +768,11 @@
                     "Primary" : {
                       "DefaultArrayLfnoPrimary" : {
                         "TypeName" : {
-                          "identifier" : "recruitVo",
-                          "prev" : null
+                          "identifier" : "recruitVo"
                         },
-                        "TypeArguments" : null,
-                        "Identifier" : "getFromDate",
-                        "ArgumentList" : [ ]
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                        "Identifier" : "getFromDate"
+                      }
+                    }
                   },
                   "RelationalExpression" : {
                     "Primary" : {
@@ -918,10 +780,8 @@
                         "literal" : {
                           "str" : "null"
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 },
                 "ConditionalAndExpression" : {
@@ -929,30 +789,21 @@
                     "Primary" : {
                       "DefaultArrayLfnoPrimary" : {
                         "TypeName" : {
-                          "identifier" : "current_date",
-                          "prev" : null
+                          "identifier" : "current_date"
                         },
-                        "TypeArguments" : null,
                         "Identifier" : "compareTo",
                         "ArgumentList" : [ {
                           "Primary" : {
                             "DefaultArrayLfnoPrimary" : {
                               "TypeName" : {
-                                "identifier" : "recruitVo",
-                                "prev" : null
+                                "identifier" : "recruitVo"
                               },
-                              "TypeArguments" : null,
-                              "Identifier" : "getFromDate",
-                              "ArgumentList" : [ ]
-                            },
-                            "DefaultArrayLfPrimaryList" : [ ]
-                          },
-                          "IsPlusList" : [ ]
+                              "Identifier" : "getFromDate"
+                            }
+                          }
                         } ]
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   },
                   "ShiftExpression" : {
                     "Primary" : {
@@ -960,10 +811,8 @@
                         "literal" : {
                           "str" : "0"
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 }
               },
@@ -976,10 +825,8 @@
                           "literal" : {
                             "str" : "\"recruit/ready/main\""
                           }
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   } ]
                 }
@@ -990,30 +837,21 @@
                     "Primary" : {
                       "DefaultArrayLfnoPrimary" : {
                         "TypeName" : {
-                          "identifier" : "current_date",
-                          "prev" : null
+                          "identifier" : "current_date"
                         },
-                        "TypeArguments" : null,
                         "Identifier" : "compareTo",
                         "ArgumentList" : [ {
                           "Primary" : {
                             "DefaultArrayLfnoPrimary" : {
                               "TypeName" : {
-                                "identifier" : "recruitVo",
-                                "prev" : null
+                                "identifier" : "recruitVo"
                               },
-                              "TypeArguments" : null,
-                              "Identifier" : "getFromDate",
-                              "ArgumentList" : [ ]
-                            },
-                            "DefaultArrayLfPrimaryList" : [ ]
-                          },
-                          "IsPlusList" : [ ]
+                              "Identifier" : "getFromDate"
+                            }
+                          }
                         } ]
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   },
                   "ShiftExpression" : {
                     "Primary" : {
@@ -1021,10 +859,8 @@
                         "literal" : {
                           "str" : "0"
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 },
                 "StatementNoShortIf" : {
@@ -1035,30 +871,21 @@
                           "Primary" : {
                             "DefaultArrayLfnoPrimary" : {
                               "TypeName" : {
-                                "identifier" : "current_date",
-                                "prev" : null
+                                "identifier" : "current_date"
                               },
-                              "TypeArguments" : null,
                               "Identifier" : "compareTo",
                               "ArgumentList" : [ {
                                 "Primary" : {
                                   "DefaultArrayLfnoPrimary" : {
                                     "TypeName" : {
-                                      "identifier" : "recruitVo",
-                                      "prev" : null
+                                      "identifier" : "recruitVo"
                                     },
-                                    "TypeArguments" : null,
-                                    "Identifier" : "getToDate",
-                                    "ArgumentList" : [ ]
-                                  },
-                                  "DefaultArrayLfPrimaryList" : [ ]
-                                },
-                                "IsPlusList" : [ ]
+                                    "Identifier" : "getToDate"
+                                  }
+                                }
                               } ]
-                            },
-                            "DefaultArrayLfPrimaryList" : [ ]
-                          },
-                          "IsPlusList" : [ ]
+                            }
+                          }
                         },
                         "ShiftExpression" : {
                           "Primary" : {
@@ -1066,22 +893,16 @@
                               "literal" : {
                                 "str" : "0"
                               }
-                            },
-                            "DefaultArrayLfPrimaryList" : [ ]
-                          },
-                          "IsPlusList" : [ ]
+                            }
+                          }
                         }
                       },
-                      "Statement" : {
-                        "BlockStatements" : null
-                      }
+                      "Statement" : { }
                     }, {
                       "StatementExpression" : {
                         "TypeName" : {
-                          "identifier" : "model",
-                          "prev" : null
+                          "identifier" : "model"
                         },
-                        "TypeArguments" : null,
                         "Identifier" : "addAttribute",
                         "ArgumentList" : [ {
                           "Primary" : {
@@ -1089,30 +910,22 @@
                               "literal" : {
                                 "str" : "\"submittedApplicantCount\""
                               }
-                            },
-                            "DefaultArrayLfPrimaryList" : [ ]
-                          },
-                          "IsPlusList" : [ ]
+                            }
+                          }
                         }, {
                           "Primary" : {
                             "DefaultArrayLfnoPrimary" : {
                               "TypeName" : {
-                                "identifier" : "recruitService",
-                                "prev" : null
+                                "identifier" : "recruitService"
                               },
-                              "TypeArguments" : null,
                               "Identifier" : "getSubmittedApplicantCountByRecruitId",
                               "ArgumentList" : [ {
                                 "ExpressionName" : {
-                                  "identifier" : "recruitId",
-                                  "prev" : null
-                                },
-                                "IsPlusList" : [ ]
+                                  "identifier" : "recruitId"
+                                }
                               } ]
-                            },
-                            "DefaultArrayLfPrimaryList" : [ ]
-                          },
-                          "IsPlusList" : [ ]
+                            }
+                          }
                         } ]
                       }
                     }, {
@@ -1122,10 +935,8 @@
                             "literal" : {
                               "str" : "\"recruit/started/main\""
                             }
-                          },
-                          "DefaultArrayLfPrimaryList" : [ ]
-                        },
-                        "IsPlusList" : [ ]
+                          }
+                        }
                       }
                     } ]
                   }
@@ -1139,10 +950,8 @@
                             "literal" : {
                               "str" : "\"redirect:/\""
                             }
-                          },
-                          "DefaultArrayLfPrimaryList" : [ ]
-                        },
-                        "IsPlusList" : [ ]
+                          }
+                        }
                       }
                     } ]
                   }
@@ -1156,8 +965,7 @@
       "ClassMemberDeclaration" : {
         "AnnotationList" : [ {
           "TypeName" : {
-            "identifier" : "RequestMapping",
-            "prev" : null
+            "identifier" : "RequestMapping"
           },
           "ElementValue" : {
             "Primary" : {
@@ -1165,10 +973,8 @@
                 "literal" : {
                   "str" : "\"/appregform\""
                 }
-              },
-              "DefaultArrayLfPrimaryList" : [ ]
-            },
-            "IsPlusList" : [ ]
+              }
+            }
           }
         } ],
         "Modifiers" : 1,
@@ -1176,10 +982,8 @@
           "Result" : {
             "UnannType" : {
               "UnannUnitClassOrInterfaceType" : {
-                "Identifier" : "String",
-                "TypeArgumentList" : [ ]
+                "Identifier" : "String"
               },
-              "UnannClassOrInterfaceType" : [ ],
               "isInterface" : false
             }
           },
@@ -1189,8 +993,7 @@
               "ParameterList" : [ {
                 "AnnotationList" : [ {
                   "TypeName" : {
-                    "identifier" : "PathVariable",
-                    "prev" : null
+                    "identifier" : "PathVariable"
                   },
                   "ElementValue" : {
                     "Primary" : {
@@ -1198,10 +1001,8 @@
                         "literal" : {
                           "str" : "\"recruitId\""
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 } ],
                 "Modifiers" : 0,
@@ -1209,42 +1010,33 @@
                   "Primitive" : "INT"
                 },
                 "VariableDeclaratorId" : {
-                  "Identifier" : "recruitId",
-                  "Dims" : null
+                  "Identifier" : "recruitId"
                 }
               } ],
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "UnannUnitClassOrInterfaceType" : {
-                      "Identifier" : "Model",
-                      "TypeArgumentList" : [ ]
+                      "Identifier" : "Model"
                     },
-                    "UnannClassOrInterfaceType" : [ ],
                     "isInterface" : false
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "model",
-                    "Dims" : null
+                    "Identifier" : "model"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "model",
-                  "prev" : null
+                  "identifier" : "model"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "addAttribute",
                 "ArgumentList" : [ {
                   "Primary" : {
@@ -1252,39 +1044,29 @@
                       "literal" : {
                         "str" : "\"recruitVo\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }, {
                   "Primary" : {
                     "DefaultArrayLfnoPrimary" : {
                       "TypeName" : {
-                        "identifier" : "recruitService",
-                        "prev" : null
+                        "identifier" : "recruitService"
                       },
-                      "TypeArguments" : null,
                       "Identifier" : "getRecruitVo",
                       "ArgumentList" : [ {
                         "ExpressionName" : {
-                          "identifier" : "recruitId",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "recruitId"
+                        }
                       } ]
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 } ]
               }
             }, {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "model",
-                  "prev" : null
+                  "identifier" : "model"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "addAttribute",
                 "ArgumentList" : [ {
                   "Primary" : {
@@ -1292,30 +1074,22 @@
                       "literal" : {
                         "str" : "\"applicantList\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }, {
                   "Primary" : {
                     "DefaultArrayLfnoPrimary" : {
                       "TypeName" : {
-                        "identifier" : "recruitService",
-                        "prev" : null
+                        "identifier" : "recruitService"
                       },
-                      "TypeArguments" : null,
                       "Identifier" : "getApplicantListByRecruitId",
                       "ArgumentList" : [ {
                         "ExpressionName" : {
-                          "identifier" : "recruitId",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "recruitId"
+                        }
                       } ]
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 } ]
               }
             }, {
@@ -1325,10 +1099,8 @@
                     "literal" : {
                       "str" : "\"recruit/ready/app-registration\""
                     }
-                  },
-                  "DefaultArrayLfPrimaryList" : [ ]
-                },
-                "IsPlusList" : [ ]
+                  }
+                }
               }
             } ]
           }
@@ -1338,8 +1110,7 @@
       "ClassMemberDeclaration" : {
         "AnnotationList" : [ {
           "TypeName" : {
-            "identifier" : "RequestMapping",
-            "prev" : null
+            "identifier" : "RequestMapping"
           },
           "ElementValue" : {
             "Primary" : {
@@ -1347,15 +1118,12 @@
                 "literal" : {
                   "str" : "\"/register-applicant\""
                 }
-              },
-              "DefaultArrayLfPrimaryList" : [ ]
-            },
-            "IsPlusList" : [ ]
+              }
+            }
           }
         }, {
           "TypeName" : {
-            "identifier" : "ResponseBody",
-            "prev" : null
+            "identifier" : "ResponseBody"
           }
         } ],
         "Modifiers" : 1,
@@ -1367,26 +1135,19 @@
                 "TypeArgumentList" : [ {
                   "Arguable" : {
                     "UnitClassOrInterfaceType" : {
-                      "AnnotationList" : [ ],
-                      "Identifier" : "String",
-                      "TypeArgumentList" : [ ]
+                      "Identifier" : "String"
                     },
-                    "ClassOrInterfaceType" : [ ],
                     "isInterface" : false
                   }
                 }, {
                   "Arguable" : {
                     "UnitClassOrInterfaceType" : {
-                      "AnnotationList" : [ ],
-                      "Identifier" : "Object",
-                      "TypeArgumentList" : [ ]
+                      "Identifier" : "Object"
                     },
-                    "ClassOrInterfaceType" : [ ],
                     "isInterface" : false
                   }
                 } ]
               },
-              "UnannClassOrInterfaceType" : [ ],
               "isInterface" : false
             }
           },
@@ -1396,8 +1157,7 @@
               "ParameterList" : [ {
                 "AnnotationList" : [ {
                   "TypeName" : {
-                    "identifier" : "PathVariable",
-                    "prev" : null
+                    "identifier" : "PathVariable"
                   },
                   "ElementValue" : {
                     "Primary" : {
@@ -1405,10 +1165,8 @@
                         "literal" : {
                           "str" : "\"recruitId\""
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 } ],
                 "Modifiers" : 0,
@@ -1416,38 +1174,30 @@
                   "Primitive" : "INT"
                 },
                 "VariableDeclaratorId" : {
-                  "Identifier" : "recruitId",
-                  "Dims" : null
+                  "Identifier" : "recruitId"
                 }
               } ],
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "UnannUnitClassOrInterfaceType" : {
-                      "Identifier" : "MultipartHttpServletRequest",
-                      "TypeArgumentList" : [ ]
+                      "Identifier" : "MultipartHttpServletRequest"
                     },
-                    "UnannClassOrInterfaceType" : [ ],
                     "isInterface" : false
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "request",
-                    "Dims" : null
+                    "Identifier" : "request"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
@@ -1455,137 +1205,103 @@
                     "TypeArgumentList" : [ {
                       "Arguable" : {
                         "UnitClassOrInterfaceType" : {
-                          "AnnotationList" : [ ],
-                          "Identifier" : "String",
-                          "TypeArgumentList" : [ ]
+                          "Identifier" : "String"
                         },
-                        "ClassOrInterfaceType" : [ ],
                         "isInterface" : false
                       }
                     } ]
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "itr",
-                    "Dims" : null
+                    "Identifier" : "itr"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
                           "TypeName" : {
-                            "identifier" : "request",
-                            "prev" : null
+                            "identifier" : "request"
                           },
-                          "TypeArguments" : null,
-                          "Identifier" : "getFileNames",
-                          "ArgumentList" : [ ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                          "Identifier" : "getFileNames"
+                        }
+                      }
                     }
                   }
                 } ]
               }
             }, {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
-                    "Identifier" : "MultipartFile",
-                    "TypeArgumentList" : [ ]
+                    "Identifier" : "MultipartFile"
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "mpf",
-                    "Dims" : null
+                    "Identifier" : "mpf"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
                           "TypeName" : {
-                            "identifier" : "request",
-                            "prev" : null
+                            "identifier" : "request"
                           },
-                          "TypeArguments" : null,
                           "Identifier" : "getFile",
                           "ArgumentList" : [ {
                             "Primary" : {
                               "DefaultArrayLfnoPrimary" : {
                                 "TypeName" : {
-                                  "identifier" : "itr",
-                                  "prev" : null
+                                  "identifier" : "itr"
                                 },
-                                "TypeArguments" : null,
-                                "Identifier" : "next",
-                                "ArgumentList" : [ ]
-                              },
-                              "DefaultArrayLfPrimaryList" : [ ]
-                            },
-                            "IsPlusList" : [ ]
+                                "Identifier" : "next"
+                              }
+                            }
                           } ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   }
                 } ]
               }
             }, {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
-                    "Identifier" : "String",
-                    "TypeArgumentList" : [ ]
+                    "Identifier" : "String"
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "filePath",
-                    "Dims" : null
+                    "Identifier" : "filePath"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
                           "TypeName" : {
-                            "identifier" : "Util",
-                            "prev" : null
+                            "identifier" : "Util"
                           },
-                          "TypeArguments" : null,
                           "Identifier" : "saveMultiPartFile",
                           "ArgumentList" : [ {
                             "ExpressionName" : {
-                              "identifier" : "mpf",
-                              "prev" : null
-                            },
-                            "IsPlusList" : [ ]
+                              "identifier" : "mpf"
+                            }
                           } ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   }
                 } ]
               }
             }, {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
@@ -1593,22 +1309,17 @@
                     "TypeArgumentList" : [ {
                       "Arguable" : {
                         "UnitClassOrInterfaceType" : {
-                          "AnnotationList" : [ ],
-                          "Identifier" : "ApplicantVo",
-                          "TypeArgumentList" : [ ]
+                          "Identifier" : "ApplicantVo"
                         },
-                        "ClassOrInterfaceType" : [ ],
                         "isInterface" : false
                       }
                     } ]
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "list",
-                    "Dims" : null
+                    "Identifier" : "list"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
@@ -1617,17 +1328,14 @@
                           "literal" : {
                             "str" : "null"
                           }
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   }
                 } ]
               }
             }, {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
@@ -1635,69 +1343,50 @@
                     "TypeArgumentList" : [ {
                       "Arguable" : {
                         "UnitClassOrInterfaceType" : {
-                          "AnnotationList" : [ ],
-                          "Identifier" : "String",
-                          "TypeArgumentList" : [ ]
+                          "Identifier" : "String"
                         },
-                        "ClassOrInterfaceType" : [ ],
                         "isInterface" : false
                       }
                     }, {
                       "Arguable" : {
                         "UnitClassOrInterfaceType" : {
-                          "AnnotationList" : [ ],
-                          "Identifier" : "Object",
-                          "TypeArgumentList" : [ ]
+                          "Identifier" : "Object"
                         },
-                        "ClassOrInterfaceType" : [ ],
                         "isInterface" : false
                       }
                     } ]
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "map",
-                    "Dims" : null
+                    "Identifier" : "map"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
-                          "TypeArgumentList" : [ ],
                           "AnnotationListList" : [ [ ] ],
                           "IdentifierList" : [ "newHashMap<String,Object>()" ],
                           "TypeArgumentsOrDiamond" : {
                             "TypeArgumentList" : [ {
                               "Arguable" : {
                                 "UnitClassOrInterfaceType" : {
-                                  "AnnotationList" : [ ],
-                                  "Identifier" : "String",
-                                  "TypeArgumentList" : [ ]
+                                  "Identifier" : "String"
                                 },
-                                "ClassOrInterfaceType" : [ ],
                                 "isInterface" : false
                               }
                             }, {
                               "Arguable" : {
                                 "UnitClassOrInterfaceType" : {
-                                  "AnnotationList" : [ ],
-                                  "Identifier" : "Object",
-                                  "TypeArgumentList" : [ ]
+                                  "Identifier" : "Object"
                                 },
-                                "ClassOrInterfaceType" : [ ],
                                 "isInterface" : false
                               }
                             } ]
-                          },
-                          "ArgumentList" : [ ],
-                          "ClassBody" : [ ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                          }
+                        }
+                      }
                     }
                   }
                 } ]
@@ -1706,10 +1395,8 @@
               "Expression" : {
                 "EqualityExpression" : {
                   "ExpressionName" : {
-                    "identifier" : "filePath",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "filePath"
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -1717,60 +1404,45 @@
                       "literal" : {
                         "str" : "null"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               },
-              "StatementNoShortIf" : {
-                "BlockStatements" : null
-              },
+              "StatementNoShortIf" : { },
               "Statement" : {
                 "BlockStatements" : {
                   "BlockStatementList" : [ {
                     "StatementExpression" : {
                       "LeftHandSide" : {
-                        "identifier" : "list",
-                        "prev" : null
+                        "identifier" : "list"
                       },
                       "AssignmentOperator" : "=",
                       "Expression" : {
                         "Primary" : {
                           "DefaultArrayLfnoPrimary" : {
                             "TypeName" : {
-                              "identifier" : "recruitService",
-                              "prev" : null
+                              "identifier" : "recruitService"
                             },
-                            "TypeArguments" : null,
                             "Identifier" : "fetchApplicantListFromExcel",
                             "ArgumentList" : [ {
                               "ExpressionName" : {
-                                "identifier" : "filePath",
-                                "prev" : null
-                              },
-                              "IsPlusList" : [ ]
+                                "identifier" : "filePath"
+                              }
                             }, {
                               "ExpressionName" : {
-                                "identifier" : "recruitId",
-                                "prev" : null
-                              },
-                              "IsPlusList" : [ ]
+                                "identifier" : "recruitId"
+                              }
                             } ]
-                          },
-                          "DefaultArrayLfPrimaryList" : [ ]
-                        },
-                        "IsPlusList" : [ ]
+                          }
+                        }
                       }
                     }
                   }, {
                     "Expression" : {
                       "EqualityExpression" : {
                         "ExpressionName" : {
-                          "identifier" : "list",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "list"
+                        }
                       },
                       "RelationalExpression" : {
                         "Primary" : {
@@ -1778,42 +1450,32 @@
                             "literal" : {
                               "str" : "null"
                             }
-                          },
-                          "DefaultArrayLfPrimaryList" : [ ]
-                        },
-                        "IsPlusList" : [ ]
+                          }
+                        }
                       }
                     },
                     "Statement" : {
                       "StatementExpression" : {
                         "TypeName" : {
-                          "identifier" : "recruitService",
-                          "prev" : null
+                          "identifier" : "recruitService"
                         },
-                        "TypeArguments" : null,
                         "Identifier" : "enrollApplicantList",
                         "ArgumentList" : [ {
                           "ExpressionName" : {
-                            "identifier" : "list",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "list"
+                          }
                         }, {
                           "ExpressionName" : {
-                            "identifier" : "recruitId",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "recruitId"
+                          }
                         } ]
                       }
                     }
                   }, {
                     "StatementExpression" : {
                       "TypeName" : {
-                        "identifier" : "map",
-                        "prev" : null
+                        "identifier" : "map"
                       },
-                      "TypeArguments" : null,
                       "Identifier" : "put",
                       "ArgumentList" : [ {
                         "Primary" : {
@@ -1821,29 +1483,23 @@
                             "literal" : {
                               "str" : "\"result\""
                             }
-                          },
-                          "DefaultArrayLfPrimaryList" : [ ]
-                        },
-                        "IsPlusList" : [ ]
+                          }
+                        }
                       }, {
                         "Primary" : {
                           "DefaultArrayLfnoPrimary" : {
                             "literal" : {
                               "str" : "\"success\""
                             }
-                          },
-                          "DefaultArrayLfPrimaryList" : [ ]
-                        },
-                        "IsPlusList" : [ ]
+                          }
+                        }
                       } ]
                     }
                   }, {
                     "StatementExpression" : {
                       "TypeName" : {
-                        "identifier" : "map",
-                        "prev" : null
+                        "identifier" : "map"
                       },
-                      "TypeArguments" : null,
                       "Identifier" : "put",
                       "ArgumentList" : [ {
                         "Primary" : {
@@ -1851,16 +1507,12 @@
                             "literal" : {
                               "str" : "\"data\""
                             }
-                          },
-                          "DefaultArrayLfPrimaryList" : [ ]
-                        },
-                        "IsPlusList" : [ ]
+                          }
+                        }
                       }, {
                         "ExpressionName" : {
-                          "identifier" : "list",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "list"
+                        }
                       } ]
                     }
                   } ]
@@ -1869,10 +1521,8 @@
             }, {
               "Expression" : {
                 "ExpressionName" : {
-                  "identifier" : "map",
-                  "prev" : null
-                },
-                "IsPlusList" : [ ]
+                  "identifier" : "map"
+                }
               }
             } ]
           }
@@ -1882,8 +1532,7 @@
       "ClassMemberDeclaration" : {
         "AnnotationList" : [ {
           "TypeName" : {
-            "identifier" : "RequestMapping",
-            "prev" : null
+            "identifier" : "RequestMapping"
           },
           "ElementValuePairList" : [ {
             "Identifier" : "value",
@@ -1893,10 +1542,8 @@
                   "literal" : {
                     "str" : "\"set-recruitdate\""
                   }
-                },
-                "DefaultArrayLfPrimaryList" : [ ]
-              },
-              "IsPlusList" : [ ]
+                }
+              }
             }
           }, {
             "Identifier" : "method",
@@ -1904,11 +1551,9 @@
               "ExpressionName" : {
                 "identifier" : "POST",
                 "prev" : {
-                  "identifier" : "RequestMethod",
-                  "prev" : null
+                  "identifier" : "RequestMethod"
                 }
-              },
-              "IsPlusList" : [ ]
+              }
             }
           } ]
         } ],
@@ -1917,10 +1562,8 @@
           "Result" : {
             "UnannType" : {
               "UnannUnitClassOrInterfaceType" : {
-                "Identifier" : "String",
-                "TypeArgumentList" : [ ]
+                "Identifier" : "String"
               },
-              "UnannClassOrInterfaceType" : [ ],
               "isInterface" : false
             }
           },
@@ -1930,8 +1573,7 @@
               "ParameterList" : [ {
                 "AnnotationList" : [ {
                   "TypeName" : {
-                    "identifier" : "PathVariable",
-                    "prev" : null
+                    "identifier" : "PathVariable"
                   },
                   "ElementValue" : {
                     "Primary" : {
@@ -1939,10 +1581,8 @@
                         "literal" : {
                           "str" : "\"recruitId\""
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 } ],
                 "Modifiers" : 0,
@@ -1950,14 +1590,12 @@
                   "Primitive" : "INT"
                 },
                 "VariableDeclaratorId" : {
-                  "Identifier" : "recruitId",
-                  "Dims" : null
+                  "Identifier" : "recruitId"
                 }
               }, {
                 "AnnotationList" : [ {
                   "TypeName" : {
-                    "identifier" : "RequestParam",
-                    "prev" : null
+                    "identifier" : "RequestParam"
                   },
                   "ElementValue" : {
                     "Primary" : {
@@ -1965,32 +1603,26 @@
                         "literal" : {
                           "str" : "\"fromDate\""
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 } ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
-                    "Identifier" : "String",
-                    "TypeArgumentList" : [ ]
+                    "Identifier" : "String"
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorId" : {
-                  "Identifier" : "fromDate",
-                  "Dims" : null
+                  "Identifier" : "fromDate"
                 }
               } ],
               "LastFormalParameter" : {
                 "FormalParameter" : {
                   "AnnotationList" : [ {
                     "TypeName" : {
-                      "identifier" : "RequestParam",
-                      "prev" : null
+                      "identifier" : "RequestParam"
                     },
                     "ElementValue" : {
                       "Primary" : {
@@ -1998,161 +1630,121 @@
                           "literal" : {
                             "str" : "\"toDate\""
                           }
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   } ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "UnannUnitClassOrInterfaceType" : {
-                      "Identifier" : "String",
-                      "TypeArgumentList" : [ ]
+                      "Identifier" : "String"
                     },
-                    "UnannClassOrInterfaceType" : [ ],
                     "isInterface" : false
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "toDate",
-                    "Dims" : null
+                    "Identifier" : "toDate"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "Primitive" : "LONG"
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "time",
-                    "Dims" : null
+                    "Identifier" : "time"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
                           "TypeName" : {
-                            "identifier" : "System",
-                            "prev" : null
+                            "identifier" : "System"
                           },
-                          "TypeArguments" : null,
-                          "Identifier" : "currentTimeMillis",
-                          "ArgumentList" : [ ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                          "Identifier" : "currentTimeMillis"
+                        }
+                      }
                     }
                   }
                 } ]
               }
             }, {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
-                    "Identifier" : "SimpleDateFormat",
-                    "TypeArgumentList" : [ ]
+                    "Identifier" : "SimpleDateFormat"
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "dayTime",
-                    "Dims" : null
+                    "Identifier" : "dayTime"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
-                          "TypeArgumentList" : [ ],
                           "AnnotationListList" : [ [ ] ],
                           "IdentifierList" : [ "newSimpleDateFormat(\"yyyy-MM-dd HH:mm:ss\")" ],
-                          "TypeArgumentsOrDiamond" : null,
                           "ArgumentList" : [ {
                             "Primary" : {
                               "DefaultArrayLfnoPrimary" : {
                                 "literal" : {
                                   "str" : "\"yyyy-MM-dd HH:mm:ss\""
                                 }
-                              },
-                              "DefaultArrayLfPrimaryList" : [ ]
-                            },
-                            "IsPlusList" : [ ]
-                          } ],
-                          "ClassBody" : [ ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                              }
+                            }
+                          } ]
+                        }
+                      }
                     }
                   }
                 } ]
               }
             }, {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
-                    "Identifier" : "String",
-                    "TypeArgumentList" : [ ]
+                    "Identifier" : "String"
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "currentDate",
-                    "Dims" : null
+                    "Identifier" : "currentDate"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
                           "TypeName" : {
-                            "identifier" : "dayTime",
-                            "prev" : null
+                            "identifier" : "dayTime"
                           },
-                          "TypeArguments" : null,
                           "Identifier" : "format",
                           "ArgumentList" : [ {
                             "Primary" : {
                               "DefaultArrayLfnoPrimary" : {
-                                "TypeArgumentList" : [ ],
                                 "AnnotationListList" : [ [ ] ],
                                 "IdentifierList" : [ "newDate(time)" ],
-                                "TypeArgumentsOrDiamond" : null,
                                 "ArgumentList" : [ {
                                   "ExpressionName" : {
-                                    "identifier" : "time",
-                                    "prev" : null
-                                  },
-                                  "IsPlusList" : [ ]
-                                } ],
-                                "ClassBody" : [ ]
-                              },
-                              "DefaultArrayLfPrimaryList" : [ ]
-                            },
-                            "IsPlusList" : [ ]
+                                    "identifier" : "time"
+                                  }
+                                } ]
+                              }
+                            }
                           } ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   }
                 } ]
@@ -2164,22 +1756,16 @@
                     "Primary" : {
                       "DefaultArrayLfnoPrimary" : {
                         "TypeName" : {
-                          "identifier" : "fromDate",
-                          "prev" : null
+                          "identifier" : "fromDate"
                         },
-                        "TypeArguments" : null,
                         "Identifier" : "compareTo",
                         "ArgumentList" : [ {
                           "ExpressionName" : {
-                            "identifier" : "toDate",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "toDate"
+                          }
                         } ]
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   },
                   "ShiftExpression" : {
                     "Primary" : {
@@ -2187,10 +1773,8 @@
                         "literal" : {
                           "str" : "0"
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 },
                 "ConditionalAndExpression" : {
@@ -2198,22 +1782,16 @@
                     "Primary" : {
                       "DefaultArrayLfnoPrimary" : {
                         "TypeName" : {
-                          "identifier" : "fromDate",
-                          "prev" : null
+                          "identifier" : "fromDate"
                         },
-                        "TypeArguments" : null,
                         "Identifier" : "compareTo",
                         "ArgumentList" : [ {
                           "ExpressionName" : {
-                            "identifier" : "currentDate",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "currentDate"
+                          }
                         } ]
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   },
                   "ShiftExpression" : {
                     "Primary" : {
@@ -2221,10 +1799,8 @@
                         "literal" : {
                           "str" : "0"
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 }
               },
@@ -2236,46 +1812,34 @@
                         "literal" : {
                           "str" : "\"redirect:/recruit/\""
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   },
                   "MultiplicativeExpression" : {
                     "ExpressionName" : {
-                      "identifier" : "recruitId",
-                      "prev" : null
-                    },
-                    "IsPlusList" : [ ]
+                      "identifier" : "recruitId"
+                    }
                   }
                 }
               }
             }, {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "recruitService",
-                  "prev" : null
+                  "identifier" : "recruitService"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "setRecruitDate",
                 "ArgumentList" : [ {
                   "ExpressionName" : {
-                    "identifier" : "recruitId",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "recruitId"
+                  }
                 }, {
                   "ExpressionName" : {
-                    "identifier" : "fromDate",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "fromDate"
+                  }
                 }, {
                   "ExpressionName" : {
-                    "identifier" : "toDate",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "toDate"
+                  }
                 } ]
               }
             }, {
@@ -2286,17 +1850,13 @@
                       "literal" : {
                         "str" : "\"redirect:/recruit/\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "MultiplicativeExpression" : {
                   "ExpressionName" : {
-                    "identifier" : "recruitId",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "recruitId"
+                  }
                 }
               }
             } ]
@@ -2307,8 +1867,7 @@
       "ClassMemberDeclaration" : {
         "AnnotationList" : [ {
           "TypeName" : {
-            "identifier" : "RequestMapping",
-            "prev" : null
+            "identifier" : "RequestMapping"
           },
           "ElementValue" : {
             "Primary" : {
@@ -2316,10 +1875,8 @@
                 "literal" : {
                   "str" : "\"send-ticket\""
                 }
-              },
-              "DefaultArrayLfPrimaryList" : [ ]
-            },
-            "IsPlusList" : [ ]
+              }
+            }
           }
         } ],
         "Modifiers" : 1,
@@ -2327,10 +1884,8 @@
           "Result" : {
             "UnannType" : {
               "UnannUnitClassOrInterfaceType" : {
-                "Identifier" : "String",
-                "TypeArgumentList" : [ ]
+                "Identifier" : "String"
               },
-              "UnannClassOrInterfaceType" : [ ],
               "isInterface" : false
             }
           },
@@ -2340,8 +1895,7 @@
               "ParameterList" : [ {
                 "AnnotationList" : [ {
                   "TypeName" : {
-                    "identifier" : "PathVariable",
-                    "prev" : null
+                    "identifier" : "PathVariable"
                   },
                   "ElementValue" : {
                     "Primary" : {
@@ -2349,10 +1903,8 @@
                         "literal" : {
                           "str" : "\"recruitId\""
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 } ],
                 "Modifiers" : 0,
@@ -2360,142 +1912,111 @@
                   "Primitive" : "INT"
                 },
                 "VariableDeclaratorId" : {
-                  "Identifier" : "recruitId",
-                  "Dims" : null
+                  "Identifier" : "recruitId"
                 }
               } ],
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "UnannUnitClassOrInterfaceType" : {
-                      "Identifier" : "Model",
-                      "TypeArgumentList" : [ ]
+                      "Identifier" : "Model"
                     },
-                    "UnannClassOrInterfaceType" : [ ],
                     "isInterface" : false
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "model",
-                    "Dims" : null
+                    "Identifier" : "model"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "Primitive" : "BOOLEAN"
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "applicantFlag",
-                    "Dims" : null
+                    "Identifier" : "applicantFlag"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
                           "TypeName" : {
-                            "identifier" : "recruitService",
-                            "prev" : null
+                            "identifier" : "recruitService"
                           },
-                          "TypeArguments" : null,
                           "Identifier" : "isApplicantRegistered",
                           "ArgumentList" : [ {
                             "ExpressionName" : {
-                              "identifier" : "recruitId",
-                              "prev" : null
-                            },
-                            "IsPlusList" : [ ]
+                              "identifier" : "recruitId"
+                            }
                           } ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   }
                 } ]
               }
             }, {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "Primitive" : "BOOLEAN"
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "dateSetFlag",
-                    "Dims" : null
+                    "Identifier" : "dateSetFlag"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
                           "TypeName" : {
-                            "identifier" : "recruitService",
-                            "prev" : null
+                            "identifier" : "recruitService"
                           },
-                          "TypeArguments" : null,
                           "Identifier" : "isRecruitDateSet",
                           "ArgumentList" : [ {
                             "ExpressionName" : {
-                              "identifier" : "recruitId",
-                              "prev" : null
-                            },
-                            "IsPlusList" : [ ]
+                              "identifier" : "recruitId"
+                            }
                           } ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   }
                 } ]
               }
             }, {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "Primitive" : "BOOLEAN"
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "probSelectFlag",
-                    "Dims" : null
+                    "Identifier" : "probSelectFlag"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
                           "TypeName" : {
-                            "identifier" : "recruitService",
-                            "prev" : null
+                            "identifier" : "recruitService"
                           },
-                          "TypeArguments" : null,
                           "Identifier" : "isProblemSelected",
                           "ArgumentList" : [ {
                             "ExpressionName" : {
-                              "identifier" : "recruitId",
-                              "prev" : null
-                            },
-                            "IsPlusList" : [ ]
+                              "identifier" : "recruitId"
+                            }
                           } ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   }
                 } ]
@@ -2506,10 +2027,8 @@
                   "ConditionalAndExpression" : {
                     "EqualityExpression" : {
                       "ExpressionName" : {
-                        "identifier" : "applicantFlag",
-                        "prev" : null
-                      },
-                      "IsPlusList" : [ ]
+                        "identifier" : "applicantFlag"
+                      }
                     },
                     "RelationalExpression" : {
                       "Primary" : {
@@ -2517,19 +2036,15 @@
                           "literal" : {
                             "str" : "true"
                           }
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   },
                   "InclusiveOrExpression" : {
                     "EqualityExpression" : {
                       "ExpressionName" : {
-                        "identifier" : "dateSetFlag",
-                        "prev" : null
-                      },
-                      "IsPlusList" : [ ]
+                        "identifier" : "dateSetFlag"
+                      }
                     },
                     "RelationalExpression" : {
                       "Primary" : {
@@ -2537,20 +2052,16 @@
                           "literal" : {
                             "str" : "true"
                           }
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   }
                 },
                 "InclusiveOrExpression" : {
                   "EqualityExpression" : {
                     "ExpressionName" : {
-                      "identifier" : "probSelectFlag",
-                      "prev" : null
-                    },
-                    "IsPlusList" : [ ]
+                      "identifier" : "probSelectFlag"
+                    }
                   },
                   "RelationalExpression" : {
                     "Primary" : {
@@ -2558,27 +2069,21 @@
                         "literal" : {
                           "str" : "true"
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 }
               },
               "Statement" : {
                 "StatementExpression" : {
                   "TypeName" : {
-                    "identifier" : "recruitService",
-                    "prev" : null
+                    "identifier" : "recruitService"
                   },
-                  "TypeArguments" : null,
                   "Identifier" : "sendTickets",
                   "ArgumentList" : [ {
                     "ExpressionName" : {
-                      "identifier" : "recruitId",
-                      "prev" : null
-                    },
-                    "IsPlusList" : [ ]
+                      "identifier" : "recruitId"
+                    }
                   } ]
                 }
               }
@@ -2590,17 +2095,13 @@
                       "literal" : {
                         "str" : "\"redirect:/recruit/\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "MultiplicativeExpression" : {
                   "ExpressionName" : {
-                    "identifier" : "recruitId",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "recruitId"
+                  }
                 }
               }
             } ]
@@ -2611,8 +2112,7 @@
       "ClassMemberDeclaration" : {
         "AnnotationList" : [ {
           "TypeName" : {
-            "identifier" : "RequestMapping",
-            "prev" : null
+            "identifier" : "RequestMapping"
           },
           "ElementValue" : {
             "Primary" : {
@@ -2620,10 +2120,8 @@
                 "literal" : {
                   "str" : "\"problem-selectform\""
                 }
-              },
-              "DefaultArrayLfPrimaryList" : [ ]
-            },
-            "IsPlusList" : [ ]
+              }
+            }
           }
         } ],
         "Modifiers" : 1,
@@ -2631,10 +2129,8 @@
           "Result" : {
             "UnannType" : {
               "UnannUnitClassOrInterfaceType" : {
-                "Identifier" : "String",
-                "TypeArgumentList" : [ ]
+                "Identifier" : "String"
               },
-              "UnannClassOrInterfaceType" : [ ],
               "isInterface" : false
             }
           },
@@ -2644,8 +2140,7 @@
               "ParameterList" : [ {
                 "AnnotationList" : [ {
                   "TypeName" : {
-                    "identifier" : "PathVariable",
-                    "prev" : null
+                    "identifier" : "PathVariable"
                   },
                   "ElementValue" : {
                     "Primary" : {
@@ -2653,10 +2148,8 @@
                         "literal" : {
                           "str" : "\"recruitId\""
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 } ],
                 "Modifiers" : 0,
@@ -2664,38 +2157,30 @@
                   "Primitive" : "INT"
                 },
                 "VariableDeclaratorId" : {
-                  "Identifier" : "recruitId",
-                  "Dims" : null
+                  "Identifier" : "recruitId"
                 }
               } ],
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "UnannUnitClassOrInterfaceType" : {
-                      "Identifier" : "Model",
-                      "TypeArgumentList" : [ ]
+                      "Identifier" : "Model"
                     },
-                    "UnannClassOrInterfaceType" : [ ],
                     "isInterface" : false
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "model",
-                    "Dims" : null
+                    "Identifier" : "model"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
@@ -2703,38 +2188,28 @@
                     "TypeArgumentList" : [ {
                       "Arguable" : {
                         "UnitClassOrInterfaceType" : {
-                          "AnnotationList" : [ ],
-                          "Identifier" : "ProblemInfoVo",
-                          "TypeArgumentList" : [ ]
+                          "Identifier" : "ProblemInfoVo"
                         },
-                        "ClassOrInterfaceType" : [ ],
                         "isInterface" : false
                       }
                     } ]
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "problemInfoVoList",
-                    "Dims" : null
+                    "Identifier" : "problemInfoVoList"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
                           "TypeName" : {
-                            "identifier" : "recruitService",
-                            "prev" : null
+                            "identifier" : "recruitService"
                           },
-                          "TypeArguments" : null,
-                          "Identifier" : "getAllProblemInfoList",
-                          "ArgumentList" : [ ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                          "Identifier" : "getAllProblemInfoList"
+                        }
+                      }
                     }
                   }
                 } ]
@@ -2744,30 +2219,22 @@
                 "Primary" : {
                   "DefaultArrayLfnoPrimary" : {
                     "TypeName" : {
-                      "identifier" : "recruitService",
-                      "prev" : null
+                      "identifier" : "recruitService"
                     },
-                    "TypeArguments" : null,
                     "Identifier" : "isProblemSelected",
                     "ArgumentList" : [ {
                       "ExpressionName" : {
-                        "identifier" : "recruitId",
-                        "prev" : null
-                      },
-                      "IsPlusList" : [ ]
+                        "identifier" : "recruitId"
+                      }
                     } ]
-                  },
-                  "DefaultArrayLfPrimaryList" : [ ]
-                },
-                "IsPlusList" : [ ]
+                  }
+                }
               },
               "Statement" : {
                 "StatementExpression" : {
                   "TypeName" : {
-                    "identifier" : "model",
-                    "prev" : null
+                    "identifier" : "model"
                   },
-                  "TypeArguments" : null,
                   "Identifier" : "addAttribute",
                   "ArgumentList" : [ {
                     "Primary" : {
@@ -2775,71 +2242,53 @@
                         "literal" : {
                           "str" : "\"selectedProblemList\""
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }, {
                     "Primary" : {
                       "DefaultArrayLfnoPrimary" : {
                         "TypeName" : {
-                          "identifier" : "recruitService",
-                          "prev" : null
+                          "identifier" : "recruitService"
                         },
-                        "TypeArguments" : null,
                         "Identifier" : "getProblemInfoListByRecruitId",
                         "ArgumentList" : [ {
                           "ExpressionName" : {
-                            "identifier" : "recruitId",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "recruitId"
+                          }
                         } ]
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   } ]
                 }
               }
             }, {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
-                    "Identifier" : "RecruitVo",
-                    "TypeArgumentList" : [ ]
+                    "Identifier" : "RecruitVo"
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "recruitVo",
-                    "Dims" : null
+                    "Identifier" : "recruitVo"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
                           "TypeName" : {
-                            "identifier" : "recruitService",
-                            "prev" : null
+                            "identifier" : "recruitService"
                           },
-                          "TypeArguments" : null,
                           "Identifier" : "getRecruitVo",
                           "ArgumentList" : [ {
                             "ExpressionName" : {
-                              "identifier" : "recruitId",
-                              "prev" : null
-                            },
-                            "IsPlusList" : [ ]
+                              "identifier" : "recruitId"
+                            }
                           } ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   }
                 } ]
@@ -2847,10 +2296,8 @@
             }, {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "model",
-                  "prev" : null
+                  "identifier" : "model"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "addAttribute",
                 "ArgumentList" : [ {
                   "Primary" : {
@@ -2858,25 +2305,19 @@
                       "literal" : {
                         "str" : "\"recruitVo\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }, {
                   "ExpressionName" : {
-                    "identifier" : "recruitVo",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "recruitVo"
+                  }
                 } ]
               }
             }, {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "model",
-                  "prev" : null
+                  "identifier" : "model"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "addAttribute",
                 "ArgumentList" : [ {
                   "Primary" : {
@@ -2884,25 +2325,19 @@
                       "literal" : {
                         "str" : "\"problemInfoVoList\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }, {
                   "ExpressionName" : {
-                    "identifier" : "problemInfoVoList",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "problemInfoVoList"
+                  }
                 } ]
               }
             }, {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "model",
-                  "prev" : null
+                  "identifier" : "model"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "addAttribute",
                 "ArgumentList" : [ {
                   "Primary" : {
@@ -2910,30 +2345,22 @@
                       "literal" : {
                         "str" : "\"cartList\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }, {
                   "Primary" : {
                     "DefaultArrayLfnoPrimary" : {
                       "TypeName" : {
-                        "identifier" : "recruitService",
-                        "prev" : null
+                        "identifier" : "recruitService"
                       },
-                      "TypeArguments" : null,
                       "Identifier" : "getCartListByRecruitId",
                       "ArgumentList" : [ {
                         "ExpressionName" : {
-                          "identifier" : "recruitId",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "recruitId"
+                        }
                       } ]
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 } ]
               }
             }, {
@@ -2943,10 +2370,8 @@
                     "literal" : {
                       "str" : "\"recruit/ready/select-problem\""
                     }
-                  },
-                  "DefaultArrayLfPrimaryList" : [ ]
-                },
-                "IsPlusList" : [ ]
+                  }
+                }
               }
             } ]
           }
@@ -2956,8 +2381,7 @@
       "ClassMemberDeclaration" : {
         "AnnotationList" : [ {
           "TypeName" : {
-            "identifier" : "RequestMapping",
-            "prev" : null
+            "identifier" : "RequestMapping"
           },
           "ElementValue" : {
             "Primary" : {
@@ -2965,10 +2389,8 @@
                 "literal" : {
                   "str" : "\"/select-problem\""
                 }
-              },
-              "DefaultArrayLfPrimaryList" : [ ]
-            },
-            "IsPlusList" : [ ]
+              }
+            }
           }
         } ],
         "Modifiers" : 1,
@@ -2976,10 +2398,8 @@
           "Result" : {
             "UnannType" : {
               "UnannUnitClassOrInterfaceType" : {
-                "Identifier" : "String",
-                "TypeArgumentList" : [ ]
+                "Identifier" : "String"
               },
-              "UnannClassOrInterfaceType" : [ ],
               "isInterface" : false
             }
           },
@@ -2989,8 +2409,7 @@
               "ParameterList" : [ {
                 "AnnotationList" : [ {
                   "TypeName" : {
-                    "identifier" : "PathVariable",
-                    "prev" : null
+                    "identifier" : "PathVariable"
                   },
                   "ElementValue" : {
                     "Primary" : {
@@ -2998,10 +2417,8 @@
                         "literal" : {
                           "str" : "\"recruitId\""
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 } ],
                 "Modifiers" : 0,
@@ -3009,31 +2426,25 @@
                   "Primitive" : "INT"
                 },
                 "VariableDeclaratorId" : {
-                  "Identifier" : "recruitId",
-                  "Dims" : null
+                  "Identifier" : "recruitId"
                 }
               }, {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
-                    "Identifier" : "Model",
-                    "TypeArgumentList" : [ ]
+                    "Identifier" : "Model"
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorId" : {
-                  "Identifier" : "model",
-                  "Dims" : null
+                  "Identifier" : "model"
                 }
               } ],
               "LastFormalParameter" : {
                 "FormalParameter" : {
                   "AnnotationList" : [ {
                     "TypeName" : {
-                      "identifier" : "RequestParam",
-                      "prev" : null
+                      "identifier" : "RequestParam"
                     },
                     "ElementValuePairList" : [ {
                       "Identifier" : "value",
@@ -3043,10 +2454,8 @@
                             "literal" : {
                               "str" : "\"probIdList\""
                             }
-                          },
-                          "DefaultArrayLfPrimaryList" : [ ]
-                        },
-                        "IsPlusList" : [ ]
+                          }
+                        }
                       }
                     } ]
                   } ],
@@ -3060,78 +2469,59 @@
                     }
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "probIdList",
-                    "Dims" : null
+                    "Identifier" : "probIdList"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "recruitService",
-                  "prev" : null
+                  "identifier" : "recruitService"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "insertCartList",
                 "ArgumentList" : [ {
                   "ExpressionName" : {
-                    "identifier" : "recruitId",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "recruitId"
+                  }
                 }, {
                   "ExpressionName" : {
-                    "identifier" : "probIdList",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "probIdList"
+                  }
                 } ]
               }
             }, {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
-                    "Identifier" : "RecruitVo",
-                    "TypeArgumentList" : [ ]
+                    "Identifier" : "RecruitVo"
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "recruitVo",
-                    "Dims" : null
+                    "Identifier" : "recruitVo"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
                           "TypeName" : {
-                            "identifier" : "recruitService",
-                            "prev" : null
+                            "identifier" : "recruitService"
                           },
-                          "TypeArguments" : null,
                           "Identifier" : "getRecruitVo",
                           "ArgumentList" : [ {
                             "ExpressionName" : {
-                              "identifier" : "recruitId",
-                              "prev" : null
-                            },
-                            "IsPlusList" : [ ]
+                              "identifier" : "recruitId"
+                            }
                           } ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   }
                 } ]
@@ -3139,10 +2529,8 @@
             }, {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "model",
-                  "prev" : null
+                  "identifier" : "model"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "addAttribute",
                 "ArgumentList" : [ {
                   "Primary" : {
@@ -3150,16 +2538,12 @@
                       "literal" : {
                         "str" : "\"recruitVo\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }, {
                   "ExpressionName" : {
-                    "identifier" : "recruitVo",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "recruitVo"
+                  }
                 } ]
               }
             }, {
@@ -3170,17 +2554,13 @@
                       "literal" : {
                         "str" : "\"redirect:/recruit/\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "MultiplicativeExpression" : {
                   "ExpressionName" : {
-                    "identifier" : "recruitId",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "recruitId"
+                  }
                 }
               }
             } ]
@@ -3191,8 +2571,7 @@
       "ClassMemberDeclaration" : {
         "AnnotationList" : [ {
           "TypeName" : {
-            "identifier" : "RequestMapping",
-            "prev" : null
+            "identifier" : "RequestMapping"
           },
           "ElementValue" : {
             "Primary" : {
@@ -3200,10 +2579,8 @@
                 "literal" : {
                   "str" : "\"/write-emailform\""
                 }
-              },
-              "DefaultArrayLfPrimaryList" : [ ]
-            },
-            "IsPlusList" : [ ]
+              }
+            }
           }
         } ],
         "Modifiers" : 1,
@@ -3211,10 +2588,8 @@
           "Result" : {
             "UnannType" : {
               "UnannUnitClassOrInterfaceType" : {
-                "Identifier" : "String",
-                "TypeArgumentList" : [ ]
+                "Identifier" : "String"
               },
-              "UnannClassOrInterfaceType" : [ ],
               "isInterface" : false
             }
           },
@@ -3224,8 +2599,7 @@
               "ParameterList" : [ {
                 "AnnotationList" : [ {
                   "TypeName" : {
-                    "identifier" : "PathVariable",
-                    "prev" : null
+                    "identifier" : "PathVariable"
                   },
                   "ElementValue" : {
                     "Primary" : {
@@ -3233,10 +2607,8 @@
                         "literal" : {
                           "str" : "\"recruitId\""
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 } ],
                 "Modifiers" : 0,
@@ -3244,42 +2616,33 @@
                   "Primitive" : "INT"
                 },
                 "VariableDeclaratorId" : {
-                  "Identifier" : "recruitId",
-                  "Dims" : null
+                  "Identifier" : "recruitId"
                 }
               } ],
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "UnannUnitClassOrInterfaceType" : {
-                      "Identifier" : "Model",
-                      "TypeArgumentList" : [ ]
+                      "Identifier" : "Model"
                     },
-                    "UnannClassOrInterfaceType" : [ ],
                     "isInterface" : false
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "model",
-                    "Dims" : null
+                    "Identifier" : "model"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "model",
-                  "prev" : null
+                  "identifier" : "model"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "addAttribute",
                 "ArgumentList" : [ {
                   "Primary" : {
@@ -3287,30 +2650,22 @@
                       "literal" : {
                         "str" : "\"recruitVo\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }, {
                   "Primary" : {
                     "DefaultArrayLfnoPrimary" : {
                       "TypeName" : {
-                        "identifier" : "recruitService",
-                        "prev" : null
+                        "identifier" : "recruitService"
                       },
-                      "TypeArguments" : null,
                       "Identifier" : "getRecruitVo",
                       "ArgumentList" : [ {
                         "ExpressionName" : {
-                          "identifier" : "recruitId",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "recruitId"
+                        }
                       } ]
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 } ]
               }
             }, {
@@ -3320,10 +2675,8 @@
                     "literal" : {
                       "str" : "\"recruit/ready/write-email\""
                     }
-                  },
-                  "DefaultArrayLfPrimaryList" : [ ]
-                },
-                "IsPlusList" : [ ]
+                  }
+                }
               }
             } ]
           }
@@ -3333,8 +2686,7 @@
       "ClassMemberDeclaration" : {
         "AnnotationList" : [ {
           "TypeName" : {
-            "identifier" : "RequestMapping",
-            "prev" : null
+            "identifier" : "RequestMapping"
           },
           "ElementValue" : {
             "Primary" : {
@@ -3342,10 +2694,8 @@
                 "literal" : {
                   "str" : "\"/save-email\""
                 }
-              },
-              "DefaultArrayLfPrimaryList" : [ ]
-            },
-            "IsPlusList" : [ ]
+              }
+            }
           }
         } ],
         "Modifiers" : 1,
@@ -3353,10 +2703,8 @@
           "Result" : {
             "UnannType" : {
               "UnannUnitClassOrInterfaceType" : {
-                "Identifier" : "String",
-                "TypeArgumentList" : [ ]
+                "Identifier" : "String"
               },
-              "UnannClassOrInterfaceType" : [ ],
               "isInterface" : false
             }
           },
@@ -3366,8 +2714,7 @@
               "ParameterList" : [ {
                 "AnnotationList" : [ {
                   "TypeName" : {
-                    "identifier" : "PathVariable",
-                    "prev" : null
+                    "identifier" : "PathVariable"
                   },
                   "ElementValue" : {
                     "Primary" : {
@@ -3375,10 +2722,8 @@
                         "literal" : {
                           "str" : "\"recruitId\""
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 } ],
                 "Modifiers" : 0,
@@ -3386,16 +2731,14 @@
                   "Primitive" : "INT"
                 },
                 "VariableDeclaratorId" : {
-                  "Identifier" : "recruitId",
-                  "Dims" : null
+                  "Identifier" : "recruitId"
                 }
               } ],
               "LastFormalParameter" : {
                 "FormalParameter" : {
                   "AnnotationList" : [ {
                     "TypeName" : {
-                      "identifier" : "RequestParam",
-                      "prev" : null
+                      "identifier" : "RequestParam"
                     },
                     "ElementValue" : {
                       "Primary" : {
@@ -3403,54 +2746,41 @@
                           "literal" : {
                             "str" : "\"emailFormat\""
                           }
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   } ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "UnannUnitClassOrInterfaceType" : {
-                      "Identifier" : "String",
-                      "TypeArgumentList" : [ ]
+                      "Identifier" : "String"
                     },
-                    "UnannClassOrInterfaceType" : [ ],
                     "isInterface" : false
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "emailFormat",
-                    "Dims" : null
+                    "Identifier" : "emailFormat"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "recruitService",
-                  "prev" : null
+                  "identifier" : "recruitService"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "saveEmailFormat",
                 "ArgumentList" : [ {
                   "ExpressionName" : {
-                    "identifier" : "recruitId",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "recruitId"
+                  }
                 }, {
                   "ExpressionName" : {
-                    "identifier" : "emailFormat",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "emailFormat"
+                  }
                 } ]
               }
             }, {
@@ -3461,17 +2791,13 @@
                       "literal" : {
                         "str" : "\"redirect:/recruit/\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "MultiplicativeExpression" : {
                   "ExpressionName" : {
-                    "identifier" : "recruitId",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "recruitId"
+                  }
                 }
               }
             } ]
@@ -3482,8 +2808,7 @@
       "ClassMemberDeclaration" : {
         "AnnotationList" : [ {
           "TypeName" : {
-            "identifier" : "RequestMapping",
-            "prev" : null
+            "identifier" : "RequestMapping"
           },
           "ElementValue" : {
             "Primary" : {
@@ -3491,10 +2816,8 @@
                 "literal" : {
                   "str" : "\"/applicantstatform\""
                 }
-              },
-              "DefaultArrayLfPrimaryList" : [ ]
-            },
-            "IsPlusList" : [ ]
+              }
+            }
           }
         } ],
         "Modifiers" : 1,
@@ -3502,10 +2825,8 @@
           "Result" : {
             "UnannType" : {
               "UnannUnitClassOrInterfaceType" : {
-                "Identifier" : "String",
-                "TypeArgumentList" : [ ]
+                "Identifier" : "String"
               },
-              "UnannClassOrInterfaceType" : [ ],
               "isInterface" : false
             }
           },
@@ -3515,8 +2836,7 @@
               "ParameterList" : [ {
                 "AnnotationList" : [ {
                   "TypeName" : {
-                    "identifier" : "PathVariable",
-                    "prev" : null
+                    "identifier" : "PathVariable"
                   },
                   "ElementValue" : {
                     "Primary" : {
@@ -3524,10 +2844,8 @@
                         "literal" : {
                           "str" : "\"recruitId\""
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 } ],
                 "Modifiers" : 0,
@@ -3535,38 +2853,30 @@
                   "Primitive" : "INT"
                 },
                 "VariableDeclaratorId" : {
-                  "Identifier" : "recruitId",
-                  "Dims" : null
+                  "Identifier" : "recruitId"
                 }
               } ],
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "UnannUnitClassOrInterfaceType" : {
-                      "Identifier" : "Model",
-                      "TypeArgumentList" : [ ]
+                      "Identifier" : "Model"
                     },
-                    "UnannClassOrInterfaceType" : [ ],
                     "isInterface" : false
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "model",
-                    "Dims" : null
+                    "Identifier" : "model"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
@@ -3574,51 +2884,39 @@
                     "TypeArgumentList" : [ {
                       "Arguable" : {
                         "UnitClassOrInterfaceType" : {
-                          "AnnotationList" : [ ],
-                          "Identifier" : "ApplicantStatVo",
-                          "TypeArgumentList" : [ ]
+                          "Identifier" : "ApplicantStatVo"
                         },
-                        "ClassOrInterfaceType" : [ ],
                         "isInterface" : false
                       }
                     } ]
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "applicantStatVoList",
-                    "Dims" : null
+                    "Identifier" : "applicantStatVoList"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
                           "TypeName" : {
-                            "identifier" : "recruitService",
-                            "prev" : null
+                            "identifier" : "recruitService"
                           },
-                          "TypeArguments" : null,
                           "Identifier" : "getApplicantStatList",
                           "ArgumentList" : [ {
                             "ExpressionName" : {
-                              "identifier" : "recruitId",
-                              "prev" : null
-                            },
-                            "IsPlusList" : [ ]
+                              "identifier" : "recruitId"
+                            }
                           } ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   }
                 } ]
               }
             }, {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
@@ -3626,44 +2924,33 @@
                     "TypeArgumentList" : [ {
                       "Arguable" : {
                         "UnitClassOrInterfaceType" : {
-                          "AnnotationList" : [ ],
-                          "Identifier" : "ProblemInfoVo",
-                          "TypeArgumentList" : [ ]
+                          "Identifier" : "ProblemInfoVo"
                         },
-                        "ClassOrInterfaceType" : [ ],
                         "isInterface" : false
                       }
                     } ]
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "problemInfoVoList",
-                    "Dims" : null
+                    "Identifier" : "problemInfoVoList"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
                           "TypeName" : {
-                            "identifier" : "recruitService",
-                            "prev" : null
+                            "identifier" : "recruitService"
                           },
-                          "TypeArguments" : null,
                           "Identifier" : "getProblemInfoListByRecruitId",
                           "ArgumentList" : [ {
                             "ExpressionName" : {
-                              "identifier" : "recruitId",
-                              "prev" : null
-                            },
-                            "IsPlusList" : [ ]
+                              "identifier" : "recruitId"
+                            }
                           } ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   }
                 } ]
@@ -3671,10 +2958,8 @@
             }, {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "model",
-                  "prev" : null
+                  "identifier" : "model"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "addAttribute",
                 "ArgumentList" : [ {
                   "Primary" : {
@@ -3682,25 +2967,19 @@
                       "literal" : {
                         "str" : "\"applicantStatList\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }, {
                   "ExpressionName" : {
-                    "identifier" : "applicantStatVoList",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "applicantStatVoList"
+                  }
                 } ]
               }
             }, {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "model",
-                  "prev" : null
+                  "identifier" : "model"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "addAttribute",
                 "ArgumentList" : [ {
                   "Primary" : {
@@ -3708,25 +2987,19 @@
                       "literal" : {
                         "str" : "\"problemInfoList\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }, {
                   "ExpressionName" : {
-                    "identifier" : "problemInfoVoList",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "problemInfoVoList"
+                  }
                 } ]
               }
             }, {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "model",
-                  "prev" : null
+                  "identifier" : "model"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "addAttribute",
                 "ArgumentList" : [ {
                   "Primary" : {
@@ -3734,25 +3007,19 @@
                       "literal" : {
                         "str" : "\"recruitId\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }, {
                   "ExpressionName" : {
-                    "identifier" : "recruitId",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "recruitId"
+                  }
                 } ]
               }
             }, {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "model",
-                  "prev" : null
+                  "identifier" : "model"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "addAttribute",
                 "ArgumentList" : [ {
                   "Primary" : {
@@ -3760,30 +3027,22 @@
                       "literal" : {
                         "str" : "\"recruitVo\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }, {
                   "Primary" : {
                     "DefaultArrayLfnoPrimary" : {
                       "TypeName" : {
-                        "identifier" : "recruitService",
-                        "prev" : null
+                        "identifier" : "recruitService"
                       },
-                      "TypeArguments" : null,
                       "Identifier" : "getRecruitVo",
                       "ArgumentList" : [ {
                         "ExpressionName" : {
-                          "identifier" : "recruitId",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "recruitId"
+                        }
                       } ]
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 } ]
               }
             }, {
@@ -3793,10 +3052,8 @@
                     "literal" : {
                       "str" : "\"recruit/started/app-stat\""
                     }
-                  },
-                  "DefaultArrayLfPrimaryList" : [ ]
-                },
-                "IsPlusList" : [ ]
+                  }
+                }
               }
             } ]
           }
@@ -3806,8 +3063,7 @@
       "ClassMemberDeclaration" : {
         "AnnotationList" : [ {
           "TypeName" : {
-            "identifier" : "RequestMapping",
-            "prev" : null
+            "identifier" : "RequestMapping"
           },
           "ElementValue" : {
             "Primary" : {
@@ -3815,10 +3071,8 @@
                 "literal" : {
                   "str" : "\"/applicantresultdetail\""
                 }
-              },
-              "DefaultArrayLfPrimaryList" : [ ]
-            },
-            "IsPlusList" : [ ]
+              }
+            }
           }
         } ],
         "Modifiers" : 1,
@@ -3826,10 +3080,8 @@
           "Result" : {
             "UnannType" : {
               "UnannUnitClassOrInterfaceType" : {
-                "Identifier" : "ModelAndView",
-                "TypeArgumentList" : [ ]
+                "Identifier" : "ModelAndView"
               },
-              "UnannClassOrInterfaceType" : [ ],
               "isInterface" : false
             }
           },
@@ -3839,8 +3091,7 @@
               "ParameterList" : [ {
                 "AnnotationList" : [ {
                   "TypeName" : {
-                    "identifier" : "PathVariable",
-                    "prev" : null
+                    "identifier" : "PathVariable"
                   },
                   "ElementValue" : {
                     "Primary" : {
@@ -3848,10 +3099,8 @@
                         "literal" : {
                           "str" : "\"recruitId\""
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 } ],
                 "Modifiers" : 0,
@@ -3859,16 +3108,14 @@
                   "Primitive" : "INT"
                 },
                 "VariableDeclaratorId" : {
-                  "Identifier" : "recruitId",
-                  "Dims" : null
+                  "Identifier" : "recruitId"
                 }
               } ],
               "LastFormalParameter" : {
                 "FormalParameter" : {
                   "AnnotationList" : [ {
                     "TypeName" : {
-                      "identifier" : "RequestParam",
-                      "prev" : null
+                      "identifier" : "RequestParam"
                     },
                     "ElementValue" : {
                       "Primary" : {
@@ -3876,10 +3123,8 @@
                           "literal" : {
                             "str" : "\"applicantId\""
                           }
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   } ],
                   "Modifiers" : 0,
@@ -3887,15 +3132,12 @@
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "applicantId",
-                    "Dims" : null
+                    "Identifier" : "applicantId"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -3903,52 +3145,37 @@
               "Expression" : {
                 "Primary" : {
                   "DefaultArrayLfnoPrimary" : {
-                    "TypeArgumentList" : [ ],
                     "AnnotationListList" : [ [ ] ],
                     "IdentifierList" : [ "newModelAndView(\"multiformat-view\",JasperReportUtil.render(recruitId,applicantId))" ],
-                    "TypeArgumentsOrDiamond" : null,
                     "ArgumentList" : [ {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
                           "literal" : {
                             "str" : "\"multiformat-view\""
                           }
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }, {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
                           "TypeName" : {
-                            "identifier" : "JasperReportUtil",
-                            "prev" : null
+                            "identifier" : "JasperReportUtil"
                           },
-                          "TypeArguments" : null,
                           "Identifier" : "render",
                           "ArgumentList" : [ {
                             "ExpressionName" : {
-                              "identifier" : "recruitId",
-                              "prev" : null
-                            },
-                            "IsPlusList" : [ ]
+                              "identifier" : "recruitId"
+                            }
                           }, {
                             "ExpressionName" : {
-                              "identifier" : "applicantId",
-                              "prev" : null
-                            },
-                            "IsPlusList" : [ ]
+                              "identifier" : "applicantId"
+                            }
                           } ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
-                    } ],
-                    "ClassBody" : [ ]
-                  },
-                  "DefaultArrayLfPrimaryList" : [ ]
-                },
-                "IsPlusList" : [ ]
+                        }
+                      }
+                    } ]
+                  }
+                }
               }
             } ]
           }
@@ -3958,8 +3185,7 @@
       "ClassMemberDeclaration" : {
         "AnnotationList" : [ {
           "TypeName" : {
-            "identifier" : "RequestMapping",
-            "prev" : null
+            "identifier" : "RequestMapping"
           },
           "ElementValue" : {
             "Primary" : {
@@ -3967,10 +3193,8 @@
                 "literal" : {
                   "str" : "\"/problemstatform\""
                 }
-              },
-              "DefaultArrayLfPrimaryList" : [ ]
-            },
-            "IsPlusList" : [ ]
+              }
+            }
           }
         } ],
         "Modifiers" : 1,
@@ -3978,10 +3202,8 @@
           "Result" : {
             "UnannType" : {
               "UnannUnitClassOrInterfaceType" : {
-                "Identifier" : "String",
-                "TypeArgumentList" : [ ]
+                "Identifier" : "String"
               },
-              "UnannClassOrInterfaceType" : [ ],
               "isInterface" : false
             }
           },
@@ -3991,8 +3213,7 @@
               "ParameterList" : [ {
                 "AnnotationList" : [ {
                   "TypeName" : {
-                    "identifier" : "PathVariable",
-                    "prev" : null
+                    "identifier" : "PathVariable"
                   },
                   "ElementValue" : {
                     "Primary" : {
@@ -4000,10 +3221,8 @@
                         "literal" : {
                           "str" : "\"recruitId\""
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 } ],
                 "Modifiers" : 0,
@@ -4011,38 +3230,30 @@
                   "Primitive" : "INT"
                 },
                 "VariableDeclaratorId" : {
-                  "Identifier" : "recruitId",
-                  "Dims" : null
+                  "Identifier" : "recruitId"
                 }
               } ],
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "UnannUnitClassOrInterfaceType" : {
-                      "Identifier" : "Model",
-                      "TypeArgumentList" : [ ]
+                      "Identifier" : "Model"
                     },
-                    "UnannClassOrInterfaceType" : [ ],
                     "isInterface" : false
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "model",
-                    "Dims" : null
+                    "Identifier" : "model"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
@@ -4050,44 +3261,33 @@
                     "TypeArgumentList" : [ {
                       "Arguable" : {
                         "UnitClassOrInterfaceType" : {
-                          "AnnotationList" : [ ],
-                          "Identifier" : "ProblemStatVo",
-                          "TypeArgumentList" : [ ]
+                          "Identifier" : "ProblemStatVo"
                         },
-                        "ClassOrInterfaceType" : [ ],
                         "isInterface" : false
                       }
                     } ]
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "problemStatVoList",
-                    "Dims" : null
+                    "Identifier" : "problemStatVoList"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
                           "TypeName" : {
-                            "identifier" : "recruitService",
-                            "prev" : null
+                            "identifier" : "recruitService"
                           },
-                          "TypeArguments" : null,
                           "Identifier" : "getProblemStatList",
                           "ArgumentList" : [ {
                             "ExpressionName" : {
-                              "identifier" : "recruitId",
-                              "prev" : null
-                            },
-                            "IsPlusList" : [ ]
+                              "identifier" : "recruitId"
+                            }
                           } ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   }
                 } ]
@@ -4095,10 +3295,8 @@
             }, {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "model",
-                  "prev" : null
+                  "identifier" : "model"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "addAttribute",
                 "ArgumentList" : [ {
                   "Primary" : {
@@ -4106,25 +3304,19 @@
                       "literal" : {
                         "str" : "\"problemStatList\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }, {
                   "ExpressionName" : {
-                    "identifier" : "problemStatVoList",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "problemStatVoList"
+                  }
                 } ]
               }
             }, {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "model",
-                  "prev" : null
+                  "identifier" : "model"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "addAttribute",
                 "ArgumentList" : [ {
                   "Primary" : {
@@ -4132,25 +3324,19 @@
                       "literal" : {
                         "str" : "\"recruitId\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }, {
                   "ExpressionName" : {
-                    "identifier" : "recruitId",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "recruitId"
+                  }
                 } ]
               }
             }, {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "model",
-                  "prev" : null
+                  "identifier" : "model"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "addAttribute",
                 "ArgumentList" : [ {
                   "Primary" : {
@@ -4158,30 +3344,22 @@
                       "literal" : {
                         "str" : "\"recruitVo\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }, {
                   "Primary" : {
                     "DefaultArrayLfnoPrimary" : {
                       "TypeName" : {
-                        "identifier" : "recruitService",
-                        "prev" : null
+                        "identifier" : "recruitService"
                       },
-                      "TypeArguments" : null,
                       "Identifier" : "getRecruitVo",
                       "ArgumentList" : [ {
                         "ExpressionName" : {
-                          "identifier" : "recruitId",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "recruitId"
+                        }
                       } ]
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 } ]
               }
             }, {
@@ -4191,10 +3369,8 @@
                     "literal" : {
                       "str" : "\"recruit/started/problem-stat\""
                     }
-                  },
-                  "DefaultArrayLfPrimaryList" : [ ]
-                },
-                "IsPlusList" : [ ]
+                  }
+                }
               }
             } ]
           }
@@ -4204,8 +3380,7 @@
       "ClassMemberDeclaration" : {
         "AnnotationList" : [ {
           "TypeName" : {
-            "identifier" : "RequestMapping",
-            "prev" : null
+            "identifier" : "RequestMapping"
           },
           "ElementValuePairList" : [ {
             "Identifier" : "value",
@@ -4215,10 +3390,8 @@
                   "literal" : {
                     "str" : "\"/add-problem\""
                   }
-                },
-                "DefaultArrayLfPrimaryList" : [ ]
-              },
-              "IsPlusList" : [ ]
+                }
+              }
             }
           }, {
             "Identifier" : "method",
@@ -4226,11 +3399,9 @@
               "ExpressionName" : {
                 "identifier" : "GET",
                 "prev" : {
-                  "identifier" : "RequestMethod",
-                  "prev" : null
+                  "identifier" : "RequestMethod"
                 }
-              },
-              "IsPlusList" : [ ]
+              }
             }
           } ]
         } ],
@@ -4239,10 +3410,8 @@
           "Result" : {
             "UnannType" : {
               "UnannUnitClassOrInterfaceType" : {
-                "Identifier" : "String",
-                "TypeArgumentList" : [ ]
+                "Identifier" : "String"
               },
-              "UnannClassOrInterfaceType" : [ ],
               "isInterface" : false
             }
           },
@@ -4250,27 +3419,22 @@
             "Identifier" : "addProblemForm",
             "FormalParameters" : {
               "ParameterList" : [ {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
-                    "Identifier" : "Model",
-                    "TypeArgumentList" : [ ]
+                    "Identifier" : "Model"
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorId" : {
-                  "Identifier" : "model",
-                  "Dims" : null
+                  "Identifier" : "model"
                 }
               } ],
               "LastFormalParameter" : {
                 "FormalParameter" : {
                   "AnnotationList" : [ {
                     "TypeName" : {
-                      "identifier" : "PathVariable",
-                      "prev" : null
+                      "identifier" : "PathVariable"
                     },
                     "ElementValue" : {
                       "Primary" : {
@@ -4278,10 +3442,8 @@
                           "literal" : {
                             "str" : "\"recruitId\""
                           }
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   } ],
                   "Modifiers" : 0,
@@ -4289,25 +3451,20 @@
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "recruitId",
-                    "Dims" : null
+                    "Identifier" : "recruitId"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "model",
-                  "prev" : null
+                  "identifier" : "model"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "addAttribute",
                 "ArgumentList" : [ {
                   "Primary" : {
@@ -4315,16 +3472,12 @@
                       "literal" : {
                         "str" : "\"recruitId\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }, {
                   "ExpressionName" : {
-                    "identifier" : "recruitId",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "recruitId"
+                  }
                 } ]
               }
             }, {
@@ -4334,10 +3487,8 @@
                     "literal" : {
                       "str" : "\"recruit/ready/add-problem\""
                     }
-                  },
-                  "DefaultArrayLfPrimaryList" : [ ]
-                },
-                "IsPlusList" : [ ]
+                  }
+                }
               }
             } ]
           }
@@ -4347,8 +3498,7 @@
       "ClassMemberDeclaration" : {
         "AnnotationList" : [ {
           "TypeName" : {
-            "identifier" : "RequestMapping",
-            "prev" : null
+            "identifier" : "RequestMapping"
           },
           "ElementValuePairList" : [ {
             "Identifier" : "value",
@@ -4358,10 +3508,8 @@
                   "literal" : {
                     "str" : "\"/add-problem\""
                   }
-                },
-                "DefaultArrayLfPrimaryList" : [ ]
-              },
-              "IsPlusList" : [ ]
+                }
+              }
             }
           }, {
             "Identifier" : "method",
@@ -4369,11 +3517,9 @@
               "ExpressionName" : {
                 "identifier" : "POST",
                 "prev" : {
-                  "identifier" : "RequestMethod",
-                  "prev" : null
+                  "identifier" : "RequestMethod"
                 }
-              },
-              "IsPlusList" : [ ]
+              }
             }
           } ]
         } ],
@@ -4382,10 +3528,8 @@
           "Result" : {
             "UnannType" : {
               "UnannUnitClassOrInterfaceType" : {
-                "Identifier" : "String",
-                "TypeArgumentList" : [ ]
+                "Identifier" : "String"
               },
-              "UnannClassOrInterfaceType" : [ ],
               "isInterface" : false
             }
           },
@@ -4395,8 +3539,7 @@
               "ParameterList" : [ {
                 "AnnotationList" : [ {
                   "TypeName" : {
-                    "identifier" : "PathVariable",
-                    "prev" : null
+                    "identifier" : "PathVariable"
                   },
                   "ElementValue" : {
                     "Primary" : {
@@ -4404,10 +3547,8 @@
                         "literal" : {
                           "str" : "\"recruitId\""
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 } ],
                 "Modifiers" : 0,
@@ -4415,34 +3556,28 @@
                   "Primitive" : "INT"
                 },
                 "VariableDeclaratorId" : {
-                  "Identifier" : "recruitId",
-                  "Dims" : null
+                  "Identifier" : "recruitId"
                 }
               }, {
                 "AnnotationList" : [ {
                   "TypeName" : {
-                    "identifier" : "ModelAttribute",
-                    "prev" : null
+                    "identifier" : "ModelAttribute"
                   }
                 } ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
-                    "Identifier" : "ProblemInfoVo",
-                    "TypeArgumentList" : [ ]
+                    "Identifier" : "ProblemInfoVo"
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorId" : {
-                  "Identifier" : "problemInfoVo",
-                  "Dims" : null
+                  "Identifier" : "problemInfoVo"
                 }
               }, {
                 "AnnotationList" : [ {
                   "TypeName" : {
-                    "identifier" : "RequestParam",
-                    "prev" : null
+                    "identifier" : "RequestParam"
                   },
                   "ElementValue" : {
                     "Primary" : {
@@ -4450,30 +3585,24 @@
                         "literal" : {
                           "str" : "\"skeleton-code-c\""
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 } ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
-                    "Identifier" : "String",
-                    "TypeArgumentList" : [ ]
+                    "Identifier" : "String"
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorId" : {
-                  "Identifier" : "skeletonCodeC",
-                  "Dims" : null
+                  "Identifier" : "skeletonCodeC"
                 }
               }, {
                 "AnnotationList" : [ {
                   "TypeName" : {
-                    "identifier" : "RequestParam",
-                    "prev" : null
+                    "identifier" : "RequestParam"
                   },
                   "ElementValue" : {
                     "Primary" : {
@@ -4481,32 +3610,26 @@
                         "literal" : {
                           "str" : "\"skeleton-code-java\""
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 } ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
-                    "Identifier" : "String",
-                    "TypeArgumentList" : [ ]
+                    "Identifier" : "String"
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorId" : {
-                  "Identifier" : "skeletonCodeJava",
-                  "Dims" : null
+                  "Identifier" : "skeletonCodeJava"
                 }
               } ],
               "LastFormalParameter" : {
                 "FormalParameter" : {
                   "AnnotationList" : [ {
                     "TypeName" : {
-                      "identifier" : "RequestParam",
-                      "prev" : null
+                      "identifier" : "RequestParam"
                     },
                     "ElementValue" : {
                       "Primary" : {
@@ -4514,45 +3637,35 @@
                           "literal" : {
                             "str" : "\"skeleton-code-python\""
                           }
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   } ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "UnannUnitClassOrInterfaceType" : {
-                      "Identifier" : "String",
-                      "TypeArgumentList" : [ ]
+                      "Identifier" : "String"
                     },
-                    "UnannClassOrInterfaceType" : [ ],
                     "isInterface" : false
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "skeletonCodePython",
-                    "Dims" : null
+                    "Identifier" : "skeletonCodePython"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannArrayable" : {
                     "UnannUnitClassOrInterfaceType" : {
-                      "Identifier" : "String",
-                      "TypeArgumentList" : [ ]
+                      "Identifier" : "String"
                     },
-                    "UnannClassOrInterfaceType" : [ ],
                     "isInterface" : false
                   },
                   "Dims" : {
@@ -4561,33 +3674,26 @@
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "skeletonCodeList",
-                    "Dims" : null
+                    "Identifier" : "skeletonCodeList"
                   },
                   "VariableInitializer" : {
                     "VariableInitializerList" : [ {
                       "Expression" : {
                         "ExpressionName" : {
-                          "identifier" : "skeletonCodeC",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "skeletonCodeC"
+                        }
                       }
                     }, {
                       "Expression" : {
                         "ExpressionName" : {
-                          "identifier" : "skeletonCodeJava",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "skeletonCodeJava"
+                        }
                       }
                     }, {
                       "Expression" : {
                         "ExpressionName" : {
-                          "identifier" : "skeletonCodePython",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "skeletonCodePython"
+                        }
                       }
                     } ]
                   }
@@ -4596,23 +3702,17 @@
             }, {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "recruitService",
-                  "prev" : null
+                  "identifier" : "recruitService"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "addProblem",
                 "ArgumentList" : [ {
                   "ExpressionName" : {
-                    "identifier" : "problemInfoVo",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "problemInfoVo"
+                  }
                 }, {
                   "ExpressionName" : {
-                    "identifier" : "skeletonCodeList",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "skeletonCodeList"
+                  }
                 } ]
               }
             }, {
@@ -4624,17 +3724,13 @@
                         "literal" : {
                           "str" : "\"redirect:/recruit/\""
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   },
                   "MultiplicativeExpression" : {
                     "ExpressionName" : {
-                      "identifier" : "recruitId",
-                      "prev" : null
-                    },
-                    "IsPlusList" : [ ]
+                      "identifier" : "recruitId"
+                    }
                   }
                 },
                 "MultiplicativeExpression" : {
@@ -4643,10 +3739,8 @@
                       "literal" : {
                         "str" : "\"/problem-selectform\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]

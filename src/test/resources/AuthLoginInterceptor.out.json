@@ -1,6 +1,5 @@
 {
   "PackageDeclaration" : {
-    "AnnotationList" : [ ],
     "IdentifierList" : [ "com", "estsoft", "codit", "web", "interceptor" ]
   },
   "ImportDeclarationList" : [ {
@@ -15,8 +14,7 @@
             "prev" : {
               "identifier" : "estsoft",
               "prev" : {
-                "identifier" : "com",
-                "prev" : null
+                "identifier" : "com"
               }
             }
           }
@@ -35,8 +33,7 @@
             "prev" : {
               "identifier" : "estsoft",
               "prev" : {
-                "identifier" : "com",
-                "prev" : null
+                "identifier" : "com"
               }
             }
           }
@@ -55,8 +52,7 @@
             "prev" : {
               "identifier" : "springframework",
               "prev" : {
-                "identifier" : "org",
-                "prev" : null
+                "identifier" : "org"
               }
             }
           }
@@ -75,8 +71,7 @@
             "prev" : {
               "identifier" : "springframework",
               "prev" : {
-                "identifier" : "org",
-                "prev" : null
+                "identifier" : "org"
               }
             }
           }
@@ -91,8 +86,7 @@
         "prev" : {
           "identifier" : "servlet",
           "prev" : {
-            "identifier" : "javax",
-            "prev" : null
+            "identifier" : "javax"
           }
         }
       }
@@ -105,8 +99,7 @@
         "prev" : {
           "identifier" : "servlet",
           "prev" : {
-            "identifier" : "javax",
-            "prev" : null
+            "identifier" : "javax"
           }
         }
       }
@@ -119,57 +112,43 @@
         "prev" : {
           "identifier" : "servlet",
           "prev" : {
-            "identifier" : "javax",
-            "prev" : null
+            "identifier" : "javax"
           }
         }
       }
     }
   } ],
   "TypeDeclarationList" : [ {
-    "AnnotationList" : [ ],
     "Modifiers" : 1,
     "Identifier" : "AuthLoginInterceptor",
-    "TypeParameterList" : [ ],
     "SuperClass" : {
-      "ClassOrInterfaceType" : null,
-      "AnnotaitonList" : [ ],
-      "Identifier" : "HandlerInterceptorAdapter",
-      "TypeArgumentList" : [ ]
+      "Identifier" : "HandlerInterceptorAdapter"
     },
-    "SuperInterfaceList" : [ ],
     "ClassBodyDeclarationList" : [ {
       "ClassMemberDeclaration" : {
         "AnnotationList" : [ {
           "TypeName" : {
-            "identifier" : "Autowired",
-            "prev" : null
-          },
-          "ElementValuePairList" : [ ]
+            "identifier" : "Autowired"
+          }
         } ],
         "Modifiers" : 2,
         "UnannType" : {
           "UnannUnitClassOrInterfaceType" : {
-            "Identifier" : "ClientService",
-            "TypeArgumentList" : [ ]
+            "Identifier" : "ClientService"
           },
-          "UnannClassOrInterfaceType" : [ ],
           "isInterface" : false
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "clientService",
-            "Dims" : null
-          },
-          "VariableInitializer" : null
+            "Identifier" : "clientService"
+          }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
         "AnnotationList" : [ {
           "TypeName" : {
-            "identifier" : "Override",
-            "prev" : null
+            "identifier" : "Override"
           }
         } ],
         "Modifiers" : 1,
@@ -183,63 +162,47 @@
             "Identifier" : "preHandle",
             "FormalParameters" : {
               "ParameterList" : [ {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
-                    "Identifier" : "HttpServletRequest",
-                    "TypeArgumentList" : [ ]
+                    "Identifier" : "HttpServletRequest"
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorId" : {
-                  "Identifier" : "request",
-                  "Dims" : null
+                  "Identifier" : "request"
                 }
               }, {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
-                    "Identifier" : "HttpServletResponse",
-                    "TypeArgumentList" : [ ]
+                    "Identifier" : "HttpServletResponse"
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorId" : {
-                  "Identifier" : "response",
-                  "Dims" : null
+                  "Identifier" : "response"
                 }
               } ],
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "UnannUnitClassOrInterfaceType" : {
-                      "Identifier" : "Object",
-                      "TypeArgumentList" : [ ]
+                      "Identifier" : "Object"
                     },
-                    "UnannClassOrInterfaceType" : [ ],
                     "isInterface" : false
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "handler",
-                    "Dims" : null
+                    "Identifier" : "handler"
                   }
                 }
               }
-            },
-            "Dims" : null
+            }
           },
           "ExceptionTypeList" : [ {
             "Exceptionable" : {
-              "ClassOrInterfaceType" : null,
-              "AnnotaitonList" : [ ],
-              "Identifier" : "Exception",
-              "TypeArgumentList" : [ ]
+              "Identifier" : "Exception"
             }
           } ]
         },
@@ -247,30 +210,24 @@
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
-                    "Identifier" : "String",
-                    "TypeArgumentList" : [ ]
+                    "Identifier" : "String"
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "email",
-                    "Dims" : null
+                    "Identifier" : "email"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
                           "TypeName" : {
-                            "identifier" : "request",
-                            "prev" : null
+                            "identifier" : "request"
                           },
-                          "TypeArguments" : null,
                           "Identifier" : "getParameter",
                           "ArgumentList" : [ {
                             "Primary" : {
@@ -278,45 +235,35 @@
                                 "literal" : {
                                   "str" : "\"email\""
                                 }
-                              },
-                              "DefaultArrayLfPrimaryList" : [ ]
-                            },
-                            "IsPlusList" : [ ]
+                              }
+                            }
                           } ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   }
                 } ]
               }
             }, {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
-                    "Identifier" : "String",
-                    "TypeArgumentList" : [ ]
+                    "Identifier" : "String"
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "password",
-                    "Dims" : null
+                    "Identifier" : "password"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
                           "TypeName" : {
-                            "identifier" : "request",
-                            "prev" : null
+                            "identifier" : "request"
                           },
-                          "TypeArguments" : null,
                           "Identifier" : "getParameter",
                           "ArgumentList" : [ {
                             "Primary" : {
@@ -324,50 +271,36 @@
                                 "literal" : {
                                   "str" : "\"password\""
                                 }
-                              },
-                              "DefaultArrayLfPrimaryList" : [ ]
-                            },
-                            "IsPlusList" : [ ]
+                              }
+                            }
                           } ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   }
                 } ]
               }
             }, {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
-                    "Identifier" : "ClientVo",
-                    "TypeArgumentList" : [ ]
+                    "Identifier" : "ClientVo"
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "clientVo",
-                    "Dims" : null
+                    "Identifier" : "clientVo"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
-                          "TypeArgumentList" : [ ],
                           "AnnotationListList" : [ [ ] ],
-                          "IdentifierList" : [ "newClientVo()" ],
-                          "TypeArgumentsOrDiamond" : null,
-                          "ArgumentList" : [ ],
-                          "ClassBody" : [ ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                          "IdentifierList" : [ "newClientVo()" ]
+                        }
+                      }
                     }
                   }
                 } ]
@@ -375,103 +308,79 @@
             }, {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "clientVo",
-                  "prev" : null
+                  "identifier" : "clientVo"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "setEmail",
                 "ArgumentList" : [ {
                   "ExpressionName" : {
-                    "identifier" : "email",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "email"
+                  }
                 } ]
               }
             }, {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "clientVo",
-                  "prev" : null
+                  "identifier" : "clientVo"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "setPassword",
                 "ArgumentList" : [ {
                   "ExpressionName" : {
-                    "identifier" : "password",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "password"
+                  }
                 } ]
               }
             }, {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
-                    "Identifier" : "ClientVo",
-                    "TypeArgumentList" : [ ]
+                    "Identifier" : "ClientVo"
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "authClient",
-                    "Dims" : null
+                    "Identifier" : "authClient"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
                           "TypeName" : {
-                            "identifier" : "clientService",
-                            "prev" : null
+                            "identifier" : "clientService"
                           },
-                          "TypeArguments" : null,
                           "Identifier" : "getClientVoByEmailPassword",
                           "ArgumentList" : [ {
                             "ExpressionName" : {
-                              "identifier" : "clientVo",
-                              "prev" : null
-                            },
-                            "IsPlusList" : [ ]
+                              "identifier" : "clientVo"
+                            }
                           } ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   }
                 } ]
               }
             }, {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "UnannUnitClassOrInterfaceType" : {
-                    "Identifier" : "HttpSession",
-                    "TypeArgumentList" : [ ]
+                    "Identifier" : "HttpSession"
                   },
-                  "UnannClassOrInterfaceType" : [ ],
                   "isInterface" : false
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "session",
-                    "Dims" : null
+                    "Identifier" : "session"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "Primary" : {
                         "DefaultArrayLfnoPrimary" : {
                           "TypeName" : {
-                            "identifier" : "request",
-                            "prev" : null
+                            "identifier" : "request"
                           },
-                          "TypeArguments" : null,
                           "Identifier" : "getSession",
                           "ArgumentList" : [ {
                             "Primary" : {
@@ -479,15 +388,11 @@
                                 "literal" : {
                                   "str" : "true"
                                 }
-                              },
-                              "DefaultArrayLfPrimaryList" : [ ]
-                            },
-                            "IsPlusList" : [ ]
+                              }
+                            }
                           } ]
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   }
                 } ]
@@ -496,10 +401,8 @@
               "Expression" : {
                 "EqualityExpression" : {
                   "ExpressionName" : {
-                    "identifier" : "authClient",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "authClient"
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -507,10 +410,8 @@
                       "literal" : {
                         "str" : "null"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               },
               "Statement" : {
@@ -518,10 +419,8 @@
                   "BlockStatementList" : [ {
                     "StatementExpression" : {
                       "TypeName" : {
-                        "identifier" : "response",
-                        "prev" : null
+                        "identifier" : "response"
                       },
-                      "TypeArguments" : null,
                       "Identifier" : "sendRedirect",
                       "ArgumentList" : [ {
                         "Primary" : {
@@ -529,10 +428,8 @@
                             "literal" : {
                               "str" : "\"/client/signinform\""
                             }
-                          },
-                          "DefaultArrayLfPrimaryList" : [ ]
-                        },
-                        "IsPlusList" : [ ]
+                          }
+                        }
                       } ]
                     }
                   }, {
@@ -542,10 +439,8 @@
                           "literal" : {
                             "str" : "false"
                           }
-                        },
-                        "DefaultArrayLfPrimaryList" : [ ]
-                      },
-                      "IsPlusList" : [ ]
+                        }
+                      }
                     }
                   } ]
                 }
@@ -553,10 +448,8 @@
             }, {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "session",
-                  "prev" : null
+                  "identifier" : "session"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "setAttribute",
                 "ArgumentList" : [ {
                   "Primary" : {
@@ -564,25 +457,19 @@
                       "literal" : {
                         "str" : "\"authClient\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }, {
                   "ExpressionName" : {
-                    "identifier" : "authClient",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "authClient"
+                  }
                 } ]
               }
             }, {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "response",
-                  "prev" : null
+                  "identifier" : "response"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "sendRedirect",
                 "ArgumentList" : [ {
                   "Primary" : {
@@ -590,10 +477,8 @@
                       "literal" : {
                         "str" : "\"/\""
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 } ]
               }
             }, {
@@ -603,10 +488,8 @@
                     "literal" : {
                       "str" : "false"
                     }
-                  },
-                  "DefaultArrayLfPrimaryList" : [ ]
-                },
-                "IsPlusList" : [ ]
+                  }
+                }
               }
             } ]
           }

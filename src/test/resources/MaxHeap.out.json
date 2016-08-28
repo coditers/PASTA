@@ -1,6 +1,5 @@
 {
   "PackageDeclaration" : {
-    "AnnotationList" : [ ],
     "IdentifierList" : [ "io", "jaylim", "study", "dsa", "binarytree", "heap" ]
   },
   "ImportDeclarationList" : [ {
@@ -15,8 +14,7 @@
             "prev" : {
               "identifier" : "jaylim",
               "prev" : {
-                "identifier" : "io",
-                "prev" : null
+                "identifier" : "io"
               }
             }
           }
@@ -25,28 +23,21 @@
     }
   } ],
   "TypeDeclarationList" : [ {
-    "AnnotationList" : [ ],
     "Modifiers" : 1,
     "Identifier" : "MaxHeap",
     "TypeParameterList" : [ {
-      "AnnotationList" : [ ],
       "Identifier" : "E",
       "TypeBound" : {
         "ClassOrInterfaceType" : {
           "UnitClassOrInterfaceType" : {
-            "AnnotationList" : [ ],
             "Identifier" : "Comparable",
             "TypeArgumentList" : [ {
               "Arguable" : {
-                "AnnotationList" : [ ],
                 "WildcardBounds" : {
                   "ReferenceType" : {
                     "UnitClassOrInterfaceType" : {
-                      "AnnotationList" : [ ],
-                      "Identifier" : "E",
-                      "TypeArgumentList" : [ ]
+                      "Identifier" : "E"
                     },
-                    "ClassOrInterfaceType" : [ ],
                     "isInterface" : false
                   },
                   "isExtends" : false
@@ -54,25 +45,18 @@
               }
             } ]
           },
-          "ClassOrInterfaceType" : [ ],
           "isInterface" : false
-        },
-        "InterfaceTypeList" : [ ]
+        }
       }
     } ],
-    "SuperClass" : null,
-    "SuperInterfaceList" : [ ],
     "ClassBodyDeclarationList" : [ {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 2,
         "UnannType" : {
           "UnannArrayable" : {
             "UnannUnitClassOrInterfaceType" : {
-              "Identifier" : "E",
-              "TypeArgumentList" : [ ]
+              "Identifier" : "E"
             },
-            "UnannClassOrInterfaceType" : [ ],
             "isInterface" : false
           },
           "Dims" : {
@@ -81,59 +65,46 @@
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "heap",
-            "Dims" : null
-          },
-          "VariableInitializer" : null
+            "Identifier" : "heap"
+          }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 2,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "maxSize",
-            "Dims" : null
-          },
-          "VariableInitializer" : null
+            "Identifier" : "maxSize"
+          }
         } ]
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 2,
         "UnannType" : {
           "Primitive" : "INT"
         },
         "VariableDeclaratorList" : [ {
           "VariableDeclaratorId" : {
-            "Identifier" : "currSize",
-            "Dims" : null
-          },
-          "VariableInitializer" : null
+            "Identifier" : "currSize"
+          }
         } ]
       }
     }, {
-      "AnnotationList" : [ ],
       "Modifiers" : 1,
       "ConstructorDeclarator" : {
-        "TypeParameterList" : [ ],
         "Identifier" : "MaxHeap",
         "FormalParameterList" : {
           "ParameterList" : [ {
-            "AnnotationList" : [ ],
             "Modifiers" : 0,
             "UnannType" : {
               "UnannArrayable" : {
                 "UnannUnitClassOrInterfaceType" : {
-                  "Identifier" : "E",
-                  "TypeArgumentList" : [ ]
+                  "Identifier" : "E"
                 },
-                "UnannClassOrInterfaceType" : [ ],
                 "isInterface" : false
               },
               "Dims" : {
@@ -141,97 +112,79 @@
               }
             },
             "VariableDeclaratorId" : {
-              "Identifier" : "h",
-              "Dims" : null
+              "Identifier" : "h"
             }
           }, {
-            "AnnotationList" : [ ],
             "Modifiers" : 0,
             "UnannType" : {
               "Primitive" : "INT"
             },
             "VariableDeclaratorId" : {
-              "Identifier" : "curr",
-              "Dims" : null
+              "Identifier" : "curr"
             }
           } ],
           "LastFormalParameter" : {
             "FormalParameter" : {
-              "AnnotationList" : [ ],
               "Modifiers" : 0,
               "UnannType" : {
                 "Primitive" : "INT"
               },
               "VariableDeclaratorId" : {
-                "Identifier" : "max",
-                "Dims" : null
+                "Identifier" : "max"
               }
             }
           }
         }
       },
-      "ExceptionTypeList" : [ ],
       "ConstructorBody" : {
-        "ExplicitConstructorInvocation" : null,
         "BlockStatements" : {
           "BlockStatementList" : [ {
             "StatementExpression" : {
               "LeftHandSide" : {
-                "identifier" : "heap",
-                "prev" : null
+                "identifier" : "heap"
               },
               "AssignmentOperator" : "=",
               "Expression" : {
                 "ExpressionName" : {
-                  "identifier" : "h",
-                  "prev" : null
-                },
-                "IsPlusList" : [ ]
+                  "identifier" : "h"
+                }
               }
             }
           }, {
             "StatementExpression" : {
               "LeftHandSide" : {
-                "identifier" : "currSize",
-                "prev" : null
+                "identifier" : "currSize"
               },
               "AssignmentOperator" : "=",
               "Expression" : {
                 "ExpressionName" : {
-                  "identifier" : "curr",
-                  "prev" : null
-                },
-                "IsPlusList" : [ ]
+                  "identifier" : "curr"
+                }
               }
             }
           }, {
             "StatementExpression" : {
               "LeftHandSide" : {
-                "identifier" : "maxSize",
-                "prev" : null
+                "identifier" : "maxSize"
               },
               "AssignmentOperator" : "=",
               "Expression" : {
                 "ExpressionName" : {
-                  "identifier" : "max",
-                  "prev" : null
-                },
-                "IsPlusList" : [ ]
+                  "identifier" : "max"
+                }
               }
             }
           }, {
             "StatementExpression" : {
               "MethodName" : {
                 "identifier" : "buildheap"
-              },
-              "ArgumentList" : [ ]
+              }
             }
           } ]
         }
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 1,
         "MethodHeader" : {
           "Result" : {
@@ -240,21 +193,16 @@
             }
           },
           "MethodDeclarator" : {
-            "Identifier" : "heapSize",
-            "FormalParameters" : null,
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            "Identifier" : "heapSize"
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "Expression" : {
                 "ExpressionName" : {
-                  "identifier" : "currSize",
-                  "prev" : null
-                },
-                "IsPlusList" : [ ]
+                  "identifier" : "currSize"
+                }
               }
             } ]
           }
@@ -262,7 +210,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 1,
         "MethodHeader" : {
           "Result" : {
@@ -275,21 +222,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "pos",
-                    "Dims" : null
+                    "Identifier" : "pos"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -301,18 +244,14 @@
                       "Expression" : {
                         "RelationalExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "pos",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "pos"
+                          }
                         },
                         "ShiftExpression" : {
                           "MultiplicativeExpression" : {
                             "ExpressionName" : {
-                              "identifier" : "currSize",
-                              "prev" : null
-                            },
-                            "IsPlusList" : [ ]
+                              "identifier" : "currSize"
+                            }
                           },
                           "UnaryExpression" : {
                             "Primary" : {
@@ -320,17 +259,13 @@
                                 "literal" : {
                                   "str" : "2"
                                 }
-                              },
-                              "DefaultArrayLfPrimaryList" : [ ]
-                            },
-                            "IsPlusList" : [ ]
+                              }
+                            }
                           }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "InclusiveOrExpression" : {
                   "Primary" : {
@@ -338,23 +273,17 @@
                       "Expression" : {
                         "RelationalExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "pos",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "pos"
+                          }
                         },
                         "ShiftExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "currSize",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "currSize"
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]
@@ -363,7 +292,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 1,
         "MethodHeader" : {
           "Result" : {
@@ -376,21 +304,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "pos",
-                    "Dims" : null
+                    "Identifier" : "pos"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -398,18 +322,14 @@
               "ConditionExpression" : {
                 "RelationalExpression" : {
                   "ExpressionName" : {
-                    "identifier" : "pos",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "pos"
+                  }
                 },
                 "ShiftExpression" : {
                   "MultiplicativeExpression" : {
                     "ExpressionName" : {
-                      "identifier" : "currSize",
-                      "prev" : null
-                    },
-                    "IsPlusList" : [ ]
+                      "identifier" : "currSize"
+                    }
                   },
                   "UnaryExpression" : {
                     "Primary" : {
@@ -417,10 +337,8 @@
                         "literal" : {
                           "str" : "2"
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 }
               },
@@ -430,10 +348,8 @@
                     "literal" : {
                       "str" : "\"Position has no left child\""
                     }
-                  },
-                  "DefaultArrayLfPrimaryList" : [ ]
-                },
-                "IsPlusList" : [ ]
+                  }
+                }
               }
             }, {
               "Expression" : {
@@ -444,17 +360,13 @@
                         "literal" : {
                           "str" : "2"
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   },
                   "UnaryExpression" : {
                     "ExpressionName" : {
-                      "identifier" : "pos",
-                      "prev" : null
-                    },
-                    "IsPlusList" : [ ]
+                      "identifier" : "pos"
+                    }
                   }
                 },
                 "MultiplicativeExpression" : {
@@ -463,10 +375,8 @@
                       "literal" : {
                         "str" : "1"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]
@@ -475,7 +385,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 1,
         "MethodHeader" : {
           "Result" : {
@@ -488,21 +397,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "pos",
-                    "Dims" : null
+                    "Identifier" : "pos"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -510,10 +415,8 @@
               "ConditionExpression" : {
                 "RelationalExpression" : {
                   "ExpressionName" : {
-                    "identifier" : "pos",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "pos"
+                  }
                 },
                 "ShiftExpression" : {
                   "MultiplicativeExpression" : {
@@ -522,10 +425,8 @@
                         "Expression" : {
                           "AdditiveExpression" : {
                             "ExpressionName" : {
-                              "identifier" : "currSize",
-                              "prev" : null
-                            },
-                            "IsPlusList" : [ ]
+                              "identifier" : "currSize"
+                            }
                           },
                           "MultiplicativeExpression" : {
                             "Primary" : {
@@ -533,16 +434,12 @@
                                 "literal" : {
                                   "str" : "1"
                                 }
-                              },
-                              "DefaultArrayLfPrimaryList" : [ ]
-                            },
-                            "IsPlusList" : [ ]
+                              }
+                            }
                           }
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   },
                   "UnaryExpression" : {
                     "Primary" : {
@@ -550,10 +447,8 @@
                         "literal" : {
                           "str" : "2"
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   }
                 }
               },
@@ -563,10 +458,8 @@
                     "literal" : {
                       "str" : "\"Position has no right child\""
                     }
-                  },
-                  "DefaultArrayLfPrimaryList" : [ ]
-                },
-                "IsPlusList" : [ ]
+                  }
+                }
               }
             }, {
               "Expression" : {
@@ -577,17 +470,13 @@
                         "literal" : {
                           "str" : "2"
                         }
-                      },
-                      "DefaultArrayLfPrimaryList" : [ ]
-                    },
-                    "IsPlusList" : [ ]
+                      }
+                    }
                   },
                   "UnaryExpression" : {
                     "ExpressionName" : {
-                      "identifier" : "pos",
-                      "prev" : null
-                    },
-                    "IsPlusList" : [ ]
+                      "identifier" : "pos"
+                    }
                   }
                 },
                 "MultiplicativeExpression" : {
@@ -596,10 +485,8 @@
                       "literal" : {
                         "str" : "2"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]
@@ -608,7 +495,6 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 1,
         "MethodHeader" : {
           "Result" : {
@@ -621,21 +507,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "pos",
-                    "Dims" : null
+                    "Identifier" : "pos"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -643,10 +525,8 @@
               "ConditionExpression" : {
                 "RelationalExpression" : {
                   "ExpressionName" : {
-                    "identifier" : "pos",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "pos"
+                  }
                 },
                 "ShiftExpression" : {
                   "Primary" : {
@@ -654,10 +534,8 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               },
               "AftermathExpression" : {
@@ -666,10 +544,8 @@
                     "literal" : {
                       "str" : "\"Position has no parent\""
                     }
-                  },
-                  "DefaultArrayLfPrimaryList" : [ ]
-                },
-                "IsPlusList" : [ ]
+                  }
+                }
               }
             }, {
               "Expression" : {
@@ -679,10 +555,8 @@
                       "Expression" : {
                         "AdditiveExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "pos",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "pos"
+                          }
                         },
                         "MultiplicativeExpression" : {
                           "Primary" : {
@@ -690,16 +564,12 @@
                               "literal" : {
                                 "str" : "1"
                               }
-                            },
-                            "DefaultArrayLfPrimaryList" : [ ]
-                          },
-                          "IsPlusList" : [ ]
+                            }
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "UnaryExpression" : {
                   "Primary" : {
@@ -707,10 +577,8 @@
                       "literal" : {
                         "str" : "2"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               }
             } ]
@@ -719,37 +587,28 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 1,
         "MethodHeader" : {
-          "Result" : {
-            "UnannType" : null
-          },
+          "Result" : { },
           "MethodDeclarator" : {
             "Identifier" : "insert",
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "UnannUnitClassOrInterfaceType" : {
-                      "Identifier" : "E",
-                      "TypeArgumentList" : [ ]
+                      "Identifier" : "E"
                     },
-                    "UnannClassOrInterfaceType" : [ ],
                     "isInterface" : false
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "val",
-                    "Dims" : null
+                    "Identifier" : "val"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -757,17 +616,13 @@
               "ConditionExpression" : {
                 "RelationalExpression" : {
                   "ExpressionName" : {
-                    "identifier" : "currSize",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "currSize"
+                  }
                 },
                 "ShiftExpression" : {
                   "ExpressionName" : {
-                    "identifier" : "maxSize",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "maxSize"
+                  }
                 }
               },
               "AftermathExpression" : {
@@ -776,28 +631,23 @@
                     "literal" : {
                       "str" : "\"heap is full\""
                     }
-                  },
-                  "DefaultArrayLfPrimaryList" : [ ]
-                },
-                "IsPlusList" : [ ]
+                  }
+                }
               }
             }, {
               "LocalVariableDeclaration" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "Primitive" : "INT"
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "curr",
-                    "Dims" : null
+                    "Identifier" : "curr"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "ExpressionName" : {
-                        "identifier" : "currSize",
-                        "prev" : null
+                        "identifier" : "currSize"
                       },
                       "IsPlusList" : [ true ]
                     }
@@ -808,25 +658,19 @@
               "StatementExpression" : {
                 "LeftHandSide" : {
                   "ExpressionName" : {
-                    "identifier" : "heap",
-                    "prev" : null
+                    "identifier" : "heap"
                   },
                   "Expression" : {
                     "ExpressionName" : {
-                      "identifier" : "curr",
-                      "prev" : null
-                    },
-                    "IsPlusList" : [ ]
-                  },
-                  "ExpressionList" : [ ]
+                      "identifier" : "curr"
+                    }
+                  }
                 },
                 "AssignmentOperator" : "=",
                 "Expression" : {
                   "ExpressionName" : {
-                    "identifier" : "val",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "val"
+                  }
                 }
               }
             }, {
@@ -837,10 +681,8 @@
                       "Expression" : {
                         "EqualityExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "curr",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "curr"
+                          }
                         },
                         "RelationalExpression" : {
                           "Primary" : {
@@ -848,16 +690,12 @@
                               "literal" : {
                                 "str" : "0"
                               }
-                            },
-                            "DefaultArrayLfPrimaryList" : [ ]
-                          },
-                          "IsPlusList" : [ ]
+                            }
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "InclusiveOrExpression" : {
                   "Primary" : {
@@ -867,27 +705,21 @@
                           "Primary" : {
                             "DefaultArrayLfnoPrimary" : {
                               "ExpressionName" : {
-                                "identifier" : "heap",
-                                "prev" : null
+                                "identifier" : "heap"
                               },
                               "Expression" : {
                                 "ExpressionName" : {
-                                  "identifier" : "curr",
-                                  "prev" : null
-                                },
-                                "IsPlusList" : [ ]
-                              },
-                              "ExpressionList" : [ ]
+                                  "identifier" : "curr"
+                                }
+                              }
                             },
                             "DefaultArrayLfPrimaryList" : [ {
-                              "TypeArguments" : null,
                               "Identifier" : "compareTo",
                               "ArgumentList" : [ {
                                 "Primary" : {
                                   "DefaultArrayLfnoPrimary" : {
                                     "ExpressionName" : {
-                                      "identifier" : "heap",
-                                      "prev" : null
+                                      "identifier" : "heap"
                                     },
                                     "Expression" : {
                                       "Primary" : {
@@ -897,25 +729,17 @@
                                           },
                                           "ArgumentList" : [ {
                                             "ExpressionName" : {
-                                              "identifier" : "curr",
-                                              "prev" : null
-                                            },
-                                            "IsPlusList" : [ ]
+                                              "identifier" : "curr"
+                                            }
                                           } ]
-                                        },
-                                        "DefaultArrayLfPrimaryList" : [ ]
-                                      },
-                                      "IsPlusList" : [ ]
-                                    },
-                                    "ExpressionList" : [ ]
-                                  },
-                                  "DefaultArrayLfPrimaryList" : [ ]
-                                },
-                                "IsPlusList" : [ ]
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
                               } ]
                             } ]
-                          },
-                          "IsPlusList" : [ ]
+                          }
                         },
                         "ShiftExpression" : {
                           "Primary" : {
@@ -923,16 +747,12 @@
                               "literal" : {
                                 "str" : "0"
                               }
-                            },
-                            "DefaultArrayLfPrimaryList" : [ ]
-                          },
-                          "IsPlusList" : [ ]
+                            }
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               },
               "Statement" : {
@@ -940,23 +760,17 @@
                   "BlockStatementList" : [ {
                     "StatementExpression" : {
                       "TypeName" : {
-                        "identifier" : "DSutil",
-                        "prev" : null
+                        "identifier" : "DSutil"
                       },
-                      "TypeArguments" : null,
                       "Identifier" : "swap",
                       "ArgumentList" : [ {
                         "ExpressionName" : {
-                          "identifier" : "heap",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "heap"
+                        }
                       }, {
                         "ExpressionName" : {
-                          "identifier" : "curr",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "curr"
+                        }
                       }, {
                         "Primary" : {
                           "DefaultArrayLfnoPrimary" : {
@@ -965,22 +779,17 @@
                             },
                             "ArgumentList" : [ {
                               "ExpressionName" : {
-                                "identifier" : "curr",
-                                "prev" : null
-                              },
-                              "IsPlusList" : [ ]
+                                "identifier" : "curr"
+                              }
                             } ]
-                          },
-                          "DefaultArrayLfPrimaryList" : [ ]
-                        },
-                        "IsPlusList" : [ ]
+                          }
+                        }
                       } ]
                     }
                   }, {
                     "StatementExpression" : {
                       "LeftHandSide" : {
-                        "identifier" : "curr",
-                        "prev" : null
+                        "identifier" : "curr"
                       },
                       "AssignmentOperator" : "=",
                       "Expression" : {
@@ -991,15 +800,11 @@
                             },
                             "ArgumentList" : [ {
                               "ExpressionName" : {
-                                "identifier" : "curr",
-                                "prev" : null
-                              },
-                              "IsPlusList" : [ ]
+                                "identifier" : "curr"
+                              }
                             } ]
-                          },
-                          "DefaultArrayLfPrimaryList" : [ ]
-                        },
-                        "IsPlusList" : [ ]
+                          }
+                        }
                       }
                     }
                   } ]
@@ -1011,42 +816,32 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 1,
         "MethodHeader" : {
-          "Result" : {
-            "UnannType" : null
-          },
+          "Result" : { },
           "MethodDeclarator" : {
-            "Identifier" : "buildheap",
-            "FormalParameters" : null,
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            "Identifier" : "buildheap"
+          }
         },
         "Block" : {
           "BlockStatements" : {
             "BlockStatementList" : [ {
               "ForInit" : {
-                "AnnotationList" : [ ],
                 "Modifiers" : 0,
                 "UnannType" : {
                   "Primitive" : "INT"
                 },
                 "VariableDeclaratorList" : [ {
                   "VariableDeclaratorId" : {
-                    "Identifier" : "i",
-                    "Dims" : null
+                    "Identifier" : "i"
                   },
                   "VariableInitializer" : {
                     "Expression" : {
                       "AdditiveExpression" : {
                         "MultiplicativeExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "currSize",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "currSize"
+                          }
                         },
                         "UnaryExpression" : {
                           "Primary" : {
@@ -1054,10 +849,8 @@
                               "literal" : {
                                 "str" : "2"
                               }
-                            },
-                            "DefaultArrayLfPrimaryList" : [ ]
-                          },
-                          "IsPlusList" : [ ]
+                            }
+                          }
                         }
                       },
                       "MultiplicativeExpression" : {
@@ -1066,10 +859,8 @@
                             "literal" : {
                               "str" : "1"
                             }
-                          },
-                          "DefaultArrayLfPrimaryList" : [ ]
-                        },
-                        "IsPlusList" : [ ]
+                          }
+                        }
                       }
                     }
                   }
@@ -1078,10 +869,8 @@
               "ForCondition" : {
                 "RelationalExpression" : {
                   "ExpressionName" : {
-                    "identifier" : "i",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "i"
+                  }
                 },
                 "ShiftExpression" : {
                   "Primary" : {
@@ -1089,15 +878,11 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               },
-              "StatementExpressionList" : {
-                "StatementExpressionList" : [ ]
-              },
+              "StatementExpressionList" : { },
               "Statement" : {
                 "BlockStatements" : {
                   "BlockStatementList" : [ {
@@ -1107,10 +892,8 @@
                       },
                       "ArgumentList" : [ {
                         "ExpressionName" : {
-                          "identifier" : "i",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "i"
+                        }
                       } ]
                     }
                   } ]
@@ -1122,32 +905,25 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 2,
         "MethodHeader" : {
-          "Result" : {
-            "UnannType" : null
-          },
+          "Result" : { },
           "MethodDeclarator" : {
             "Identifier" : "siftdown",
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "pos",
-                    "Dims" : null
+                    "Identifier" : "pos"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -1159,10 +935,8 @@
                       "Expression" : {
                         "RelationalExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "pos",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "pos"
+                          }
                         },
                         "ShiftExpression" : {
                           "Primary" : {
@@ -1170,16 +944,12 @@
                               "literal" : {
                                 "str" : "0"
                               }
-                            },
-                            "DefaultArrayLfPrimaryList" : [ ]
-                          },
-                          "IsPlusList" : [ ]
+                            }
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "InclusiveOrExpression" : {
                   "Primary" : {
@@ -1187,23 +957,17 @@
                       "Expression" : {
                         "RelationalExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "pos",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "pos"
+                          }
                         },
                         "ShiftExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "currSize",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "currSize"
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               },
               "AftermathExpression" : {
@@ -1212,10 +976,8 @@
                     "literal" : {
                       "str" : "\"Illegal heap position\""
                     }
-                  },
-                  "DefaultArrayLfPrimaryList" : [ ]
-                },
-                "IsPlusList" : [ ]
+                  }
+                }
               }
             }, {
               "Expression" : {
@@ -1227,30 +989,24 @@
                       },
                       "ArgumentList" : [ {
                         "ExpressionName" : {
-                          "identifier" : "pos",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "pos"
+                        }
                       } ]
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               },
               "Statement" : {
                 "BlockStatements" : {
                   "BlockStatementList" : [ {
                     "LocalVariableDeclaration" : {
-                      "AnnotationList" : [ ],
                       "Modifiers" : 0,
                       "UnannType" : {
                         "Primitive" : "INT"
                       },
                       "VariableDeclaratorList" : [ {
                         "VariableDeclaratorId" : {
-                          "Identifier" : "j",
-                          "Dims" : null
+                          "Identifier" : "j"
                         },
                         "VariableInitializer" : {
                           "Expression" : {
@@ -1261,15 +1017,11 @@
                                 },
                                 "ArgumentList" : [ {
                                   "ExpressionName" : {
-                                    "identifier" : "pos",
-                                    "prev" : null
-                                  },
-                                  "IsPlusList" : [ ]
+                                    "identifier" : "pos"
+                                  }
                                 } ]
-                              },
-                              "DefaultArrayLfPrimaryList" : [ ]
-                            },
-                            "IsPlusList" : [ ]
+                              }
+                            }
                           }
                         }
                       } ]
@@ -1282,10 +1034,8 @@
                             "Expression" : {
                               "RelationalExpression" : {
                                 "ExpressionName" : {
-                                  "identifier" : "j",
-                                  "prev" : null
-                                },
-                                "IsPlusList" : [ ]
+                                  "identifier" : "j"
+                                }
                               },
                               "ShiftExpression" : {
                                 "Primary" : {
@@ -1293,10 +1043,8 @@
                                     "Expression" : {
                                       "AdditiveExpression" : {
                                         "ExpressionName" : {
-                                          "identifier" : "currSize",
-                                          "prev" : null
-                                        },
-                                        "IsPlusList" : [ ]
+                                          "identifier" : "currSize"
+                                        }
                                       },
                                       "MultiplicativeExpression" : {
                                         "Primary" : {
@@ -1304,22 +1052,16 @@
                                             "literal" : {
                                               "str" : "1"
                                             }
-                                          },
-                                          "DefaultArrayLfPrimaryList" : [ ]
-                                        },
-                                        "IsPlusList" : [ ]
+                                          }
+                                        }
                                       }
                                     }
-                                  },
-                                  "DefaultArrayLfPrimaryList" : [ ]
-                                },
-                                "IsPlusList" : [ ]
+                                  }
+                                }
                               }
                             }
-                          },
-                          "DefaultArrayLfPrimaryList" : [ ]
-                        },
-                        "IsPlusList" : [ ]
+                          }
+                        }
                       },
                       "InclusiveOrExpression" : {
                         "Primary" : {
@@ -1329,35 +1071,27 @@
                                 "Primary" : {
                                   "DefaultArrayLfnoPrimary" : {
                                     "ExpressionName" : {
-                                      "identifier" : "heap",
-                                      "prev" : null
+                                      "identifier" : "heap"
                                     },
                                     "Expression" : {
                                       "ExpressionName" : {
-                                        "identifier" : "j",
-                                        "prev" : null
-                                      },
-                                      "IsPlusList" : [ ]
-                                    },
-                                    "ExpressionList" : [ ]
+                                        "identifier" : "j"
+                                      }
+                                    }
                                   },
                                   "DefaultArrayLfPrimaryList" : [ {
-                                    "TypeArguments" : null,
                                     "Identifier" : "compareTo",
                                     "ArgumentList" : [ {
                                       "Primary" : {
                                         "DefaultArrayLfnoPrimary" : {
                                           "ExpressionName" : {
-                                            "identifier" : "heap",
-                                            "prev" : null
+                                            "identifier" : "heap"
                                           },
                                           "Expression" : {
                                             "AdditiveExpression" : {
                                               "ExpressionName" : {
-                                                "identifier" : "j",
-                                                "prev" : null
-                                              },
-                                              "IsPlusList" : [ ]
+                                                "identifier" : "j"
+                                              }
                                             },
                                             "MultiplicativeExpression" : {
                                               "Primary" : {
@@ -1365,21 +1099,15 @@
                                                   "literal" : {
                                                     "str" : "1"
                                                   }
-                                                },
-                                                "DefaultArrayLfPrimaryList" : [ ]
-                                              },
-                                              "IsPlusList" : [ ]
+                                                }
+                                              }
                                             }
-                                          },
-                                          "ExpressionList" : [ ]
-                                        },
-                                        "DefaultArrayLfPrimaryList" : [ ]
-                                      },
-                                      "IsPlusList" : [ ]
+                                          }
+                                        }
+                                      }
                                     } ]
                                   } ]
-                                },
-                                "IsPlusList" : [ ]
+                                }
                               },
                               "ShiftExpression" : {
                                 "Primary" : {
@@ -1387,16 +1115,12 @@
                                     "literal" : {
                                       "str" : "0"
                                     }
-                                  },
-                                  "DefaultArrayLfPrimaryList" : [ ]
-                                },
-                                "IsPlusList" : [ ]
+                                  }
+                                }
                               }
                             }
-                          },
-                          "DefaultArrayLfPrimaryList" : [ ]
-                        },
-                        "IsPlusList" : [ ]
+                          }
+                        }
                       }
                     },
                     "Statement" : {
@@ -1405,10 +1129,8 @@
                           "StatementExpression" : {
                             "PostfixExpression" : {
                               "ExpressionName" : {
-                                "identifier" : "j",
-                                "prev" : null
-                              },
-                              "IsPlusList" : [ ]
+                                "identifier" : "j"
+                              }
                             }
                           }
                         } ]
@@ -1420,44 +1142,32 @@
                         "Primary" : {
                           "DefaultArrayLfnoPrimary" : {
                             "ExpressionName" : {
-                              "identifier" : "heap",
-                              "prev" : null
+                              "identifier" : "heap"
                             },
                             "Expression" : {
                               "ExpressionName" : {
-                                "identifier" : "pos",
-                                "prev" : null
-                              },
-                              "IsPlusList" : [ ]
-                            },
-                            "ExpressionList" : [ ]
+                                "identifier" : "pos"
+                              }
+                            }
                           },
                           "DefaultArrayLfPrimaryList" : [ {
-                            "TypeArguments" : null,
                             "Identifier" : "compareTo",
                             "ArgumentList" : [ {
                               "Primary" : {
                                 "DefaultArrayLfnoPrimary" : {
                                   "ExpressionName" : {
-                                    "identifier" : "heap",
-                                    "prev" : null
+                                    "identifier" : "heap"
                                   },
                                   "Expression" : {
                                     "ExpressionName" : {
-                                      "identifier" : "j",
-                                      "prev" : null
-                                    },
-                                    "IsPlusList" : [ ]
-                                  },
-                                  "ExpressionList" : [ ]
-                                },
-                                "DefaultArrayLfPrimaryList" : [ ]
-                              },
-                              "IsPlusList" : [ ]
+                                      "identifier" : "j"
+                                    }
+                                  }
+                                }
+                              }
                             } ]
                           } ]
-                        },
-                        "IsPlusList" : [ ]
+                        }
                       },
                       "ShiftExpression" : {
                         "Primary" : {
@@ -1465,60 +1175,45 @@
                             "literal" : {
                               "str" : "0"
                             }
-                          },
-                          "DefaultArrayLfPrimaryList" : [ ]
-                        },
-                        "IsPlusList" : [ ]
+                          }
+                        }
                       }
                     },
                     "Statement" : {
                       "BlockStatements" : {
-                        "BlockStatementList" : [ {
-                          "Expression" : null
-                        } ]
+                        "BlockStatementList" : [ { } ]
                       }
                     }
                   }, {
                     "StatementExpression" : {
                       "TypeName" : {
-                        "identifier" : "DSutil",
-                        "prev" : null
+                        "identifier" : "DSutil"
                       },
-                      "TypeArguments" : null,
                       "Identifier" : "swap",
                       "ArgumentList" : [ {
                         "ExpressionName" : {
-                          "identifier" : "heap",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "heap"
+                        }
                       }, {
                         "ExpressionName" : {
-                          "identifier" : "pos",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "pos"
+                        }
                       }, {
                         "ExpressionName" : {
-                          "identifier" : "j",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "j"
+                        }
                       } ]
                     }
                   }, {
                     "StatementExpression" : {
                       "LeftHandSide" : {
-                        "identifier" : "pos",
-                        "prev" : null
+                        "identifier" : "pos"
                       },
                       "AssignmentOperator" : "=",
                       "Expression" : {
                         "ExpressionName" : {
-                          "identifier" : "j",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "j"
+                        }
                       }
                     }
                   } ]
@@ -1530,25 +1225,19 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 1,
         "MethodHeader" : {
           "Result" : {
             "UnannType" : {
               "UnannUnitClassOrInterfaceType" : {
-                "Identifier" : "E",
-                "TypeArgumentList" : [ ]
+                "Identifier" : "E"
               },
-              "UnannClassOrInterfaceType" : [ ],
               "isInterface" : false
             }
           },
           "MethodDeclarator" : {
-            "Identifier" : "removemax",
-            "FormalParameters" : null,
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            "Identifier" : "removemax"
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -1556,10 +1245,8 @@
               "ConditionExpression" : {
                 "RelationalExpression" : {
                   "ExpressionName" : {
-                    "identifier" : "currSize",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "currSize"
+                  }
                 },
                 "ShiftExpression" : {
                   "Primary" : {
@@ -1567,10 +1254,8 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               },
               "AftermathExpression" : {
@@ -1579,42 +1264,32 @@
                     "literal" : {
                       "str" : "\"Removing from empty heap\""
                     }
-                  },
-                  "DefaultArrayLfPrimaryList" : [ ]
-                },
-                "IsPlusList" : [ ]
+                  }
+                }
               }
             }, {
               "StatementExpression" : {
                 "TypeName" : {
-                  "identifier" : "DSutil",
-                  "prev" : null
+                  "identifier" : "DSutil"
                 },
-                "TypeArguments" : null,
                 "Identifier" : "swap",
                 "ArgumentList" : [ {
                   "ExpressionName" : {
-                    "identifier" : "heap",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "heap"
+                  }
                 }, {
                   "Primary" : {
                     "DefaultArrayLfnoPrimary" : {
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }, {
                   "UnaryExpression" : {
                     "ExpressionName" : {
-                      "identifier" : "currSize",
-                      "prev" : null
-                    },
-                    "IsPlusList" : [ ]
+                      "identifier" : "currSize"
+                    }
                   }
                 } ]
               }
@@ -1622,10 +1297,8 @@
               "Expression" : {
                 "EqualityExpression" : {
                   "ExpressionName" : {
-                    "identifier" : "currSize",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "currSize"
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -1633,10 +1306,8 @@
                       "literal" : {
                         "str" : "0"
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               },
               "Statement" : {
@@ -1652,10 +1323,8 @@
                             "literal" : {
                               "str" : "0"
                             }
-                          },
-                          "DefaultArrayLfPrimaryList" : [ ]
-                        },
-                        "IsPlusList" : [ ]
+                          }
+                        }
                       } ]
                     }
                   } ]
@@ -1666,21 +1335,15 @@
                 "Primary" : {
                   "DefaultArrayLfnoPrimary" : {
                     "ExpressionName" : {
-                      "identifier" : "heap",
-                      "prev" : null
+                      "identifier" : "heap"
                     },
                     "Expression" : {
                       "ExpressionName" : {
-                        "identifier" : "currSize",
-                        "prev" : null
-                      },
-                      "IsPlusList" : [ ]
-                    },
-                    "ExpressionList" : [ ]
-                  },
-                  "DefaultArrayLfPrimaryList" : [ ]
-                },
-                "IsPlusList" : [ ]
+                        "identifier" : "currSize"
+                      }
+                    }
+                  }
+                }
               }
             } ]
           }
@@ -1688,16 +1351,13 @@
       }
     }, {
       "ClassMemberDeclaration" : {
-        "AnnotationList" : [ ],
         "Modifiers" : 1,
         "MethodHeader" : {
           "Result" : {
             "UnannType" : {
               "UnannUnitClassOrInterfaceType" : {
-                "Identifier" : "E",
-                "TypeArgumentList" : [ ]
+                "Identifier" : "E"
               },
-              "UnannClassOrInterfaceType" : [ ],
               "isInterface" : false
             }
           },
@@ -1706,21 +1366,17 @@
             "FormalParameters" : {
               "LastFormalParameter" : {
                 "FormalParameter" : {
-                  "AnnotationList" : [ ],
                   "Modifiers" : 0,
                   "UnannType" : {
                     "Primitive" : "INT"
                   },
                   "VariableDeclaratorId" : {
-                    "Identifier" : "pos",
-                    "Dims" : null
+                    "Identifier" : "pos"
                   }
                 }
               }
-            },
-            "Dims" : null
-          },
-          "ExceptionTypeList" : [ ]
+            }
+          }
         },
         "Block" : {
           "BlockStatements" : {
@@ -1732,10 +1388,8 @@
                       "Expression" : {
                         "RelationalExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "pos",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "pos"
+                          }
                         },
                         "ShiftExpression" : {
                           "Primary" : {
@@ -1743,16 +1397,12 @@
                               "literal" : {
                                 "str" : "0"
                               }
-                            },
-                            "DefaultArrayLfPrimaryList" : [ ]
-                          },
-                          "IsPlusList" : [ ]
+                            }
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 },
                 "InclusiveOrExpression" : {
                   "Primary" : {
@@ -1760,23 +1410,17 @@
                       "Expression" : {
                         "RelationalExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "pos",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "pos"
+                          }
                         },
                         "ShiftExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "currSize",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "currSize"
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               },
               "AftermathExpression" : {
@@ -1785,19 +1429,15 @@
                     "literal" : {
                       "str" : "\"Illegal heap position\""
                     }
-                  },
-                  "DefaultArrayLfPrimaryList" : [ ]
-                },
-                "IsPlusList" : [ ]
+                  }
+                }
               }
             }, {
               "Expression" : {
                 "EqualityExpression" : {
                   "ExpressionName" : {
-                    "identifier" : "pos",
-                    "prev" : null
-                  },
-                  "IsPlusList" : [ ]
+                    "identifier" : "pos"
+                  }
                 },
                 "RelationalExpression" : {
                   "Primary" : {
@@ -1805,10 +1445,8 @@
                       "Expression" : {
                         "AdditiveExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "currSize",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "currSize"
+                          }
                         },
                         "MultiplicativeExpression" : {
                           "Primary" : {
@@ -1816,16 +1454,12 @@
                               "literal" : {
                                 "str" : "1"
                               }
-                            },
-                            "DefaultArrayLfPrimaryList" : [ ]
-                          },
-                          "IsPlusList" : [ ]
+                            }
+                          }
                         }
                       }
-                    },
-                    "DefaultArrayLfPrimaryList" : [ ]
-                  },
-                  "IsPlusList" : [ ]
+                    }
+                  }
                 }
               },
               "StatementNoShortIf" : {
@@ -1834,10 +1468,8 @@
                     "StatementExpression" : {
                       "PostfixExpression" : {
                         "ExpressionName" : {
-                          "identifier" : "currSize",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "currSize"
+                        }
                       }
                     }
                   } ]
@@ -1848,30 +1480,22 @@
                   "BlockStatementList" : [ {
                     "StatementExpression" : {
                       "TypeName" : {
-                        "identifier" : "DSutil",
-                        "prev" : null
+                        "identifier" : "DSutil"
                       },
-                      "TypeArguments" : null,
                       "Identifier" : "swap",
                       "ArgumentList" : [ {
                         "ExpressionName" : {
-                          "identifier" : "heap",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "heap"
+                        }
                       }, {
                         "ExpressionName" : {
-                          "identifier" : "pos",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "pos"
+                        }
                       }, {
                         "UnaryExpression" : {
                           "ExpressionName" : {
-                            "identifier" : "currSize",
-                            "prev" : null
-                          },
-                          "IsPlusList" : [ ]
+                            "identifier" : "currSize"
+                          }
                         }
                       } ]
                     }
@@ -1883,10 +1507,8 @@
                             "Expression" : {
                               "RelationalExpression" : {
                                 "ExpressionName" : {
-                                  "identifier" : "pos",
-                                  "prev" : null
-                                },
-                                "IsPlusList" : [ ]
+                                  "identifier" : "pos"
+                                }
                               },
                               "ShiftExpression" : {
                                 "Primary" : {
@@ -1894,16 +1516,12 @@
                                     "literal" : {
                                       "str" : "0"
                                     }
-                                  },
-                                  "DefaultArrayLfPrimaryList" : [ ]
-                                },
-                                "IsPlusList" : [ ]
+                                  }
+                                }
                               }
                             }
-                          },
-                          "DefaultArrayLfPrimaryList" : [ ]
-                        },
-                        "IsPlusList" : [ ]
+                          }
+                        }
                       },
                       "InclusiveOrExpression" : {
                         "Primary" : {
@@ -1913,27 +1531,21 @@
                                 "Primary" : {
                                   "DefaultArrayLfnoPrimary" : {
                                     "ExpressionName" : {
-                                      "identifier" : "heap",
-                                      "prev" : null
+                                      "identifier" : "heap"
                                     },
                                     "Expression" : {
                                       "ExpressionName" : {
-                                        "identifier" : "pos",
-                                        "prev" : null
-                                      },
-                                      "IsPlusList" : [ ]
-                                    },
-                                    "ExpressionList" : [ ]
+                                        "identifier" : "pos"
+                                      }
+                                    }
                                   },
                                   "DefaultArrayLfPrimaryList" : [ {
-                                    "TypeArguments" : null,
                                     "Identifier" : "compareTo",
                                     "ArgumentList" : [ {
                                       "Primary" : {
                                         "DefaultArrayLfnoPrimary" : {
                                           "ExpressionName" : {
-                                            "identifier" : "heap",
-                                            "prev" : null
+                                            "identifier" : "heap"
                                           },
                                           "Expression" : {
                                             "Primary" : {
@@ -1943,25 +1555,17 @@
                                                 },
                                                 "ArgumentList" : [ {
                                                   "ExpressionName" : {
-                                                    "identifier" : "pos",
-                                                    "prev" : null
-                                                  },
-                                                  "IsPlusList" : [ ]
+                                                    "identifier" : "pos"
+                                                  }
                                                 } ]
-                                              },
-                                              "DefaultArrayLfPrimaryList" : [ ]
-                                            },
-                                            "IsPlusList" : [ ]
-                                          },
-                                          "ExpressionList" : [ ]
-                                        },
-                                        "DefaultArrayLfPrimaryList" : [ ]
-                                      },
-                                      "IsPlusList" : [ ]
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
                                     } ]
                                   } ]
-                                },
-                                "IsPlusList" : [ ]
+                                }
                               },
                               "ShiftExpression" : {
                                 "Primary" : {
@@ -1969,16 +1573,12 @@
                                     "literal" : {
                                       "str" : "0"
                                     }
-                                  },
-                                  "DefaultArrayLfPrimaryList" : [ ]
-                                },
-                                "IsPlusList" : [ ]
+                                  }
+                                }
                               }
                             }
-                          },
-                          "DefaultArrayLfPrimaryList" : [ ]
-                        },
-                        "IsPlusList" : [ ]
+                          }
+                        }
                       }
                     },
                     "Statement" : {
@@ -1986,23 +1586,17 @@
                         "BlockStatementList" : [ {
                           "StatementExpression" : {
                             "TypeName" : {
-                              "identifier" : "DSutil",
-                              "prev" : null
+                              "identifier" : "DSutil"
                             },
-                            "TypeArguments" : null,
                             "Identifier" : "swap",
                             "ArgumentList" : [ {
                               "ExpressionName" : {
-                                "identifier" : "heap",
-                                "prev" : null
-                              },
-                              "IsPlusList" : [ ]
+                                "identifier" : "heap"
+                              }
                             }, {
                               "ExpressionName" : {
-                                "identifier" : "pos",
-                                "prev" : null
-                              },
-                              "IsPlusList" : [ ]
+                                "identifier" : "pos"
+                              }
                             }, {
                               "Primary" : {
                                 "DefaultArrayLfnoPrimary" : {
@@ -2011,22 +1605,17 @@
                                   },
                                   "ArgumentList" : [ {
                                     "ExpressionName" : {
-                                      "identifier" : "pos",
-                                      "prev" : null
-                                    },
-                                    "IsPlusList" : [ ]
+                                      "identifier" : "pos"
+                                    }
                                   } ]
-                                },
-                                "DefaultArrayLfPrimaryList" : [ ]
-                              },
-                              "IsPlusList" : [ ]
+                                }
+                              }
                             } ]
                           }
                         }, {
                           "StatementExpression" : {
                             "LeftHandSide" : {
-                              "identifier" : "pos",
-                              "prev" : null
+                              "identifier" : "pos"
                             },
                             "AssignmentOperator" : "=",
                             "Expression" : {
@@ -2037,15 +1626,11 @@
                                   },
                                   "ArgumentList" : [ {
                                     "ExpressionName" : {
-                                      "identifier" : "pos",
-                                      "prev" : null
-                                    },
-                                    "IsPlusList" : [ ]
+                                      "identifier" : "pos"
+                                    }
                                   } ]
-                                },
-                                "DefaultArrayLfPrimaryList" : [ ]
-                              },
-                              "IsPlusList" : [ ]
+                                }
+                              }
                             }
                           }
                         } ]
@@ -2055,10 +1640,8 @@
                     "Expression" : {
                       "EqualityExpression" : {
                         "ExpressionName" : {
-                          "identifier" : "currSize",
-                          "prev" : null
-                        },
-                        "IsPlusList" : [ ]
+                          "identifier" : "currSize"
+                        }
                       },
                       "RelationalExpression" : {
                         "Primary" : {
@@ -2066,10 +1649,8 @@
                             "literal" : {
                               "str" : "0"
                             }
-                          },
-                          "DefaultArrayLfPrimaryList" : [ ]
-                        },
-                        "IsPlusList" : [ ]
+                          }
+                        }
                       }
                     },
                     "Statement" : {
@@ -2081,10 +1662,8 @@
                             },
                             "ArgumentList" : [ {
                               "ExpressionName" : {
-                                "identifier" : "pos",
-                                "prev" : null
-                              },
-                              "IsPlusList" : [ ]
+                                "identifier" : "pos"
+                              }
                             } ]
                           }
                         } ]
@@ -2098,21 +1677,15 @@
                 "Primary" : {
                   "DefaultArrayLfnoPrimary" : {
                     "ExpressionName" : {
-                      "identifier" : "heap",
-                      "prev" : null
+                      "identifier" : "heap"
                     },
                     "Expression" : {
                       "ExpressionName" : {
-                        "identifier" : "currSize",
-                        "prev" : null
-                      },
-                      "IsPlusList" : [ ]
-                    },
-                    "ExpressionList" : [ ]
-                  },
-                  "DefaultArrayLfPrimaryList" : [ ]
-                },
-                "IsPlusList" : [ ]
+                        "identifier" : "currSize"
+                      }
+                    }
+                  }
+                }
               }
             } ]
           }
