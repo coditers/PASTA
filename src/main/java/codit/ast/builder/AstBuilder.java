@@ -5,6 +5,7 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import codit.ast.pojos.AstNode;
@@ -287,6 +288,10 @@ import codit.gencode.JavaParser;
  */
 public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
+  private static <T> Iterable<T> safe(Iterable<T> iterable) {
+    return iterable == null ? Collections.<T>emptyList() : iterable;
+  }
+
   private Range getRange(ParserRuleContext ctx) {
     return new Range( ctx.getStart().getLine(), ctx.getStart().getCharPositionInLine(),
                       ctx.getStop().getLine(),  ctx.getStop().getCharPositionInLine() );
@@ -389,9 +394,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get Annotation List
     List<Annotation> annotationList = new ArrayList<>();
-    for(JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
-      Annotation annotation = (Annotation) visit(annotationContext);
-      annotationList.add(annotation);
+    if (ctx.annotation() != null) {
+      for (JavaParser.AnnotationContext annotationContext : safe(ctx.annotation())) {
+        Annotation annotation = (Annotation) visit(annotationContext);
+        annotationList.add(annotation);
+      }
     }
 
     String text;
@@ -451,7 +458,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // is Interface
     boolean isInterface = false;
-    if (ctx.getChild(ctx.getChildCount()-1).getParent()
+    if (ctx.getChild(ctx.getChildCount()-1)
         instanceof JavaParser.InterfaceType_lf_classOrInterfaceTypeContext) {
       isInterface = true;
     }
@@ -494,18 +501,6 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get range of symbol
     Range range = getRange(ctx);
 
-    // get parent
-//    AstNode parent = null;
-//    if( ctx.getParent() != null ) {
-//      parent = visit(ctx.getParent());
-//    }
-
-    // is Interface
-//    boolean isInterface = false;
-//    if (ctx.getParent() instanceof JavaParser.InterfaceType_lfno_classOrInterfaceTypeContext) {
-//      isInterface = true;
-//    }
-
     // get Class or Interface Type List
     ClassOrInterfaceType classOrInterfaceType = null;
     if( ctx.classOrInterfaceType() != null ) {
@@ -514,7 +509,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get annotation list
     List<Annotation> annotationList = new ArrayList<>();
-    for (JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+    for (JavaParser.AnnotationContext annotationContext : safe(ctx.annotation())) {
       Annotation annotation = (Annotation) visit(annotationContext);
       annotationList.add(annotation);
     }
@@ -524,9 +519,9 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get Type argument list
     List<TypeArgument> typeArgumentList = new ArrayList<>();
-    if (ctx.typeArguments() != null) {
+    if (ctx.typeArguments() != null && ctx.typeArguments().typeArgumentList() != null) {
       for (JavaParser.TypeArgumentContext typeArgumentContext
-          : ctx.typeArguments().typeArgumentList().typeArgument()) {
+          : safe(ctx.typeArguments().typeArgumentList().typeArgument())) {
         TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
         typeArgumentList.add(typeArgument);
       }
@@ -555,7 +550,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get annotation list
     List<Annotation> annotationList = new ArrayList<>();
-    for (JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+    for (JavaParser.AnnotationContext annotationContext : safe(ctx.annotation())) {
       Annotation annotation = (Annotation) visit(annotationContext);
       annotationList.add(annotation);
     }
@@ -565,12 +560,13 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get Type argument list
     List<TypeArgument> typeArgumentList = new ArrayList<>();
-    for (JavaParser.TypeArgumentContext typeArgumentContext
-        : ctx.typeArguments().typeArgumentList().typeArgument()) {
-      TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
-      typeArgumentList.add(typeArgument);
+    if (ctx.typeArguments() != null && ctx.typeArguments().typeArgumentList() != null) {
+      for (JavaParser.TypeArgumentContext typeArgumentContext
+          : safe(ctx.typeArguments().typeArgumentList().typeArgument())) {
+        TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
+        typeArgumentList.add(typeArgument);
+      }
     }
-
     return new UnitClassType(range, null, annotationList, identifier, typeArgumentList);
   }
 
@@ -594,7 +590,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get annotation list
     List<Annotation> annotationList = new ArrayList<>();
-    for (JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+    for (JavaParser.AnnotationContext annotationContext : safe(ctx.annotation())) {
       Annotation annotation = (Annotation) visit(annotationContext);
       annotationList.add(annotation);
     }
@@ -604,9 +600,9 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get Type argument list
     List<TypeArgument> typeArgumentList = new ArrayList<>();
-    if (ctx.typeArguments() != null) {
+    if (ctx.typeArguments() != null && ctx.typeArguments().typeArgumentList() != null) {
       for (JavaParser.TypeArgumentContext typeArgumentContext
-          : ctx.typeArguments().typeArgumentList().typeArgument()) {
+          : safe(ctx.typeArguments().typeArgumentList().typeArgument())) {
         TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
         typeArgumentList.add(typeArgument);
       }
@@ -659,7 +655,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get annotation list
     List<Annotation> annotationList = new ArrayList<>();
-    for (JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+    for (JavaParser.AnnotationContext annotationContext : safe(ctx.annotation())) {
       Annotation annotation = (Annotation) visit(annotationContext);
       annotationList.add(annotation);
     }
@@ -713,7 +709,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     List<Annotation> annotationList = new ArrayList<>();
     annotationListList.add(annotationList);
 
-    for (ParseTree child : ctx.children) {
+    for (ParseTree child : safe(ctx.children)) {
 
       if (child.getText().equals("[")) {
         annotationList = new ArrayList<>();
@@ -737,7 +733,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get Annotations
     List<Annotation> annotationList = new ArrayList<>();
     for(JavaParser.TypeParameterModifierContext typeParameterModifierContext
-        : ctx.typeParameterModifier()) {
+        : safe(ctx.typeParameterModifier())) {
       Annotation annotation = (Annotation) visit(typeParameterModifierContext.annotation());
       annotationList.add(annotation);
     }
@@ -774,7 +770,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
       // get Interface type list
       List<InterfaceType> interfaceTypeList = new ArrayList<>();
-      for(JavaParser.AdditionalBoundContext additionalBoundContext : ctx.additionalBound()) {
+      for(JavaParser.AdditionalBoundContext additionalBoundContext : safe(ctx.additionalBound())) {
         InterfaceType interfaceType = (InterfaceType) visit(additionalBoundContext.interfaceType());
         interfaceTypeList.add(interfaceType);
       }
@@ -834,7 +830,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get annotation list
     List<Annotation> annotationList = new ArrayList<>();
-    for (JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+    for (JavaParser.AnnotationContext annotationContext : safe(ctx.annotation())) {
       Annotation annotation = (Annotation) visit(annotationContext);
       annotationList.add(annotation);
     }
@@ -983,14 +979,14 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get Import Declaration List
     List<ImportDeclaration> importDeclarationList = new ArrayList<>();
-    for(JavaParser.ImportDeclarationContext importDeclarationContext : ctx.importDeclaration()) {
+    for(JavaParser.ImportDeclarationContext importDeclarationContext : safe(ctx.importDeclaration())) {
       ImportDeclaration importDeclaration = (ImportDeclaration) visit(importDeclarationContext);
       importDeclarationList.add(importDeclaration);
     }
 
     // get Type Declaration List
     List<TypeDeclaration> typeDeclarationList = new ArrayList<>();
-    for(JavaParser.TypeDeclarationContext typeDeclarationContext : ctx.typeDeclaration()) {
+    for(JavaParser.TypeDeclarationContext typeDeclarationContext : safe(ctx.typeDeclaration())) {
       TypeDeclaration typeDeclaration = (TypeDeclaration) visit(typeDeclarationContext);
       typeDeclarationList.add(typeDeclaration);
     }
@@ -1012,14 +1008,14 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     //
     List<Annotation> annotationList = new ArrayList<>();
-    for (JavaParser.PackageModifierContext packageModifierContext : ctx.packageModifier()) {
+    for (JavaParser.PackageModifierContext packageModifierContext : safe(ctx.packageModifier())) {
       Annotation annotation = (Annotation) visit(packageModifierContext.annotation());
       annotationList.add(annotation);
     }
 
     //
     List<String> identifierList = new ArrayList<>();
-    for (TerminalNode identifierNode : ctx.Identifier()){
+    for (TerminalNode identifierNode : safe(ctx.Identifier())){
       String identifier = identifierNode.getText();
       identifierList.add(identifier);
     }
@@ -1138,7 +1134,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get class Modifier lists
     List<Annotation> annotationList = new ArrayList<>();
     int modifiers = 0;
-    for ( JavaParser.ClassModifierContext classModifierContext : ctx.classModifier() ) {
+    for ( JavaParser.ClassModifierContext classModifierContext : safe(ctx.classModifier()) ) {
       if (classModifierContext.annotation() != null) {
         Annotation annotation = (Annotation) visit(classModifierContext.annotation());
         annotationList.add(annotation);
@@ -1178,9 +1174,9 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get type parameter list
     List<TypeParameter> typeParameterList = new ArrayList<>();
-    if (ctx.typeParameters() != null) {
+    if (ctx.typeParameters() != null && ctx.typeParameters().typeParameterList() != null) {
       for(JavaParser.TypeParameterContext typeParameterContext
-          : ctx.typeParameters().typeParameterList().typeParameter()) {
+          : safe(ctx.typeParameters().typeParameterList().typeParameter())) {
         TypeParameter typeParameter = (TypeParameter) visit(typeParameterContext);
         typeParameterList.add(typeParameter);
       }
@@ -1194,9 +1190,9 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get super interface list
     List<InterfaceType> superInterfaceList = new ArrayList<>();
-    if (ctx.superinterfaces() != null) {
+    if (ctx.superinterfaces() != null && ctx.superinterfaces().interfaceTypeList() != null) {
       for (JavaParser.InterfaceTypeContext interfaceTypeContext
-          : ctx.superinterfaces().interfaceTypeList().interfaceType()) {
+          : safe(ctx.superinterfaces().interfaceTypeList().interfaceType())) {
         InterfaceType interfaceType = (InterfaceType) visit(interfaceTypeContext);
         superInterfaceList.add(interfaceType);
       }
@@ -1204,11 +1200,13 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get Class Body Declarations
     List<ClassBodyDeclaration> classBodyDeclarationList = new ArrayList<>();
-    for (JavaParser.ClassBodyDeclarationContext classBodyDeclarationContext
-        : ctx.classBody().classBodyDeclaration()) {
-      ClassBodyDeclaration classBodyDeclaration
-          = (ClassBodyDeclaration) visit(classBodyDeclarationContext);
-      classBodyDeclarationList.add(classBodyDeclaration);
+    if (ctx.classBody() != null) {
+      for (JavaParser.ClassBodyDeclarationContext classBodyDeclarationContext
+          : safe(ctx.classBody().classBodyDeclaration())) {
+        ClassBodyDeclaration classBodyDeclaration
+            = (ClassBodyDeclaration) visit(classBodyDeclarationContext);
+        classBodyDeclarationList.add(classBodyDeclaration);
+      }
     }
 
     return new NormalClassDeclaration(range, null, annotationList, modifiers, identifier,
@@ -1305,7 +1303,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get Annotation and modifiers
     List<Annotation> annotationList = new ArrayList<>();
     int modifiers = 0;
-    for ( JavaParser.FieldModifierContext fieldModifierContext : ctx.fieldModifier() ) {
+    for ( JavaParser.FieldModifierContext fieldModifierContext : safe(ctx.fieldModifier()) ) {
       if (fieldModifierContext.annotation() != null) {
         Annotation annotation = (Annotation) visit(fieldModifierContext.annotation());
         annotationList.add(annotation);
@@ -1348,10 +1346,12 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of variable declarator
     List<VariableDeclarator> variableDeclaratorList = new ArrayList<>();
-    for(JavaParser.VariableDeclaratorContext variableDeclaratorContext
-        : ctx.variableDeclaratorList().variableDeclarator()) {
-      VariableDeclarator variableDeclarator = (VariableDeclarator) visit(variableDeclaratorContext);
-      variableDeclaratorList.add(variableDeclarator);
+    if (ctx.variableDeclaratorList() != null) {
+      for (JavaParser.VariableDeclaratorContext variableDeclaratorContext
+          : safe(ctx.variableDeclaratorList().variableDeclarator())) {
+        VariableDeclarator variableDeclarator = (VariableDeclarator) visit(variableDeclaratorContext);
+        variableDeclaratorList.add(variableDeclarator);
+      }
     }
 
     return new FieldDeclaration(range, null, annotationList, modifiers, unannType, variableDeclaratorList);
@@ -1420,11 +1420,13 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
       // get list of variable initializer
       List<VariableInitializer> variableInitializerList = new ArrayList<>();
-      for (JavaParser.VariableInitializerContext variableInitializerContext
-          : ctx.arrayInitializer().variableInitializerList().variableInitializer()) {
-        VariableInitializer variableInitializer
-            = (VariableInitializer) visit(variableInitializerContext);
-        variableInitializerList.add(variableInitializer);
+      if (ctx.arrayInitializer() != null && ctx.arrayInitializer().variableInitializerList() != null) {
+        for (JavaParser.VariableInitializerContext variableInitializerContext
+            : safe(ctx.arrayInitializer().variableInitializerList().variableInitializer())) {
+          VariableInitializer variableInitializer
+              = (VariableInitializer) visit(variableInitializerContext);
+          variableInitializerList.add(variableInitializer);
+        }
       }
       return new ArrayInitializer(range, null, variableInitializerList);
 
@@ -1549,7 +1551,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of annotation
     List<Annotation> annotationList = new ArrayList<>();
-    for (JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+    for (JavaParser.AnnotationContext annotationContext : safe(ctx.annotation())) {
       Annotation annotation = (Annotation) visit(annotationContext);
       annotationList.add(annotation);
     }
@@ -1559,9 +1561,9 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // list of type argument
     List<TypeArgument> typeArgumentList = new ArrayList<>();
-    if (ctx.typeArguments() != null) {
+    if (ctx.typeArguments() != null && ctx.typeArguments().typeArgumentList() != null) {
       for (JavaParser.TypeArgumentContext typeArgumentContext
-          : ctx.typeArguments().typeArgumentList().typeArgument()) {
+          : safe(ctx.typeArguments().typeArgumentList().typeArgument())) {
         TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
         typeArgumentList.add(typeArgument);
       }
@@ -1577,7 +1579,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of annotation
     List<Annotation> annotationList = new ArrayList<>();
-    for (JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+    for (JavaParser.AnnotationContext annotationContext : safe(ctx.annotation())) {
       Annotation annotation = (Annotation) visit(annotationContext);
       annotationList.add(annotation);
     }
@@ -1587,8 +1589,8 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of type arguments
     List<TypeArgument> typeArgumentList = new ArrayList<>();
-    if (ctx.typeArguments() != null) {
-      for (JavaParser.TypeArgumentContext typeArgumentContext : ctx.typeArguments().typeArgumentList().typeArgument()) {
+    if (ctx.typeArguments() != null && ctx.typeArguments().typeArgumentList() != null) {
+      for (JavaParser.TypeArgumentContext typeArgumentContext : safe(ctx.typeArguments().typeArgumentList().typeArgument())) {
         TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
         typeArgumentList.add(typeArgument);
       }
@@ -1608,8 +1610,8 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of type argument
     List<TypeArgument> typeArgumentList = new ArrayList<>();
-    if (ctx.typeArguments() != null) {
-      for (JavaParser.TypeArgumentContext typeArgumentContext : ctx.typeArguments().typeArgumentList().typeArgument()) {
+    if (ctx.typeArguments() != null && ctx.typeArguments().typeArgumentList() != null) {
+      for (JavaParser.TypeArgumentContext typeArgumentContext : safe(ctx.typeArguments().typeArgumentList().typeArgument())) {
         TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
         typeArgumentList.add(typeArgument);
       }
@@ -1700,7 +1702,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get Annotation and modifiers
     List<Annotation> annotationList = new ArrayList<>();
     int modifiers = 0;
-    for ( JavaParser.MethodModifierContext methodModifierContext : ctx.methodModifier() ) {
+    for ( JavaParser.MethodModifierContext methodModifierContext : safe(ctx.methodModifier()) ) {
       if (methodModifierContext.annotation() != null) {
         Annotation annotation = (Annotation) visit(methodModifierContext.annotation());
         annotationList.add(annotation);
@@ -1771,9 +1773,9 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of exception type
     List<ExceptionType> exceptionTypeList = new ArrayList<>();
-    if (ctx.throws_() != null) {
+    if (ctx.throws_() != null && ctx.throws_().exceptionTypeList() != null) {
       for (JavaParser.ExceptionTypeContext exceptionTypeContext
-          : ctx.throws_().exceptionTypeList().exceptionType()) {
+          : safe(ctx.throws_().exceptionTypeList().exceptionType())) {
         ExceptionType exceptionType = (ExceptionType) visit(exceptionTypeContext);
         exceptionTypeList.add(exceptionType);
       }
@@ -1782,16 +1784,16 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     if(ctx.typeParameters() != null) {
       // get list of Type parameter
       List<TypeParameter> typeParameterList = new ArrayList<>();
-
-      for (JavaParser.TypeParameterContext typeParameterContext
-          : ctx.typeParameters().typeParameterList().typeParameter()) {
-        TypeParameter typeParameter = (TypeParameter) visit(typeParameterContext);
-        typeParameterList.add(typeParameter);
+      if (ctx.typeParameters().typeParameterList() != null) {
+        for (JavaParser.TypeParameterContext typeParameterContext
+            : safe(ctx.typeParameters().typeParameterList().typeParameter())) {
+          TypeParameter typeParameter = (TypeParameter) visit(typeParameterContext);
+          typeParameterList.add(typeParameter);
+        }
       }
-
       // get list of annotations
       List<Annotation> annotationList = new ArrayList<>();
-      for (JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+      for (JavaParser.AnnotationContext annotationContext : safe(ctx.annotation())) {
         Annotation annotation = (Annotation) visit(annotationContext);
         annotationList.add(annotation);
       }
@@ -1861,7 +1863,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
         parameterList.add(receiverParameter);
       }
 
-      for (ParseTree parameterContext : ctx.formalParameters().formalParameter()) {
+      for (ParseTree parameterContext : safe(ctx.formalParameters().formalParameter())) {
         FormalParameter formalParameter = (FormalParameter) visit(parameterContext);
         parameterList.add(formalParameter);
       }
@@ -1887,7 +1889,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get Annotation and modifiers
     List<Annotation> annotationList = new ArrayList<>();
     int modifiers = 0;
-    for ( JavaParser.VariableModifierContext variableModifierContext : ctx.variableModifier() ) {
+    for ( JavaParser.VariableModifierContext variableModifierContext : safe(ctx.variableModifier()) ) {
       if (variableModifierContext.annotation() != null) {
         Annotation annotation = (Annotation) visit(variableModifierContext.annotation());
         annotationList.add(annotation);
@@ -1937,7 +1939,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       // get Annotation and modifiers
       List<Annotation> annotationList = new ArrayList<>();
       int modifiers = 0;
-      for ( JavaParser.VariableModifierContext variableModifierContext : ctx.variableModifier() ) {
+      for ( JavaParser.VariableModifierContext variableModifierContext : safe(ctx.variableModifier()) ) {
         if (variableModifierContext.annotation() != null) {
           Annotation annotation = (Annotation) visit(variableModifierContext.annotation());
           annotationList.add(annotation);
@@ -1962,7 +1964,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
       // get Second list of annotations
       List<Annotation> secondAnnotationList = new ArrayList<>();
-      for(JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+      for(JavaParser.AnnotationContext annotationContext : safe(ctx.annotation())) {
         Annotation annotation = (Annotation) visit(annotationContext);
         secondAnnotationList.add(annotation);
       }
@@ -1986,7 +1988,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of annotaitons
     List<Annotation> annotationList = new ArrayList<>();
-    for (JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+    for (JavaParser.AnnotationContext annotationContext : safe(ctx.annotation())) {
       Annotation annotation = (Annotation) visit(annotationContext);
       annotationList.add(annotation);
     }
@@ -2074,7 +2076,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get Annotation and modifiers
     List<Annotation> annotationList = new ArrayList<>();
     int modifiers = 0;
-    for ( JavaParser.ConstructorModifierContext constructorModifierContext : ctx.constructorModifier() ) {
+    for ( JavaParser.ConstructorModifierContext constructorModifierContext : safe(ctx.constructorModifier()) ) {
       if (constructorModifierContext.annotation() != null) {
         Annotation annotation = (Annotation) visit(constructorModifierContext.annotation());
         annotationList.add(annotation);
@@ -2103,9 +2105,9 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of exception
     List<ExceptionType> exceptionTypeList = new ArrayList<>();
-    if (ctx.throws_() != null) {
+    if (ctx.throws_() != null && ctx.throws_().exceptionTypeList() != null) {
       for (JavaParser.ExceptionTypeContext exceptionTypeContext
-          : ctx.throws_().exceptionTypeList().exceptionType()) {
+          : safe(ctx.throws_().exceptionTypeList().exceptionType())) {
         ExceptionType exceptionType = (ExceptionType) visit(exceptionTypeContext);
         exceptionTypeList.add(exceptionType);
       }
@@ -2132,9 +2134,9 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of type parameters
     List<TypeParameter> typeParameterList = new ArrayList<>();
-    if (ctx.typeParameters() != null) {
+    if (ctx.typeParameters() != null && ctx.typeParameters().typeParameterList() != null) {
       for (JavaParser.TypeParameterContext typeParameterContext :
-          ctx.typeParameters().typeParameterList().typeParameter()) {
+          safe(ctx.typeParameters().typeParameterList().typeParameter())) {
         TypeParameter typeParameter = (TypeParameter) visit(typeParameterContext);
         typeParameterList.add(typeParameter);
       }
@@ -2181,9 +2183,9 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of type argument
     List<TypeArgument> typeArgumentList = new ArrayList<>();
-    if (ctx.typeArguments() != null) {
+    if (ctx.typeArguments() != null && ctx.typeArguments().typeArgumentList() != null) {
       for (JavaParser.TypeArgumentContext typeArgumentContext
-          : ctx.typeArguments().typeArgumentList().typeArgument()) {
+          : safe(ctx.typeArguments().typeArgumentList().typeArgument())) {
         TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
         typeArgumentList.add(typeArgument);
       }
@@ -2192,7 +2194,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get argument list
     List<Expression> argumentList = new ArrayList<>();
     if (ctx.argumentList() != null) {
-      for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
+      for (JavaParser.ExpressionContext expressionContext : safe(ctx.argumentList().expression())) {
         Expression expression = (Expression) visit(expressionContext);
         argumentList.add(expression);
       }
@@ -2223,7 +2225,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get class Modifier lists
     List<Annotation> annotationList = new ArrayList<>();
     int modifiers = 0;
-    for ( JavaParser.ClassModifierContext classModifierContext : ctx.classModifier() ) {
+    for ( JavaParser.ClassModifierContext classModifierContext : safe(ctx.classModifier()) ) {
       if (classModifierContext.annotation() != null) {
         Annotation annotation = (Annotation) visit(classModifierContext.annotation());
         annotationList.add(annotation);
@@ -2263,8 +2265,9 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get super interface list
     List<InterfaceType> superInterfaceList = new ArrayList<>();
+    if (ctx.superinterfaces() != null && ctx.superinterfaces().interfaceTypeList() != null)
     for (JavaParser.InterfaceTypeContext interfaceTypeContext
-        : ctx.superinterfaces().interfaceTypeList().interfaceType()) {
+        : safe(ctx.superinterfaces().interfaceTypeList().interfaceType())) {
       InterfaceType interfaceType = (InterfaceType) visit(interfaceTypeContext);
       superInterfaceList.add(interfaceType);
     }
@@ -2283,16 +2286,20 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of enum constant
     List<EnumConstant> enumConstantList = new ArrayList<>();
-    for (JavaParser.EnumConstantContext enumConstantContext : ctx.enumConstantList().enumConstant()) {
-      EnumConstant enumConstant = (EnumConstant) visit(enumConstantContext);
-      enumConstantList.add(enumConstant);
+    if (ctx.enumConstantList() != null) {
+      for (JavaParser.EnumConstantContext enumConstantContext : safe(ctx.enumConstantList().enumConstant())) {
+        EnumConstant enumConstant = (EnumConstant) visit(enumConstantContext);
+        enumConstantList.add(enumConstant);
+      }
     }
 
     // get lost of class body declaration
     List<ClassBodyDeclaration> classBodyDeclarationList = new ArrayList<>();
-    for (JavaParser.ClassBodyDeclarationContext classBodyDeclarationContext : ctx.enumBodyDeclarations().classBodyDeclaration()) {
-      ClassBodyDeclaration classBodyDeclaration = (ClassBodyDeclaration) visit(classBodyDeclarationContext);
-      classBodyDeclarationList.add(classBodyDeclaration);
+    if (ctx.enumBodyDeclarations() != null) {
+      for (JavaParser.ClassBodyDeclarationContext classBodyDeclarationContext : safe(ctx.enumBodyDeclarations().classBodyDeclaration())) {
+        ClassBodyDeclaration classBodyDeclaration = (ClassBodyDeclaration) visit(classBodyDeclarationContext);
+        classBodyDeclarationList.add(classBodyDeclaration);
+      }
     }
 
     return new EnumBody(range, null, enumConstantList, classBodyDeclarationList);
@@ -2313,7 +2320,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get list of annotation
     List<Annotation> annotationList = new ArrayList<>();
     for (JavaParser.EnumConstantModifierContext enumConstantModifierContext
-        : ctx.enumConstantModifier()) {
+        : safe(ctx.enumConstantModifier())) {
       Annotation annotation = (Annotation) visit(enumConstantModifierContext.annotation());
       annotationList.add(annotation);
     }
@@ -2324,7 +2331,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get argument list
     List<Expression> argumentList = new ArrayList<>();
     if (ctx.argumentList() != null) {
-      for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
+      for (JavaParser.ExpressionContext expressionContext : safe(ctx.argumentList().expression())) {
         Expression expression = (Expression) visit(expressionContext);
         argumentList.add(expression);
       }
@@ -2332,9 +2339,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get lost of class body declaration
     List<ClassBodyDeclaration> classBodyDeclarationList = new ArrayList<>();
-    for (JavaParser.ClassBodyDeclarationContext classBodyDeclarationContext : ctx.classBody().classBodyDeclaration()) {
-      ClassBodyDeclaration classBodyDeclaration = (ClassBodyDeclaration) visit(classBodyDeclarationContext);
-      classBodyDeclarationList.add(classBodyDeclaration);
+    if (ctx.classBody() != null) {
+      for (JavaParser.ClassBodyDeclarationContext classBodyDeclarationContext : safe(ctx.classBody().classBodyDeclaration())) {
+        ClassBodyDeclaration classBodyDeclaration = (ClassBodyDeclaration) visit(classBodyDeclarationContext);
+        classBodyDeclarationList.add(classBodyDeclaration);
+      }
     }
 
     return new EnumConstant(range, null, annotationList, identifier, argumentList, classBodyDeclarationList);
@@ -2374,7 +2383,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get class Modifier lists
     List<Annotation> annotationList = new ArrayList<>();
     int modifiers = 0;
-    for ( JavaParser.InterfaceModifierContext interfaceModifierContext : ctx.interfaceModifier()) {
+    for ( JavaParser.InterfaceModifierContext interfaceModifierContext : safe(ctx.interfaceModifier())) {
       if (interfaceModifierContext.annotation() != null) {
         Annotation annotation = (Annotation) visit(interfaceModifierContext.annotation());
         annotationList.add(annotation);
@@ -2411,26 +2420,32 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of type parameter
     List<TypeParameter> typeParameterList = new ArrayList<>();
-    for (JavaParser.TypeParameterContext typeParameterContext
-        : ctx.typeParameters().typeParameterList().typeParameter()) {
-      TypeParameter typeParameter = (TypeParameter) visit(typeParameterContext);
-      typeParameterList.add(typeParameter);
+    if(ctx.typeParameters() != null && ctx.typeParameters().typeParameterList() != null) {
+      for (JavaParser.TypeParameterContext typeParameterContext
+          : safe(ctx.typeParameters().typeParameterList().typeParameter())) {
+        TypeParameter typeParameter = (TypeParameter) visit(typeParameterContext);
+        typeParameterList.add(typeParameter);
+      }
     }
 
     // get interface type list
     List<InterfaceType> interfaceTypeList = new ArrayList<>();
-    for (JavaParser.InterfaceTypeContext interfaceTypeContext
-        : ctx.extendsInterfaces().interfaceTypeList().interfaceType()) {
-      InterfaceType interfaceType = (InterfaceType) visit(interfaceTypeContext);
-      interfaceTypeList.add(interfaceType);
+    if (ctx.extendsInterfaces() != null && ctx.extendsInterfaces().interfaceTypeList() != null) {
+      for (JavaParser.InterfaceTypeContext interfaceTypeContext
+          : safe(ctx.extendsInterfaces().interfaceTypeList().interfaceType())) {
+        InterfaceType interfaceType = (InterfaceType) visit(interfaceTypeContext);
+        interfaceTypeList.add(interfaceType);
+      }
     }
 
     // get list of interface Members
     List<InterfaceMemberable> interfaceMemberableList = new ArrayList<>();
-    for (JavaParser.InterfaceMemberDeclarationContext interfaceMemberDeclarationContext
-        : ctx.interfaceBody().interfaceMemberDeclaration()) {
-      InterfaceMemberable interfaceMemberable = (InterfaceMemberable) visit(interfaceMemberDeclarationContext);
-      interfaceMemberableList.add(interfaceMemberable);
+    if (ctx.interfaceBody() != null) {
+      for (JavaParser.InterfaceMemberDeclarationContext interfaceMemberDeclarationContext
+          : safe(ctx.interfaceBody().interfaceMemberDeclaration())) {
+        InterfaceMemberable interfaceMemberable = (InterfaceMemberable) visit(interfaceMemberDeclarationContext);
+        interfaceMemberableList.add(interfaceMemberable);
+      }
     }
 
     return new NormalInterfaceDeclaration(range, null, annotationList, modifiers, identifier, typeParameterList, interfaceTypeList, interfaceMemberableList);
@@ -2481,7 +2496,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get class Modifier lists
     List<Annotation> annotationList = new ArrayList<>();
     int modifiers = 0;
-    for ( JavaParser.ConstantModifierContext constantModifierContext : ctx.constantModifier()) {
+    for ( JavaParser.ConstantModifierContext constantModifierContext : safe(ctx.constantModifier())) {
       if (constantModifierContext.annotation() != null) {
         Annotation annotation = (Annotation) visit(constantModifierContext.annotation());
         annotationList.add(annotation);
@@ -2512,10 +2527,12 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of variable declarator
     List<VariableDeclarator> variableDeclaratorList = new ArrayList<>();
-    for (JavaParser.VariableDeclaratorContext variableDeclaratorContext
-        : ctx.variableDeclaratorList().variableDeclarator()) {
-      VariableDeclarator variableDeclarator = (VariableDeclarator) visit(variableDeclaratorContext);
-      variableDeclaratorList.add(variableDeclarator);
+    if (ctx.variableDeclaratorList() != null) {
+      for (JavaParser.VariableDeclaratorContext variableDeclaratorContext
+          : safe(ctx.variableDeclaratorList().variableDeclarator())) {
+        VariableDeclarator variableDeclarator = (VariableDeclarator) visit(variableDeclaratorContext);
+        variableDeclaratorList.add(variableDeclarator);
+      }
     }
 
     return new ConstantDeclaration(range, null, annotationList, modifiers, unannType, variableDeclaratorList);
@@ -2537,7 +2554,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     List<Annotation> annotationList = new ArrayList<>();
     int modifiers = 0;
     for ( JavaParser.InterfaceMethodModifierContext interfaceMethodModifierContext
-        : ctx.interfaceMethodModifier()) {
+        : safe(ctx.interfaceMethodModifier())) {
       if (interfaceMethodModifierContext.annotation() != null) {
         Annotation annotation = (Annotation) visit(interfaceMethodModifierContext.annotation());
         annotationList.add(annotation);
@@ -2590,7 +2607,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get class Modifier lists
     List<Annotation> annotationList = new ArrayList<>();
     int modifiers = 0;
-    for ( JavaParser.InterfaceModifierContext interfaceModifierContext : ctx.interfaceModifier()) {
+    for ( JavaParser.InterfaceModifierContext interfaceModifierContext : safe(ctx.interfaceModifier())) {
       if (interfaceModifierContext.annotation() != null) {
         Annotation annotation = (Annotation) visit(interfaceModifierContext.annotation());
         annotationList.add(annotation);
@@ -2627,11 +2644,13 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get annoatation Type Body
     List<AnnotationTypeMemberable> annotationTypeMemberableList = new ArrayList<>();
-    for (JavaParser.AnnotationTypeMemberDeclarationContext annotationTypeMemberDeclarationContext
-        : ctx.annotationTypeBody().annotationTypeMemberDeclaration()) {
-      AnnotationTypeMemberable annotationTypeMemberable
-          = (AnnotationTypeMemberable) visit(annotationTypeMemberDeclarationContext);
-      annotationTypeMemberableList.add(annotationTypeMemberable);
+    if (ctx.annotationTypeBody() != null) {
+      for (JavaParser.AnnotationTypeMemberDeclarationContext annotationTypeMemberDeclarationContext
+          : safe(ctx.annotationTypeBody().annotationTypeMemberDeclaration())) {
+        AnnotationTypeMemberable annotationTypeMemberable
+            = (AnnotationTypeMemberable) visit(annotationTypeMemberDeclarationContext);
+        annotationTypeMemberableList.add(annotationTypeMemberable);
+      }
     }
 
     return new AnnotationTypeDeclaration(range, null, annotationList, modifiers, identifier, annotationTypeMemberableList);
@@ -2669,7 +2688,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     List<Annotation> annotationList = new ArrayList<>();
     int modifiers = 0;
     for ( JavaParser.AnnotationTypeElementModifierContext annotationTypeElementModifierContext
-        : ctx.annotationTypeElementModifier()) {
+        : safe(ctx.annotationTypeElementModifier())) {
 
       if (annotationTypeElementModifierContext.annotation() != null) {
         Annotation annotation = (Annotation) visit(annotationTypeElementModifierContext.annotation());
@@ -2726,9 +2745,6 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
   @Override
   public AstNode visitAnnotation(JavaParser.AnnotationContext ctx) {
 
-    // get range
-    Range range = getRange(ctx);
-
     if (ctx.normalAnnotation() != null) {
       return visit(ctx.normalAnnotation());
     } else if (ctx.markerAnnotation() != null) {
@@ -2752,10 +2768,12 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of element value pair
     List<ElementValuePair> elementValuePairList = new ArrayList<>();
-    for (JavaParser.ElementValuePairContext elementValuePairContext
-        : ctx.elementValuePairList().elementValuePair()) {
-      ElementValuePair elementValuePair = (ElementValuePair) visit(elementValuePairContext);
-      elementValuePairList.add(elementValuePair);
+    if (ctx.elementValuePairList() != null) {
+      for (JavaParser.ElementValuePairContext elementValuePairContext
+          : safe(ctx.elementValuePairList().elementValuePair())) {
+        ElementValuePair elementValuePair = (ElementValuePair) visit(elementValuePairContext);
+        elementValuePairList.add(elementValuePair);
+      }
     }
 
     return new NormalAnnotation(range, null, typeName, elementValuePairList);
@@ -2805,9 +2823,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of element values
     List<ElementValue> elementValueList = new ArrayList<>();
-    for (JavaParser.ElementValueContext elementValueContext : ctx.elementValueList().elementValue()) {
-      ElementValue elementValue = (ElementValue) visit(elementValueContext);
-      elementValueList.add(elementValue);
+    if (ctx.elementValueList() != null) {
+      for (JavaParser.ElementValueContext elementValueContext : safe(ctx.elementValueList().elementValue())) {
+        ElementValue elementValue = (ElementValue) visit(elementValueContext);
+        elementValueList.add(elementValue);
+      }
     }
 
     return new ElementValueArrayInitializer(range, null, elementValueList);
@@ -2854,10 +2874,12 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of variable initializer
     List<VariableInitializer> variableInitializerList = new ArrayList<>();
-    for (JavaParser.VariableInitializerContext variableInitializerContext
-        : ctx.variableInitializerList().variableInitializer()) {
-      VariableInitializer variableInitializer = (VariableInitializer) visit(variableInitializerContext);
-      variableInitializerList.add(variableInitializer);
+    if (ctx.variableInitializerList() != null) {
+      for (JavaParser.VariableInitializerContext variableInitializerContext
+          : safe(ctx.variableInitializerList().variableInitializer())) {
+        VariableInitializer variableInitializer = (VariableInitializer) visit(variableInitializerContext);
+        variableInitializerList.add(variableInitializer);
+      }
     }
 
     return new ArrayInitializer(range, null, variableInitializerList);
@@ -2895,7 +2917,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get block Statement
     List<InBlockStatement> inBlockStatementList = new ArrayList<>();
     for (JavaParser.BlockStatementContext blockStatementContext
-        : ctx.blockStatement()) {
+        : safe(ctx.blockStatement())) {
       InBlockStatement inBlockStatement = (InBlockStatement) visit(blockStatementContext);
       inBlockStatementList.add(inBlockStatement);
     }
@@ -2939,7 +2961,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get class Modifier lists
     List<Annotation> annotationList = new ArrayList<>();
     int modifiers = 0;
-    for ( JavaParser.VariableModifierContext variableModifierContext : ctx.variableModifier()) {
+    for ( JavaParser.VariableModifierContext variableModifierContext : safe(ctx.variableModifier())) {
 
       if (variableModifierContext.annotation() != null) {
         Annotation annotation = (Annotation) visit(variableModifierContext.annotation());
@@ -2965,10 +2987,12 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of variable declarator
     List<VariableDeclarator> variableDeclaratorList = new ArrayList<>();
-    for (JavaParser.VariableDeclaratorContext variableDeclaratorContext
-        : ctx.variableDeclaratorList().variableDeclarator()) {
-      VariableDeclarator variableDeclarator = (VariableDeclarator) visit(variableDeclaratorContext);
-      variableDeclaratorList.add(variableDeclarator);
+    if (ctx.variableDeclaratorList() != null) {
+      for (JavaParser.VariableDeclaratorContext variableDeclaratorContext
+          : safe(ctx.variableDeclaratorList().variableDeclarator())) {
+        VariableDeclarator variableDeclarator = (VariableDeclarator) visit(variableDeclaratorContext);
+        variableDeclaratorList.add(variableDeclarator);
+      }
     }
 
     return new LocalVariableDeclaration(range, null, annotationList, modifiers, unannType, variableDeclaratorList);
@@ -3215,7 +3239,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get switch block statement groups
     List<SwitchBlockStatementGroup> switchBlockStatementGroupList = new ArrayList<>();
     for (JavaParser.SwitchBlockStatementGroupContext switchBlockStatementGroupContext
-        : ctx.switchBlockStatementGroup()) {
+        : safe(ctx.switchBlockStatementGroup())) {
       SwitchBlockStatementGroup switchBlockStatementGroup
           = (SwitchBlockStatementGroup) visit(switchBlockStatementGroupContext);
       switchBlockStatementGroupList.add(switchBlockStatementGroup);
@@ -3223,7 +3247,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of switch labels
     List<SwitchLabel> switchLabelList = new ArrayList<>();
-    for (JavaParser.SwitchLabelContext switchLabelContext : ctx.switchLabel()) {
+    for (JavaParser.SwitchLabelContext switchLabelContext : safe(ctx.switchLabel())) {
       SwitchLabel switchLabel = (SwitchLabel) visit(switchLabelContext);
       switchLabelList.add(switchLabel);
     }
@@ -3239,9 +3263,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of switch labels
     List<SwitchLabel> switchLabelList = new ArrayList<>();
-    for (JavaParser.SwitchLabelContext switchLabelContext : ctx.switchLabels().switchLabel()) {
-      SwitchLabel switchLabel = (SwitchLabel) visit(switchLabelContext);
-      switchLabelList.add(switchLabel);
+    if (ctx.switchLabels() != null) {
+      for (JavaParser.SwitchLabelContext switchLabelContext : safe(ctx.switchLabels().switchLabel())) {
+        SwitchLabel switchLabel = (SwitchLabel) visit(switchLabelContext);
+        switchLabelList.add(switchLabel);
+      }
     }
 
     // get block flowchart
@@ -3429,7 +3455,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get class Modifier lists
     List<Annotation> annotationList = new ArrayList<>();
     int modifiers = 0;
-    for ( JavaParser.VariableModifierContext variableModifierContext : ctx.variableModifier()) {
+    for ( JavaParser.VariableModifierContext variableModifierContext : safe(ctx.variableModifier())) {
 
       if (variableModifierContext.annotation() != null) {
         Annotation annotation = (Annotation) visit(variableModifierContext.annotation());
@@ -3474,7 +3500,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get class Modifier lists
     List<Annotation> annotationList = new ArrayList<>();
     int modifiers = 0;
-    for ( JavaParser.VariableModifierContext variableModifierContext : ctx.variableModifier()) {
+    for ( JavaParser.VariableModifierContext variableModifierContext : safe(ctx.variableModifier())) {
 
       if (variableModifierContext.annotation() != null) {
         Annotation annotation = (Annotation) visit(variableModifierContext.annotation());
@@ -3596,9 +3622,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get catches
     List<CatchClause> catches = new ArrayList<>();
-    for (JavaParser.CatchClauseContext catchClauseContext : ctx.catches().catchClause()) {
-      CatchClause catchClause = (CatchClause) visit(catchClauseContext);
-      catches.add(catchClause);
+    if (ctx.catches() != null) {
+      for (JavaParser.CatchClauseContext catchClauseContext : safe(ctx.catches().catchClause())) {
+        CatchClause catchClause = (CatchClause) visit(catchClauseContext);
+        catches.add(catchClause);
+      }
     }
 
     if (ctx.finally_() != null) {
@@ -3639,7 +3667,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get class Modifier lists
     List<Annotation> annotationList = new ArrayList<>();
     int modifiers = 0;
-    for ( JavaParser.VariableModifierContext variableModifierContext : ctx.variableModifier()) {
+    for ( JavaParser.VariableModifierContext variableModifierContext : safe(ctx.variableModifier())) {
 
       if (variableModifierContext.annotation() != null) {
         Annotation annotation = (Annotation) visit(variableModifierContext.annotation());
@@ -3677,7 +3705,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of class type
     List<ClassType> classTypeList = new ArrayList<>();
-    for (JavaParser.ClassTypeContext classTypeContext : ctx.classType()) {
+    for (JavaParser.ClassTypeContext classTypeContext : safe(ctx.classType())) {
       ClassType classType = (ClassType) visit(classTypeContext);
       classTypeList.add(classType);
     }
@@ -3699,10 +3727,12 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get resource specification
     List<Resource> resourceSpecification = new ArrayList<>();
-    for (JavaParser.ResourceContext resourceContext
-        : ctx.resourceSpecification().resourceList().resource()) {
-      Resource resource = (Resource) visit(resourceContext);
-      resourceSpecification.add(resource);
+    if (ctx.resourceSpecification() != null && ctx.resourceSpecification().resourceList() != null) {
+      for (JavaParser.ResourceContext resourceContext
+          : safe(ctx.resourceSpecification().resourceList().resource())) {
+        Resource resource = (Resource) visit(resourceContext);
+        resourceSpecification.add(resource);
+      }
     }
 
     // get try block
@@ -3710,9 +3740,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get catches (list of catch clause)
     List<CatchClause> catches = new ArrayList<>();
-    for (JavaParser.CatchClauseContext catchClauseContext : ctx.catches().catchClause()) {
-      CatchClause catchClause = (CatchClause) visit(catchClauseContext);
-      catches.add(catchClause);
+    if (ctx.catches() != null) {
+      for (JavaParser.CatchClauseContext catchClauseContext : safe(ctx.catches().catchClause())) {
+        CatchClause catchClause = (CatchClause) visit(catchClauseContext);
+        catches.add(catchClause);
+      }
     }
 
     // get finallyBlock
@@ -3729,7 +3761,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get class Modifier lists
     List<Annotation> annotationList = new ArrayList<>();
     int modifiers = 0;
-    for ( JavaParser.VariableModifierContext variableModifierContext : ctx.variableModifier()) {
+    for ( JavaParser.VariableModifierContext variableModifierContext : safe(ctx.variableModifier())) {
 
       if (variableModifierContext.annotation() != null) {
         Annotation annotation = (Annotation) visit(variableModifierContext.annotation());
@@ -3830,7 +3862,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     } else if (ctx.typeName() != null) {
       TypeName typeName = (TypeName) visit(ctx.typeName());
       int cnt = 0;
-      for (ParseTree parseTree : ctx.children) {
+      for (ParseTree parseTree : safe(ctx.children)) {
         if (parseTree.getText().equals("[")) { ++cnt; }
       }
       return new ReferenceClassLiteralExpression(range, null, typeName, cnt);
@@ -3877,7 +3909,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     } else if (ctx.typeName() != null) {
       TypeName typeName = (TypeName) visit(ctx.typeName());
       int cnt = 0;
-      for (ParseTree parseTree : ctx.children) {
+      for (ParseTree parseTree : safe(ctx.children)) {
         if (parseTree.getText().equals("[")) { ++cnt; }
       }
       return new ReferenceClassLiteralExpression(range, null, typeName, cnt);
@@ -3962,14 +3994,14 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     } else if (ctx.typeName() != null) {
       TypeName typeName = (TypeName) visit(ctx.typeName());
       int cnt = 0;
-      for (ParseTree parseTree : ctx.children) {
+      for (ParseTree parseTree : safe(ctx.children)) {
         if (parseTree.getText().equals("[")) { ++cnt; }
       }
       return new ReferenceClassLiteralExpression(range, null, typeName, cnt);
     } else if (ctx.unannPrimitiveType() != null) {
       UnannPrimitiveType unannPrimitiveType = (UnannPrimitiveType) visit(ctx.unannPrimitiveType());
       int cnt = 0;
-      for (ParseTree parseTree : ctx.children) {
+      for (ParseTree parseTree : safe(ctx.children)) {
         if (parseTree.getText().equals("[")) { ++cnt; }
       }
       return new PrimitiveClassLiteralExpression(range, null, unannPrimitiveType, cnt);
@@ -4012,14 +4044,14 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     } else if (ctx.typeName() != null) {
       TypeName typeName = (TypeName) visit(ctx.typeName());
       int cnt = 0;
-      for (ParseTree parseTree : ctx.children) {
+      for (ParseTree parseTree : safe(ctx.children)) {
         if (parseTree.getText().equals("[")) { ++cnt; }
       }
       return new ReferenceClassLiteralExpression(range, null, typeName, cnt);
     } else if (ctx.unannPrimitiveType() != null) {
       UnannPrimitiveType unannPrimitiveType = (UnannPrimitiveType) visit(ctx.unannPrimitiveType());
       int cnt = 0;
-      for (ParseTree parseTree : ctx.children) {
+      for (ParseTree parseTree : safe(ctx.children)) {
         if (parseTree.getText().equals("[")) { ++cnt; }
       }
       return new PrimitiveClassLiteralExpression(range, null, unannPrimitiveType, cnt);
@@ -4048,9 +4080,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of type arguments
     List<TypeArgument> typeArgumentList = new ArrayList<>();
-    for(JavaParser.TypeArgumentContext typeArgumentContext : ctx.typeArguments().typeArgumentList().typeArgument()) {
-      TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
-      typeArgumentList.add(typeArgument);
+    if (ctx.typeArguments() != null && ctx.typeArguments().typeArgumentList() != null) {
+      for (JavaParser.TypeArgumentContext typeArgumentContext : safe(ctx.typeArguments().typeArgumentList().typeArgument())) {
+        TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
+        typeArgumentList.add(typeArgument);
+      }
     }
 
     // get type argument or diamond
@@ -4060,7 +4094,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get argument list
     List<Expression> argumentList = new ArrayList<>();
     if (ctx.argumentList() != null) {
-      for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
+      for (JavaParser.ExpressionContext expressionContext : safe(ctx.argumentList().expression())) {
         Expression expression = (Expression) visit(expressionContext);
         argumentList.add(expression);
       }
@@ -4068,13 +4102,14 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get class body
     List<ClassBodyDeclaration> classBody = new ArrayList<>();
-    for(JavaParser.ClassBodyDeclarationContext classBodyDeclarationContext
-        : ctx.classBody().classBodyDeclaration()) {
-      ClassBodyDeclaration classBodyDeclaration
-          = (ClassBodyDeclaration) visit(classBodyDeclarationContext);
-      classBody.add(classBodyDeclaration);
+    if (ctx.classBody() != null) {
+      for (JavaParser.ClassBodyDeclarationContext classBodyDeclarationContext
+          : safe(ctx.classBody().classBodyDeclaration())) {
+        ClassBodyDeclaration classBodyDeclaration
+            = (ClassBodyDeclaration) visit(classBodyDeclarationContext);
+        classBody.add(classBodyDeclaration);
+      }
     }
-
 
     if (ctx.expressionName() != null) { // expressionName
       // get expression name
@@ -4082,7 +4117,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
       // get annotation list
       List<Annotation> annotationList = new ArrayList<>();
-      for(JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+      for(JavaParser.AnnotationContext annotationContext : safe(ctx.annotation())) {
         Annotation annotation = (Annotation) visit(annotationContext);
         annotationList.add(annotation);
       }
@@ -4100,7 +4135,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
       // get annotation list
       List<Annotation> annotationList = new ArrayList<>();
-      for(JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+      for(JavaParser.AnnotationContext annotationContext : safe(ctx.annotation())) {
         Annotation annotation = (Annotation) visit(annotationContext);
         annotationList.add(annotation);
       }
@@ -4118,7 +4153,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       List<String> identifierList = new ArrayList<>();
 
       List<Annotation> annotationList = new ArrayList<>();
-      for (ParseTree parseTree : ctx.children) {
+      for (ParseTree parseTree : safe(ctx.children)) {
         if (parseTree instanceof JavaParser.AnnotationContext) {
           Annotation annotation = (Annotation) visit(parseTree);
           annotationList.add(annotation);
@@ -4155,14 +4190,16 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of type arguments
     List<TypeArgument> typeArgumentList = new ArrayList<>();
-    for(JavaParser.TypeArgumentContext typeArgumentContext : ctx.typeArguments().typeArgumentList().typeArgument()) {
-      TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
-      typeArgumentList.add(typeArgument);
+    if (ctx.typeArguments() != null && ctx.typeArguments().typeArgumentList() != null) {
+      for(JavaParser.TypeArgumentContext typeArgumentContext : safe(ctx.typeArguments().typeArgumentList().typeArgument())) {
+        TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
+        typeArgumentList.add(typeArgument);
+      }
     }
 
     // get annotation list
     List<Annotation> annotationList = new ArrayList<>();
-    for(JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+    for(JavaParser.AnnotationContext annotationContext : safe(ctx.annotation())) {
       Annotation annotation = (Annotation) visit(annotationContext);
       annotationList.add(annotation);
     }
@@ -4177,7 +4214,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get argument list
     List<Expression> argumentList = new ArrayList<>();
     if (ctx.argumentList() != null) {
-      for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
+      for (JavaParser.ExpressionContext expressionContext : safe(ctx.argumentList().expression())) {
         Expression expression = (Expression) visit(expressionContext);
         argumentList.add(expression);
       }
@@ -4185,11 +4222,13 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get class body
     List<ClassBodyDeclaration> classBody = new ArrayList<>();
-    for(JavaParser.ClassBodyDeclarationContext classBodyDeclarationContext
-        : ctx.classBody().classBodyDeclaration()) {
-      ClassBodyDeclaration classBodyDeclaration
-          = (ClassBodyDeclaration) visit(classBodyDeclarationContext);
-      classBody.add(classBodyDeclaration);
+    if (ctx.classBody() != null) {
+      for (JavaParser.ClassBodyDeclarationContext classBodyDeclarationContext
+          : safe(ctx.classBody().classBodyDeclaration())) {
+        ClassBodyDeclaration classBodyDeclaration
+            = (ClassBodyDeclaration) visit(classBodyDeclarationContext);
+        classBody.add(classBodyDeclaration);
+      }
     }
 
     return new PostfixClassInstanceCreationExpression(range, null,
@@ -4203,8 +4242,8 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of type arguments
     List<TypeArgument> typeArgumentList = new ArrayList<>();
-    if (ctx.typeArguments() != null) {
-      for (JavaParser.TypeArgumentContext typeArgumentContext : ctx.typeArguments().typeArgumentList().typeArgument()) {
+    if (ctx.typeArguments() != null && ctx.typeArguments().typeArgumentList() != null) {
+      for (JavaParser.TypeArgumentContext typeArgumentContext : safe(ctx.typeArguments().typeArgumentList().typeArgument())) {
         TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
         typeArgumentList.add(typeArgument);
       }
@@ -4219,7 +4258,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get argument list
     List<Expression> argumentList = new ArrayList<>();
     if (ctx.argumentList() != null) {
-      for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
+      for (JavaParser.ExpressionContext expressionContext : safe(ctx.argumentList().expression())) {
         Expression expression = (Expression) visit(expressionContext);
         argumentList.add(expression);
       }
@@ -4227,9 +4266,9 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get class body
     List<ClassBodyDeclaration> classBody = new ArrayList<>();
-    if (ctx.classBody() != null && ctx.classBody().classBodyDeclaration() != null) {
+    if (ctx.classBody() != null) {
       for (JavaParser.ClassBodyDeclarationContext classBodyDeclarationContext
-          : ctx.classBody().classBodyDeclaration()) {
+          : safe(ctx.classBody().classBodyDeclaration())) {
         ClassBodyDeclaration classBodyDeclaration
             = (ClassBodyDeclaration) visit(classBodyDeclarationContext);
         classBody.add(classBodyDeclaration);
@@ -4242,7 +4281,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
       // get annotation list
       List<Annotation> annotationList = new ArrayList<>();
-      for(JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+      for(JavaParser.AnnotationContext annotationContext : safe(ctx.annotation())) {
         Annotation annotation = (Annotation) visit(annotationContext);
         annotationList.add(annotation);
       }
@@ -4260,7 +4299,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       List<String> identifierList = new ArrayList<>();
 
       List<Annotation> annotationList = new ArrayList<>();
-      for (ParseTree parseTree : ctx.children) {
+      for (ParseTree parseTree : safe(ctx.children)) {
         if (parseTree instanceof JavaParser.AnnotationContext) {
           Annotation annotation = (Annotation) visit(parseTree);
           annotationList.add(annotation);
@@ -4298,11 +4337,14 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     if (ctx.typeArguments() != null) {
       // get type argument list
       List<TypeArgument> typeArgumentList = new ArrayList<>();
-      for (JavaParser.TypeArgumentContext typeArgumentContext
-          : ctx.typeArguments().typeArgumentList().typeArgument()) {
-        TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
-        typeArgumentList.add(typeArgument);
+      if (ctx.typeArguments().typeArgumentList() != null) {
+        for (JavaParser.TypeArgumentContext typeArgumentContext
+            : safe(ctx.typeArguments().typeArgumentList().typeArgument())) {
+          TypeArgument typeArgument = (TypeArgument) visit(typeArgumentContext);
+          typeArgumentList.add(typeArgument);
+        }
       }
+
       return new TypeArguments(range, null, typeArgumentList);
 
     } else if (ctx.getChild(0).getText().equals("<")) {
@@ -4423,17 +4465,6 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get Expression
     Expression firstExpression = (Expression) visit(ctx.expression(0));
 
-
-//    // get list of lf array lfno primary
-//    List<LfArrayLfPrimary> lfArrayLfPrimaryList= new ArrayList<>();
-//    for (JavaParser.PrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primaryContext
-//        primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primaryContext
-//        : ctx.primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary()) {
-//      LfArrayLfPrimary lfArrayLfPrimary
-//          = (LfArrayLfPrimary) visit(primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primaryContext);
-//      lfArrayLfPrimaryList.add(lfArrayLfPrimary);
-//    }
-
     // get remain expressions
     List<Expression> expressionList = new ArrayList<>();
     for (int i = 1; i < ctx.expression().size(); i++) {
@@ -4452,17 +4483,6 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get first expression
     Expression firstExpression = (Expression) visit(ctx.expression(0));
-
-
-//    // get list of lf array lfno primary
-//    List<LfArrayLfnoPrimary> lfArrayLfnoPrimaryList= new ArrayList<>();
-//    for (JavaParser.PrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primaryContext
-//                    primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primaryContext
-//        : ctx.primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary()) {
-//      LfArrayLfnoPrimary lfArrayLfnoPrimary
-//          = (LfArrayLfnoPrimary) visit(primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primaryContext);
-//      lfArrayLfnoPrimaryList.add(lfArrayLfnoPrimary);
-//    }
 
     // get remain expressions
     List<Expression> expressionList = new ArrayList<>();
@@ -4494,7 +4514,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get argument list
     List<Expression> argumentList = new ArrayList<>();
     if (ctx.argumentList() != null) {
-      for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
+      for (JavaParser.ExpressionContext expressionContext : safe(ctx.argumentList().expression())) {
         Expression expression = (Expression) visit(expressionContext);
         argumentList.add(expression);
       }
@@ -4550,7 +4570,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get argument list
     List<Expression> argumentList = new ArrayList<>();
     if (ctx.argumentList() != null) {
-      for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
+      for (JavaParser.ExpressionContext expressionContext : safe(ctx.argumentList().expression())) {
         Expression expression = (Expression) visit(expressionContext);
         argumentList.add(expression);
       }
@@ -4567,7 +4587,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get argument list
     List<Expression> argumentList = new ArrayList<>();
     if (ctx.argumentList() != null) {
-      for (JavaParser.ExpressionContext expressionContext : ctx.argumentList().expression()) {
+      for (JavaParser.ExpressionContext expressionContext : safe(ctx.argumentList().expression())) {
         Expression expression = (Expression) visit(expressionContext);
         argumentList.add(expression);
       }
@@ -4730,7 +4750,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       if (ctx.dimExprs() != null) {
         // get list of dim expression
         List<DimExpr> dimExprs = new ArrayList<>();
-        for (JavaParser.DimExprContext dimExprContext : ctx.dimExprs().dimExpr()) {
+        for (JavaParser.DimExprContext dimExprContext : safe(ctx.dimExprs().dimExpr())) {
           DimExpr dimExpr = (DimExpr) visit(dimExprContext);
           dimExprs.add(dimExpr);
         }
@@ -4763,7 +4783,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       if (ctx.dimExprs() != null) {
         // get list of dim expression
         List<DimExpr> dimExprs = new ArrayList<>();
-        for (JavaParser.DimExprContext dimExprContext : ctx.dimExprs().dimExpr()) {
+        for (JavaParser.DimExprContext dimExprContext : safe(ctx.dimExprs().dimExpr())) {
           DimExpr dimExpr = (DimExpr) visit(dimExprContext);
           dimExprs.add(dimExpr);
         }
@@ -4799,7 +4819,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of annotation
     List<Annotation> annotationList = new ArrayList<>();
-    for (JavaParser.AnnotationContext annotationContext : ctx.annotation()) {
+    for (JavaParser.AnnotationContext annotationContext : safe(ctx.annotation())) {
       Annotation annotation = (Annotation) visit(annotationContext);
       annotationList.add(annotation);
     }
@@ -4871,7 +4891,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get identifiers
     List<String> identifierList = new ArrayList<>();
-    for (TerminalNode terminalNode : ctx.Identifier()) {
+    for (TerminalNode terminalNode : safe(ctx.Identifier())) {
       String identifier = terminalNode.getText();
       identifierList.add(identifier);
     }
@@ -5499,7 +5519,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
       // get list of additional bound
       List<InterfaceType> additionalBound = new ArrayList<>();
-      for(JavaParser.AdditionalBoundContext additionalBoundContext : ctx.additionalBound()) {
+      for(JavaParser.AdditionalBoundContext additionalBoundContext : safe(ctx.additionalBound())) {
         InterfaceType interfaceType = (InterfaceType) visit(additionalBoundContext.interfaceType());
         additionalBound.add(interfaceType);
       }
@@ -5516,7 +5536,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
       // get list of additional bound
       List<InterfaceType> additionalBound = new ArrayList<>();
-      for(JavaParser.AdditionalBoundContext additionalBoundContext : ctx.additionalBound()) {
+      for(JavaParser.AdditionalBoundContext additionalBoundContext : safe(ctx.additionalBound())) {
         InterfaceType interfaceType = (InterfaceType) visit(additionalBoundContext.interfaceType());
         additionalBound.add(interfaceType);
       }
