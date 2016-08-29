@@ -7,7 +7,7 @@ import codit.ast.visitor.AstBaseVisitor;
 /**
  * Created by Jisung on 7/19/2016.
  */
-public abstract class AstNode implements ParseTree{
+public abstract class AstNode implements ParseTree {
 
   @JsonIgnore
   private final Range range;
