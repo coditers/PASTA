@@ -298,7 +298,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
   }
 
   @Override
-  public AstNode visitLiteral(JavaParser.LiteralContext ctx) { // TODO - Refactoring
+  public AstNode visitLiteral(JavaParser.LiteralContext ctx) {
 
     // get range of symbol
     Range range = getRange(ctx);
@@ -617,8 +617,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get class type
-    ClassType classType = (ClassType) visit(ctx.classType());
-
+    ClassType classType = null;
+    if (ctx.classType() != null) {
+      classType = (ClassType) visit(ctx.classType());
+    }
     return new InterfaceType(range, null, classType);
   }
 
@@ -629,8 +631,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     //get unit Class Type
-    UnitClassType unitClassType = (UnitClassType) visit(ctx.classType_lf_classOrInterfaceType());
-
+    UnitClassType unitClassType = null;
+    if (ctx.classType_lf_classOrInterfaceType() != null) {
+      unitClassType = (UnitClassType) visit(ctx.classType_lf_classOrInterfaceType());
+    }
 
     return new UnitInterfaceType(range, null, unitClassType);
   }
@@ -642,7 +646,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     //get unit Class Type
-    UnitClassType unitClassType = (UnitClassType) visit(ctx.classType_lfno_classOrInterfaceType());
+    UnitClassType unitClassType = null;
+    if (ctx.classType_lfno_classOrInterfaceType() != null) {
+      unitClassType = (UnitClassType) visit(ctx.classType_lfno_classOrInterfaceType());
+    }
 
     return new UnitInterfaceType(range, null, unitClassType);
   }
@@ -742,7 +749,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     String identifier = ctx.Identifier().getText();
 
     // get Type bound
-    TypeBound typeBound = (TypeBound) visit(ctx.typeBound());
+    TypeBound typeBound = null;
+    if (ctx.typeBound() != null) {
+      typeBound = (TypeBound) visit(ctx.typeBound());
+    }
 
     return new TypeParameter(range, null, annotationList, identifier, typeBound);
   }
@@ -766,7 +776,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     } else if (ctx.classOrInterfaceType() != null) {
 
       // get Class or interface type
-      ClassOrInterfaceType classOrInterfaceType = (ClassOrInterfaceType) visit(ctx.classOrInterfaceType());
+      ClassOrInterfaceType classOrInterfaceType = null;
+      if (ctx.classOrInterfaceType() != null) {
+        classOrInterfaceType = (ClassOrInterfaceType) visit(ctx.classOrInterfaceType());
+      }
 
       // get Interface type list
       List<InterfaceType> interfaceTypeList = new ArrayList<>();
@@ -836,8 +849,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get wildcard bounds
-    WildcardBounds wildcardBounds = (WildcardBounds) visit(ctx.wildcardBounds());
-
+    WildcardBounds wildcardBounds = null;
+    if (ctx.wildcardBounds() != null) {
+      wildcardBounds = (WildcardBounds) visit(ctx.wildcardBounds());
+    }
     return new Wildcard(range, null, annotationList, wildcardBounds);
   }
 
@@ -863,8 +878,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get reference type
-    ReferenceType referenceType = (ReferenceType) visit(ctx.referenceType());
-
+    ReferenceType referenceType = null;
+    if (ctx.referenceType() != null) {
+      referenceType = (ReferenceType) visit(ctx.referenceType());
+    }
     return new WildcardBounds(range, null, isExtends, referenceType);
   }
 
@@ -1053,8 +1070,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get type name
-    TypeName typeName = (TypeName) visit(ctx.typeName());
-
+    TypeName typeName = null;
+    if (ctx.typeName() != null) {
+      typeName = (TypeName) visit(ctx.typeName());
+    }
     return new SingleTypeImportDeclaration(range, null, typeName);
   }
 
@@ -1065,8 +1084,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get package or type name
-    PackageOrTypeName packageOrTypeName = (PackageOrTypeName) visit(ctx.packageOrTypeName());
-
+    PackageOrTypeName packageOrTypeName = null;
+    if (ctx.packageOrTypeName() != null) {
+      packageOrTypeName = (PackageOrTypeName) visit(ctx.packageOrTypeName());
+    }
     return new TypeImportOnDemandDeclaration(range, null, packageOrTypeName);
   }
 
@@ -1077,7 +1098,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get Type name
-    TypeName typeName = (TypeName) visit(ctx.typeName());
+    TypeName typeName = null;
+    if (ctx.typeName() != null) {
+      typeName = (TypeName) visit(ctx.typeName());
+    }
 
     // get Modifier
     String identifier = ctx.Identifier().getText();
@@ -1091,8 +1115,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get range
     Range range = getRange(ctx);
 
-    // get type name
-    TypeName typeName =  (TypeName) visit(ctx.typeName());
+    // get Type name
+    TypeName typeName = null;
+    if (ctx.typeName() != null) {
+      typeName = (TypeName) visit(ctx.typeName());
+    }
 
     return new StaticImportOnDemandDeclaration(range, null, typeName);
   }
@@ -1307,7 +1334,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       if (fieldModifierContext.annotation() != null) {
         Annotation annotation = (Annotation) visit(fieldModifierContext.annotation());
         annotationList.add(annotation);
-      } else { // TODO - How about to use getText() from context directly?
+      } else {
         String normalModifier = fieldModifierContext.getChild(0).getText();
         switch(normalModifier) {
           case "public" :
@@ -1376,13 +1403,14 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get variable declaratorId
-    VariableDeclaratorId variableDeclaratorId
-        = (VariableDeclaratorId) visit(ctx.variableDeclaratorId());
-
+    VariableDeclaratorId variableDeclaratorId = null;
+    if (ctx.variableDeclaratorId() != null) {
+      variableDeclaratorId = (VariableDeclaratorId) visit(ctx.variableDeclaratorId());
+    }
     // get variable Initializer
     VariableInitializer variableInitializer = null;
     if (ctx.variableInitializer() != null) {
-        variableInitializer = (VariableInitializer) visit(ctx.variableInitializer());
+      variableInitializer = (VariableInitializer) visit(ctx.variableInitializer());
     }
     return new VariableDeclarator(range, null, variableDeclaratorId, variableInitializer);
   }
@@ -1627,7 +1655,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get unannotated class type
-    UnannClassType unannClassType = (UnannClassType) visit(ctx.unannClassType());
+    UnannClassType unannClassType = null;
+    if (ctx.unannClassType() != null) {
+      unannClassType = (UnannClassType) visit(ctx.unannClassType());
+    }
 
     return new UnannInterfaceType(range, null, unannClassType);
   }
@@ -1639,7 +1670,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get lf unit class type
-    LfUnannUnitClassType lfUnannUnitClassType = (LfUnannUnitClassType) visit(ctx.unannClassType_lf_unannClassOrInterfaceType());
+    LfUnannUnitClassType lfUnannUnitClassType = null;
+    if (ctx.unannClassType_lf_unannClassOrInterfaceType() != null) {
+      lfUnannUnitClassType = (LfUnannUnitClassType) visit(ctx.unannClassType_lf_unannClassOrInterfaceType());
+    }
 
     return new LfUnannUnitInterfaceType(range, null, lfUnannUnitClassType);
   }
@@ -1651,8 +1685,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get unit class type
-    UnannUnitClassType unannUnitClassType = (UnannUnitClassType) visit(ctx.unannClassType_lfno_unannClassOrInterfaceType());
-
+    UnannUnitClassType unannUnitClassType = null;
+    if (ctx.unannClassType_lfno_unannClassOrInterfaceType() != null) {
+      unannUnitClassType = (UnannUnitClassType) visit(ctx.unannClassType_lfno_unannClassOrInterfaceType());
+    }
     return new UnannUnitInterfaceType(range, null, unannUnitClassType);
   }
 
@@ -1675,8 +1711,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get dims
-    Dims dims = (Dims) visit(ctx.dims());
-
+    Dims dims = null;
+    if (ctx.dims() != null) {
+      dims = (Dims) visit(ctx.dims());
+    }
     //
     if (ctx.unannPrimitiveType() != null) {
       UnannArrayable unannPrimitiveType = (UnannPrimitiveType) visit(ctx.unannPrimitiveType());
@@ -1706,7 +1744,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       if (methodModifierContext.annotation() != null) {
         Annotation annotation = (Annotation) visit(methodModifierContext.annotation());
         annotationList.add(annotation);
-      } else { // TODO - How about to use getText() from context directly?
+      } else {
         String normalModifier = methodModifierContext.getChild(0).getText();
         switch(normalModifier) {
           case "public" :
@@ -1744,11 +1782,16 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get method header
-    MethodHeader methodHeader = (MethodHeader) visit(ctx.methodHeader());
-
+    MethodHeader methodHeader = null;
+    if (ctx.methodHeader() != null) {
+      methodHeader = (MethodHeader) visit(ctx.methodHeader());
+    }
 
     // get Method Body
-    Block block = (Block) visit(ctx.methodBody().block());
+    Block block = null;
+    if (ctx.methodBody() != null && ctx.methodBody().block() != null) {
+      block = (Block) visit(ctx.methodBody().block());
+    }
 
     return new MethodDeclaration(range, null, annotationList, modifiers, methodHeader, block);
   }
@@ -1766,11 +1809,15 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get result
-    Result result = (Result) visit(ctx.result());
-
+    Result result = null;
+    if (ctx.result() != null) {
+      result = (Result) visit(ctx.result());
+    }
     // get method declarator
-    MethodDeclarator methodDeclarator = (MethodDeclarator) visit(ctx.methodDeclarator());
-
+    MethodDeclarator methodDeclarator = null;
+    if (ctx.methodDeclarator() != null) {
+      methodDeclarator = (MethodDeclarator) visit(ctx.methodDeclarator());
+    }
     // get list of exception type
     List<ExceptionType> exceptionTypeList = new ArrayList<>();
     if (ctx.throws_() != null && ctx.throws_().exceptionTypeList() != null) {
@@ -1850,8 +1897,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get lastFormalParameter
-    LastFormalParameter lastFormalParameter =
-        (LastFormalParameter) visit(ctx.lastFormalParameter());
+    LastFormalParameter lastFormalParameter = null;
+    if (ctx.lastFormalParameter() != null) {
+      lastFormalParameter = (LastFormalParameter) visit(ctx.lastFormalParameter());
+    }
 
     if (ctx.formalParameters() != null) {
 
@@ -1893,7 +1942,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       if (variableModifierContext.annotation() != null) {
         Annotation annotation = (Annotation) visit(variableModifierContext.annotation());
         annotationList.add(annotation);
-      } else { // TODO - How about to use getText() from context directly?
+      } else {
         String normalModifier = variableModifierContext.getChild(0).getText();
         switch(normalModifier) {
           case "final" :
@@ -1913,8 +1962,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get variable declarator id
-    VariableDeclaratorId variableDeclaratorId
-        = (VariableDeclaratorId) visit(ctx.variableDeclaratorId());
+    VariableDeclaratorId variableDeclaratorId = null;
+    if (ctx.variableDeclaratorId() != null) {
+      variableDeclaratorId = (VariableDeclaratorId) visit(ctx.variableDeclaratorId());
+    }
 
     return new FormalParameter(range, null, annotationList, modifiers, unannType, variableDeclaratorId);
   }
@@ -1943,7 +1994,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
         if (variableModifierContext.annotation() != null) {
           Annotation annotation = (Annotation) visit(variableModifierContext.annotation());
           annotationList.add(annotation);
-        } else { // TODO - How about to use getText() from context directly?
+        } else {
           String normalModifier = variableModifierContext.getChild(0).getText();
           switch(normalModifier) {
             case "final" :
@@ -1970,9 +2021,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       }
 
       // get Variable Declarator Id
-      VariableDeclaratorId variableDeclaratorId
-          = (VariableDeclaratorId) visit(ctx.variableDeclaratorId());
-
+      VariableDeclaratorId variableDeclaratorId = null;
+      if (ctx.variableDeclaratorId() != null) {
+        variableDeclaratorId = (VariableDeclaratorId) visit(ctx.variableDeclaratorId());
+      }
       return new MultiLastFormalParameter(range, null, annotationList, modifiers, unannType, secondAnnotationList, variableDeclaratorId);
     } else {
       System.err.println("ERROR : visitLastFormalParameter");
@@ -2050,7 +2102,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get Block
-    Block block = (Block) visit(ctx.block());
+    Block block = null;
+    if (ctx.block() != null) {
+      block = (Block) visit(ctx.block());
+    }
 
     return new InstanceInitializer(range, null, block);
   }
@@ -2062,7 +2117,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get Block
-    Block block = (Block) visit(ctx.block());
+    Block block = null;
+    if (ctx.block() != null) {
+      block = (Block) visit(ctx.block());
+    }
 
     return new StaticInitializer(range, null ,block);
   }
@@ -2080,7 +2138,7 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       if (constructorModifierContext.annotation() != null) {
         Annotation annotation = (Annotation) visit(constructorModifierContext.annotation());
         annotationList.add(annotation);
-      } else { // TODO - How about to use getText() from context directly?
+      } else {
         String normalModifier = constructorModifierContext.getChild(0).getText();
         switch(normalModifier) {
           case "public" :
@@ -2100,9 +2158,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get Constructor Declaration
-    ConstructorDeclarator constructorDeclarator
-        = (ConstructorDeclarator) visit(ctx.constructorDeclarator());
-
+    ConstructorDeclarator constructorDeclarator = null;
+    if (ctx.constructorDeclarator() != null) {
+      constructorDeclarator = (ConstructorDeclarator) visit(ctx.constructorDeclarator());
+    }
     // get list of exception
     List<ExceptionType> exceptionTypeList = new ArrayList<>();
     if (ctx.throws_() != null && ctx.throws_().exceptionTypeList() != null) {
@@ -2114,8 +2173,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get constructor Body
-    ConstructorBody constructorBody = (ConstructorBody) visit(ctx.constructorBody());
-
+    ConstructorBody constructorBody = null;
+    if (ctx.constructorBody() != null) {
+      constructorBody = (ConstructorBody) visit(ctx.constructorBody());
+    }
     return new ConstructorDeclaration(range, null, annotationList, modifiers,
         constructorDeclarator, exceptionTypeList, constructorBody);
   }
@@ -2146,7 +2207,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     String identifier = ctx.simpleTypeName().Identifier().getText();
 
     // get formal parameter list
-    FormalParameterList formalParameterList = (FormalParameterList) visit(ctx.formalParameterList());
+    FormalParameterList formalParameterList = null;
+    if (ctx.formalParameterList() != null) {
+      formalParameterList = (FormalParameterList) visit(ctx.formalParameterList());
+    }
+
     return new ConstructorDeclarator(range, null, typeParameterList, identifier, formalParameterList);
   }
 
@@ -2170,7 +2235,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get block flowchart
-    BlockStatements blockStatements = (BlockStatements) visit(ctx.blockStatements());
+    BlockStatements blockStatements = null;
+    if (ctx.blockStatements() != null) {
+      blockStatements = (BlockStatements) visit(ctx.blockStatements());
+    }
 
     return new ConstructorBody(range, null, explicitConstructorInvocation, blockStatements);
   }
@@ -2273,7 +2341,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get Enum Body
-    EnumBody enumBody = (EnumBody) visit(ctx.enumBody());
+    EnumBody enumBody = null;
+    if (ctx.enumBody() != null) {
+      enumBody = (EnumBody) visit(ctx.enumBody());
+    }
 
     return new EnumDeclaration(range, null, annotationList, modifiers, identifier, superInterfaceList, enumBody);
   }
@@ -2584,7 +2655,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get methodheader
-    MethodHeader methodHeader = (MethodHeader) visit(ctx.methodHeader());
+    MethodHeader methodHeader = null;
+    if (ctx.methodHeader() != null) {
+      methodHeader = (MethodHeader) visit(ctx.methodHeader());
+    }
 
     // get Method body (block)
     Block block = null;
@@ -2767,7 +2841,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get type name
-    TypeName typeName = (TypeName) visit(ctx.typeName());
+    TypeName typeName = null;
+    if (ctx.typeName() != null) {
+      typeName = (TypeName) visit(ctx.typeName());
+    }
 
     // get list of element value pair
     List<ElementValuePair> elementValuePairList = new ArrayList<>();
@@ -2798,7 +2875,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     String identifier = ctx.Identifier().getText();
 
     // get elementValue
-    ElementValue elementValue = (ElementValue) visit(ctx.elementValue());
+    ElementValue elementValue = null;
+    if (ctx.elementValue() != null) {
+      elementValue = (ElementValue) visit(ctx.elementValue());
+    }
 
     return new ElementValuePair(range, null, identifier, elementValue);
   }
@@ -2849,7 +2929,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get type name
-    TypeName typeName = (TypeName) visit(ctx.typeName());
+    TypeName typeName = null;
+    if (ctx.typeName() != null) {
+      typeName = (TypeName) visit(ctx.typeName());
+    }
 
     return new MarkerAnnotation(range, null, typeName);
   }
@@ -2861,10 +2944,16 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get type name
-    TypeName typeName = (TypeName) visit(ctx.typeName());
+    TypeName typeName = null;
+    if (ctx.typeName() != null) {
+      typeName = (TypeName) visit(ctx.typeName());
+    }
 
     // get element value
-    ElementValue elementValue = (ElementValue) visit(ctx.elementValue());
+    ElementValue elementValue = null;
+    if (ctx.elementValue() != null) {
+      elementValue = (ElementValue) visit(ctx.elementValue());
+    }
 
     return new SingleElementAnnotation(range, null, typeName, elementValue);
   }
@@ -2949,9 +3038,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get local variable declaration
-    LocalVariableDeclaration localVariableDeclaration
-        = (LocalVariableDeclaration) visit(ctx.localVariableDeclaration());
-
+    LocalVariableDeclaration localVariableDeclaration = null;
+    if (ctx.localVariableDeclaration() != null) {
+      localVariableDeclaration = (LocalVariableDeclaration) visit(ctx.localVariableDeclaration());
+    }
     return new LocalVariableDeclarationStatement(range, null, localVariableDeclaration);
   }
 
@@ -3093,7 +3183,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     String identifier = ctx.Identifier().getText();
 
     // get Statement
-    Statement statement = (Statement) visit(ctx.statement());
+    Statement statement = null;
+    if (ctx.statement() != null) {
+      statement = (Statement) visit(ctx.statement());
+    }
 
     return new LabeledStatement(range, null, identifier, statement);
   }
@@ -3108,8 +3201,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     String identifier = ctx.Identifier().getText();
 
     // get Statement no short if
-    StatementNoShortIf statementNoShortIf = (StatementNoShortIf) visit(ctx.statementNoShortIf());
-
+    StatementNoShortIf statementNoShortIf = null;
+    if (ctx.statementNoShortIf() != null) {
+      statementNoShortIf = (StatementNoShortIf) visit(ctx.statementNoShortIf());
+    }
     return new LabeledStatementNoShortIf(range, null, identifier, statementNoShortIf);
   }
 
@@ -3120,9 +3215,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get statement expression
-    StatementExpression statementExpression
-        = (StatementExpression) visit(ctx.statementExpression());
-
+    StatementExpression statementExpression = null;
+    if (ctx.statementExpression() != null) {
+      statementExpression = (StatementExpression) visit(ctx.statementExpression());
+    }
     return new ExpressionStatement(range, null, statementExpression);
   }
 
@@ -3156,11 +3252,16 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get expression
-    Expression expression = (Expression) visit(ctx.expression());
+    Expression expression = null;
+    if (ctx.expression() != null) {
+      expression = (Expression) visit(ctx.expression());
+    }
 
     // get Statement
-    Statement statement = (Statement) visit(ctx.statement());
-
+    Statement statement = null;
+    if (ctx.statement() != null) {
+      statement = (Statement) visit(ctx.statement());
+    }
     return new IfThenStatement(range, null, expression, statement);
   }
 
@@ -3170,13 +3271,21 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get expression
-    Expression expression = (Expression) visit(ctx.expression());
+    Expression expression = null;
+    if (ctx.expression() != null) {
+      expression = (Expression) visit(ctx.expression());
+    }
 
     // get statement no short if
-    StatementNoShortIf statementNoShortIf = (StatementNoShortIf) visit(ctx.statementNoShortIf());
-
+    StatementNoShortIf statementNoShortIf = null;
+    if (ctx.statementNoShortIf() != null) {
+      statementNoShortIf = (StatementNoShortIf) visit(ctx.statementNoShortIf());
+    }
     // get Statement
-    Statement statement = (Statement) visit(ctx.statement());
+    Statement statement = null;
+    if (ctx.statement() != null) {
+      statement = (Statement) visit(ctx.statement());
+    }
 
     return new IfThenElseStatement(range, null, expression, statementNoShortIf, statement);
   }
@@ -3187,14 +3296,23 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get range
     Range range = getRange(ctx);
 
-    // get Expression
-    Expression expression = (Expression) visit(ctx.expression());
+    // get expression
+    Expression expression = null;
+    if (ctx.expression() != null) {
+      expression = (Expression) visit(ctx.expression());
+    }
 
     // get statement no short if
-    StatementNoShortIf statementNoShortIf = (StatementNoShortIf) visit(ctx.statementNoShortIf(0));
+    StatementNoShortIf statementNoShortIf = null;
+    if (ctx.statementNoShortIf(0) != null) {
+      statementNoShortIf = (StatementNoShortIf) visit(ctx.statementNoShortIf(0));
+    }
 
-    // get els statement no short if
-    StatementNoShortIf elseStatementNoShortIf = (StatementNoShortIf) visit(ctx.statementNoShortIf(1));
+    // get else statement no short if
+    StatementNoShortIf elseStatementNoShortIf = null;
+    if (ctx.statementNoShortIf(1) != null) {
+      elseStatementNoShortIf = (StatementNoShortIf) visit(ctx.statementNoShortIf(1));
+    }
 
     return new IfThenElseStatementNoShortIf(range, null, expression, statementNoShortIf, elseStatementNoShortIf);
   }
@@ -3205,8 +3323,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get Range
     Range range = getRange(ctx);
 
-    // get first expression
-    Expression expression = (Expression) visit(ctx.expression(0));
+    // get expression
+    Expression expression = null;
+    if (ctx.expression() != null) {
+      expression = (Expression) visit(ctx.expression(0));
+    }
 
     // if any, get second expression.
     if (ctx.expression(1) != null) {
@@ -3224,12 +3345,17 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     // get range
     Range range = getRange(ctx);
 
-    // get Expression
-    Expression expression = (Expression) visit(ctx.expression());
+    // get expression
+    Expression expression = null;
+    if (ctx.expression() != null) {
+      expression = (Expression) visit(ctx.expression());
+    }
 
     // get switch block
-    SwitchBlock switchBlock = (SwitchBlock) visit(ctx.switchBlock());
-
+    SwitchBlock switchBlock = null;
+    if (ctx.switchBlock() != null) {
+      switchBlock = (SwitchBlock) visit(ctx.switchBlock());
+    }
     return new SwitchStatement(range, null, expression, switchBlock);
   }
 
@@ -3274,8 +3400,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get block flowchart
-    BlockStatements blockStatements = (BlockStatements) visit(ctx.blockStatements());
-
+    BlockStatements blockStatements = null;
+    if (ctx.blockStatements() != null) {
+      blockStatements = (BlockStatements) visit(ctx.blockStatements());
+    }
     return new SwitchBlockStatementGroup(range, null, switchLabelList, blockStatements);
   }
 
@@ -3317,10 +3445,16 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get Expression
-    Expression expression = (Expression) visit(ctx.expression());
+    Expression expression = null;
+    if (ctx.expression() != null) {
+      expression = (Expression) visit(ctx.expression());
+    }
 
     // get Statement
-    Statement statement = (Statement) visit(ctx.statement());
+    Statement statement = null;
+    if (ctx.statement() != null) {
+      statement = (Statement) visit(ctx.statement());
+    }
 
     return new WhileStatement(range, null, expression, statement);
   }
@@ -3332,11 +3466,16 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get Expression
-    Expression expression = (Expression) visit(ctx.expression());
+    Expression expression = null;
+    if (ctx.expression() != null) {
+      expression = (Expression) visit(ctx.expression());
+    }
 
     // get statement
-    StatementNoShortIf statementNoShortIf = (StatementNoShortIf) visit(ctx.statementNoShortIf());
-
+    StatementNoShortIf statementNoShortIf = null;
+    if (ctx.statementNoShortIf() != null) {
+      statementNoShortIf = (StatementNoShortIf) visit(ctx.statementNoShortIf());
+    }
     return new WhileStatementNoShortIf(range, null, expression, statementNoShortIf);
   }
 
@@ -3347,10 +3486,16 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get Statement
-    Statement statement = (Statement) visit(ctx.statement());
+    Statement statement = null;
+    if (ctx.statement() != null) {
+      statement = (Statement) visit(ctx.statement());
+    }
 
-    // get expression
-    Expression expression = (Expression) visit(ctx.expression());
+    // get Expression
+    Expression expression = null;
+    if (ctx.expression() != null) {
+      expression = (Expression) visit(ctx.expression());
+    }
 
     return new DoStatement(range, null, statement, expression);
   }
@@ -3386,16 +3531,29 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get for init
-    ForInit forInit = (ForInit) visit(ctx.forInit());
+    ForInit forInit = null;
+    if (ctx.forInit() != null) {
+      forInit = (ForInit) visit(ctx.forInit());
+    }
 
     // get for condition
-    Expression forCondition = (Expression) visit(ctx.expression());
+    Expression forCondition =null;
+    if (ctx.expression() != null) {
+      forCondition = (Expression) visit(ctx.expression());
+    }
 
     // get for update
-    StatementExpressionList forUpdate = (StatementExpressionList) visit(ctx.forUpdate().statementExpressionList());
+    StatementExpressionList forUpdate = null;
+    if (ctx.forUpdate() != null && ctx.forUpdate().statementExpressionList() != null) {
+      forUpdate = (StatementExpressionList) visit(ctx.forUpdate().statementExpressionList());
+    }
 
     // get statement
-    Statement statement = (Statement) visit(ctx.statement());
+    Statement statement = null;
+    if (ctx.statement() != null) {
+      statement = (Statement) visit(ctx.statement());
+    }
+
     return new BasicForStatement(range, null, forInit, forCondition, forUpdate, statement);
   }
 
@@ -3406,16 +3564,29 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get for init
-    ForInit forInit = (ForInit) visit(ctx.forInit());
+    ForInit forInit = null;
+    if (ctx.forInit() != null) {
+      forInit = (ForInit) visit(ctx.forInit());
+    }
 
     // get for condition
-    Expression forCondition = (Expression) visit(ctx.expression());
+    Expression forCondition =null;
+    if (ctx.expression() != null) {
+      forCondition = (Expression) visit(ctx.expression());
+    }
 
     // get for update
-    StatementExpressionList forUpdate = (StatementExpressionList) visit(ctx.forUpdate().statementExpressionList());
+    StatementExpressionList forUpdate = null;
+    if (ctx.forUpdate() != null && ctx.forUpdate().statementExpressionList() != null) {
+      forUpdate = (StatementExpressionList) visit(ctx.forUpdate().statementExpressionList());
+    }
 
     // get statement
-    StatementNoShortIf statementNoShortIf = (StatementNoShortIf) visit(ctx.statementNoShortIf());
+    StatementNoShortIf statementNoShortIf = null;
+    if (ctx.statementNoShortIf() != null) {
+      statementNoShortIf = (StatementNoShortIf) visit(ctx.statementNoShortIf());
+    }
+
     return new BasicForStatementNoShortIf(range, null, forInit, forCondition, forUpdate, statementNoShortIf);
   }
 
@@ -3445,6 +3616,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     // get list of statement expression
     List<StatementExpression> statementExpressionList = new ArrayList<>();
+    for (JavaParser.StatementExpressionContext statementExpressionContext
+        : safe(ctx.statementExpression())) {
+      StatementExpression statementExpression = (StatementExpression) visit(statementExpressionContext);
+      statementExpressionList.add(statementExpression);
+    }
 
     return new StatementExpressionList(range, null, statementExpressionList);
   }
@@ -3483,13 +3659,22 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get variable declaratior id
-    VariableDeclaratorId variableDeclaratorId = (VariableDeclaratorId) visit(ctx.variableDeclaratorId());
+    VariableDeclaratorId variableDeclaratorId = null;
+    if (ctx.variableDeclaratorId() != null) {
+      variableDeclaratorId = (VariableDeclaratorId) visit(ctx.variableDeclaratorId());
+    }
 
     // get expression
-    Expression expression = (Expression) visit(ctx.expression());
+    Expression expression = null;
+    if (ctx.expression() != null) {
+      expression = (Expression) visit(ctx.expression());
+    }
 
     // get statement
-    Statement statement = (Statement) visit(ctx.statement());
+    Statement statement = null;
+    if (ctx.statement() != null) {
+      statement = (Statement) visit(ctx.statement());
+    }
 
     return new EnhancedForStatement(range, null, annotationList, modifiers, unannType, variableDeclaratorId, expression, statement);
   }
@@ -3528,13 +3713,22 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get variable declaratior id
-    VariableDeclaratorId variableDeclaratorId = (VariableDeclaratorId) visit(ctx.variableDeclaratorId());
+    VariableDeclaratorId variableDeclaratorId = null;
+    if (ctx.variableDeclaratorId() != null) {
+      variableDeclaratorId = (VariableDeclaratorId) visit(ctx.variableDeclaratorId());
+    }
 
     // get expression
-    Expression expression = (Expression) visit(ctx.expression());
+    Expression expression = null;
+    if (ctx.expression() != null) {
+      expression = (Expression) visit(ctx.expression());
+    }
 
     // get statement
-    StatementNoShortIf statementNoShortIf = (StatementNoShortIf) visit(ctx.statementNoShortIf());
+    StatementNoShortIf statementNoShortIf = null;
+    if (ctx.statementNoShortIf() != null) {
+      statementNoShortIf = (StatementNoShortIf) visit(ctx.statementNoShortIf());
+    }
 
     return new EnhancedForStatementNoShortIf(range, null, annotationList, modifiers, unannType, variableDeclaratorId, expression, statementNoShortIf);
   }
@@ -3590,7 +3784,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get expression
-    Expression expression = (Expression) visit(ctx.expression());
+    Expression expression = null;
+    if (ctx.expression() != null) {
+      expression = (Expression) visit(ctx.expression());
+    }
 
     return new ThrowStatement(range, null, expression);
   }
@@ -3602,10 +3799,16 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get expression
-    Expression expression = (Expression) visit(ctx.expression());
+    Expression expression = null;
+    if (ctx.expression() != null) {
+      expression = (Expression) visit(ctx.expression());
+    }
 
     // get block
-    Block block = (Block) visit(ctx.block());
+    Block block = null;
+    if (ctx.block() != null) {
+      block = (Block) visit(ctx.block());
+    }
 
     return new SynchronizedStatement(range, null, expression, block);
   }
@@ -3621,7 +3824,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get block
-    Block tryBlock = (Block) visit(ctx.block());
+    Block tryBlock = null;
+    if (ctx.block() != null) {
+      tryBlock = (Block) visit(ctx.block());
+    }
 
     // get catches
     List<CatchClause> catches = new ArrayList<>();
@@ -3652,11 +3858,16 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get catcg formal Parameter
-    CatchFormalParameter catchFormalParameter
-        = (CatchFormalParameter) visit(ctx.catchFormalParameter());
+    CatchFormalParameter catchFormalParameter = null;
+    if (ctx.catchFormalParameter() != null) {
+      catchFormalParameter = (CatchFormalParameter) visit(ctx.catchFormalParameter());
+    }
 
     // get block
-    Block block = (Block) visit(ctx.block());
+    Block block = null;
+    if (ctx.block() != null) {
+      block = (Block) visit(ctx.block());
+    }
 
     return new CatchClause(range, null, catchFormalParameter, block);
   }
@@ -3689,10 +3900,16 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get Catch type
-    CatchType catchType = (CatchType) visit(ctx.catchType());
+    CatchType catchType = null;
+    if (ctx.catchType() != null) {
+      catchType = (CatchType) visit(ctx.catchType());
+    }
 
     // get variable declaratior id
-    VariableDeclaratorId variableDeclaratorId = (VariableDeclaratorId) visit(ctx.variableDeclaratorId());
+    VariableDeclaratorId variableDeclaratorId = null;
+    if (ctx.variableDeclaratorId() != null) {
+      variableDeclaratorId = (VariableDeclaratorId) visit(ctx.variableDeclaratorId());
+    }
 
     return new CatchFormalParameter(range, null, annotationList, modifiers, catchType, variableDeclaratorId);
   }
@@ -3704,8 +3921,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get unannotated class type
-    UnannClassType unannClassType = (UnannClassType) visit(ctx.unannClassType());
-
+    UnannClassType unannClassType = null;
+    if (ctx.unannClassType() != null) {
+      unannClassType = (UnannClassType) visit(ctx.unannClassType());
+    }
     // get list of class type
     List<ClassType> classTypeList = new ArrayList<>();
     for (JavaParser.ClassTypeContext classTypeContext : safe(ctx.classType())) {
@@ -3739,7 +3958,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get try block
-    Block tryBlock = (Block) visit(ctx.block());
+    Block tryBlock = null;
+    if (ctx.block() != null) {
+      tryBlock = (Block) visit(ctx.block());
+    }
 
     // get catches (list of catch clause)
     List<CatchClause> catches = new ArrayList<>();
@@ -3751,7 +3973,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get finallyBlock
-    Block finallyBlock = (Block) visit(ctx.finally_().block());
+    Block finallyBlock = null;
+    if (ctx.block() != null) {
+      finallyBlock = (Block) visit(ctx.finally_().block());
+    }
 
     return new TryWithResourcesStatement(range, null, resourceSpecification, tryBlock, catches, finallyBlock);
   }
@@ -3789,10 +4014,16 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get variable declaratior id
-    VariableDeclaratorId variableDeclaratorId = (VariableDeclaratorId) visit(ctx.variableDeclaratorId());
+    VariableDeclaratorId variableDeclaratorId = null;
+    if (ctx.variableDeclaratorId() != null) {
+      variableDeclaratorId = (VariableDeclaratorId) visit(ctx.variableDeclaratorId());
+    }
 
     // get expression
-    Expression expression = (Expression) visit(ctx.expression());
+    Expression expression = null;
+    if (ctx.expression() != null) {
+      expression = (Expression) visit(ctx.expression());
+    }
 
     return new Resource(range, null, annotationList, modifiers, unannType, variableDeclaratorId, expression);
   }
@@ -4091,8 +4322,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get type argument or diamond
-    TypeArgumentsOrDiamond typeArgumentsOrDiamond
-        = (TypeArgumentsOrDiamond) visit(ctx.typeArgumentsOrDiamond());
+    TypeArgumentsOrDiamond typeArgumentsOrDiamond = null;
+    if (ctx.typeArgumentsOrDiamond() != null) {
+      typeArgumentsOrDiamond = (TypeArgumentsOrDiamond) visit(ctx.typeArgumentsOrDiamond());
+    }
 
     // get argument list
     List<Expression> argumentList = new ArrayList<>();
@@ -4134,7 +4367,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     } else if (ctx.primary() != null) { // primary
 
       // get primary
-      Primary primary = (Primary) visit(ctx.primary());
+      Primary primary = null;
+      if (ctx.primary() != null) {
+        primary = (Primary) visit(ctx.primary());
+      }
 
       // get annotation list
       List<Annotation> annotationList = new ArrayList<>();
@@ -4211,8 +4447,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     String identifier = ctx.Identifier().getText();
 
     // get type argument or diamond
-    TypeArgumentsOrDiamond typeArgumentsOrDiamond
-        = (TypeArgumentsOrDiamond) visit(ctx.typeArgumentsOrDiamond());
+    TypeArgumentsOrDiamond typeArgumentsOrDiamond = null;
+    if (ctx.typeArgumentsOrDiamond() != null) {
+      typeArgumentsOrDiamond = (TypeArgumentsOrDiamond) visit(ctx.typeArgumentsOrDiamond());
+    }
 
     // get argument list
     List<Expression> argumentList = new ArrayList<>();
@@ -4422,8 +4660,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get first expression
-    Expression firstExpression = (Expression) visit(ctx.expression(0));
-
+    Expression firstExpression = null;
+    if (ctx.expression() != null) {
+      firstExpression = (Expression) visit(ctx.expression(0));
+    }
 
 //    // get list of lf array default primary
 //    List<LfArrayDefaultPrimary> lfArrayDefaultPrimaryList = new ArrayList<>();
@@ -4463,11 +4703,16 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get lfno array lf primary
-    LfnoArrayLfPrimary lfnoArrayLfPrimary = (LfnoArrayLfPrimary) visit(ctx.primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary());
+    LfnoArrayLfPrimary lfnoArrayLfPrimary = null;
+    if (ctx.primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary() != null) {
+      lfnoArrayLfPrimary = (LfnoArrayLfPrimary) visit(ctx.primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary());
+    }
 
     // get Expression
-    Expression firstExpression = (Expression) visit(ctx.expression(0));
-
+    Expression firstExpression = null;
+    if (ctx.expression() != null) {
+      firstExpression = (Expression) visit(ctx.expression(0));
+    }
     // get remain expressions
     List<Expression> expressionList = new ArrayList<>();
     for (int i = 1; i < ctx.expression().size(); i++) {
@@ -4485,8 +4730,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get first expression
-    Expression firstExpression = (Expression) visit(ctx.expression(0));
-
+    Expression firstExpression = null;
+    if (ctx.expression(0) != null) {
+      firstExpression = (Expression) visit(ctx.expression(0));
+    }
     // get remain expressions
     List<Expression> expressionList = new ArrayList<>();
     for (int i = 1; i < ctx.expression().size(); i++) {
@@ -4646,7 +4893,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get type arguments
-    TypeArguments typeArguments = (TypeArguments) visit(ctx.typeArguments());
+    TypeArguments typeArguments = null;
+    if (ctx.typeArguments() != null) {
+      typeArguments = (TypeArguments) visit(ctx.typeArguments());
+    }
 
     // RETURN class type
     if (ctx.classType() != null) {
@@ -4684,7 +4934,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get Type arguments
-    TypeArguments typeArguments = (TypeArguments) visit(ctx.typeArguments());
+    TypeArguments typeArguments = null;
+    if (ctx.typeArguments() != null) {
+      typeArguments = (TypeArguments) visit(ctx.typeArguments());
+    }
 
     // get identifier
     String identifier = ctx.Identifier().getText();
@@ -4703,8 +4956,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       return new ArrayMethodReference(range, null, arrayType);
     }
 
-    // get type arguments
-    TypeArguments typeArguments = (TypeArguments) visit(ctx.typeArguments());
+    // get Type arguments
+    TypeArguments typeArguments = null;
+    if (ctx.typeArguments() != null) {
+      typeArguments = (TypeArguments) visit(ctx.typeArguments());
+    }
 
     // RETURN class type
     if (ctx.classType() != null) {
@@ -4742,7 +4998,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     if (ctx.primitiveType() != null) {
 
       // get primitive type
-      PrimitiveType primitiveType = (PrimitiveType) visit(ctx.primitiveType());
+      PrimitiveType primitiveType = null;
+      if (ctx.primitiveType() != null) {
+        primitiveType = (PrimitiveType) visit(ctx.primitiveType());
+      }
 
       // get dims
       Dims dims = null;
@@ -4774,9 +5033,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     } else if (ctx.classOrInterfaceType() != null) {
 
       // get classOrInterface type
-      ClassOrInterfaceType classOrInterfaceType
-          = (ClassOrInterfaceType) visit(ctx.classOrInterfaceType());
-
+      ClassOrInterfaceType classOrInterfaceType = null;
+      if (ctx.classOrInterfaceType() != null) {
+        classOrInterfaceType = (ClassOrInterfaceType) visit(ctx.classOrInterfaceType());
+      }
       // get dims
       Dims dims = null;
       if(ctx.dims() != null) {
@@ -4828,8 +5088,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     }
 
     // get expression
-    Expression expression = (Expression) visit(ctx.expression());
-
+    Expression expression = null;
+    if (ctx.expression() != null) {
+      expression = (Expression) visit(ctx.expression());
+    }
     return new DimExpr(range, null, annotationList, expression);
   }
 
@@ -4858,10 +5120,16 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get Lambda parameters
-    LambdaParameters lambdaParameters = (LambdaParameters) visit(ctx.lambdaParameters());
+    LambdaParameters lambdaParameters = null;
+    if (ctx.lambdaParameters() != null) {
+      lambdaParameters = (LambdaParameters) visit(ctx.lambdaParameters());
+    }
 
     // get Lambda body
-    LambdaBody lambdaBody = (LambdaBody) visit(ctx.lambdaBody());
+    LambdaBody lambdaBody = null;
+    if (ctx.lambdaBody() != null) {
+      lambdaBody = (LambdaBody) visit(ctx.lambdaBody());
+    }
 
     return new LambdaExpression(range, null, lambdaParameters, lambdaBody);
   }
@@ -4933,13 +5201,19 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get Left hand side
-    LeftHandSide leftHandSide = (LeftHandSide) visit(ctx.leftHandSide());
+    LeftHandSide leftHandSide = null;
+    if (ctx.leftHandSide() != null) {
+      leftHandSide = (LeftHandSide) visit(ctx.leftHandSide());
+    }
 
     // get operator
     String assignmentOperator = ctx.assignmentOperator().getText();
 
     // get Expression expression
-    Expression expression = (Expression) visit(ctx.expression());
+    Expression expression = null;
+    if (ctx.expression() != null) {
+      expression = (Expression) visit(ctx.expression());
+    }
 
     return new Assignment(range, null, leftHandSide, assignmentOperator, expression);
   }
@@ -4974,12 +5248,16 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     if (ctx.conditionalExpression() != null) {
       // get conditional or expression
-      ConditionalOrExpression conditionalOrExpression
-          = (ConditionalOrExpression) visit(ctx.conditionalOrExpression());
+      ConditionalOrExpression conditionalOrExpression = null;
+      if (ctx.conditionalOrExpression() != null) {
+        conditionalOrExpression = (ConditionalOrExpression) visit(ctx.conditionalOrExpression());
+      }
 
       // get expression
-      Expression expression = (Expression) visit(ctx.expression());
-
+      Expression expression = null;
+      if (ctx.expression() != null) {
+        expression = (Expression) visit(ctx.expression());
+      }
       // get condtional Expression
       ConditionalExpression conditionalExpression = (ConditionalExpression) visit(ctx.conditionalExpression());
 
@@ -5008,8 +5286,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       ConditionalOrExpression conditionalOrExpression = (ConditionalOrExpression) visit(ctx.conditionalOrExpression());
 
       // get conditional AND expression
-      ConditionalAndExpression conditionalAndExpression = (ConditionalAndExpression) visit(ctx.conditionalAndExpression());
-
+      ConditionalAndExpression conditionalAndExpression = null;
+      if (ctx.conditionalAndExpression() != null) {
+        conditionalAndExpression = (ConditionalAndExpression) visit(ctx.conditionalAndExpression());
+      }
       return new ImplConditionalOrExpression(range, null, conditionalOrExpression, conditionalAndExpression);
 
     // forward to conditional AND expression
@@ -5035,8 +5315,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       ConditionalAndExpression conditionalAndExpression = (ConditionalAndExpression) visit(ctx.conditionalAndExpression());
 
       // get inclusive OR expression
-      InclusiveOrExpression inclusiveOrExpression = (InclusiveOrExpression) visit(ctx.inclusiveOrExpression());
-
+      InclusiveOrExpression inclusiveOrExpression = null;
+      if (ctx.inclusiveOrExpression() != null) {
+        inclusiveOrExpression = (InclusiveOrExpression) visit(ctx.inclusiveOrExpression());
+      }
       return new ImplConditionalAndExpression(range, null, conditionalAndExpression, inclusiveOrExpression);
 
     // forward to inclusive OR expression
@@ -5062,7 +5344,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       InclusiveOrExpression inclusiveOrExpression = (InclusiveOrExpression) visit(ctx.inclusiveOrExpression());
 
       // get exclusiveOR
-      ExclusiveOrExpression exclusiveOrExpression = (ExclusiveOrExpression) visit(ctx.exclusiveOrExpression());
+      ExclusiveOrExpression exclusiveOrExpression = null;
+      if (ctx.exclusiveOrExpression() != null) {
+        exclusiveOrExpression = (ExclusiveOrExpression) visit(ctx.exclusiveOrExpression());
+      }
 
       return new ImplInclusiveOrExpression(range, null, inclusiveOrExpression, exclusiveOrExpression);
 
@@ -5089,8 +5374,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       ExclusiveOrExpression exclusiveOrExpression = (ExclusiveOrExpression) visit(ctx.exclusiveOrExpression());
 
       // get AND
-      AndExpression andExpression = (AndExpression) visit(ctx.andExpression());
-
+      AndExpression andExpression = null;
+      if (ctx.andExpression() != null) {
+        andExpression = (AndExpression) visit(ctx.andExpression());
+      }
       return new ImplExclusiveOrExpression(range, null, exclusiveOrExpression, andExpression);
 
     // forward to AND expression
@@ -5116,8 +5403,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       AndExpression andExpression = (AndExpression) visit(ctx.andExpression());
 
       // get Equality expression
-      EqualityExpression equalityExpression = (EqualityExpression) visit(ctx.equalityExpression());
-
+      EqualityExpression equalityExpression = null;
+      if (ctx.equalityExpression() != null) {
+        equalityExpression = (EqualityExpression) visit(ctx.equalityExpression());
+      }
       return new ImplAndExpression(range, null, andExpression, equalityExpression);
 
     // forward to Equality expression
@@ -5143,8 +5432,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       EqualityExpression equalityExpression = (EqualityExpression) visit(ctx.equalityExpression());
 
       // get Relational expression
-      RelationalExpression relationalExpression = (RelationalExpression) visit(ctx.relationalExpression());
-
+      RelationalExpression relationalExpression = null;
+      if (ctx.relationalExpression() != null) {
+        relationalExpression = (RelationalExpression) visit(ctx.relationalExpression());
+      }
       // distinguish the type of operator
       switch(ctx.getChild(1).getText()) {
         case "==" : // Equal expression
@@ -5230,8 +5521,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       ShiftExpression shiftExpression = (ShiftExpression) visit(ctx.shiftExpression());
 
       // get Additive expression
-      AdditiveExpression additiveExpression = (AdditiveExpression) visit(ctx.additiveExpression());
-
+      AdditiveExpression additiveExpression = null;
+      if (ctx.additiveExpression() != null) {
+        additiveExpression = (AdditiveExpression) visit(ctx.additiveExpression());
+      }
       if (ctx.getChild(1).getText().equals("<")) { // left shift
         return new LeftShiftExpression(range, null, shiftExpression, additiveExpression);
       } else if (ctx.getChild(3).getText().equals(">")) { // unsigned right shift
@@ -5266,8 +5559,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       AdditiveExpression additiveExpression = (AdditiveExpression) visit(ctx.additiveExpression());
 
       // get Multiplicative expression
-      MultiplicativeExpression multiplicativeExpression = (MultiplicativeExpression) visit(ctx.multiplicativeExpression());
-
+      MultiplicativeExpression multiplicativeExpression = null;
+      if (ctx.multiplicativeExpression() != null) {
+        multiplicativeExpression = (MultiplicativeExpression) visit(ctx.multiplicativeExpression());
+      }
       switch(ctx.getChild(1).getText()) {
         case "+" : // positive additive
           return new PositiveAdditiveExpression(range, null, additiveExpression, multiplicativeExpression);
@@ -5302,8 +5597,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       MultiplicativeExpression multiplicativeExpression = (MultiplicativeExpression) visit(ctx.multiplicativeExpression());
 
       // get Unary expression
-      UnaryExpression unaryExpression = (UnaryExpression) visit(ctx.unaryExpression());
-
+      UnaryExpression unaryExpression = null;
+      if (ctx.unaryExpression() != null) {
+        unaryExpression = (UnaryExpression) visit(ctx.unaryExpression());
+      }
       switch(ctx.getChild(1).getText()) {
         case "*" : // MUL
           return new TimesMultiplicativeExpression(range, null, multiplicativeExpression, unaryExpression);
@@ -5370,9 +5667,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get Unary Expression
-    UnaryExpression unaryExpression = (UnaryExpression) visit(ctx.unaryExpression());
+    UnaryExpression unaryExpression = null;
+    if (ctx.unaryExpression() != null) {
+      unaryExpression = (UnaryExpression) visit(ctx.unaryExpression());
+    }
 
-    //
     return new PreIncrementExpression(range, null, unaryExpression);
   }
 
@@ -5382,7 +5681,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get Unary Expression
-    UnaryExpression unaryExpression = (UnaryExpression) visit(ctx.unaryExpression());
+    UnaryExpression unaryExpression = null;
+    if (ctx.unaryExpression() != null) {
+      unaryExpression = (UnaryExpression) visit(ctx.unaryExpression());
+    }
 
     return new PreIncrementExpression(range, null, unaryExpression);
   }
@@ -5396,8 +5698,11 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       // get range
       Range range = getRange(ctx);
 
-      // get unary expression
-      UnaryExpression unaryExpression = (UnaryExpression) visit(ctx.unaryExpression());
+      // get Unary Expression
+      UnaryExpression unaryExpression = null;
+      if (ctx.unaryExpression() != null) {
+        unaryExpression = (UnaryExpression) visit(ctx.unaryExpression());
+      }
 
       //
       switch(ctx.getChild(0).getText()) {
@@ -5472,7 +5777,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get postfix expression
-    PostfixExpression postfixExpression = (PostfixExpression) visit(ctx.postfixExpression());
+    PostfixExpression postfixExpression = null;
+    if (ctx.postfixExpression() != null) {
+      postfixExpression = (PostfixExpression) visit(ctx.postfixExpression());
+    }
 
     return new PostIncrementExpression(range, null, postfixExpression);
   }
@@ -5490,7 +5798,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
     Range range = getRange(ctx);
 
     // get postfix expression
-    PostfixExpression postfixExpression = (PostfixExpression) visit(ctx.postfixExpression());
+    PostfixExpression postfixExpression = null;
+    if (ctx.postfixExpression() != null) {
+      postfixExpression = (PostfixExpression) visit(ctx.postfixExpression());
+    }
 
     return new PostIncrementExpression(range, null, postfixExpression);
   }
@@ -5512,14 +5823,18 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
       PrimitiveType primitiveType = (PrimitiveType) visit(ctx.primitiveType());
 
       // get unary Expression
-      UnaryExpression unaryExpression = (UnaryExpression) visit(ctx.unaryExpression());
-
+      UnaryExpression unaryExpression = null;
+      if (ctx.unaryExpression() != null) {
+        unaryExpression = (UnaryExpression) visit(ctx.unaryExpression());
+      }
       return new PrimitiveTypeCastExpression(range, null, primitiveType, unaryExpression);
 
     } else if (ctx.unaryExpressionNotPlusMinus() != null) {
       // get Reference type
-      ReferenceType referenceType = (ReferenceType) visit(ctx.referenceType());
-
+      ReferenceType referenceType = null;
+      if (ctx.referenceType() != null) {
+        referenceType = (ReferenceType) visit(ctx.referenceType());
+      }
       // get list of additional bound
       List<InterfaceType> additionalBound = new ArrayList<>();
       for(JavaParser.AdditionalBoundContext additionalBoundContext : safe(ctx.additionalBound())) {
@@ -5535,8 +5850,10 @@ public class AstBuilder extends JavaBaseVisitor<AstNode> {
 
     } else if (ctx.lambdaExpression() != null) {
       // get Reference type
-      ReferenceType referenceType = (ReferenceType) visit(ctx.referenceType());
-
+      ReferenceType referenceType = null;
+      if (ctx.referenceType() != null) {
+        referenceType = (ReferenceType) visit(ctx.referenceType());
+      }
       // get list of additional bound
       List<InterfaceType> additionalBound = new ArrayList<>();
       for(JavaParser.AdditionalBoundContext additionalBoundContext : safe(ctx.additionalBound())) {
