@@ -882,7 +882,15 @@
                   }
                 }
               },
-              "StatementExpressionList" : { },
+              "StatementExpressionList" : {
+                "StatementExpressionList" : [ {
+                  "PostfixExpression" : {
+                    "ExpressionName" : {
+                      "identifier" : "i"
+                    }
+                  }
+                } ]
+              },
               "Statement" : {
                 "BlockStatements" : {
                   "BlockStatementList" : [ {
