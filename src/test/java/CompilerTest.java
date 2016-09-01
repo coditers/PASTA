@@ -10,8 +10,8 @@ import org.junit.runners.Parameterized;
 import java.util.Arrays;
 import java.util.Collection;
 
-import codit.ast.compiler.Compiler;
-import codit.ast.pojos.AstNode;
+import io.jaylim.compiler.ast.compiler.Compiler;
+import io.jaylim.compiler.ast.pojos.AstNode;
 
 /**
  * @author Jay Lim
@@ -25,40 +25,40 @@ public class CompilerTest {
   public static Collection<Object[]> data() {
     return Arrays.asList(new Object[][]{
         {
-            "C:\\Users\\Jisung\\IdeaProjects\\codit\\j-compiler\\src\\main\\java\\codit\\ast\\pojos\\AstNode.java",
-            "C:\\Users\\Jisung\\IdeaProjects\\codit\\j-compiler\\src\\test\\resources\\AstNode.out.json"
+            "C:\\Users\\Jisung\\IdeaProjects\\codit\\pasta\\src\\main\\java\\io\\jaylim\\compiler\\ast\\pojos\\AstNode.java",
+            "C:\\Users\\Jisung\\IdeaProjects\\codit\\pasta\\src\\test\\resources\\AstNode.out.json"
         },
         {
-            "C:\\Users\\Jisung\\IdeaProjects\\codit\\j-compiler\\src\\main\\java\\codit\\ast\\pojos\\Modifiers.java",
-            "C:\\Users\\Jisung\\IdeaProjects\\codit\\j-compiler\\src\\test\\resources\\Modifiers.out.json"
+            "C:\\Users\\Jisung\\IdeaProjects\\codit\\pasta\\src\\main\\java\\io\\jaylim\\compiler\\ast\\pojos\\Modifiers.java",
+            "C:\\Users\\Jisung\\IdeaProjects\\codit\\pasta\\src\\test\\resources\\Modifiers.out.json"
         },
         {
-            "C:\\Users\\Jisung\\IdeaProjects\\codit\\j-compiler\\src\\main\\java\\codit\\ast\\pojos\\packages\\PackageDeclaration.java",
-            "C:\\Users\\Jisung\\IdeaProjects\\codit\\j-compiler\\src\\test\\resources\\PackageDeclaration.out.json"
+            "C:\\Users\\Jisung\\IdeaProjects\\codit\\pasta\\src\\main\\java\\io\\jaylim\\compiler\\ast\\pojos\\packages\\PackageDeclaration.java",
+            "C:\\Users\\Jisung\\IdeaProjects\\codit\\pasta\\src\\test\\resources\\PackageDeclaration.out.json"
         },
         {
             "C:\\Users\\Jisung\\IdeaProjects\\codit\\codit-web\\src\\main\\java\\com\\estsoft\\codit\\web\\controller\\RecruitController.java",
-            "C:\\Users\\Jisung\\IdeaProjects\\codit\\j-compiler\\src\\test\\resources\\RecruitController.out.json"
+            "C:\\Users\\Jisung\\IdeaProjects\\codit\\pasta\\src\\test\\resources\\RecruitController.out.json"
         },
         {
             "C:\\Users\\Jisung\\IdeaProjects\\codit\\codit-web\\src\\main\\java\\com\\estsoft\\codit\\web\\interceptor\\AuthLoginInterceptor.java",
-            "C:\\Users\\Jisung\\IdeaProjects\\codit\\j-compiler\\src\\test\\resources\\AuthLoginInterceptor.out.json"
+            "C:\\Users\\Jisung\\IdeaProjects\\codit\\pasta\\src\\test\\resources\\AuthLoginInterceptor.out.json"
         },
         {
             "C:\\Users\\Jisung\\IdeaProjects\\codit\\codit-web\\src\\main\\java\\com\\estsoft\\codit\\db\\vo\\ApplicantVo.java",
-            "C:\\Users\\Jisung\\IdeaProjects\\codit\\j-compiler\\src\\test\\resources\\ApplicantVo.out.json"
+            "C:\\Users\\Jisung\\IdeaProjects\\codit\\pasta\\src\\test\\resources\\ApplicantVo.out.json"
         },
         {
             "C:\\Users\\Jisung\\IdeaProjects\\codit\\codit-web\\src\\main\\java\\com\\estsoft\\codit\\web\\annotation\\AuthClient.java",
-            "C:\\Users\\Jisung\\IdeaProjects\\codit\\j-compiler\\src\\test\\resources\\AuthClient.out.json"
+            "C:\\Users\\Jisung\\IdeaProjects\\codit\\pasta\\src\\test\\resources\\AuthClient.out.json"
         },
         {
             "C:\\Users\\Jisung\\IdeaProjects\\study-archive\\study-dsa\\src\\main\\java\\io\\jaylim\\study\\dsa\\designpattern\\composite\\Graphic.java",
-            "C:\\Users\\Jisung\\IdeaProjects\\codit\\j-compiler\\src\\test\\resources\\Graphic.out.json"
+            "C:\\Users\\Jisung\\IdeaProjects\\codit\\pasta\\src\\test\\resources\\Graphic.out.json"
         },
         {
             "C:\\Users\\Jisung\\IdeaProjects\\study-archive\\study-dsa\\src\\main\\java\\io\\jaylim\\study\\dsa\\binarytree\\heap\\MaxHeap.java",
-            "C:\\Users\\Jisung\\IdeaProjects\\codit\\j-compiler\\src\\test\\resources\\MaxHeap.out.json"
+            "C:\\Users\\Jisung\\IdeaProjects\\codit\\pasta\\src\\test\\resources\\MaxHeap.out.json"
         },
 
     });

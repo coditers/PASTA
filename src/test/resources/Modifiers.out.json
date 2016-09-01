@@ -1,6 +1,6 @@
 {
   "PackageDeclaration" : {
-    "IdentifierList" : [ "codit", "ast", "pojos" ]
+    "IdentifierList" : [ "io", "jaylim", "compiler", "ast", "pojos" ]
   },
   "TypeDeclarationList" : [ {
     "Modifiers" : 1,
